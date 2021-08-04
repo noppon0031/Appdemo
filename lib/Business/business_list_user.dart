@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
@@ -109,36 +110,81 @@ class _Business_List_User extends State<Business_List_User> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: appBarTitle,backgroundColor: Colors.red, actions: <Widget>[
-        new IconButton(
-          icon: actionIcon,
-          onPressed: () {
-            setState(() {
-              if (this.actionIcon.icon == Icons.search) {
-                this.actionIcon = new Icon(
-                  Icons.close,
-                  color: Colors.white,
-                );
-                this.appBarTitle = new TextField(
-                  controller: _searchQuery,
-                  style: new TextStyle(
-                    color: Colors.white,
-                  ),
-                  decoration: new InputDecoration(
-                      prefixIcon: new Icon(Icons.search, color: Colors.white),
-                      hintText: "กรุณาใส่คำค้นหา...",
-                      hintStyle: new TextStyle(color: Colors.white)),
-                );
-                _handleSearchStart();
-              } else {
-                _handleSearchEnd();
-              }
-            });
-          },
-        ),
-      ]),
+      appBar: AppBar(
+          title: appBarTitle,
+          backgroundColor: Colors.red,
+          actions: <Widget>[
+            new IconButton(
+              icon: actionIcon,
+              onPressed: () {
+                setState(() {
+                  if (this.actionIcon.icon == Icons.search) {
+                    this.actionIcon = new Icon(
+                      Icons.close,
+                      color: Colors.white,
+                    );
+                    this.appBarTitle = new TextField(
+                      controller: _searchQuery,
+                      style: new TextStyle(
+                        color: Colors.white,
+                      ),
+                      decoration: new InputDecoration(
+                          prefixIcon:
+                              new Icon(Icons.search, color: Colors.white),
+                          hintText: "กรุณาใส่คำค้นหา...",
+                          hintStyle: new TextStyle(color: Colors.white)),
+                    );
+                    _handleSearchStart();
+                  } else {
+                    _handleSearchEnd();
+                  }
+                });
+              },
+            ),
+          ]),
       body: ListView(
         children: [
+          carousel(),
+          // Stack(
+          //   children: [
+          //     Column(
+          //       crossAxisAlignment: CrossAxisAlignment.start,
+          //       children: [
+          //         Container(
+          //           height: 45,
+          //           padding:
+          //               EdgeInsets.only(left: 100, right: 3, top: 3, bottom: 3),
+          //           decoration: BoxDecoration(
+          //               borderRadius: BorderRadius.circular(20),
+          //               boxShadow: [BoxShadow(blurRadius: 10)],
+          //               color: Colors.white),
+          //           child: Expanded(
+          //             child: TextField(
+          //               decoration: InputDecoration(
+          //                   hintStyle: TextStyle(color: Colors.black),
+          //                   hintText: "ค้นหาร้านค้าและสถานที่",
+          //                   border: InputBorder.none),
+          //             ),
+          //           ),
+          //         ),
+          //       ],
+          //     ),
+          //     MaterialButton(
+          //       onPressed: () {
+                  
+          //       },
+          //       shape: RoundedRectangleBorder(
+          //           borderRadius: BorderRadius.circular(10)),
+          //       minWidth: 0,
+          //       elevation: 0,
+          //       color: Colors.white,
+          //       child: Icon(
+          //         Icons.search,
+          //         color: Colors.black,
+          //       ),
+          //     ),
+          //   ],
+          // ),
           Container(
             margin: EdgeInsets.all(10),
             child: SingleChildScrollView(
@@ -704,6 +750,37 @@ class _Business_List_User extends State<Business_List_User> {
           ],
         );
       },
+    );
+  }
+
+  Widget carousel() {
+    return Column(
+      children: [
+        Container(
+          width: double.infinity,
+          child: CarouselSlider(
+            options: CarouselOptions(
+                aspectRatio: 1.99,
+                viewportFraction: 0.8,
+                autoPlay: true,
+                onPageChanged: (index, reason) {
+                  print("index");
+                }),
+            items: [1, 2, 3, 4, 5].map((i) {
+              return Builder(
+                builder: (BuildContext context) {
+                  return Container(
+                    width: MediaQuery.of(context).size.width,
+                    margin: EdgeInsets.symmetric(horizontal: 0),
+                    decoration: BoxDecoration(color: Colors.amber),
+                    child: Image.asset('assets/computerim1.PNG'),
+                  );
+                },
+              );
+            }).toList(),
+          ),
+        )
+      ],
     );
   }
 }

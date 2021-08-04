@@ -495,13 +495,13 @@ class _Business_List extends State<Business_List> {
             );
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.push(
-            context, MaterialPageRoute(builder: (context) => AddImage())),
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-        backgroundColor: Colors.pink,
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () => Navigator.push(
+      //       context, MaterialPageRoute(builder: (context) => AddImage())),
+      //   tooltip: 'Increment',
+      //   child: Icon(Icons.add),
+      //   backgroundColor: Colors.pink,
+      // ),
     );
   }
 

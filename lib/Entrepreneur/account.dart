@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:noppon/Business/business_list_user.dart';
 import 'package:noppon/Entrepreneur/home.dart';
 import 'package:noppon/User/profile.dart';
+import 'package:noppon/addddd.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../login.dart';
@@ -70,6 +71,7 @@ class _AccountState extends State<Account> {
           ),
           ProfileMenu(),
           BusinessAdd(),
+          Managetest(),
           Logout(),
         ],
       ),
@@ -154,6 +156,35 @@ class Logout extends StatelessWidget {
                   Text("Logout", style: Theme.of(context).textTheme.bodyText1),
             ),
             Icon(Icons.arrow_forward_ios),
+          ],
+        ),
+      ),
+    );
+  }
+}
+class Managetest extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      child: FlatButton(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        color: Colors.grey[200],
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => Test()),
+          );
+        },
+        child: Row(
+          children: [
+            Icon(Icons.cabin),
+            SizedBox(width: 20),
+            Expanded(
+              child:
+                  Text("Test", style: Theme.of(context).textTheme.bodyText1),
+            ),
+            Icon(Icons.arrow_forward_ios)
           ],
         ),
       ),

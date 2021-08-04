@@ -100,7 +100,7 @@ class _LauncherState extends State<Launcher> {
             items: _menuBar,
             iconSize: 20,
             currentIndex: _selectedIndex,
-            selectedItemColor: Theme.of(context).primaryColor,
+            selectedItemColor: Colors.red,
             unselectedItemColor: Colors.grey,
             onTap: _onItemTapped,
           ),
