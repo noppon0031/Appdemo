@@ -725,7 +725,7 @@ class _Business_List_User extends State<Business_List_User> {
                   return Container(
                     width: MediaQuery.of(context).size.width,
                     margin: EdgeInsets.symmetric(horizontal: 0),
-                    decoration: BoxDecoration(color: Colors.amber),
+                    decoration: BoxDecoration(color: Colors.white),
                     child: Image.asset('assets/logo.png'),
                   );
                 },
