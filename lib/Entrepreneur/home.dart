@@ -43,15 +43,21 @@ class HomePageState extends State<HomePage> {
       type = prefs.getString('type');
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+        appBar: AppBar(
+          title: Text('เพิ่มร้านค้า'),
+          backgroundColor: Colors.red,
+        ),
         body: Stack(
           children: <Widget>[
             ListView(
-              padding: EdgeInsets.fromLTRB(10, 40, 10, 10),
+              padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
               children: <Widget>[
-                new Row(
+                Text('หมวดหมู่'),
+                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
@@ -90,7 +96,7 @@ class HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
-                new Row(
+                Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
@@ -129,7 +135,7 @@ class HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
-                new Row(
+                Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
@@ -168,7 +174,7 @@ class HomePageState extends State<HomePage> {
                     ),
                   ],
                 ),
-                new Row(
+                Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(

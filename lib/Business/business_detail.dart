@@ -198,66 +198,68 @@ class _Business_Detail extends State<Business_Detail> {
               widget.photo9,
               widget.photo10),
           Container(
-            padding: const EdgeInsets.fromLTRB(30, 20, 30, 10),
+            padding: const EdgeInsets.fromLTRB(30, 20, 10, 10),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
+                  width: (350),
                   child: Text(
                     widget.business_name,
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
                     ),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
                   ),
                 ),
-                Row(
-                  children: [
-                    Container(
-                      child: IconButton(
-                        iconSize: 35,
-                        icon: Image.asset('assets/btn_marker.png'),
-                        onPressed: () async {
-                          if (await canLaunch(widget.map))
-                            await launch(widget.map);
-                          else
-                            throw "Could not launch $widget.google_map";
-                        },
-                      ),
-                    ),
-                        Container(
-                          child: IconButton(
-                            iconSize: 35,
-                            icon: isLiked == false
-                                ? Image.asset('assets/btn_like_gray.png')
-                                : Image.asset('assets/btn_like_red.png'),
-                            onPressed: () {
-                              setState(() {
-                                if (isLiked == true) {
-                                  LikeMethod("like");
-                                  isLiked = false;
-                                } else {
-                                  LikeMethod("unlike");
-                                  isLiked = true;
-                                }
-                              });
-                            },
-                          ),
-                        ),
-                  ],
-                )
               ],
             ),
           ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
-            child: Container(
-              child: Text("⭐ : " + widget.rating.toString() + "/5.0",
-                  style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-            ),
-          ),
-          SizedBox(
-            height: 20.0,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
+                child: Container(
+                  child: Text("⭐ : " + widget.rating.toString() + "/5.0",
+                      style: TextStyle(color: Colors.blueGrey, fontSize: 22.0)),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 110),
+                child: IconButton(
+                  iconSize: 35,
+                  icon: Image.asset('assets/btn_marker.png'),
+                  onPressed: () async {
+                    if (await canLaunch(widget.map))
+                      await launch(widget.map);
+                    else
+                      throw "Could not launch $widget.google_map";
+                  },
+                ),
+              ),
+              Container(
+                child: IconButton(
+                  iconSize: 35,
+                  icon: isLiked == false
+                      ? Image.asset('assets/btn_like_gray.png')
+                      : Image.asset('assets/btn_like_red.png'),
+                  onPressed: () {
+                    setState(() {
+                      if (isLiked == true) {
+                        LikeMethod("like");
+                        isLiked = false;
+                      } else {
+                        LikeMethod("unlike");
+                        isLiked = true;
+                      }
+                    });
+                  },
+                ),
+              ),
+            ],
           ),
           Padding(
             padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
@@ -559,164 +561,157 @@ class _Business_Detail extends State<Business_Detail> {
                         fontSize: 18.0,
                         fontWeight: FontWeight.bold)),
               ),
-             
-                   Container(
-                      margin: EdgeInsets.only(right: 10),
-                      child: ElevatedButton(
-                          onPressed: () {
-                            showDialog(
-                              context: context,
-                              builder: (BuildContext context) {
-                                return AlertDialog(
-                                  title: Text('แสดงความคิดเห็น'),
-                                  content: Wrap(children: [
-                                    new RatingBar(
-                                      initialRating: rating,
-                                      minRating: 0,
-                                      direction: Axis.horizontal,
-                                      allowHalfRating: false,
-                                      itemCount: 5,
-                                      itemPadding:
-                                          EdgeInsets.symmetric(horizontal: 1.0),
-                                      onRatingUpdate: (rating1) {
-                                        setState(() {
-                                          rating = rating1;
-                                          print(rating1);
+              Container(
+                margin: EdgeInsets.only(right: 10),
+                child: ElevatedButton(
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: Text('แสดงความคิดเห็น'),
+                            content: Wrap(children: [
+                              new RatingBar(
+                                initialRating: rating,
+                                minRating: 0,
+                                direction: Axis.horizontal,
+                                allowHalfRating: false,
+                                itemCount: 5,
+                                itemPadding:
+                                    EdgeInsets.symmetric(horizontal: 1.0),
+                                onRatingUpdate: (rating1) {
+                                  setState(() {
+                                    rating = rating1;
+                                    print(rating1);
+                                  });
+                                },
+                                ratingWidget: RatingWidget(
+                                  full: Icon(
+                                    Icons.star,
+                                    color: Colors.amber,
+                                  ),
+                                  half: Icon(
+                                    Icons.star_half,
+                                    color: Colors.amber,
+                                  ),
+                                  empty: Icon(
+                                    Icons.star_outline,
+                                    color: Colors.amber,
+                                  ),
+                                ),
+                              ),
+                              new TextFormField(
+                                maxLines: 1,
+                                autofocus: false,
+                                controller: commentController,
+                                decoration: new InputDecoration(
+                                  hintText: 'กรุณาใส่ข้อความ',
+                                ),
+                              ),
+                            ]),
+                            actions: <Widget>[
+                              ElevatedButton(
+                                  onPressed: () async {
+                                    final snapshot = await FirebaseFirestore
+                                        .instance
+                                        .collection("comment")
+                                        .get();
+                                    if (snapshot.docs.length == 0) {
+                                      FirebaseFirestore.instance
+                                          .collection('comment')
+                                          .add({
+                                        'array': 1,
+                                        'comment_id': "",
+                                        'comment': commentController.text,
+                                        'place_id': widget.place_id,
+                                        'user_id': user_id,
+                                        'day':
+                                            '${formatter.format(now) + ' ${now.year + 543}'}',
+                                        'rating': rating.toInt(),
+                                      }).then((value) => FirebaseFirestore
+                                              .instance
+                                              .collection('comment')
+                                              .doc(value.id)
+                                              .update(
+                                                  {'comment_id': value.id}));
+                                    } else {
+                                      FirebaseFirestore.instance
+                                          .collection('comment')
+                                          .orderBy('array', descending: true)
+                                          .limit(1)
+                                          .get()
+                                          .then((querySnapshot) {
+                                        querySnapshot.docs
+                                            .forEach((result) async {
+                                          var array =
+                                              result.data()['array'] + 1;
+
+                                          FirebaseFirestore.instance
+                                              .collection('comment')
+                                              .add({
+                                            'array': array,
+                                            'comment_id': "",
+                                            'comment': commentController.text,
+                                            'place_id': widget.place_id,
+                                            'user_id': user_id,
+                                            'day':
+                                                '${formatter.format(now) + ' ${now.year + 543}'}',
+                                            'rating': rating.toInt(),
+                                          }).then((value) => FirebaseFirestore
+                                                      .instance
+                                                      .collection('comment')
+                                                      .doc(value.id)
+                                                      .update({
+                                                    'comment_id': value.id
+                                                  }));
+
+                                          //หาค่าเฉลี่ย Rating
+                                          // FirebaseFirestore.instance
+                                          //     .collection('comment')
+                                          //     .where('place_id',
+                                          //         isEqualTo:
+                                          //             widget.place_id)
+                                          //     .get()
+                                          //     .then((querySnapshot) {
+                                          //   querySnapshot.docs
+                                          //       .forEach((result) async {
+                                          //     double total = 0, count = 0;
+                                          //     total = total +
+                                          //         result.data()['rating'];
+                                          //     count++;
+
+                                          //     var average = total / count;
+
+                                          //     FirebaseFirestore.instance
+                                          //         .collection('place')
+                                          //         .doc(widget.place_id)
+                                          //         .update({
+                                          //       'rating': average
+                                          //     });
+                                          //   });
+                                          // });
                                         });
-                                      },
-                                      ratingWidget: RatingWidget(
-                                        full: Icon(
-                                          Icons.star,
-                                          color: Colors.amber,
-                                        ),
-                                        half: Icon(
-                                          Icons.star_half,
-                                          color: Colors.amber,
-                                        ),
-                                        empty: Icon(
-                                          Icons.star_outline,
-                                          color: Colors.amber,
-                                        ),
-                                      ),
-                                    ),
-                                    new TextFormField(
-                                      maxLines: 1,
-                                      autofocus: false,
-                                      controller: commentController,
-                                      decoration: new InputDecoration(
-                                        hintText: 'กรุณาใส่ข้อความ',
-                                      ),
-                                    ),
-                                  ]),
-                                  actions: <Widget>[
-                                    ElevatedButton(
-                                        onPressed: () async {
-                                          final snapshot =
-                                              await FirebaseFirestore.instance
-                                                  .collection("comment")
-                                                  .get();
-                                          if (snapshot.docs.length == 0) {
-                                            FirebaseFirestore.instance
-                                                .collection('comment')
-                                                .add({
-                                              'array': 1,
-                                              'comment_id': "",
-                                              'comment': commentController.text,
-                                              'place_id': widget.place_id,
-                                              'user_id': user_id,
-                                              'day':
-                                                  '${formatter.format(now) + ' ${now.year + 543}'}',
-                                              'rating': rating.toInt(),
-                                            }).then((value) => FirebaseFirestore
-                                                        .instance
-                                                        .collection('comment')
-                                                        .doc(value.id)
-                                                        .update({
-                                                      'comment_id': value.id
-                                                    }));
-                                          } else {
-                                            FirebaseFirestore.instance
-                                                .collection('comment')
-                                                .orderBy('array',
-                                                    descending: true)
-                                                .limit(1)
-                                                .get()
-                                                .then((querySnapshot) {
-                                              querySnapshot.docs
-                                                  .forEach((result) async {
-                                                var array =
-                                                    result.data()['array'] + 1;
+                                      });
+                                    }
 
-                                                FirebaseFirestore.instance
-                                                    .collection('comment')
-                                                    .add({
-                                                  'array': array,
-                                                  'comment_id': "",
-                                                  'comment':
-                                                      commentController.text,
-                                                  'place_id': widget.place_id,
-                                                  'user_id': user_id,
-                                                  'day':
-                                                      '${formatter.format(now) + ' ${now.year + 543}'}',
-                                                  'rating': rating.toInt(),
-                                                }).then((value) =>
-                                                        FirebaseFirestore
-                                                            .instance
-                                                            .collection(
-                                                                'comment')
-                                                            .doc(value.id)
-                                                            .update({
-                                                          'comment_id': value.id
-                                                        }));
+                                    List<int> rating_count = [];
 
-                                                //หาค่าเฉลี่ย Rating
-                                                // FirebaseFirestore.instance
-                                                //     .collection('comment')
-                                                //     .where('place_id',
-                                                //         isEqualTo:
-                                                //             widget.place_id)
-                                                //     .get()
-                                                //     .then((querySnapshot) {
-                                                //   querySnapshot.docs
-                                                //       .forEach((result) async {
-                                                //     double total = 0, count = 0;
-                                                //     total = total +
-                                                //         result.data()['rating'];
-                                                //     count++;
-
-                                                //     var average = total / count;
-
-                                                //     FirebaseFirestore.instance
-                                                //         .collection('place')
-                                                //         .doc(widget.place_id)
-                                                //         .update({
-                                                //       'rating': average
-                                                //     });
-                                                //   });
-                                                // });
-                                              });
-                                            });
-                                          }
-
-                                          List<int> rating_count = [];
-
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: Text("ตกลง")),
-                                    ElevatedButton(
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                        child: Text("ยกเลิก")),
-                                  ],
-                                );
-                              },
-                            );
-                          },
-                          child: Text("แสดงความคิดเห็น",
-                              style: TextStyle(
-                                  color: Colors.white, fontSize: 14.0))),
-                    )
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text("ตกลง")),
+                              ElevatedButton(
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text("ยกเลิก")),
+                            ],
+                          );
+                        },
+                      );
+                    },
+                    child: Text("แสดงความคิดเห็น",
+                        style: TextStyle(color: Colors.white, fontSize: 14.0))),
+              )
             ],
           ),
           StreamBuilder<QuerySnapshot>(

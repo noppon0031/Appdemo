@@ -433,15 +433,11 @@ class _Business_List_User extends State<Business_List_User> {
                                             fit: BoxFit.cover,
                                           ),
                                           Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
                                             children: [
                                               Container(
+                                                width: (350),
                                                 margin:
-                                                    EdgeInsets.only(top: 20),
-                                                width: 120.0,
+                                                    EdgeInsets.only(top: 8),
                                                 child: Text(
                                                   doc["business_name"],
                                                   style: TextStyle(
@@ -455,7 +451,7 @@ class _Business_List_User extends State<Business_List_User> {
                                               ),
                                             ],
                                           ),
-                                          SizedBox(height: 5.0),
+                                          SizedBox(height: 8.0),
                                           Row(
                                             children: [
                                               Text(
@@ -520,7 +516,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                       alignment:
                                                           Alignment.center,
                                                       child: Text(
-                                                        "ร้านเปิด",
+                                                        "เปิด",
                                                         style: new TextStyle(
                                                             color: Colors.white,
                                                             fontSize: 12),
@@ -538,7 +534,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                       alignment:
                                                           Alignment.center,
                                                       child: Text(
-                                                        "ร้านปิด",
+                                                        "ปิด",
                                                         style: new TextStyle(
                                                             color: Colors.white,
                                                             fontSize: 12),

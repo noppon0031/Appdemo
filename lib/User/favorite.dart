@@ -229,21 +229,15 @@ class PlaceList extends StatelessWidget {
                                   fit: BoxFit.cover,
                                 ),
                                 Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Container(
                                       margin: EdgeInsets.only(top: 20),
-                                      width: 120.0,
                                       child: Text(
                                         document["business_name"],
                                         style: TextStyle(
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.w600,
                                         ),
-                                        overflow: TextOverflow.ellipsis,
-                                        maxLines: 2,
                                       ),
                                     ),
                                     Container(
@@ -324,7 +318,7 @@ class PlaceList extends StatelessWidget {
                                             ),
                                             alignment: Alignment.center,
                                             child: Text(
-                                              "ร้านเปิด",
+                                              "เปิด",
                                               style: new TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 12),
@@ -339,7 +333,7 @@ class PlaceList extends StatelessWidget {
                                             ),
                                             alignment: Alignment.center,
                                             child: Text(
-                                              "ร้านปิด",
+                                              "ปิด",
                                               style: new TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 12),
