@@ -452,6 +452,8 @@ class _Business_List_User extends State<Business_List_User> {
                                           ),
                                           SizedBox(height: 8.0),
                                           Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
                                             children: [
                                               Text(
                                                   "⭐ : " +
@@ -461,86 +463,100 @@ class _Business_List_User extends State<Business_List_User> {
                                                   style: TextStyle(
                                                       color: Colors.blueGrey,
                                                       fontSize: 16.0)),
-                                              SizedBox(
-                                                width: 50,
-                                              ),
-                                              Container(
-                                                padding: EdgeInsets.all(6.0),
-                                                decoration: BoxDecoration(
-                                                  color: Theme.of(context)
-                                                      .accentColor,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                ),
-                                                alignment: Alignment.center,
-                                                child: Text(
-                                                  doc["day"],
-                                                  style: new TextStyle(
-                                                      color: Colors.white,
-                                                      fontSize: 12),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: 5,
-                                              ),
-                                              Container(
-                                                padding: EdgeInsets.all(6.0),
-                                                decoration: BoxDecoration(
-                                                  color: Theme.of(context)
-                                                      .accentColor,
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          10.0),
-                                                ),
-                                                alignment: Alignment.center,
-                                                child: Text(
-                                                  doc["time"],
-                                                  style: new TextStyle(
-                                                      color: Colors.white,
-                                                      fontSize: 12),
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: 5,
-                                              ),
-                                              doc["open"] == "true"
-                                                  ? Container(
-                                                      padding:
-                                                          EdgeInsets.all(6.0),
-                                                      decoration: BoxDecoration(
-                                                        color: Colors.green,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                      ),
-                                                      alignment:
-                                                          Alignment.center,
-                                                      child: Text(
-                                                        "เปิด",
-                                                        style: new TextStyle(
-                                                            color: Colors.white,
-                                                            fontSize: 12),
-                                                      ),
-                                                    )
-                                                  : Container(
-                                                      padding:
-                                                          EdgeInsets.all(6.0),
-                                                      decoration: BoxDecoration(
-                                                        color: Colors.red,
-                                                        borderRadius:
-                                                            BorderRadius
-                                                                .circular(10.0),
-                                                      ),
-                                                      alignment:
-                                                          Alignment.center,
-                                                      child: Text(
-                                                        "ปิด",
-                                                        style: new TextStyle(
-                                                            color: Colors.white,
-                                                            fontSize: 12),
-                                                      ),
+                                              Row(
+                                                children: [
+                                                  Container(
+                                                    padding:
+                                                        EdgeInsets.all(6.0),
+                                                    decoration: BoxDecoration(
+                                                      color: Theme.of(context)
+                                                          .accentColor,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10.0),
                                                     ),
+                                                    alignment: Alignment.center,
+                                                    child: Text(
+                                                      doc["day"],
+                                                      style: new TextStyle(
+                                                          color: Colors.white,
+                                                          fontSize: 12),
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    width: (10),
+                                                  ),
+                                                  Container(
+                                                    padding:
+                                                        EdgeInsets.all(6.0),
+                                                    decoration: BoxDecoration(
+                                                      color: Theme.of(context)
+                                                          .accentColor,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10.0),
+                                                    ),
+                                                    alignment: Alignment.center,
+                                                    child: Text(
+                                                      doc["time"],
+                                                      style: new TextStyle(
+                                                          color: Colors.white,
+                                                          fontSize: 12),
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    width: (10),
+                                                  ),
+                                                  doc["open"] == "true"
+                                                      ? Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.green,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "เปิด",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        )
+                                                      : Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "ปิด",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        ),
+                                                  SizedBox(
+                                                    width: 30,
+                                                  )
+                                                ],
+                                              ),
                                             ],
                                           ),
                                           SizedBox(height: 10.0),
