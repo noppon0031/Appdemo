@@ -5,6 +5,7 @@ import 'package:noppon/User/profile.dart';
 import 'package:noppon/addddd.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../dropdown.dart';
 import '../login.dart';
 class Account extends StatefulWidget {
   Account({Key? key}) : super(key: key);
@@ -173,7 +174,7 @@ class Managetest extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Test()),
+            MaterialPageRoute(builder: (context) => Dropdown()),
           );
         },
         child: Row(

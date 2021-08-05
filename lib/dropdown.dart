@@ -22,6 +22,9 @@ class DropdownState extends State<Dropdown> {
     return Scaffold(
       body: Center(
         child: Column(children: <Widget>[
+          SizedBox(
+            height: 60,
+          ),
           DropdownButton<String>(
             icon: Icon(Icons.arrow_drop_down),
             iconSize: 24,

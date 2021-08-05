@@ -225,8 +225,7 @@ class _Business_Detail extends State<Business_Detail> {
                         },
                       ),
                     ),
-                    Visibility(
-                        child: Container(
+                        Container(
                           child: IconButton(
                             iconSize: 35,
                             icon: isLiked == false
@@ -245,7 +244,6 @@ class _Business_Detail extends State<Business_Detail> {
                             },
                           ),
                         ),
-                        visible: user_type == 'ผู้ประกอบการ' ? false : true),
                   ],
                 )
               ],
@@ -561,8 +559,8 @@ class _Business_Detail extends State<Business_Detail> {
                         fontSize: 18.0,
                         fontWeight: FontWeight.bold)),
               ),
-              user_type == "ผู้ใช้ทั่วไป"
-                  ? Container(
+             
+                   Container(
                       margin: EdgeInsets.only(right: 10),
                       child: ElevatedButton(
                           onPressed: () {
@@ -719,7 +717,6 @@ class _Business_Detail extends State<Business_Detail> {
                               style: TextStyle(
                                   color: Colors.white, fontSize: 14.0))),
                     )
-                  : Visibility(child: Text(""), visible: false)
             ],
           ),
           StreamBuilder<QuerySnapshot>(
