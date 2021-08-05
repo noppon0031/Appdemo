@@ -9,7 +9,6 @@ import 'package:intl/intl.dart';
 import 'package:location/location.dart';
 import 'package:noppon/Model/user.dart';
 import 'package:noppon/full_image.dart';
-import 'package:noppon/zz.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
 import 'package:url_launcher/url_launcher.dart';

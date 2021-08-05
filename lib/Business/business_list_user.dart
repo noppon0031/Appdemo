@@ -145,46 +145,6 @@ class _Business_List_User extends State<Business_List_User> {
       body: ListView(
         children: [
           carousel(),
-          // Stack(
-          //   children: [
-          //     Column(
-          //       crossAxisAlignment: CrossAxisAlignment.start,
-          //       children: [
-          //         Container(
-          //           height: 45,
-          //           padding:
-          //               EdgeInsets.only(left: 100, right: 3, top: 3, bottom: 3),
-          //           decoration: BoxDecoration(
-          //               borderRadius: BorderRadius.circular(20),
-          //               boxShadow: [BoxShadow(blurRadius: 10)],
-          //               color: Colors.white),
-          //           child: Expanded(
-          //             child: TextField(
-          //               decoration: InputDecoration(
-          //                   hintStyle: TextStyle(color: Colors.black),
-          //                   hintText: "ค้นหาร้านค้าและสถานที่",
-          //                   border: InputBorder.none),
-          //             ),
-          //           ),
-          //         ),
-          //       ],
-          //     ),
-          //     MaterialButton(
-          //       onPressed: () {
-
-          //       },
-          //       shape: RoundedRectangleBorder(
-          //           borderRadius: BorderRadius.circular(10)),
-          //       minWidth: 0,
-          //       elevation: 0,
-          //       color: Colors.white,
-          //       child: Icon(
-          //         Icons.search,
-          //         color: Colors.black,
-          //       ),
-          //     ),
-          //   ],
-          // ),
           Container(
             margin: EdgeInsets.all(10),
             child: SingleChildScrollView(

@@ -1,3 +1,4 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:noppon/Business/business_list.dart';
 import 'package:noppon/Business/business_list_user.dart';
@@ -10,8 +11,6 @@ import '../dropdown.dart';
 import '../login.dart';
 
 class Account extends StatefulWidget {
-  Account({Key? key}) : super(key: key);
-
   @override
   _AccountState createState() => _AccountState();
 }
@@ -63,7 +62,38 @@ LogoutMethod(BuildContext context) async {
   );
 }
 
+final db = FirebaseDatabase.instance.reference().child("user");
+var user_id, email, password, photo, username, tel, type;
+
 class _AccountState extends State<Account> {
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance!.addPostFrameCallback((_) {
+      _asyncMethod();
+    });
+  }
+
+  void _asyncMethod() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      photo = prefs.getString('photo');
+      username = prefs.getString('username');
+    });
+  }
+
+  SetImage() {
+    try {
+      if (photo == "") {
+        return Image.network(
+          'https://cdn.icon-icons.com/icons2/1378/PNG/512/avatardefault_92824.png',
+          fit: BoxFit.cover,
+        );
+      } else {
+        return Image.network(photo, fit: BoxFit.cover);
+      }
+    } on Exception catch (_) {}
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -72,6 +102,26 @@ class _AccountState extends State<Account> {
         children: [
           SizedBox(
             height: 100,
+          ),
+          CircleAvatar(
+            radius: 70,
+            backgroundColor: Color(0xff476cfb),
+            child: ClipOval(
+              child: new SizedBox(
+                  width: 130,
+                  height: 130,
+                  child: (photo != "")
+                      ? Image.network('${photo}', fit: BoxFit.cover)
+                      : Image.asset(
+                          "assets/logo.png",
+                          fit: BoxFit.cover,
+                        )),
+            ),
+          ),
+          SizedBox(height: 30),
+          Text('${username}',style: TextStyle(fontSize: 25,fontWeight: FontWeight.w400),),
+          SizedBox(
+            height: 30,
           ),
           ProfileMenu(),
           Managetest(),
@@ -101,8 +151,8 @@ class ProfileMenu extends StatelessWidget {
             Icon(Icons.account_box),
             SizedBox(width: 20),
             Expanded(
-              child:
-                  Text("Profile", style: Theme.of(context).textTheme.bodyText1),
+              child: Text("EditProfile",
+                  style: Theme.of(context).textTheme.bodyText1),
             ),
             Icon(Icons.arrow_forward_ios)
           ],
@@ -190,7 +240,8 @@ class Managetest extends StatelessWidget {
             Icon(Icons.add_business),
             SizedBox(width: 20),
             Expanded(
-              child: Text("Manageplace", style: Theme.of(context).textTheme.bodyText1),
+              child: Text("Manageplace",
+                  style: Theme.of(context).textTheme.bodyText1),
             ),
             Icon(Icons.arrow_forward_ios)
           ],

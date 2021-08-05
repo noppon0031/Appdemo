@@ -9,8 +9,6 @@ import 'package:noppon/User/launcher_user.dart';
 import 'package:noppon/User/profile.dart';
 import 'package:noppon/login.dart';
 import 'package:noppon/register.dart';
-import 'package:noppon/z2.dart';
-import 'package:noppon/zz.dart';
 import 'splash_screen.dart';
 
 void main() async {
