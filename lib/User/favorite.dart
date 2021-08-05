@@ -250,13 +250,6 @@ class PlaceList extends StatelessWidget {
                                       margin: EdgeInsets.only(top: 20),
                                       child: Column(
                                         children: <Widget>[
-                                          Text(
-                                            document["price"] + " บาท",
-                                            style: TextStyle(
-                                              fontSize: 16.0,
-                                              fontWeight: FontWeight.w600,
-                                            ),
-                                          ),
                                           // Text(
                                           //   'per pax',
                                           //   style: TextStyle(
@@ -278,16 +271,19 @@ class PlaceList extends StatelessWidget {
                                   ),
                                 ),
                                 SizedBox(height: 5.0),
-                                Text(
-                                    "⭐ : " +
-                                        document["rating"].toStringAsFixed(1) +
-                                        "/5.0",
-                                    style: TextStyle(
-                                        color: Colors.blueGrey,
-                                        fontSize: 16.0)),
-                                SizedBox(height: 10.0),
                                 Row(
-                                  children: <Widget>[
+                                  children: [
+                                    Text(
+                                        "⭐ : " +
+                                            document["rating"]
+                                                .toStringAsFixed(1) +
+                                            "/5.0",
+                                        style: TextStyle(
+                                            color: Colors.blueGrey,
+                                            fontSize: 16.0)),
+                                    SizedBox(
+                                      width: 50,
+                                    ),
                                     Container(
                                       padding: EdgeInsets.all(6.0),
                                       decoration: BoxDecoration(
@@ -302,7 +298,7 @@ class PlaceList extends StatelessWidget {
                                             color: Colors.white, fontSize: 12),
                                       ),
                                     ),
-                                    SizedBox(width: 10.0),
+                                    SizedBox(width: 5.0),
                                     Container(
                                       padding: EdgeInsets.all(6.0),
                                       decoration: BoxDecoration(
@@ -317,7 +313,7 @@ class PlaceList extends StatelessWidget {
                                             color: Colors.white, fontSize: 12),
                                       ),
                                     ),
-                                    SizedBox(width: 10.0),
+                                    SizedBox(width: 5.0),
                                     document["open"] == "true"
                                         ? Container(
                                             padding: EdgeInsets.all(6.0),
@@ -350,7 +346,8 @@ class PlaceList extends StatelessWidget {
                                             ),
                                           ),
                                   ],
-                                )
+                                ),
+                                SizedBox(height: 10.0),
                               ],
                             ),
                           ),

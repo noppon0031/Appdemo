@@ -171,7 +171,7 @@ class _Business_List_User extends State<Business_List_User> {
           //     ),
           //     MaterialButton(
           //       onPressed: () {
-                  
+
           //       },
           //       shape: RoundedRectangleBorder(
           //           borderRadius: BorderRadius.circular(10)),
@@ -413,13 +413,13 @@ class _Business_List_User extends State<Business_List_User> {
                                   );
                                 },
                                 child: Container(
-                                  margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+                                  margin: EdgeInsets.fromLTRB(5, 0, 5, 5),
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                   ),
                                   child: Card(
                                     child: Padding(
-                                      padding: EdgeInsets.all(10),
+                                      padding: EdgeInsets.all(0),
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
@@ -429,7 +429,7 @@ class _Business_List_User extends State<Business_List_User> {
                                           Image.network(
                                             doc["photo1"],
                                             width: double.infinity,
-                                            height: 150,
+                                            height: 180,
                                             fit: BoxFit.cover,
                                           ),
                                           Row(
@@ -453,45 +453,22 @@ class _Business_List_User extends State<Business_List_User> {
                                                   maxLines: 2,
                                                 ),
                                               ),
-                                              Container(
-                                                margin:
-                                                    EdgeInsets.only(top: 20),
-                                                child: Column(
-                                                  children: <Widget>[
-                                                    Text(
-                                                      doc["price"] + " บาท",
-                                                      style: TextStyle(
-                                                        fontSize: 16.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
                                             ],
                                           ),
-                                          Container(
-                                            margin: EdgeInsets.only(top: 5),
-                                            child: Text(
-                                              doc["address"],
-                                              style: TextStyle(
-                                                color: Colors.grey,
-                                              ),
-                                            ),
-                                          ),
                                           SizedBox(height: 5.0),
-                                          Text(
-                                              "⭐ : " +
-                                                  doc["rating"]
-                                                      .toStringAsFixed(1) +
-                                                  "/5.0",
-                                              style: TextStyle(
-                                                  color: Colors.blueGrey,
-                                                  fontSize: 16.0)),
-                                          SizedBox(height: 10.0),
                                           Row(
-                                            children: <Widget>[
+                                            children: [
+                                              Text(
+                                                  "⭐ : " +
+                                                      doc["rating"]
+                                                          .toStringAsFixed(1) +
+                                                      "/5.0",
+                                                  style: TextStyle(
+                                                      color: Colors.blueGrey,
+                                                      fontSize: 16.0)),
+                                              SizedBox(
+                                                width: 50,
+                                              ),
                                               Container(
                                                 padding: EdgeInsets.all(6.0),
                                                 decoration: BoxDecoration(
@@ -509,7 +486,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                       fontSize: 12),
                                                 ),
                                               ),
-                                              SizedBox(width: 10.0),
+                                              SizedBox(width: 5,),
                                               Container(
                                                 padding: EdgeInsets.all(6.0),
                                                 decoration: BoxDecoration(
@@ -527,7 +504,9 @@ class _Business_List_User extends State<Business_List_User> {
                                                       fontSize: 12),
                                                 ),
                                               ),
-                                              SizedBox(width: 10.0),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
                                               doc["open"] == "true"
                                                   ? Container(
                                                       padding:
@@ -565,6 +544,13 @@ class _Business_List_User extends State<Business_List_User> {
                                                             fontSize: 12),
                                                       ),
                                                     ),
+                                            ],
+                                          ),
+                                          SizedBox(height: 10.0),
+                                          Row(
+                                            children: <Widget>[
+                                              SizedBox(width: 10.0),
+                                              SizedBox(width: 10.0),
                                             ],
                                           )
                                         ],

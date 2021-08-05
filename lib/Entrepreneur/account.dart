@@ -174,7 +174,7 @@ class Managetest extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Dropdown()),
+            MaterialPageRoute(builder: (context) => Test()),
           );
         },
         child: Row(
