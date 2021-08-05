@@ -105,7 +105,7 @@ class _AccountState extends State<Account> {
           ),
           CircleAvatar(
             radius: 70,
-            backgroundColor: Color(0xff476cfb),
+            backgroundColor: Colors.red,
             child: ClipOval(
               child: new SizedBox(
                   width: 130,

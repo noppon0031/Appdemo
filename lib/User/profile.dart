@@ -161,11 +161,11 @@ class _ProfileState extends State<Profile> {
                   ),
                   CircleAvatar(
                     radius: 70,
-                    backgroundColor: Color(0xff476cfb),
+                    backgroundColor: Colors.red,
                     child: ClipOval(
                       child: new SizedBox(
-                          width: 120,
-                          height: 120,
+                          width: 130,
+                          height: 130,
                           child: (photo != "")
                               ? Image.network('${photo}', fit: BoxFit.cover)
                               : Image.asset(
