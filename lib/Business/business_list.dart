@@ -199,8 +199,7 @@ class _Business_List extends State<Business_List> {
                                                       rootNavigator: true)
                                                   .pop('dialog');
 
-                                              Toast.show(
-                                                  "ปิดสำเร็จ", context,
+                                              Toast.show("ปิดสำเร็จ", context,
                                                   duration: Toast.LENGTH_LONG,
                                                   gravity: Toast.BOTTOM);
                                             })
@@ -321,7 +320,7 @@ class _Business_List extends State<Business_List> {
                             });
                       },
                       child: Container(
-                        margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+                        margin: EdgeInsets.fromLTRB(5, 0, 5, 5),
                         decoration: BoxDecoration(
                           color: Colors.white,
                         ),
@@ -433,6 +432,9 @@ class _Business_List extends State<Business_List> {
                                           ),
                                   ],
                                 ),
+                                SizedBox(
+                                  height: 10,
+                                )
                               ],
                             ),
                           ),

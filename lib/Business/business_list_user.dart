@@ -436,8 +436,7 @@ class _Business_List_User extends State<Business_List_User> {
                                             children: [
                                               Container(
                                                 width: (350),
-                                                margin:
-                                                    EdgeInsets.only(top: 8),
+                                                margin: EdgeInsets.only(top: 8),
                                                 child: Text(
                                                   doc["business_name"],
                                                   style: TextStyle(
@@ -482,7 +481,9 @@ class _Business_List_User extends State<Business_List_User> {
                                                       fontSize: 12),
                                                 ),
                                               ),
-                                              SizedBox(width: 5,),
+                                              SizedBox(
+                                                width: 5,
+                                              ),
                                               Container(
                                                 padding: EdgeInsets.all(6.0),
                                                 decoration: BoxDecoration(
@@ -543,12 +544,6 @@ class _Business_List_User extends State<Business_List_User> {
                                             ],
                                           ),
                                           SizedBox(height: 10.0),
-                                          Row(
-                                            children: <Widget>[
-                                              SizedBox(width: 10.0),
-                                              SizedBox(width: 10.0),
-                                            ],
-                                          )
                                         ],
                                       ),
                                     ),
