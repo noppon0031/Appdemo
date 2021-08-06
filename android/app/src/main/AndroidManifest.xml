@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.whereRUU">
+    package="com.example.noppon">
    <application
         android:label="Where are you"
         android:icon="@drawable/logo">
