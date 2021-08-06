@@ -1211,10 +1211,6 @@ class _Business_Detail extends State<Business_Detail> {
                 photo1,
                 fit: BoxFit.cover,
               ),
-              Image.network(
-                photo2,
-                fit: BoxFit.cover,
-              ),
             ],
           ),
           onTap: () {
