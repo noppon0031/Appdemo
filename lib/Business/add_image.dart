@@ -73,17 +73,6 @@ class _AddImageState extends State<AddImage> {
                             image: FileImage(_image[index]),
                             fit: BoxFit.cover)),
                   );
-                  // return index == 0
-                  //     ? IconButton(
-                  //         icon: Icon(Icons.add),
-                  //         onPressed: () => !uploading ? chooseImage() : null)
-                  //     : Container(
-                  //         margin: EdgeInsets.all(3),
-                  //         decoration: BoxDecoration(
-                  //             image: DecorationImage(
-                  //                 image: FileImage(_image[index]),
-                  //                 fit: BoxFit.cover)),
-                  //       );
                 }),
             (_image.length == 0
                 ? Text("กรุณาเลือกรูป")
@@ -93,15 +82,6 @@ class _AddImageState extends State<AddImage> {
                     child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      // Container(
-                      //   child: Text(
-                      //     'uploading...',
-                      //     style: TextStyle(fontSize: 20),
-                      //   ),
-                      // ),
-                      // SizedBox(
-                      //   height: 10,
-                      // ),
                       CircularProgressIndicator(
                         value: val,
                         valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
@@ -125,9 +105,6 @@ class _AddImageState extends State<AddImage> {
                 ),
                 onPressed: () => !uploading ? chooseImage() : null),
           ),
-          // IconButton(
-          //     icon: Icon(Icons.add),
-          //     onPressed: () => !uploading ? chooseImage() : null),
           Container(
               margin: EdgeInsets.all(10),
               child: ListView(
@@ -651,44 +628,6 @@ class _AddImageState extends State<AddImage> {
     if (snapshot.docs.length == 0) {
       array = 0;
 
-      // Place data = Place(
-      //     "",
-      //     array,
-      //     Address,
-      //     Business_name,
-      //     Business_name1,
-      //     Business_name2,
-      //     Business_name3,
-      //     Business_name_english,
-      //     Day,
-      //     Detail,
-      //     Email,
-      //     Facebook,
-      //     Instagram,
-      //     Line,
-      //     double.parse('$Latitude'),
-      //     double.parse('$Longitude'),
-      //     Google_map,
-      //     "true",
-      //     photo1,
-      //     photo2,
-      //     photo3,
-      //     photo4,
-      //     photo5,
-      //     photo6,
-      //     photo7,
-      //     photo8,
-      //     photo9,
-      //     photo10,
-      //     Price,
-      //     0,
-      //     "true",
-      //     Tel,
-      //     Time,
-      //     Type,
-      //     User_id,
-      //     Website);
-
       imgRef
           .add({
             'address': Address,
@@ -746,44 +685,6 @@ class _AddImageState extends State<AddImage> {
           .then((querySnapshot) {
         querySnapshot.docs.forEach((result) async {
           array = result.data()['array'] + 1;
-
-          // Place data = Place(
-          //     "",
-          //     array,
-          //     Address,
-          //     Business_name,
-          //     Business_name1,
-          //     Business_name2,
-          //     Business_name3,
-          //     Business_name_english,
-          //     Day,
-          //     Detail,
-          //     Email,
-          //     Facebook,
-          //     Instagram,
-          //     Line,
-          //     double.parse('$Latitude'),
-          //     double.parse('$Longitude'),
-          //     Google_map,
-          //     "true",
-          //     photo1,
-          //     photo2,
-          //     photo3,
-          //     photo4,
-          //     photo5,
-          //     photo6,
-          //     photo7,
-          //     photo8,
-          //     photo9,
-          //     photo10,
-          //     Price,
-          //     0,
-          //     "true",
-          //     Tel,
-          //     Time,
-          //     Type,
-          //     User_id,
-          //     Website);
 
           imgRef
               .add({

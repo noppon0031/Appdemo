@@ -3,7 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'dart:async';
-import 'package:noppon/Business/business_add.dart';
 import 'package:noppon/Business/business_detail.dart';
 import 'package:noppon/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -395,7 +394,7 @@ class _Business_List_User extends State<Business_List_User> {
                                           Row(
                                             children: [
                                               Container(
-                                                width: (350),
+                                                width: (330),
                                                 margin: EdgeInsets.only(top: 8),
                                                 child: Text(
                                                   doc["business_name"],

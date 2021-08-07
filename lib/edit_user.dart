@@ -72,12 +72,11 @@ class EditUserState extends State<EditUser1> {
   String dropdownValue = 'ผู้ประกอบการ';
   List<String> user_type = ['ผู้ประกอบการ', 'ผู้ใช้ทั่วไป'];
 
-  Future<void> EditUserMethod(BuildContext context) async {
-    FocusScope.of(context).unfocus();
-    var Email = emailController.text.trim();
-    var Password = passwordController.text.trim();
-    var Username = usernameController.text.trim();
-    var Tel = telController.text.trim();
+  Future<void> EditUser(BuildContext context) async {
+    var Email = emailController.text.toString();
+    var Password = passwordController.text.toString();
+    var Username = usernameController.text.toString();
+    var Tel = telController.text.toString();
     var Type = dropdownValue;
 
     if (Email.isEmpty) {
@@ -309,18 +308,10 @@ class EditUserState extends State<EditUser1> {
                             style: new TextStyle(fontSize: 20.0),
                           ),
                           onPressed: () {
-                            EditUserMethod(context);
+                            EditUser(context);
                           }),
                     ),
                   ],
                 ))));
   }
-
-  // Future<String> signUp(String email, String password) async {
-  //   AuthResult result = await _firebaseAuth.createUserWithEmailAndPassword(
-  //       email: email, password: password);
-  //   FirebaseUser user = result.user;
-  //   return user.uid;
-  // }
-
 }

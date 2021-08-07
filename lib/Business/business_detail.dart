@@ -665,30 +665,27 @@ class _Business_Detail extends State<Business_Detail> {
                                                   }));
 
                                           //หาค่าเฉลี่ย Rating
-                                          // FirebaseFirestore.instance
-                                          //     .collection('comment')
-                                          //     .where('place_id',
-                                          //         isEqualTo:
-                                          //             widget.place_id)
-                                          //     .get()
-                                          //     .then((querySnapshot) {
-                                          //   querySnapshot.docs
-                                          //       .forEach((result) async {
-                                          //     double total = 0, count = 0;
-                                          //     total = total +
-                                          //         result.data()['rating'];
-                                          //     count++;
+                                          FirebaseFirestore.instance
+                                              .collection('comment')
+                                              .where('place_id',
+                                                  isEqualTo: widget.place_id)
+                                              .get()
+                                              .then((querySnapshot) {
+                                            querySnapshot.docs
+                                                .forEach((result) async {
+                                              double total = 0, count = 0;
+                                              total = total +
+                                                  result.data()['rating'];
+                                              count++;
 
-                                          //     var average = total / count;
+                                              var average = total / count;
 
-                                          //     FirebaseFirestore.instance
-                                          //         .collection('place')
-                                          //         .doc(widget.place_id)
-                                          //         .update({
-                                          //       'rating': average
-                                          //     });
-                                          //   });
-                                          // });
+                                              FirebaseFirestore.instance
+                                                  .collection('place')
+                                                  .doc(widget.place_id)
+                                                  .update({'rating': average});
+                                            });
+                                          });
                                         });
                                       });
                                     }
