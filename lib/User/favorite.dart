@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'dart:async';
-import 'package:noppon/Business/business_add.dart';
 import 'package:noppon/Business/business_detail.dart';
 import 'package:noppon/Model/place.dart';
 import 'package:noppon/login.dart';
