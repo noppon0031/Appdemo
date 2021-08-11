@@ -241,21 +241,21 @@ class _Business_List_User extends State<Business_List_User> {
                   InkWell(
                     onTap: () {
                       setState(() {
-                        Business_Type = "คลินิค/ขายยา";
+                        Business_Type = "คลินิก/ขายยา";
                         print(Business_Type);
                       });
                     },
                     child: Container(
                       padding: EdgeInsets.all(6.0),
                       decoration: BoxDecoration(
-                        color: Business_Type == "คลินิค/ขายยา"
+                        color: Business_Type == "คลินิก/ขายยา"
                             ? Theme.of(context).accentColor
                             : Colors.grey,
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       alignment: Alignment.center,
                       child: Text(
-                        "คลินิค/ขายยา",
+                        "คลินิก/ขายยา",
                         style: new TextStyle(color: Colors.white, fontSize: 12),
                       ),
                     ),

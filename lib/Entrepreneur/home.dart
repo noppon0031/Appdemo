@@ -57,7 +57,7 @@ class HomePageState extends State<HomePage> {
               padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
               children: <Widget>[
                 Text('หมวดหมู่'),
-                 Column(
+                Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Container(
@@ -149,7 +149,7 @@ class HomePageState extends State<HomePage> {
                             context,
                             MaterialPageRoute(
                               builder: (context) =>
-                                  Business_List(type: "คลินิค/ขายยา"),
+                                  Business_List(type: "คลินิก/ขายยา"),
                             ),
                           );
                         },
