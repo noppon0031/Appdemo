@@ -63,6 +63,7 @@ class _ProfileState extends State<Profile> {
       }
     } on Exception catch (_) {}
   }
+
   Future getImageDevice() async {
     final _picker = ImagePicker();
     var image = await _picker.getImage(source: ImageSource.gallery);
@@ -135,7 +136,10 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: new AppBar(title: new Text('หน้าข้อมูลผู้ใช้งาน'),backgroundColor: Colors.red,),
+      appBar: new AppBar(
+        title: new Text('หน้าข้อมูลผู้ใช้งาน'),
+        backgroundColor: Colors.red,
+      ),
       body: SafeArea(
         child: ListView(
           children: <Widget>[
@@ -277,28 +281,28 @@ class _ProfileState extends State<Profile> {
             SizedBox(
               height: 10.0,
             ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    width: 65,
-                    child: Text('ประเภท :',
-                        style:
-                            TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 12.0),
-                    child: Text(type == null ? "" : type,
-                        style: TextStyle(color: Colors.black, fontSize: 16.0)),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 10.0,
-            ),
+            // Padding(
+            //   padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.start,
+            //     children: <Widget>[
+            //       Container(
+            //         width: 65,
+            //         child: Text('ประเภท :',
+            //             style:
+            //                 TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+            //       ),
+            //       Padding(
+            //         padding: EdgeInsets.only(left: 12.0),
+            //         child: Text(type == null ? "" : type,
+            //             style: TextStyle(color: Colors.black, fontSize: 16.0)),
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            // SizedBox(
+            //   height: 10.0,
+            // ),
             Container(
                 alignment: Alignment.center,
                 margin: const EdgeInsets.all(10),

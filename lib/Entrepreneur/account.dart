@@ -2,6 +2,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:noppon/Business/business_list.dart';
 import 'package:noppon/Business/business_list_user.dart';
+import 'package:noppon/Business/business_me.dart';
 import 'package:noppon/Entrepreneur/home.dart';
 import 'package:noppon/User/profile.dart';
 import 'package:noppon/addddd.dart';
@@ -119,7 +120,10 @@ class _AccountState extends State<Account> {
             ),
           ),
           SizedBox(height: 30),
-          Text('${username}',style: TextStyle(fontSize: 25,fontWeight: FontWeight.w400),),
+          Text(
+            '${username}',
+            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w400),
+          ),
           SizedBox(
             height: 30,
           ),
@@ -231,7 +235,7 @@ class Managetest extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => Business_List(type: "ทั้งหมด"),
+              builder: (context) => Business_Me(),
             ),
           );
         },

@@ -76,7 +76,7 @@ class _AddImageState extends State<AddImage> {
                 }),
             (_image.length == 0
                 ? Text("กรุณาเลือกรูป")
-                : Visibility(child: Text("data"), visible: true)),
+                : Visibility(child: Text("data"), visible: false)),
             uploading
                 ? Center(
                     child: Column(

@@ -786,7 +786,7 @@ class _SearchFiltersState extends State<SearchFilters> {
                   ),
                   Wrap(
                     spacing: 10,
-                    children: List<Widget>.generate(20, (index) {
+                    children: List<Widget>.generate(10, (index) {
                       final isSelected = index % 2 == 0;
 
                       return FilterChip(

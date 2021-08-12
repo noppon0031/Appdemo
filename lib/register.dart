@@ -120,38 +120,38 @@ class RegisterState extends State<Register> {
                             new InputDecoration(hintText: 'กรุณาใส่เบอร์โทร'),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 10),
-                      child: Text(
-                        "ประเภทผู้ใช้",
-                        style: new TextStyle(fontSize: 16.0),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 20),
-                      child: DropdownButton<String>(
-                        value: dropdownValue,
-                        icon: Icon(Icons.arrow_drop_down),
-                        iconSize: 24,
-                        elevation: 16,
-                        style: TextStyle(color: Colors.black, fontSize: 18),
-                        underline: Container(
-                          height: 2,
-                        ),
-                        onChanged: (data) {
-                          setState(() {
-                            dropdownValue = data!;
-                          });
-                        },
-                        items: user_type
-                            .map<DropdownMenuItem<String>>((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value, textAlign: TextAlign.center),
-                          );
-                        }).toList(),
-                      ),
-                    ),
+                    // Padding(
+                    //   padding: EdgeInsets.only(left: 10),
+                    //   child: Text(
+                    //     "ประเภทผู้ใช้",
+                    //     style: new TextStyle(fontSize: 16.0),
+                    //   ),
+                    // ),
+                    // Padding(
+                    //   padding: EdgeInsets.only(left: 20),
+                    //   child: DropdownButton<String>(
+                    //     value: dropdownValue,
+                    //     icon: Icon(Icons.arrow_drop_down),
+                    //     iconSize: 24,
+                    //     elevation: 16,
+                    //     style: TextStyle(color: Colors.black, fontSize: 18),
+                    //     underline: Container(
+                    //       height: 2,
+                    //     ),
+                    //     onChanged: (data) {
+                    //       setState(() {
+                    //         dropdownValue = data!;
+                    //       });
+                    //     },
+                    //     items: user_type
+                    //         .map<DropdownMenuItem<String>>((String value) {
+                    //       return DropdownMenuItem<String>(
+                    //         value: value,
+                    //         child: Text(value, textAlign: TextAlign.center),
+                    //       );
+                    //     }).toList(),
+                    //   ),
+                    // ),
                     Container(
                       height: 50,
                       margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
