@@ -175,6 +175,36 @@ class _AddImageState extends State<AddImage> {
                     decoration:
                         new InputDecoration(hintText: 'กรุณาใส่ English'),
                   ),
+                  // SizedBox(height: 10.0),
+                  // Text(
+                  //   "หมวดหมู่สถานที่",
+                  //   style: new TextStyle(fontSize: 16.0),
+                  // ),
+                  // Padding(
+                  //   padding: EdgeInsets.only(left: 10),
+                  //   child: DropdownButton<String>(
+                  //     value: dropdownValue,
+                  //     icon: Icon(Icons.arrow_drop_down),
+                  //     iconSize: 24,
+                  //     elevation: 16,
+                  //     style: TextStyle(color: Colors.black, fontSize: 18),
+                  //     underline: Container(
+                  //       height: 2,
+                  //     ),
+                  //     onChanged: (data) {
+                  //       setState(() {
+                  //         dropdownValue = data!;
+                  //       });
+                  //     },
+                  //     items: business_type
+                  //         .map<DropdownMenuItem<String>>((String value) {
+                  //       return DropdownMenuItem<String>(
+                  //         value: value,
+                  //         child: Text(value, textAlign: TextAlign.center),
+                  //       );
+                  //     }).toList(),
+                  //   ),
+                  // ),
                   SizedBox(height: 10.0),
                   Text(
                     "หมวดหมู่สถานที่",
@@ -205,35 +235,10 @@ class _AddImageState extends State<AddImage> {
                       }).toList(),
                     ),
                   ),
-                  // SizedBox(height: 10.0),
-                  // Text(
-                  //   "ประเภทย่อย",
-                  //   style: new TextStyle(fontSize: 16.0),
-                  // ),
-                  // Padding(
-                  //   padding: EdgeInsets.only(left: 10),
-                  //   child: DropdownButton<String>(
-                  //     value: dropdownValue,
-                  //     icon: Icon(Icons.arrow_drop_down),
-                  //     iconSize: 24,
-                  //     elevation: 16,
-                  //     style: TextStyle(color: Colors.black, fontSize: 18),
-                  //     underline: Container(
-                  //       height: 2,
-                  //     ),
-                  //     onChanged: (data) {
-                  //       setState(() {
-                  //         dropdownValue = data!;
-                  //       });
-                  //     },
-                  //     items: business_type
-                  //         .map<DropdownMenuItem<String>>((String value) {
-                  //       return DropdownMenuItem<String>(
-                  //         value: value,
-                  //         child: Text(value, textAlign: TextAlign.center),
-                  //       );
-                  //     }).toList(),
-                  //   ),
+
+                  // RaisedButton(
+                  //   child: Text('เลือก'),
+                  //   onPressed: () => business_type,
                   // ),
                   SizedBox(height: 10.0),
                   Text(
@@ -777,9 +782,9 @@ class _AddImageState extends State<AddImage> {
     return emailValid;
   }
 
-  String dropdownValue = 'กดที่นี่ เพื่อเลือกหมวดหมู่';
+  String dropdownValue = 'เลือกหมวดหมู่';
   List<String> business_type = [
-    'กดที่นี่ เพื่อเลือกหมวดหมู่',
+    'เลือกหมวดหมู่',
     'ร้านอาหาร',
     'ร้านกาแฟ',
     'ร้านเครื่องเขียน',
@@ -789,7 +794,7 @@ class _AddImageState extends State<AddImage> {
     'สถานที่ใน Rmutt',
     'สถานที่ทั่วไป'
   ];
-  // String dropdown = '';
+  // String dropdownValue2 = 'อาหารเหนือ';
   // List<String> business_type2 = [
   //   'อาหารเหนือ',
   //   'อาหารอีสาน',
@@ -804,5 +809,10 @@ class _AddImageState extends State<AddImage> {
   //   'ชาบู/ปิ้งย่าง',
   //   'ฟาสต์ฟูด'
   // ];
-
+  final valuestopopulate = {
+    1: "India",
+    2: "Britain",
+    3: "Russia",
+    4: "Canada",
+  };
 }
