@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:noppon/Business/add_image.dart';
 import 'dart:ui';
 import 'dart:async';
 import 'package:noppon/Business/business_detail.dart';
@@ -7,6 +9,7 @@ import 'package:noppon/Model/place.dart';
 import 'package:noppon/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
+import 'package:noppon/Business/business_edit.dart';
 
 class Business_Me extends StatefulWidget {
   @override
@@ -90,53 +93,13 @@ class _Business_Me extends State<Business_Me> {
             );
         },
       ),
-    );
-  }
-
-  void LogoutMethod(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Row(children: [
-            Image.asset(
-              'assets/logo.png',
-              width: 30,
-              height: 30,
-              fit: BoxFit.contain,
-            ),
-            Text('  แจ้งเตือน')
-          ]),
-          content: Text("คุณต้องการออกจากระบบ ใช่หรือไม่?"),
-          actions: <Widget>[
-            // ignore: deprecated_member_use
-            FlatButton(
-              child: Text(
-                "ไม่ใช่",
-                style: new TextStyle(color: Colors.blue),
-              ),
-              onPressed: () {
-                Navigator.of(context, rootNavigator: true).pop('dialog');
-              },
-            ),
-            // ignore: deprecated_member_use
-            FlatButton(
-              child: Text(
-                "ใช่",
-                style: new TextStyle(color: Colors.blue),
-              ),
-              onPressed: () async {
-                SharedPreferences prefs = await SharedPreferences.getInstance();
-                prefs.clear();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginPage()),
-                );
-              },
-            ),
-          ],
-        );
-      },
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.push(
+            context, MaterialPageRoute(builder: (context) => AddImage())),
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
+        backgroundColor: Colors.pink,
+      ),
     );
   }
 }
@@ -208,6 +171,156 @@ class PlaceList extends StatelessWidget {
                                     website: document["website"],
                                   )),
                         );
+                      },
+                      onLongPress: () {
+                        showDialog(
+                            context: context,
+                            barrierDismissible: true,
+                            builder: (BuildContext context) {
+                              return SimpleDialog(
+                                title: Row(children: [
+                                  Image.asset(
+                                    'assets/logo.png',
+                                    width: 30,
+                                    height: 30,
+                                    fit: BoxFit.contain,
+                                  ),
+                                  Text('  กรุณาเลือกคำสั่ง')
+                                ]),
+                                children: [
+                                  SimpleDialogOption(
+                                    onPressed: () {
+                                      doc['open'] == 'true'
+                                          ? FirebaseFirestore.instance
+                                              .collection('place')
+                                              .doc(doc["place_id"])
+                                              .update({'open': 'false'}).then(
+                                                  (value) {
+                                              Navigator.of(context,
+                                                      rootNavigator: true)
+                                                  .pop('dialog');
+
+                                              Toast.show("ปิดสำเร็จ", context,
+                                                  duration: Toast.LENGTH_LONG,
+                                                  gravity: Toast.BOTTOM);
+                                            })
+                                          : FirebaseFirestore.instance
+                                              .collection('place')
+                                              .doc(doc["place_id"])
+                                              .update({'open': 'true'}).then(
+                                                  (value) => Navigator.of(
+                                                          context,
+                                                          rootNavigator: true)
+                                                      .pop('dialog'));
+                                      Toast.show("เปิดสำเร็จ", context,
+                                          duration: Toast.LENGTH_LONG,
+                                          gravity: Toast.BOTTOM);
+                                    },
+                                    child: const Text('เปิด/ปิดร้าน'),
+                                  ),
+                                  SimpleDialogOption(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => BusinessEdit(
+                                                  place_id: doc["place_id"],
+                                                  address: doc["address"],
+                                                  business_name:
+                                                      doc["business_name"],
+                                                  business_name1:
+                                                      doc["business_name1"],
+                                                  business_name2:
+                                                      doc["business_name2"],
+                                                  business_name3:
+                                                      doc["business_name3"],
+                                                  business_name_english: doc[
+                                                      "business_name_english"],
+                                                  day: doc["day"],
+                                                  detail: doc["detail"],
+                                                  email: doc["email"],
+                                                  facebook: doc["facebook"],
+                                                  instagram: doc["instagram"],
+                                                  line: doc["line"],
+                                                  latitude: doc["latitude"]
+                                                      .toString(),
+                                                  longitude: doc["longitude"]
+                                                      .toString(),
+                                                  map: doc["map"],
+                                                  photo1: doc["photo1"],
+                                                  photo2: doc["photo2"],
+                                                  photo3: doc["photo3"],
+                                                  photo4: doc["photo4"],
+                                                  photo5: doc["photo5"],
+                                                  photo6: doc["photo6"],
+                                                  photo7: doc["photo7"],
+                                                  photo8: doc["photo8"],
+                                                  photo9: doc["photo9"],
+                                                  photo10: doc["photo10"],
+                                                  price: doc["price"],
+                                                  // rating: doc["rating"],
+                                                  tel: doc["tel"],
+                                                  time: doc["time"],
+                                                  type: doc["type"],
+                                                  user_id: doc["user_id"],
+                                                  website: doc["website"],
+                                                )),
+                                      );
+                                    },
+                                    child: const Text('แก้ไขสถานที่'),
+                                  ),
+                                  SimpleDialogOption(
+                                    onPressed: () {
+                                      FirebaseFirestore.instance
+                                          .collection('place')
+                                          .doc(doc["place_id"])
+                                          .delete()
+                                          .then((value) {
+                                        FirebaseFirestore.instance
+                                            .collection('comment')
+                                            .doc(doc["place_id"])
+                                            .delete();
+
+                                        FirebaseFirestore.instance
+                                            .collection('like')
+                                            .doc(doc["place_id"])
+                                            .delete();
+                                      });
+
+                                      List<String> photo_array = [
+                                        doc["photo1"],
+                                        doc["photo2"],
+                                        doc["photo3"],
+                                        doc["photo4"],
+                                        doc["photo5"],
+                                        doc["photo6"],
+                                        doc["photo7"],
+                                        doc["photo8"],
+                                        doc["photo9"],
+                                        doc["photo10"]
+                                      ];
+
+                                      for (int i = 0;
+                                          i < photo_array.length;
+                                          i++) {
+                                        if (photo_array[i].isNotEmpty) {
+                                          FirebaseStorage.instance
+                                              .refFromURL(photo_array[i])
+                                              .delete();
+                                        }
+                                      }
+
+                                      Navigator.of(context, rootNavigator: true)
+                                          .pop('dialog');
+                                      Toast.show("ลบสำเร็จ", context,
+                                          duration: Toast.LENGTH_LONG,
+                                          gravity: Toast.BOTTOM);
+                                    },
+                                    child: const Text('ลบสถานที่'),
+                                  )
+                                ],
+                              );
+                            });
                       },
                       child: Container(
                         margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
