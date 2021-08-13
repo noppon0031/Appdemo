@@ -777,8 +777,9 @@ class _AddImageState extends State<AddImage> {
     return emailValid;
   }
 
-  String dropdownValue = 'ร้านอาหาร';
+  String dropdownValue = 'กดที่นี่ เพื่อเลือกหมวดหมู่';
   List<String> business_type = [
+    'กดที่นี่ เพื่อเลือกหมวดหมู่',
     'ร้านอาหาร',
     'ร้านกาแฟ',
     'ร้านเครื่องเขียน',
