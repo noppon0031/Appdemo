@@ -184,6 +184,10 @@ class _Business_List_User extends State<Business_List_User> {
                   SizedBox(width: 5.0),
                   InkWell(
                     onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                            builder: (context) => SearchFilters()),
+                      );
                       setState(() {
                         Business_Type = "ร้านอาหาร";
                       });

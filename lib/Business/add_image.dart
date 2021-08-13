@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:noppon/Model/place.dart';
+import 'package:noppon/dropdown.dart';
 import 'package:path/path.dart' as Path;
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -176,7 +177,7 @@ class _AddImageState extends State<AddImage> {
                   ),
                   SizedBox(height: 10.0),
                   Text(
-                    "ประเภท",
+                    "หมวดหมู่สถานที่",
                     style: new TextStyle(fontSize: 16.0),
                   ),
                   Padding(
@@ -204,6 +205,36 @@ class _AddImageState extends State<AddImage> {
                       }).toList(),
                     ),
                   ),
+                  // SizedBox(height: 10.0),
+                  // Text(
+                  //   "ประเภทย่อย",
+                  //   style: new TextStyle(fontSize: 16.0),
+                  // ),
+                  // Padding(
+                  //   padding: EdgeInsets.only(left: 10),
+                  //   child: DropdownButton<String>(
+                  //     value: dropdownValue,
+                  //     icon: Icon(Icons.arrow_drop_down),
+                  //     iconSize: 24,
+                  //     elevation: 16,
+                  //     style: TextStyle(color: Colors.black, fontSize: 18),
+                  //     underline: Container(
+                  //       height: 2,
+                  //     ),
+                  //     onChanged: (data) {
+                  //       setState(() {
+                  //         dropdownValue = data!;
+                  //       });
+                  //     },
+                  //     items: business_type
+                  //         .map<DropdownMenuItem<String>>((String value) {
+                  //       return DropdownMenuItem<String>(
+                  //         value: value,
+                  //         child: Text(value, textAlign: TextAlign.center),
+                  //       );
+                  //     }).toList(),
+                  //   ),
+                  // ),
                   SizedBox(height: 10.0),
                   Text(
                     "เบอร์โทร",
@@ -757,4 +788,20 @@ class _AddImageState extends State<AddImage> {
     'สถานที่ใน Rmutt',
     'สถานที่ทั่วไป'
   ];
+  // String dropdown = '';
+  // List<String> business_type2 = [
+  //   'อาหารเหนือ',
+  //   'อาหารอีสาน',
+  //   'อาหารทะเล',
+  //   'อาหารญี่ปุ่น',
+  //   'อาหารเกาหลี',
+  //   'อาหารอิตาเลียน',
+  //   'อาหารตามสั่ง',
+  //   'หมูกระทะ',
+  //   'ของหวาน',
+  //   'ชานมไข่มุก',
+  //   'ชาบู/ปิ้งย่าง',
+  //   'ฟาสต์ฟูด'
+  // ];
+
 }
