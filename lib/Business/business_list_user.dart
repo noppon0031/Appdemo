@@ -20,7 +20,7 @@ class _Business_List_User extends State<Business_List_User> {
   late bool _IsSearching;
   String _searchText = "";
   String Business_Type = "";
-  var user_id, email, password, photo, username, tel, type;
+  var user_id, email, password, photo, username, tel, type, type2;
 
   Widget appBarTitle = Text(
     "สถานที่ทั้งหมด",
@@ -414,6 +414,7 @@ class _Business_List_User extends State<Business_List_User> {
                                               tel: doc["tel"],
                                               time: doc["time"],
                                               type: doc["type"],
+                                              type2: doc["type2"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
                                             )),

@@ -47,6 +47,7 @@ class Business_Detail extends StatefulWidget {
       tel,
       time,
       type,
+      type2,
       user_id,
       website;
 
@@ -82,6 +83,7 @@ class Business_Detail extends StatefulWidget {
     this.tel,
     this.time,
     this.type,
+    this.type2,
     this.user_id,
     this.website,
   });
@@ -315,6 +317,27 @@ class _Business_Detail extends State<Business_Detail> {
                 Padding(
                   padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
                   child: Text(widget.type,
+                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  width: 81,
+                  child: Text('',
+                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                  child: Text(widget.type2,
                       style: TextStyle(color: Colors.black, fontSize: 16.0)),
                 ),
               ],
