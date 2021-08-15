@@ -167,6 +167,7 @@ class PlaceList extends StatelessWidget {
                                     tel: document["tel"],
                                     time: document["time"],
                                     type: document["type"],
+                                    type2: document["type2"],
                                     user_id: document["user_id"],
                                     website: document["website"],
                                   )),

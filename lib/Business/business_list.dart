@@ -165,6 +165,7 @@ class _Business_List extends State<Business_List> {
                                     tel: doc["tel"],
                                     time: doc["time"],
                                     type: doc["type"],
+                                    type2: doc["type2"],
                                     user_id: doc["user_id"],
                                     website: doc["website"],
                                   )),
