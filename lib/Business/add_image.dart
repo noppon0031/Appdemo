@@ -236,6 +236,31 @@ class _AddImageState extends State<AddImage> {
                     ),
                   ),
 
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: dropdownValue2,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          dropdownValue2 = data!;
+                        });
+                      },
+                      items: business_type2
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
+                  ),
                   // RaisedButton(
                   //   child: Text('เลือก'),
                   //   onPressed: () => business_type,
@@ -490,6 +515,7 @@ class _AddImageState extends State<AddImage> {
     var Detail = detail_Controller.text.trim();
     var Google_map = google_map_Controller.text.trim();
     var Type = dropdownValue;
+    var Type2 = dropdownValue2;
 
     if (validateEmail(Email) == false) {
       Toast.show('กรุณาตรวจสอบอีเมลล์ให้ถูกต้อง', context,
@@ -700,6 +726,7 @@ class _AddImageState extends State<AddImage> {
             'tel': Tel,
             'time': Time,
             'type': Type,
+            'type2': Type2,
             'user_id': User_id,
             'website': Website
           })
@@ -758,6 +785,7 @@ class _AddImageState extends State<AddImage> {
                 'tel': Tel,
                 'time': Time,
                 'type': Type,
+                'type2': Type2,
                 'user_id': User_id,
                 'website': Website
               })
@@ -794,6 +822,18 @@ class _AddImageState extends State<AddImage> {
     'สถานที่ใน Rmutt',
     'สถานที่ทั่วไป'
   ];
+  String dropdownValue2 = 'เลือกหมวดหมู่';
+  List<String> business_type2 = [
+    'เลือกหมวดหมู่',
+    'ร้านอาหาร',
+    'ร้านกาแฟ',
+    'ร้านเครื่องเขียน',
+    'ร้านเสริมสวย',
+    'คลินิก/ขายยา',
+    'ร้านทั่วไป',
+    'สถานที่ใน Rmutt',
+    'สถานที่ทั่วไป'
+  ];
   // String dropdownValue2 = 'อาหารเหนือ';
   // List<String> business_type2 = [
   //   'อาหารเหนือ',
@@ -809,10 +849,10 @@ class _AddImageState extends State<AddImage> {
   //   'ชาบู/ปิ้งย่าง',
   //   'ฟาสต์ฟูด'
   // ];
-  final valuestopopulate = {
-    1: "India",
-    2: "Britain",
-    3: "Russia",
-    4: "Canada",
-  };
+  // final valuestopopulate = {
+  //   1: "India",
+  //   2: "Britain",
+  //   3: "Russia",
+  //   4: "Canada",
+  // };
 }
