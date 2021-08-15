@@ -141,14 +141,14 @@ class _Business_List_User extends State<Business_List_User> {
                 });
               },
             ),
-            InkWell(
-              onTap: () {},
-              child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: Icon(
-                    Icons.tune,
-                  )),
-            )
+            // InkWell(
+            //   onTap: () {},
+            //   child: Padding(
+            //       padding: const EdgeInsets.symmetric(horizontal: 15),
+            //       child: Icon(
+            //         Icons.tune,
+            //       )),
+            // )
           ]),
       body: ListView(
         children: [
@@ -246,6 +246,28 @@ class _Business_List_User extends State<Business_List_User> {
                       alignment: Alignment.center,
                       child: Text(
                         "ร้านเครื่องเขียน",
+                        style: new TextStyle(color: Colors.white, fontSize: 12),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 5.0),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        Business_Type = "ร้านเสริมสวย";
+                      });
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(6.0),
+                      decoration: BoxDecoration(
+                        color: Business_Type == "ร้านเสริมสวย"
+                            ? Theme.of(context).accentColor
+                            : Colors.grey,
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "ร้านเสริมสวย",
                         style: new TextStyle(color: Colors.white, fontSize: 12),
                       ),
                     ),
