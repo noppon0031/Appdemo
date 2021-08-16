@@ -20,7 +20,8 @@ class _Business_List_User extends State<Business_List_User> {
   late bool _IsSearching;
   String _searchText = "";
   String Business_Type = "";
-  var user_id, email, password, photo, username, tel, type;
+  String Business_Type2 = "";
+  var user_id, email, password, photo, username, tel, type, type2;
 
   Widget appBarTitle = Text(
     "สถานที่ทั้งหมด",
@@ -70,6 +71,7 @@ class _Business_List_User extends State<Business_List_User> {
       username = prefs.getString('username');
       tel = prefs.getString('tel');
       type = prefs.getString('type');
+      type2 = prefs.getString('type2');
     });
   }
 
@@ -86,6 +88,31 @@ class _Business_List_User extends State<Business_List_User> {
         return FirebaseFirestore.instance
             .collection('place')
             .where("type", isEqualTo: Business_Type)
+            .snapshots();
+      }
+    } else {
+      return FirebaseFirestore.instance
+          .collection('place')
+          .orderBy('business_name')
+          .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
+
+      // .where('type', isEqualTo: Business_Type)
+    }
+  }
+
+  getFirebase2() {
+    print(_searchText + " " + Business_Type);
+
+    if (_searchText == "") {
+      if (Business_Type == "ทั้งหมด") {
+        return FirebaseFirestore.instance
+            .collection('place')
+            .orderBy("array", descending: true)
+            .snapshots();
+      } else {
+        return FirebaseFirestore.instance
+            .collection('place')
+            .where("type2", isEqualTo: Business_Type)
             .snapshots();
       }
     } else {
@@ -339,19 +366,19 @@ class _Business_List_User extends State<Business_List_User> {
                       ),
                     ),
                   ),
-                  InkWell(
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                            builder: (context) => SearchFilters()),
-                      );
-                    },
-                    child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 15),
-                        child: Icon(
-                          Icons.tune,
-                        )),
-                  )
+                  // InkWell(
+                  //   onTap: () {
+                  //     Navigator.of(context).push(
+                  //       MaterialPageRoute(
+                  //           builder: (context) => SearchFilters()),
+                  //     );
+                  //   },
+                  //   child: Padding(
+                  //       padding: const EdgeInsets.symmetric(horizontal: 15),
+                  //       child: Icon(
+                  //         Icons.tune,
+                  //       )),
+                  // ) เก็บไว้ก่อนเผื่อใช้
                 ],
               ),
             ),
@@ -368,6 +395,231 @@ class _Business_List_User extends State<Business_List_User> {
                   shrinkWrap: true,
                   children: snapshot.data!.docs.map((doc) {
                     return doc['type'] == Business_Type ||
+                            Business_Type == "ทั้งหมด"
+                        ? Column(
+                            children: <Widget>[
+                              InkWell(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Business_Detail(
+                                              place_id: doc["place_id"],
+                                              address: doc["address"],
+                                              business_name:
+                                                  doc["business_name"],
+                                              business_name1:
+                                                  doc["business_name1"],
+                                              business_name2:
+                                                  doc["business_name2"],
+                                              business_name3:
+                                                  doc["business_name3"],
+                                              business_name_english:
+                                                  doc["business_name_english"],
+                                              day: doc["day"],
+                                              detail: doc["detail"],
+                                              email: doc["email"],
+                                              facebook: doc["facebook"],
+                                              instagram: doc["instagram"],
+                                              line: doc["line"],
+                                              latitude: doc["latitude"],
+                                              longitude: doc["longitude"],
+                                              map: doc["map"],
+                                              photo1: doc["photo1"],
+                                              photo2: doc["photo2"],
+                                              photo3: doc["photo3"],
+                                              photo4: doc["photo4"],
+                                              photo5: doc["photo5"],
+                                              photo6: doc["photo6"],
+                                              photo7: doc["photo7"],
+                                              photo8: doc["photo8"],
+                                              photo9: doc["photo9"],
+                                              photo10: doc["photo10"],
+                                              price: doc["price"],
+                                              rating: doc["rating"]
+                                                  .toStringAsFixed(1),
+                                              tel: doc["tel"],
+                                              time: doc["time"],
+                                              type: doc["type"],
+                                              type2: doc["type2"],
+                                              user_id: doc["user_id"],
+                                              website: doc["website"],
+                                            )),
+                                  );
+                                },
+                                child: Container(
+                                  margin: EdgeInsets.fromLTRB(5, 0, 5, 5),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                  ),
+                                  child: Card(
+                                    child: Padding(
+                                      padding: EdgeInsets.all(0),
+                                      child: Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          Image.network(
+                                            doc["photo1"],
+                                            width: double.infinity,
+                                            height: 180,
+                                            fit: BoxFit.cover,
+                                          ),
+                                          Row(
+                                            children: [
+                                              Container(
+                                                width: (330),
+                                                margin: EdgeInsets.only(top: 8),
+                                                child: Text(
+                                                  doc["business_name"],
+                                                  style: TextStyle(
+                                                    fontSize: 16.0,
+                                                    fontWeight: FontWeight.w600,
+                                                  ),
+                                                  overflow:
+                                                      TextOverflow.ellipsis,
+                                                  maxLines: 2,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(height: 8.0),
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Text(
+                                                  "⭐ : " +
+                                                      doc["rating"]
+                                                          .toStringAsFixed(1) +
+                                                      "/5.0",
+                                                  style: TextStyle(
+                                                      color: Colors.blueGrey,
+                                                      fontSize: 16.0)),
+                                              Row(
+                                                children: [
+                                                  Container(
+                                                    padding:
+                                                        EdgeInsets.all(6.0),
+                                                    decoration: BoxDecoration(
+                                                      color: Theme.of(context)
+                                                          .accentColor,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10.0),
+                                                    ),
+                                                    alignment: Alignment.center,
+                                                    child: Text(
+                                                      doc["day"],
+                                                      style: new TextStyle(
+                                                          color: Colors.white,
+                                                          fontSize: 12),
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    width: (10),
+                                                  ),
+                                                  Container(
+                                                    padding:
+                                                        EdgeInsets.all(6.0),
+                                                    decoration: BoxDecoration(
+                                                      color: Theme.of(context)
+                                                          .accentColor,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              10.0),
+                                                    ),
+                                                    alignment: Alignment.center,
+                                                    child: Text(
+                                                      doc["time"],
+                                                      style: new TextStyle(
+                                                          color: Colors.white,
+                                                          fontSize: 12),
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    width: (10),
+                                                  ),
+                                                  doc["open"] == "true"
+                                                      ? Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.green,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "เปิด",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        )
+                                                      : Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "ปิด",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        ),
+                                                  SizedBox(
+                                                    width: 30,
+                                                  )
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                          SizedBox(height: 10.0),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        : Visibility(child: Text("data"), visible: false);
+                  }).toList(),
+                );
+            },
+          ),
+          StreamBuilder<QuerySnapshot>(
+            stream: getFirebase2(),
+            builder: (context, snapshot) {
+              if (!snapshot.hasData) {
+                print("No Data");
+                return Center(child: Text("ไม่มีข้อมูล"));
+              } else
+                return ListView(
+                  physics: ClampingScrollPhysics(),
+                  shrinkWrap: true,
+                  children: snapshot.data!.docs.map((doc) {
+                    return doc['type2'] == Business_Type ||
                             Business_Type == "ทั้งหมด"
                         ? Column(
                             children: <Widget>[
@@ -611,101 +863,101 @@ class _Business_List_User extends State<Business_List_User> {
     });
   }
 
-  Business_Type_List() {
-    Row(
-      children: <Widget>[
-        InkWell(
-          onTap: () {
-            Business_Type = "ร้านอาหาร";
-            print(Business_Type);
-          },
-          child: Container(
-            padding: EdgeInsets.all(6.0),
-            decoration: BoxDecoration(
-              color: Theme.of(context).accentColor,
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-            alignment: Alignment.center,
-            child: Text(
-              "ร้านอาหาร",
-              style: new TextStyle(color: Colors.white, fontSize: 12),
-            ),
-          ),
-        ),
-        SizedBox(width: 10.0),
-        InkWell(
-          onTap: () {
-            Business_Type = "ร้านกาแฟ";
-            print(Business_Type);
-          },
-          child: Container(
-            padding: EdgeInsets.all(6.0),
-            decoration: BoxDecoration(
-              color: Theme.of(context).accentColor,
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-            alignment: Alignment.center,
-            child: Text(
-              "ร้านกาแฟ",
-              style: new TextStyle(color: Colors.white, fontSize: 12),
-            ),
-          ),
-        ),
-        SizedBox(width: 10.0),
-        Container(
-          padding: EdgeInsets.all(6.0),
-          decoration: BoxDecoration(
-            color: Theme.of(context).accentColor,
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          alignment: Alignment.center,
-          child: Text(
-            "ร้านเครื่องเขียน",
-            style: new TextStyle(color: Colors.white, fontSize: 12),
-          ),
-        ),
-        SizedBox(width: 10.0),
-        Container(
-          padding: EdgeInsets.all(6.0),
-          decoration: BoxDecoration(
-            color: Theme.of(context).accentColor,
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          alignment: Alignment.center,
-          child: Text(
-            "คลินิก/ขายยา",
-            style: new TextStyle(color: Colors.white, fontSize: 12),
-          ),
-        ),
-        SizedBox(width: 10.0),
-        Container(
-          padding: EdgeInsets.all(6.0),
-          decoration: BoxDecoration(
-            color: Theme.of(context).accentColor,
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          alignment: Alignment.center,
-          child: Text(
-            "สถานที่ใน Rmutt",
-            style: new TextStyle(color: Colors.white, fontSize: 12),
-          ),
-        ),
-        SizedBox(width: 10.0),
-        Container(
-          padding: EdgeInsets.all(6.0),
-          decoration: BoxDecoration(
-            color: Theme.of(context).accentColor,
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          alignment: Alignment.center,
-          child: Text(
-            "สถานที่ทั่วไป",
-            style: new TextStyle(color: Colors.white, fontSize: 12),
-          ),
-        ),
-      ],
-    );
-  }
+  // Business_Type_List() {
+  //   Row(
+  //     children: <Widget>[
+  //       InkWell(
+  //         onTap: () {
+  //           Business_Type = "ร้านอาหาร";
+  //           print(Business_Type);
+  //         },
+  //         child: Container(
+  //           padding: EdgeInsets.all(6.0),
+  //           decoration: BoxDecoration(
+  //             color: Theme.of(context).accentColor,
+  //             borderRadius: BorderRadius.circular(10.0),
+  //           ),
+  //           alignment: Alignment.center,
+  //           child: Text(
+  //             "ร้านอาหาร",
+  //             style: new TextStyle(color: Colors.white, fontSize: 12),
+  //           ),
+  //         ),
+  //       ),
+  //       SizedBox(width: 10.0),
+  //       InkWell(
+  //         onTap: () {
+  //           Business_Type = "ร้านกาแฟ";
+  //           print(Business_Type);
+  //         },
+  //         child: Container(
+  //           padding: EdgeInsets.all(6.0),
+  //           decoration: BoxDecoration(
+  //             color: Theme.of(context).accentColor,
+  //             borderRadius: BorderRadius.circular(10.0),
+  //           ),
+  //           alignment: Alignment.center,
+  //           child: Text(
+  //             "ร้านกาแฟ",
+  //             style: new TextStyle(color: Colors.white, fontSize: 12),
+  //           ),
+  //         ),
+  //       ),
+  //       SizedBox(width: 10.0),
+  //       Container(
+  //         padding: EdgeInsets.all(6.0),
+  //         decoration: BoxDecoration(
+  //           color: Theme.of(context).accentColor,
+  //           borderRadius: BorderRadius.circular(10.0),
+  //         ),
+  //         alignment: Alignment.center,
+  //         child: Text(
+  //           "ร้านเครื่องเขียน",
+  //           style: new TextStyle(color: Colors.white, fontSize: 12),
+  //         ),
+  //       ),
+  //       SizedBox(width: 10.0),
+  //       Container(
+  //         padding: EdgeInsets.all(6.0),
+  //         decoration: BoxDecoration(
+  //           color: Theme.of(context).accentColor,
+  //           borderRadius: BorderRadius.circular(10.0),
+  //         ),
+  //         alignment: Alignment.center,
+  //         child: Text(
+  //           "คลินิก/ขายยา",
+  //           style: new TextStyle(color: Colors.white, fontSize: 12),
+  //         ),
+  //       ),
+  //       SizedBox(width: 10.0),
+  //       Container(
+  //         padding: EdgeInsets.all(6.0),
+  //         decoration: BoxDecoration(
+  //           color: Theme.of(context).accentColor,
+  //           borderRadius: BorderRadius.circular(10.0),
+  //         ),
+  //         alignment: Alignment.center,
+  //         child: Text(
+  //           "สถานที่ใน Rmutt",
+  //           style: new TextStyle(color: Colors.white, fontSize: 12),
+  //         ),
+  //       ),
+  //       SizedBox(width: 10.0),
+  //       Container(
+  //         padding: EdgeInsets.all(6.0),
+  //         decoration: BoxDecoration(
+  //           color: Theme.of(context).accentColor,
+  //           borderRadius: BorderRadius.circular(10.0),
+  //         ),
+  //         alignment: Alignment.center,
+  //         child: Text(
+  //           "สถานที่ทั่วไป",
+  //           style: new TextStyle(color: Colors.white, fontSize: 12),
+  //         ),
+  //       ),
+  //     ],
+  //   );
+  // } ไม่ใช้ อะไรไม่รู้ลืม
 
   void LogoutMethod(BuildContext context) {
     showDialog(

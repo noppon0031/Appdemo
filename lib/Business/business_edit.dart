@@ -42,6 +42,7 @@ class BusinessEdit extends StatefulWidget {
       tel,
       time,
       type,
+      type2,
       user_id,
       website;
 
@@ -77,6 +78,7 @@ class BusinessEdit extends StatefulWidget {
     this.tel,
     this.time,
     this.type,
+    this.type2,
     this.user_id,
     this.website,
   });
