@@ -43,6 +43,9 @@ class BusinessEdit extends StatefulWidget {
       time,
       type,
       type2,
+      type3,
+      type4,
+      type5,
       user_id,
       website;
 
@@ -79,6 +82,9 @@ class BusinessEdit extends StatefulWidget {
     this.time,
     this.type,
     this.type2,
+    this.type3,
+    this.type4,
+    this.type5,
     this.user_id,
     this.website,
   });
@@ -410,7 +416,7 @@ class _BusinessEdit extends State<BusinessEdit> {
                   ),
                   SizedBox(height: 10.0),
                   Text(
-                    "อีเมลล์",
+                    "อีเมล์",
                     style: new TextStyle(fontSize: 16.0),
                   ),
                   TextFormField(
@@ -418,8 +424,7 @@ class _BusinessEdit extends State<BusinessEdit> {
                     autofocus: false,
                     controller: email_Controller,
                     keyboardType: TextInputType.text,
-                    decoration:
-                        new InputDecoration(hintText: 'กรุณาใส่อีเมลล์'),
+                    decoration: new InputDecoration(hintText: 'กรุณาใส่อีเมล์'),
                   ),
                   SizedBox(height: 10.0),
                   Text(

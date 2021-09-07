@@ -29,32 +29,6 @@ class _SearchFiltersState extends State<SearchFilters> {
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Categories:',
-                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-                  ),
-                  Wrap(
-                    spacing: 10,
-                    children: List<Widget>.generate(10, (index) {
-                      final isSelected = index % 2 == 0;
-
-                      return FilterChip(
-                        label: Text('Category $index'),
-                        labelStyle: TextStyle(
-                          color: isSelected
-                              ? Colors.white
-                              : Theme.of(context).textTheme.bodyText1!.color,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        selected: isSelected,
-                        selectedColor: Colors.redAccent,
-                        checkmarkColor: Colors.white,
-                        onSelected: (bool selected) {},
-                      );
-                    }),
-                  )
-                ],
               ))
         ]),
       ),

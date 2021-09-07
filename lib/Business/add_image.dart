@@ -261,6 +261,82 @@ class _AddImageState extends State<AddImage> {
                       }).toList(),
                     ),
                   ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: dropdownValue3,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          dropdownValue3 = data!;
+                        });
+                      },
+                      items: business_type3
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: dropdownValue4,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          dropdownValue4 = data!;
+                        });
+                      },
+                      items: business_type4
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: dropdownValue5,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          dropdownValue5 = data!;
+                        });
+                      },
+                      items: business_type5
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+
                   // RaisedButton(
                   //   child: Text('เลือก'),
                   //   onPressed: () => business_type,
@@ -358,7 +434,7 @@ class _AddImageState extends State<AddImage> {
                   ),
                   SizedBox(height: 10.0),
                   Text(
-                    "อีเมลล์",
+                    "อีเมล์",
                     style: new TextStyle(fontSize: 16.0),
                   ),
                   TextFormField(
@@ -366,8 +442,7 @@ class _AddImageState extends State<AddImage> {
                     autofocus: false,
                     controller: email_Controller,
                     keyboardType: TextInputType.text,
-                    decoration:
-                        new InputDecoration(hintText: 'กรุณาใส่อีเมลล์'),
+                    decoration: new InputDecoration(hintText: 'กรุณาใส่อีเมล์'),
                   ),
                   SizedBox(height: 10.0),
                   Text(
@@ -516,9 +591,11 @@ class _AddImageState extends State<AddImage> {
     var Google_map = google_map_Controller.text.trim();
     var Type = dropdownValue;
     var Type2 = dropdownValue2;
-
+    var Type3 = dropdownValue2;
+    var Type4 = dropdownValue4;
+    var Type5 = dropdownValue5;
     if (validateEmail(Email) == false) {
-      Toast.show('กรุณาตรวจสอบอีเมลล์ให้ถูกต้อง', context,
+      Toast.show('กรุณาตรวจสอบอีเมล์ให้ถูกต้อง', context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       return;
     }
@@ -727,6 +804,9 @@ class _AddImageState extends State<AddImage> {
             'time': Time,
             'type': Type,
             'type2': Type2,
+            'type3': Type3,
+            'type4': Type4,
+            'type5': Type5,
             'user_id': User_id,
             'website': Website
           })
@@ -786,6 +866,9 @@ class _AddImageState extends State<AddImage> {
                 'time': Time,
                 'type': Type,
                 'type2': Type2,
+                'type3': Type3,
+                'type4': Type4,
+                'type5': Type5,
                 'user_id': User_id,
                 'website': Website
               })
@@ -810,9 +893,9 @@ class _AddImageState extends State<AddImage> {
     return emailValid;
   }
 
-  String dropdownValue = 'เลือกหมวดหมู่';
+  String dropdownValue = 'เลือกหมวดหมู่ที่ 1';
   List<String> business_type = [
-    'เลือกหมวดหมู่',
+    'เลือกหมวดหมู่ที่ 1',
     'ร้านอาหาร',
     'ร้านกาแฟ',
     'ร้านเครื่องเขียน',
@@ -822,9 +905,45 @@ class _AddImageState extends State<AddImage> {
     'สถานที่ใน Rmutt',
     'สถานที่ทั่วไป'
   ];
-  String dropdownValue2 = 'เลือกหมวดหมู่';
+  String dropdownValue2 = 'เลือกหมวดหมู่ที่ 2';
   List<String> business_type2 = [
-    'เลือกหมวดหมู่',
+    'เลือกหมวดหมู่ที่ 2',
+    'ร้านอาหาร',
+    'ร้านกาแฟ',
+    'ร้านเครื่องเขียน',
+    'ร้านเสริมสวย',
+    'คลินิก/ขายยา',
+    'ร้านทั่วไป',
+    'สถานที่ใน Rmutt',
+    'สถานที่ทั่วไป'
+  ];
+  String dropdownValue3 = 'เลือกหมวดหมู่ที่ 3';
+  List<String> business_type3 = [
+    'เลือกหมวดหมู่ที่ 3',
+    'ร้านอาหาร',
+    'ร้านกาแฟ',
+    'ร้านเครื่องเขียน',
+    'ร้านเสริมสวย',
+    'คลินิก/ขายยา',
+    'ร้านทั่วไป',
+    'สถานที่ใน Rmutt',
+    'สถานที่ทั่วไป'
+  ];
+  String dropdownValue4 = 'เลือกหมวดหมู่ที่ 4';
+  List<String> business_type4 = [
+    'เลือกหมวดหมู่ที่ 4',
+    'ร้านอาหาร',
+    'ร้านกาแฟ',
+    'ร้านเครื่องเขียน',
+    'ร้านเสริมสวย',
+    'คลินิก/ขายยา',
+    'ร้านทั่วไป',
+    'สถานที่ใน Rmutt',
+    'สถานที่ทั่วไป'
+  ];
+  String dropdownValue5 = 'เลือกหมวดหมู่ที่ 5';
+  List<String> business_type5 = [
+    'เลือกหมวดหมู่ที่ 5',
     'ร้านอาหาร',
     'ร้านกาแฟ',
     'ร้านเครื่องเขียน',

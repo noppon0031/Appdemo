@@ -48,6 +48,9 @@ class Business_Detail extends StatefulWidget {
       time,
       type,
       type2,
+      type3,
+      type4,
+      type5,
       user_id,
       website;
 
@@ -84,6 +87,9 @@ class Business_Detail extends StatefulWidget {
     this.time,
     this.type,
     this.type2,
+    this.type3,
+    this.type4,
+    this.type5,
     this.user_id,
     this.website,
   });
@@ -343,6 +349,60 @@ class _Business_Detail extends State<Business_Detail> {
               ],
             ),
           ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  width: 81,
+                  child: Text('',
+                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                  child: Text(widget.type3,
+                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  width: 81,
+                  child: Text('',
+                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                  child: Text(widget.type4,
+                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  width: 81,
+                  child: Text('',
+                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                  child: Text(widget.type5,
+                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                ),
+              ],
+            ),
+          ),
           SizedBox(
             height: 10.0,
           ),
@@ -479,7 +539,7 @@ class _Business_Detail extends State<Business_Detail> {
               children: <Widget>[
                 Container(
                   width: 81,
-                  child: Text('อีเมลล์ :',
+                  child: Text('อีเมล์ :',
                       style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
                 ),
                 Padding(

@@ -50,7 +50,7 @@ class RegisterState extends State<Register> {
                     Padding(
                       padding: EdgeInsets.only(left: 10),
                       child: Text(
-                        "อีเมลล์",
+                        "อีเมล์",
                         style: new TextStyle(fontSize: 16.0),
                       ),
                     ),
@@ -61,7 +61,7 @@ class RegisterState extends State<Register> {
                         autofocus: false,
                         controller: emailController,
                         decoration: new InputDecoration(
-                          hintText: 'กรุณาใส่อีเมลล์',
+                          hintText: 'กรุณาใส่อีเมล์',
                         ),
                       ),
                     ),
@@ -189,13 +189,13 @@ class RegisterState extends State<Register> {
     var Type = dropdownValue;
 
     if (Email.isEmpty) {
-      Toast.show("กรุณาใส่อีเมลล์ก่อน", context,
+      Toast.show("กรุณาใส่อีเมล์ก่อน", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       return;
     }
 
     if (validateEmail(Email) == false) {
-      Toast.show('กรุณาตรวจสอบอีเมลล์ให้ถูกต้อง', context,
+      Toast.show('กรุณาตรวจสอบอีเมล์ให้ถูกต้อง', context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       return;
     }
@@ -232,7 +232,7 @@ class RegisterState extends State<Register> {
     pDialog.show();
 
     if (await checkIfDocExists(Email)) {
-      Toast.show("อีเมลล์ซ้ำ กรุณาเปลี่ยนอีเมลล์", context,
+      Toast.show("อีเมล์ซ้ำ กรุณาเปลี่ยนอีเมล์", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       pDialog.hide();
       return;

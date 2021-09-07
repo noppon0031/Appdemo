@@ -200,7 +200,7 @@ class _ProfileState extends State<Profile> {
                 children: <Widget>[
                   Container(
                     width: 55,
-                    child: Text('อีเมลล์ :',
+                    child: Text('อีเมล์ :',
                         style:
                             TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
                   ),
