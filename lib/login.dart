@@ -1,4 +1,4 @@
-// import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:firebase_database/firebase_database.dart';
 import 'dart:async';
 import 'dart:math';
@@ -12,6 +12,7 @@ import 'package:progress_dialog/progress_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
 import 'register.dart';
+import 'forgotpassword.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -21,7 +22,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  final db = FirebaseDatabase.instance.reference().child("user");
+  // final db = FirebaseDatabase.instance.reference().child("user");
   bool _validate = false;
 
   @override
@@ -272,6 +273,30 @@ class _LoginPageState extends State<LoginPage> {
                                           color: Colors.blue)))),
                         ],
                       ),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => forgotpassword()),
+                                );
+                              });
+                            },
+                            child: Container(
+                                margin: EdgeInsets.only(top: 20, left: 150),
+                                child: const Text(
+                                  "ลืมรหัสผ่าน?",
+                                  style: TextStyle(
+                                      fontSize: 18, color: Colors.blue),
+                                )),
+                          ),
+                        ],
+                      ), //Check
                     ],
                   ),
                 ),

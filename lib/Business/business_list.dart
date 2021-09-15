@@ -60,12 +60,14 @@ class _Business_List extends State<Business_List> {
     if (_searchText == "") {
       return FirebaseFirestore.instance
           .collection('place')
-          .orderBy("array", descending: true)
+          .orderBy("array", descending: false)
+          // .where('status', isEqualTo: false)
           .snapshots();
     } else {
       return FirebaseFirestore.instance
           .collection('place')
           .orderBy('business_name')
+          // .where('status', isEqualTo: false)
           .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
     }
   }

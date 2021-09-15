@@ -4,8 +4,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:noppon/Business/add_image.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:toast/toast.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -19,8 +21,10 @@ class RegisterState extends State<Register> {
   TextEditingController telController = TextEditingController();
   bool check = false;
   bool register = false;
+  // String email, _password;
 
   final db = FirebaseDatabase.instance.reference().child("user");
+  final auth = FirebaseAuth.instance;
 
   @override
   void initState() {
@@ -167,6 +171,8 @@ class RegisterState extends State<Register> {
                           ),
                           onPressed: () {
                             RegisterMethod(context);
+                            // auth.signInWithEmailAndPassword(
+                            //     email: email, password: password);
                           }),
                     ),
                   ],
@@ -252,6 +258,9 @@ class RegisterState extends State<Register> {
           .collection('user')
           .doc(value.id)
           .update({'user_id': value.id}));
+
+      FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: Email, password: Password);
 
       Toast.show("สมัครสมาชิกสำเร็จ", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);

@@ -98,12 +98,13 @@ class _Business_List_User extends State<Business_List_User> {
       if (Business_Type == "ทั้งหมด") {
         return FirebaseFirestore.instance
             .collection('place')
-            .orderBy("array", descending: true)
+            .where("check", isEqualTo: true)
             .snapshots();
       } else {
         return FirebaseFirestore.instance
             .collection('place')
             .where("type", isEqualTo: Business_Type)
+            .where("check", isEqualTo: true)
             .snapshots();
       }
     } else {
@@ -123,19 +124,20 @@ class _Business_List_User extends State<Business_List_User> {
       if (Business_Type == "ทั้งหมด") {
         return FirebaseFirestore.instance
             .collection('place')
-            .orderBy("array", descending: true)
+            .where("check", isEqualTo: true)
             .snapshots();
       } else {
         return FirebaseFirestore.instance
             .collection('place')
             .where("type2", isEqualTo: Business_Type)
+            .where("check", isEqualTo: true)
             .snapshots();
       }
-    } else {
-      return FirebaseFirestore.instance
-          .collection('place')
-          .orderBy('business_name')
-          .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
+      // } else {
+      //   return FirebaseFirestore.instance
+      //       .collection('place')
+      //       .orderBy('business_name')
+      //       .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
       // .where('type', isEqualTo: Business_Type)
     }
@@ -148,19 +150,20 @@ class _Business_List_User extends State<Business_List_User> {
       if (Business_Type == "ทั้งหมด") {
         return FirebaseFirestore.instance
             .collection('place')
-            .orderBy("array", descending: true)
+            .where("check", isEqualTo: true)
             .snapshots();
       } else {
         return FirebaseFirestore.instance
             .collection('place')
             .where("type3", isEqualTo: Business_Type)
+            .where("check", isEqualTo: true)
             .snapshots();
       }
-    } else {
-      return FirebaseFirestore.instance
-          .collection('place')
-          .orderBy('business_name')
-          .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
+      // } else {
+      //   return FirebaseFirestore.instance
+      //       .collection('place')
+      //       .orderBy('business_name')
+      //       .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
       // .where('type', isEqualTo: Business_Type)
     }
@@ -173,19 +176,20 @@ class _Business_List_User extends State<Business_List_User> {
       if (Business_Type == "ทั้งหมด") {
         return FirebaseFirestore.instance
             .collection('place')
-            .orderBy("array", descending: true)
+            .where("check", isEqualTo: true)
             .snapshots();
       } else {
         return FirebaseFirestore.instance
             .collection('place')
-            .where("type3", isEqualTo: Business_Type)
+            .where("type4", isEqualTo: Business_Type)
+            .where("check", isEqualTo: true)
             .snapshots();
       }
-    } else {
-      return FirebaseFirestore.instance
-          .collection('place')
-          .orderBy('business_name')
-          .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
+      // } else {
+      //   return FirebaseFirestore.instance
+      //       .collection('place')
+      //       .orderBy('business_name')
+      //       .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
       // .where('type', isEqualTo: Business_Type)
     }
@@ -198,19 +202,20 @@ class _Business_List_User extends State<Business_List_User> {
       if (Business_Type == "ทั้งหมด") {
         return FirebaseFirestore.instance
             .collection('place')
-            .orderBy("array", descending: true)
+            .where("check", isEqualTo: true)
             .snapshots();
       } else {
         return FirebaseFirestore.instance
             .collection('place')
             .where("type5", isEqualTo: Business_Type)
+            .where("check", isEqualTo: true)
             .snapshots();
       }
-    } else {
-      return FirebaseFirestore.instance
-          .collection('place')
-          .orderBy('business_name')
-          .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
+      // } else {
+      //   return FirebaseFirestore.instance
+      //       .collection('place')
+      //       .orderBy('business_name')
+      //       .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
       // .where('type', isEqualTo: Business_Type)
     }
@@ -305,9 +310,9 @@ class _Business_List_User extends State<Business_List_User> {
                         MaterialPageRoute(
                             builder: (context) => SearchFilters()),
                       );
-                      setState(() {
-                        Business_Type = "ร้านอาหาร";
-                      });
+                      // setState(() {
+                      //   Business_Type = "ร้านอาหาร";
+                      // });
                     },
                     child: Container(
                       padding: EdgeInsets.all(6.0),
@@ -501,7 +506,7 @@ class _Business_List_User extends State<Business_List_User> {
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
                 print("No Data");
-                return Center(child: Text("ไม่มีข้อมูล"));
+                return Center(child: Text(""));
               } else
                 return ListView(
                   physics: ClampingScrollPhysics(),
@@ -729,14 +734,14 @@ class _Business_List_User extends State<Business_List_User> {
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
                 print("No Data");
-                return Center(child: Text("ไม่มีข้อมูล"));
+                return Center(child: Text(""));
               } else
                 return ListView(
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
                   children: snapshot.data!.docs.map((doc) {
                     return doc['type2'] == Business_Type ||
-                            Business_Type == "ทั้งหมด"
+                            Business_Type == "test"
                         ? Column(
                             children: <Widget>[
                               InkWell(
@@ -957,14 +962,14 @@ class _Business_List_User extends State<Business_List_User> {
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
                 print("No Data");
-                return Center(child: Text("ไม่มีข้อมูล"));
+                return Center(child: Text(""));
               } else
                 return ListView(
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
                   children: snapshot.data!.docs.map((doc) {
                     return doc['type3'] == Business_Type ||
-                            Business_Type == "ทั้งหมด"
+                            Business_Type == "test"
                         ? Column(
                             children: <Widget>[
                               InkWell(
@@ -1185,14 +1190,14 @@ class _Business_List_User extends State<Business_List_User> {
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
                 print("No Data");
-                return Center(child: Text("ไม่มีข้อมูล"));
+                return Center(child: Text(""));
               } else
                 return ListView(
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
                   children: snapshot.data!.docs.map((doc) {
                     return doc['type4'] == Business_Type ||
-                            Business_Type == "ทั้งหมด"
+                            Business_Type == "test"
                         ? Column(
                             children: <Widget>[
                               InkWell(
@@ -1413,14 +1418,14 @@ class _Business_List_User extends State<Business_List_User> {
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
                 print("No Data");
-                return Center(child: Text("ไม่มีข้อมูล"));
+                return Center(child: Text(""));
               } else
                 return ListView(
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
                   children: snapshot.data!.docs.map((doc) {
                     return doc['type5'] == Business_Type ||
-                            Business_Type == "ทั้งหมด"
+                            Business_Type == "test"
                         ? Column(
                             children: <Widget>[
                               InkWell(
@@ -1809,6 +1814,7 @@ class _Business_List_User extends State<Business_List_User> {
     );
   }
 
+//fwafwf
   Widget carousel() {
     return Column(
       children: [

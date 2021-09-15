@@ -773,7 +773,7 @@ class _Business_Detail extends State<Business_Detail> {
                                       });
                                     }
 
-                                    List<int> rating_count = [];
+                                    // List<int> rating_count = [];
 
                                     Navigator.of(context).pop();
                                   },

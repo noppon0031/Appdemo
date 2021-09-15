@@ -41,6 +41,7 @@ class _AddImageState extends State<AddImage> {
   final google_map_Controller = TextEditingController();
   final latitude_Controller = TextEditingController();
   final longitude_Controller = TextEditingController();
+  final check_Controller = TextEditingController();
 
   List<File> _image = [];
   List<String> url_image = [];
@@ -506,6 +507,7 @@ class _AddImageState extends State<AddImage> {
                     controller: detail_Controller,
                     keyboardType: TextInputType.text,
                   ),
+
                   SizedBox(height: 10.0),
                   Text(
                     "ตำแหน่งสถานที่",
@@ -808,7 +810,8 @@ class _AddImageState extends State<AddImage> {
             'type4': Type4,
             'type5': Type5,
             'user_id': User_id,
-            'website': Website
+            'website': Website,
+            'check': false
           })
           .then((value) => FirebaseFirestore.instance
               .collection('place')
@@ -870,7 +873,8 @@ class _AddImageState extends State<AddImage> {
                 'type4': Type4,
                 'type5': Type5,
                 'user_id': User_id,
-                'website': Website
+                'website': Website,
+                'check': false
               })
               .then((value) => FirebaseFirestore.instance
                   .collection('place')
