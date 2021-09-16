@@ -24,6 +24,11 @@ class _Business_List_User extends State<Business_List_User> {
   String Business_Type3 = "";
   String Business_Type4 = "";
   String Business_Type5 = "";
+  String Business_Type6 = "";
+  String Business_Type7 = "";
+  String Business_Type9 = "";
+  String Business_Type10 = "";
+
   var user_id,
       email,
       password,
@@ -34,7 +39,12 @@ class _Business_List_User extends State<Business_List_User> {
       type2,
       type3,
       type4,
-      type5;
+      type5,
+      type6,
+      type7,
+      type8,
+      type9,
+      type10;
 
   Widget appBarTitle = Text(
     "สถานที่ทั้งหมด",
@@ -88,6 +98,11 @@ class _Business_List_User extends State<Business_List_User> {
       type3 = prefs.getString('type3');
       type4 = prefs.getString('type4');
       type5 = prefs.getString('type5');
+      type6 = prefs.getString('type6');
+      type7 = prefs.getString('type7');
+      type8 = prefs.getString('type8');
+      type9 = prefs.getString('type9');
+      type10 = prefs.getString('type10');
     });
   }
 
@@ -563,6 +578,11 @@ class _Business_List_User extends State<Business_List_User> {
                                               type3: doc["type3"],
                                               type4: doc["type4"],
                                               type5: doc["type5"],
+                                              type6: doc["type6"],
+                                              type7: doc["type7"],
+                                              type8: doc["type8"],
+                                              type9: doc["type9"],
+                                              type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
                                             )),
@@ -791,6 +811,11 @@ class _Business_List_User extends State<Business_List_User> {
                                               type3: doc["type3"],
                                               type4: doc["type4"],
                                               type5: doc["type5"],
+                                              type6: doc["type6"],
+                                              type7: doc["type7"],
+                                              type8: doc["type8"],
+                                              type9: doc["type9"],
+                                              type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
                                             )),
@@ -1019,6 +1044,11 @@ class _Business_List_User extends State<Business_List_User> {
                                               type3: doc["type3"],
                                               type4: doc["type4"],
                                               type5: doc["type5"],
+                                              type6: doc["type6"],
+                                              type7: doc["type7"],
+                                              type8: doc["type8"],
+                                              type9: doc["type9"],
+                                              type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
                                             )),
@@ -1247,6 +1277,11 @@ class _Business_List_User extends State<Business_List_User> {
                                               type3: doc["type3"],
                                               type4: doc["type4"],
                                               type5: doc["type5"],
+                                              type6: doc["type6"],
+                                              type7: doc["type7"],
+                                              type8: doc["type8"],
+                                              type9: doc["type9"],
+                                              type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
                                             )),
@@ -1475,6 +1510,11 @@ class _Business_List_User extends State<Business_List_User> {
                                               type3: doc["type3"],
                                               type4: doc["type4"],
                                               type5: doc["type5"],
+                                              type6: doc["type6"],
+                                              type7: doc["type7"],
+                                              type8: doc["type8"],
+                                              type9: doc["type9"],
+                                              type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
                                             )),

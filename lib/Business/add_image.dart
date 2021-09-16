@@ -337,7 +337,137 @@ class _AddImageState extends State<AddImage> {
                       }).toList(),
                     ),
                   ),
+                  SizedBox(height: 10.0),
+                  Text(
+                    "หมวดหมู่ย่อย",
+                    style: new TextStyle(fontSize: 16.0),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: dropdownValue6,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          dropdownValue6 = data!;
+                        });
+                      },
+                      items: business_type6
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
+                  ),
 
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: dropdownValue7,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          dropdownValue7 = data!;
+                        });
+                      },
+                      items: business_type7
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: dropdownValue8,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          dropdownValue8 = data!;
+                        });
+                      },
+                      items: business_type8
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: dropdownValue9,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          dropdownValue9 = data!;
+                        });
+                      },
+                      items: business_type9
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: dropdownValue10,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          dropdownValue10 = data!;
+                        });
+                      },
+                      items: business_type10
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
+                  ),
                   // RaisedButton(
                   //   child: Text('เลือก'),
                   //   onPressed: () => business_type,
@@ -593,9 +723,14 @@ class _AddImageState extends State<AddImage> {
     var Google_map = google_map_Controller.text.trim();
     var Type = dropdownValue;
     var Type2 = dropdownValue2;
-    var Type3 = dropdownValue2;
+    var Type3 = dropdownValue3;
     var Type4 = dropdownValue4;
     var Type5 = dropdownValue5;
+    var Type6 = dropdownValue6;
+    var Type7 = dropdownValue7;
+    var Type8 = dropdownValue8;
+    var Type9 = dropdownValue9;
+    var Type10 = dropdownValue10;
     if (validateEmail(Email) == false) {
       Toast.show('กรุณาตรวจสอบอีเมล์ให้ถูกต้อง', context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
@@ -809,6 +944,11 @@ class _AddImageState extends State<AddImage> {
             'type3': Type3,
             'type4': Type4,
             'type5': Type5,
+            'type6': Type6,
+            'type7': Type7,
+            'type8': Type8,
+            'type9': Type9,
+            'type10': Type10,
             'user_id': User_id,
             'website': Website,
             'check': false
@@ -872,6 +1012,11 @@ class _AddImageState extends State<AddImage> {
                 'type3': Type3,
                 'type4': Type4,
                 'type5': Type5,
+                'type6': Type6,
+                'type7': Type7,
+                'type8': Type8,
+                'type9': Type9,
+                'type10': Type10,
                 'user_id': User_id,
                 'website': Website,
                 'check': false
@@ -897,9 +1042,9 @@ class _AddImageState extends State<AddImage> {
     return emailValid;
   }
 
-  String dropdownValue = 'เลือกหมวดหมู่ที่ 1';
+  String dropdownValue = '';
   List<String> business_type = [
-    'เลือกหมวดหมู่ที่ 1',
+    '',
     'ร้านอาหาร',
     'ร้านกาแฟ',
     'ร้านเครื่องเขียน',
@@ -909,9 +1054,9 @@ class _AddImageState extends State<AddImage> {
     'สถานที่ใน Rmutt',
     'สถานที่ทั่วไป'
   ];
-  String dropdownValue2 = 'เลือกหมวดหมู่ที่ 2';
+  String dropdownValue2 = '';
   List<String> business_type2 = [
-    'เลือกหมวดหมู่ที่ 2',
+    '',
     'ร้านอาหาร',
     'ร้านกาแฟ',
     'ร้านเครื่องเขียน',
@@ -921,9 +1066,9 @@ class _AddImageState extends State<AddImage> {
     'สถานที่ใน Rmutt',
     'สถานที่ทั่วไป'
   ];
-  String dropdownValue3 = 'เลือกหมวดหมู่ที่ 3';
+  String dropdownValue3 = '';
   List<String> business_type3 = [
-    'เลือกหมวดหมู่ที่ 3',
+    '',
     'ร้านอาหาร',
     'ร้านกาแฟ',
     'ร้านเครื่องเขียน',
@@ -933,9 +1078,9 @@ class _AddImageState extends State<AddImage> {
     'สถานที่ใน Rmutt',
     'สถานที่ทั่วไป'
   ];
-  String dropdownValue4 = 'เลือกหมวดหมู่ที่ 4';
+  String dropdownValue4 = '';
   List<String> business_type4 = [
-    'เลือกหมวดหมู่ที่ 4',
+    '',
     'ร้านอาหาร',
     'ร้านกาแฟ',
     'ร้านเครื่องเขียน',
@@ -945,9 +1090,9 @@ class _AddImageState extends State<AddImage> {
     'สถานที่ใน Rmutt',
     'สถานที่ทั่วไป'
   ];
-  String dropdownValue5 = 'เลือกหมวดหมู่ที่ 5';
+  String dropdownValue5 = '';
   List<String> business_type5 = [
-    'เลือกหมวดหมู่ที่ 5',
+    '',
     'ร้านอาหาร',
     'ร้านกาแฟ',
     'ร้านเครื่องเขียน',
@@ -957,21 +1102,86 @@ class _AddImageState extends State<AddImage> {
     'สถานที่ใน Rmutt',
     'สถานที่ทั่วไป'
   ];
-  // String dropdownValue2 = 'อาหารเหนือ';
-  // List<String> business_type2 = [
-  //   'อาหารเหนือ',
-  //   'อาหารอีสาน',
-  //   'อาหารทะเล',
-  //   'อาหารญี่ปุ่น',
-  //   'อาหารเกาหลี',
-  //   'อาหารอิตาเลียน',
-  //   'อาหารตามสั่ง',
-  //   'หมูกระทะ',
-  //   'ของหวาน',
-  //   'ชานมไข่มุก',
-  //   'ชาบู/ปิ้งย่าง',
-  //   'ฟาสต์ฟูด'
-  // ];
+  String dropdownValue6 = '';
+  List<String> business_type6 = [
+    '',
+    'คาเฟ่',
+    'ชานมไข่มุก',
+    'หมูกระทะ',
+    'ชาบู/ปิ้งย่าง',
+    'ตามสั่ง',
+    'จานด่วน',
+    'เกาหลี',
+    'ญี่ปุ่น',
+    'ไทย',
+    'ของหวาน',
+    'ฟาสต์ฟูด',
+    'อื่นๆ'
+  ];
+  String dropdownValue7 = '';
+  List<String> business_type7 = [
+    '',
+    'คาเฟ่',
+    'ชานมไข่มุก',
+    'หมูกระทะ',
+    'ชาบู/ปิ้งย่าง',
+    'ตามสั่ง',
+    'จานด่วน',
+    'เกาหลี',
+    'ญี่ปุ่น',
+    'ไทย',
+    'ของหวาน',
+    'ฟาสต์ฟูด',
+    'อื่นๆ'
+  ];
+  String dropdownValue8 = '';
+  List<String> business_type8 = [
+    '',
+    'คาเฟ่',
+    'ชานมไข่มุก',
+    'หมูกระทะ',
+    'ชาบู/ปิ้งย่าง',
+    'ตามสั่ง',
+    'จานด่วน',
+    'เกาหลี',
+    'ญี่ปุ่น',
+    'ไทย',
+    'ของหวาน',
+    'ฟาสต์ฟูด',
+    'อื่นๆ'
+  ];
+  String dropdownValue9 = '';
+  List<String> business_type9 = [
+    '',
+    'คาเฟ่',
+    'ชานมไข่มุก',
+    'หมูกระทะ',
+    'ชาบู/ปิ้งย่าง',
+    'ตามสั่ง',
+    'จานด่วน',
+    'เกาหลี',
+    'ญี่ปุ่น',
+    'ไทย',
+    'ของหวาน',
+    'ฟาสต์ฟูด',
+    'อื่นๆ'
+  ];
+  String dropdownValue10 = '';
+  List<String> business_type10 = [
+    '',
+    'คาเฟ่',
+    'ชานมไข่มุก',
+    'หมูกระทะ',
+    'ชาบู/ปิ้งย่าง',
+    'ตามสั่ง',
+    'จานด่วน',
+    'เกาหลี',
+    'ญี่ปุ่น',
+    'ไทย',
+    'ของหวาน',
+    'ฟาสต์ฟูด',
+    'อื่นๆ'
+  ];
   // final valuestopopulate = {
   //   1: "India",
   //   2: "Britain",

@@ -51,6 +51,11 @@ class Business_Detail extends StatefulWidget {
       type3,
       type4,
       type5,
+      type6,
+      type7,
+      type8,
+      type9,
+      type10,
       user_id,
       website;
 
@@ -90,6 +95,11 @@ class Business_Detail extends StatefulWidget {
     this.type3,
     this.type4,
     this.type5,
+    this.type6,
+    this.type7,
+    this.type8,
+    this.type9,
+    this.type10,
     this.user_id,
     this.website,
   });
@@ -398,6 +408,96 @@ class _Business_Detail extends State<Business_Detail> {
                 Padding(
                   padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
                   child: Text(widget.type5,
+                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  width: 81,
+                  child: Text('ประเภทย่อย :',
+                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                  child: Text(widget.type6,
+                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  width: 81,
+                  child: Text('',
+                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                  child: Text(widget.type7,
+                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  width: 81,
+                  child: Text('',
+                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                  child: Text(widget.type8,
+                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  width: 81,
+                  child: Text('',
+                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                  child: Text(widget.type9,
+                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                ),
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  width: 81,
+                  child: Text('',
+                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                  child: Text(widget.type10,
                       style: TextStyle(color: Colors.black, fontSize: 16.0)),
                 ),
               ],
@@ -773,7 +873,7 @@ class _Business_Detail extends State<Business_Detail> {
                                       });
                                     }
 
-                                    // List<int> rating_count = [];
+                                    List<int> rating_count = [];
 
                                     Navigator.of(context).pop();
                                   },

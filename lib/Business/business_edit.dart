@@ -46,6 +46,11 @@ class BusinessEdit extends StatefulWidget {
       type3,
       type4,
       type5,
+      type6,
+      type7,
+      type8,
+      type9,
+      type10,
       user_id,
       website;
 
@@ -85,6 +90,11 @@ class BusinessEdit extends StatefulWidget {
     this.type3,
     this.type4,
     this.type5,
+    this.type6,
+    this.type7,
+    this.type8,
+    this.type9,
+    this.type10,
     this.user_id,
     this.website,
   });
