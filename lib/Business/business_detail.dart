@@ -1,5 +1,6 @@
 import 'dart:convert';
-
+import 'dart:ffi';
+import 'package:noppon/Business/search.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
@@ -110,6 +111,7 @@ class Business_Detail extends StatefulWidget {
 
 class _Business_Detail extends State<Business_Detail> {
   var user_id, user_type;
+  String Array = "";
   bool isLiked = false;
   late double rating = 5;
   TextEditingController commentController = new TextEditingController();
@@ -893,6 +895,82 @@ class _Business_Detail extends State<Business_Detail> {
               )
             ],
           ),
+          // InkWell(
+          //   onTap: () {
+          //     print("Container was tapped");
+          //   },
+          //   child: Padding(
+          //       padding: const EdgeInsets.symmetric(horizontal: 15),
+          //       child: Icon(
+          //         Icons.arrow_upward_sharp,
+          //       )),
+          // ),
+          // InkWell(
+          //   onTap: () {
+          //     print("Container was tapped");
+          //   },
+          //   child: Padding(
+          //       padding: const EdgeInsets.symmetric(horizontal: 15),
+          //       child: Icon(
+          //         Icons.arrow_downward_sharp,
+          //       )),
+          // ),
+          Container(
+            margin: EdgeInsets.all(10),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        Array = "";
+                        print("ล่าสุด");
+                      });
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(6.0),
+                      decoration: BoxDecoration(
+                        color: Icon == "ล่าสุด"
+                            ? Theme.of(context).accentColor
+                            : Colors.grey,
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "ล่าสุด",
+                        style: new TextStyle(color: Colors.white, fontSize: 12),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 5.0),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        Array = "";
+                        print("เก่าที่สุด");
+                      });
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(6.0),
+                      decoration: BoxDecoration(
+                        color: Icon == "เก่าที่สุด"
+                            ? Theme.of(context).accentColor
+                            : Colors.grey,
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "เก่าที่สุด",
+                        style: new TextStyle(color: Colors.white, fontSize: 12),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 5.0),
+                ],
+              ),
+            ),
+          ),
           StreamBuilder<QuerySnapshot>(
             stream: FirebaseFirestore.instance
                 .collection('comment')
@@ -920,6 +998,13 @@ class _Business_Detail extends State<Business_Detail> {
         ],
       ),
     );
+  }
+
+  getFirebasecm1() {
+    return FirebaseFirestore.instance
+        .collection('comment')
+        .orderBy('array', descending: true)
+        .snapshots();
   }
 
   GetPhotoArray(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8,

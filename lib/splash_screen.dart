@@ -13,7 +13,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _TimerButton extends State<SplashScreen> {
-  final interval = const Duration(seconds: 1);
+  final interval = const Duration(seconds: 2);
   final int timerMaxSeconds = 2;
   int currentSeconds = 0;
 

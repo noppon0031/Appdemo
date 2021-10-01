@@ -89,21 +89,21 @@ class _LoginPageState extends State<LoginPage> {
           await prefs.setString('photo', Photo);
           await prefs.setString('username', Username);
           await prefs.setString('tel', Tel);
-          // await prefs.setString('type', Type);
+          await prefs.setString('type', Type);
 
-          // if (Type == "ผู้ประกอบการ") {
-          //   Navigator.pushAndRemoveUntil(
-          //     context,
-          //     MaterialPageRoute(builder: (context) => Launcher()),
-          //     (Route<dynamic> route) => false,
-          //   );
-          // } else {
-          //   Navigator.pushAndRemoveUntil(
-          //     context,
-          //     MaterialPageRoute(builder: (context) => Launcher_User()),
-          //     (Route<dynamic> route) => false,
-          //   );
-          // }
+          if (Type == "ผู้ประกอบการ") {
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => Launcher()),
+              (Route<dynamic> route) => false,
+            );
+          } else {
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => Launcher_User()),
+              (Route<dynamic> route) => false,
+            );
+          }
         });
       }).catchError((e) {
         Toast.show("เกิดข้อผิดพลาด กรุณาลองใหม่", context,
@@ -142,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
         body: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("assets/homeh.jpg"),
+                image: AssetImage("assets/maphome.jpg"),
                 fit: BoxFit.cover,
               ),
             ),

@@ -30,14 +30,14 @@ class _Business_Me extends State<Business_Me> {
   List<Place> place_data = [];
   var email, password, username, tel, type;
 
-  Text _buildRatingStars(int rating) {
-    String stars = '';
-    for (int i = 0; i < rating; i++) {
-      stars += '⭐ ';
-    }
-    stars.trim();
-    return Text(stars);
-  }
+  // Text _buildRatingStars(int rating) {
+  //   String stars = '';
+  //   for (int i = 0; i < rating; i++) {
+  //     stars += '⭐ ';
+  //   }
+  //   stars.trim();
+  //   return Text(stars);
+  // }
 
   @override
   void initState() {

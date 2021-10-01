@@ -21,6 +21,14 @@ class _SearchFiltersState extends State<SearchFilters> {
   late bool _IsSearching;
   String _searchText = "";
   String Business_Type = "";
+  String Business_Type2 = "";
+  String Business_Type3 = "";
+  String Business_Type4 = "";
+  String Business_Type5 = "";
+  String Business_Type6 = "";
+  String Business_Type7 = "";
+  String Business_Type9 = "";
+  String Business_Type10 = "";
 
   var user_id,
       email,
@@ -42,11 +50,6 @@ class _SearchFiltersState extends State<SearchFilters> {
   Widget appBarTitle = Text(
     "ร้านอาหาร",
     style: new TextStyle(color: Colors.white),
-  );
-
-  Icon actionIcon = new Icon(
-    Icons.search,
-    color: Colors.white,
   );
 
   _Business_List_User() {
@@ -71,7 +74,7 @@ class _SearchFiltersState extends State<SearchFilters> {
   void initState() {
     super.initState();
     _IsSearching = false;
-    Business_Type = "ทั้งหมด";
+    Business_Type = "คาเฟ่";
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       _asyncMethod();
     });
@@ -115,11 +118,11 @@ class _SearchFiltersState extends State<SearchFilters> {
             .where("check", isEqualTo: true)
             .snapshots();
       }
-      // } else {
-      //   return FirebaseFirestore.instance
-      //       .collection('place')
-      //       .orderBy('business_name')
-      //       .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
+    } else {
+      return FirebaseFirestore.instance
+          .collection('place')
+          .orderBy('business_name')
+          .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
       // .where('type', isEqualTo: Business_Type)
     }
@@ -242,45 +245,9 @@ class _SearchFiltersState extends State<SearchFilters> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: appBarTitle,
-          backgroundColor: Colors.red,
-          actions: <Widget>[
-            new IconButton(
-              icon: actionIcon,
-              onPressed: () {
-                setState(() {
-                  if (this.actionIcon.icon == Icons.search) {
-                    this.actionIcon = new Icon(
-                      Icons.close,
-                      color: Colors.white,
-                    );
-                    this.appBarTitle = new TextField(
-                      controller: _searchQuery,
-                      style: new TextStyle(
-                        color: Colors.white,
-                      ),
-                      decoration: new InputDecoration(
-                          prefixIcon:
-                              new Icon(Icons.search, color: Colors.white),
-                          hintText: "กรุณาใส่คำค้นหา...",
-                          hintStyle: new TextStyle(color: Colors.white)),
-                    );
-                    _handleSearchStart();
-                  } else {
-                    _handleSearchEnd();
-                  }
-                });
-              },
-            ),
-            // InkWell(
-            //   onTap: () {},
-            //   child: Padding(
-            //       padding: const EdgeInsets.symmetric(horizontal: 15),
-            //       child: Icon(
-            //         Icons.tune,
-            //       )),
-            // )
-          ]),
+        title: appBarTitle,
+        backgroundColor: Colors.red,
+      ),
       body: ListView(
         children: [
           Container(
@@ -289,27 +256,27 @@ class _SearchFiltersState extends State<SearchFilters> {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        Business_Type = "ทั้งหมด";
-                      });
-                    },
-                    child: Container(
-                      padding: EdgeInsets.all(6.0),
-                      decoration: BoxDecoration(
-                        color: Business_Type == "ทั้งหมด"
-                            ? Theme.of(context).accentColor
-                            : Colors.grey,
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      alignment: Alignment.center,
-                      child: Text(
-                        "ทั้งหมด",
-                        style: new TextStyle(color: Colors.white, fontSize: 12),
-                      ),
-                    ),
-                  ),
+                  // InkWell(
+                  //   onTap: () {
+                  //     setState(() {
+                  //       Business_Type = "ทั้งหมด";
+                  //     });
+                  //   },
+                  //   child: Container(
+                  //     padding: EdgeInsets.all(6.0),
+                  //     decoration: BoxDecoration(
+                  //       color: Business_Type == "ทั้งหมด"
+                  //           ? Theme.of(context).accentColor
+                  //           : Colors.grey,
+                  //       borderRadius: BorderRadius.circular(10.0),
+                  //     ),
+                  //     alignment: Alignment.center,
+                  //     child: Text(
+                  //       "ทั้งหมด",
+                  //       style: new TextStyle(color: Colors.white, fontSize: 12),
+                  //     ),
+                  //   ),
+                  // ),
                   SizedBox(width: 5.0),
                   InkWell(
                     onTap: () {
@@ -487,19 +454,6 @@ class _SearchFiltersState extends State<SearchFilters> {
                       ),
                     ),
                   ),
-                  // InkWell(
-                  //   onTap: () {
-                  //     Navigator.of(context).push(
-                  //       MaterialPageRoute(
-                  //           builder: (context) => SearchFilters()),
-                  //     );
-                  //   },
-                  //   child: Padding(
-                  //       padding: const EdgeInsets.symmetric(horizontal: 15),
-                  //       child: Icon(
-                  //         Icons.tune,
-                  //       )),
-                  // ) เก็บไว้ก่อนเผื่อใช้
                 ],
               ),
             ),
@@ -1677,12 +1631,8 @@ class _SearchFiltersState extends State<SearchFilters> {
 
   void _handleSearchEnd() {
     setState(() {
-      Business_Type = "ทั้งหมด";
+      Business_Type = "คาเฟ่";
 
-      this.actionIcon = new Icon(
-        Icons.search,
-        color: Colors.white,
-      );
       this.appBarTitle = new Text(
         "สถานที่ทั้งหมด",
         style: new TextStyle(color: Colors.white),

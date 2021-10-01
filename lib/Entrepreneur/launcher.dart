@@ -5,6 +5,7 @@ import 'package:noppon/Entrepreneur/account.dart';
 import 'package:noppon/User/favorite.dart';
 import 'package:noppon/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:noppon/Business/business_me.dart';
 
 class Launcher extends StatefulWidget {
   _LauncherState createState() => _LauncherState();
@@ -14,6 +15,7 @@ class _LauncherState extends State<Launcher> {
   int _selectedIndex = 0;
   List<Widget> _pageWidget = <Widget>[
     Business_List_User(),
+    Business_Me(),
     Favorite(),
     Account(),
   ];
@@ -71,17 +73,21 @@ class _LauncherState extends State<Launcher> {
     BottomNavigationBarItem(
         icon: Icon(FontAwesomeIcons.home),
         title: Text('Home'),
-        backgroundColor: Colors.blue),
+        backgroundColor: Colors.black54),
+    BottomNavigationBarItem(
+        icon: Icon(FontAwesomeIcons.userAlt),
+        title: Text('Me'),
+        backgroundColor: Colors.black54),
     BottomNavigationBarItem(
         icon: Icon(
           Icons.favorite,
         ),
         title: Text('Favorite'),
-        backgroundColor: Colors.blue),
+        backgroundColor: Colors.black54),
     BottomNavigationBarItem(
         icon: Icon(FontAwesomeIcons.userAlt),
         title: Text('Account'),
-        backgroundColor: Colors.blue),
+        backgroundColor: Colors.black54),
   ];
 
   void _onItemTapped(int index) {
@@ -100,7 +106,7 @@ class _LauncherState extends State<Launcher> {
             items: _menuBar,
             iconSize: 20,
             currentIndex: _selectedIndex,
-            selectedItemColor: Colors.red,
+            selectedItemColor: Colors.white,
             unselectedItemColor: Colors.grey,
             onTap: _onItemTapped,
           ),
