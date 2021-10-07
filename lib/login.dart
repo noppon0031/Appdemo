@@ -7,7 +7,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:noppon/Entrepreneur/launcher.dart';
-import 'package:noppon/User/launcher_user.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
@@ -95,12 +94,6 @@ class _LoginPageState extends State<LoginPage> {
             Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(builder: (context) => Launcher()),
-              (Route<dynamic> route) => false,
-            );
-          } else {
-            Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(builder: (context) => Launcher_User()),
               (Route<dynamic> route) => false,
             );
           }

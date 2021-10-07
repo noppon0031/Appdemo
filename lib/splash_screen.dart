@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:noppon/Entrepreneur/launcher.dart';
-import 'package:noppon/User/launcher_user.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:ui';
 import 'dart:async';
-// import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'login.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,7 +12,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _TimerButton extends State<SplashScreen> {
-  final interval = const Duration(seconds: 2);
+  final interval = const Duration(seconds: 1);
   final int timerMaxSeconds = 2;
   int currentSeconds = 0;
 
@@ -59,7 +58,7 @@ class _TimerButton extends State<SplashScreen> {
       } else {
         Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => Launcher_User()),
+          MaterialPageRoute(builder: (context) => Launcher()),
           (Route<dynamic> route) => false,
         );
       }

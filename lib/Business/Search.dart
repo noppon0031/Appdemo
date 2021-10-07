@@ -281,46 +281,25 @@ class _SearchFiltersState extends State<SearchFilters> {
                   InkWell(
                     onTap: () {
                       setState(() {
-                        Business_Type = "คาเฟ่";
+                        Business_Type = "ชาบู/ปิ้งย่าง";
                       });
                     },
                     child: Container(
                       padding: EdgeInsets.all(6.0),
                       decoration: BoxDecoration(
-                        color: Business_Type == "คาเฟ่"
+                        color: Business_Type == "ชาบู/ปิ้งย่าง"
                             ? Theme.of(context).accentColor
                             : Colors.grey,
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       alignment: Alignment.center,
                       child: Text(
-                        "คาเฟ่",
+                        "ชาบู/ปิ้งย่าง",
                         style: new TextStyle(color: Colors.white, fontSize: 12),
                       ),
                     ),
                   ),
-                  SizedBox(width: 5.0),
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        Business_Type = "หมูกระทะ";
-                      });
-                    },
-                    child: Container(
-                      padding: EdgeInsets.all(6.0),
-                      decoration: BoxDecoration(
-                        color: Business_Type == "หมูกระทะ"
-                            ? Theme.of(context).accentColor
-                            : Colors.grey,
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      alignment: Alignment.center,
-                      child: Text(
-                        "หมูกระทะ",
-                        style: new TextStyle(color: Colors.white, fontSize: 12),
-                      ),
-                    ),
-                  ),
+
                   SizedBox(width: 5.0),
                   InkWell(
                     onTap: () {
@@ -361,6 +340,28 @@ class _SearchFiltersState extends State<SearchFilters> {
                       alignment: Alignment.center,
                       child: Text(
                         "จานด่วน",
+                        style: new TextStyle(color: Colors.white, fontSize: 12),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 5.0),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        Business_Type = "ไทย";
+                      });
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(6.0),
+                      decoration: BoxDecoration(
+                        color: Business_Type == "ไทย"
+                            ? Theme.of(context).accentColor
+                            : Colors.grey,
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "ไทย",
                         style: new TextStyle(color: Colors.white, fontSize: 12),
                       ),
                     ),
@@ -410,24 +411,47 @@ class _SearchFiltersState extends State<SearchFilters> {
                       ),
                     ),
                   ),
+
                   SizedBox(width: 5.0),
                   InkWell(
                     onTap: () {
                       setState(() {
-                        Business_Type = "ไทย";
+                        Business_Type = "ของหวาน";
                       });
                     },
                     child: Container(
                       padding: EdgeInsets.all(6.0),
                       decoration: BoxDecoration(
-                        color: Business_Type == "ไทย"
+                        color: Business_Type == "ของหวาน"
                             ? Theme.of(context).accentColor
                             : Colors.grey,
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       alignment: Alignment.center,
                       child: Text(
-                        "ไทย",
+                        "ของหวาน",
+                        style: new TextStyle(color: Colors.white, fontSize: 12),
+                      ),
+                    ),
+                  ),
+                  SizedBox(width: 5.0),
+                  InkWell(
+                    onTap: () {
+                      setState(() {
+                        Business_Type = "ฟาสต์ฟูด";
+                      });
+                    },
+                    child: Container(
+                      padding: EdgeInsets.all(6.0),
+                      decoration: BoxDecoration(
+                        color: Business_Type == "ฟาสต์ฟูด"
+                            ? Theme.of(context).accentColor
+                            : Colors.grey,
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      alignment: Alignment.center,
+                      child: Text(
+                        "ฟาสต์ฟูด",
                         style: new TextStyle(color: Colors.white, fontSize: 12),
                       ),
                     ),
@@ -526,6 +550,7 @@ class _SearchFiltersState extends State<SearchFilters> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -695,7 +720,7 @@ class _SearchFiltersState extends State<SearchFilters> {
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
                 print("No Data");
-                return Center(child: Text("test"));
+                return Center(child: Text(""));
               } else
                 return ListView(
                   physics: ClampingScrollPhysics(),
@@ -758,6 +783,7 @@ class _SearchFiltersState extends State<SearchFilters> {
                                               type10: doc["type6"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -927,7 +953,7 @@ class _SearchFiltersState extends State<SearchFilters> {
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
                 print("No Data");
-                return Center(child: Text("test"));
+                return Center(child: Text(""));
               } else
                 return ListView(
                   physics: ClampingScrollPhysics(),
@@ -990,6 +1016,7 @@ class _SearchFiltersState extends State<SearchFilters> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -1159,7 +1186,7 @@ class _SearchFiltersState extends State<SearchFilters> {
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
                 print("No Data");
-                return Center(child: Text("test"));
+                return Center(child: Text(""));
               } else
                 return ListView(
                   physics: ClampingScrollPhysics(),
@@ -1222,6 +1249,7 @@ class _SearchFiltersState extends State<SearchFilters> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -1391,7 +1419,7 @@ class _SearchFiltersState extends State<SearchFilters> {
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
                 print("No Data");
-                return Center(child: Text("test"));
+                return Center(child: Text(""));
               } else
                 return ListView(
                   physics: ClampingScrollPhysics(),
@@ -1454,6 +1482,7 @@ class _SearchFiltersState extends State<SearchFilters> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },

@@ -178,6 +178,7 @@ class PlaceList extends StatelessWidget {
                                     type10: document["type10"],
                                     user_id: document["user_id"],
                                     website: document["website"],
+                                    photodetail: doc["photodetail"],
                                   )),
                         );
                       },
@@ -282,6 +283,8 @@ class PlaceList extends StatelessWidget {
                                                   type10: doc["type10"],
                                                   user_id: doc["user_id"],
                                                   website: doc["website"],
+                                                  photodetail:
+                                                      doc["photodetail"],
                                                 )),
                                       );
                                     },

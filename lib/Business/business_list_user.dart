@@ -895,6 +895,7 @@ class _Business_List_User extends State<Business_List_User> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -1128,6 +1129,7 @@ class _Business_List_User extends State<Business_List_User> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -1361,6 +1363,7 @@ class _Business_List_User extends State<Business_List_User> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -1594,6 +1597,7 @@ class _Business_List_User extends State<Business_List_User> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -1769,8 +1773,7 @@ class _Business_List_User extends State<Business_List_User> {
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
                   children: snapshot.data!.docs.map((doc) {
-                    return doc['type'] == Business_Type ||
-                            Business_Type == "test"
+                    return doc['type'] == Business_Type || Business_Type == ""
                         ? Column(
                             children: <Widget>[
                               InkWell(
@@ -1827,6 +1830,7 @@ class _Business_List_User extends State<Business_List_User> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -2002,8 +2006,7 @@ class _Business_List_User extends State<Business_List_User> {
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
                   children: snapshot.data!.docs.map((doc) {
-                    return doc['type'] == Business_Type ||
-                            Business_Type == "test"
+                    return doc['type'] == Business_Type || Business_Type == ""
                         ? Column(
                             children: <Widget>[
                               InkWell(
@@ -2060,6 +2063,7 @@ class _Business_List_User extends State<Business_List_User> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -2235,8 +2239,7 @@ class _Business_List_User extends State<Business_List_User> {
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
                   children: snapshot.data!.docs.map((doc) {
-                    return doc['type'] == Business_Type ||
-                            Business_Type == "test"
+                    return doc['type'] == Business_Type || Business_Type == ""
                         ? Column(
                             children: <Widget>[
                               InkWell(
@@ -2293,6 +2296,7 @@ class _Business_List_User extends State<Business_List_User> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -2468,8 +2472,7 @@ class _Business_List_User extends State<Business_List_User> {
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
                   children: snapshot.data!.docs.map((doc) {
-                    return doc['type2'] == Business_Type ||
-                            Business_Type == "test"
+                    return doc['type2'] == Business_Type || Business_Type == ""
                         ? Column(
                             children: <Widget>[
                               InkWell(
@@ -2526,6 +2529,7 @@ class _Business_List_User extends State<Business_List_User> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -2701,8 +2705,7 @@ class _Business_List_User extends State<Business_List_User> {
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
                   children: snapshot.data!.docs.map((doc) {
-                    return doc['type3'] == Business_Type ||
-                            Business_Type == "test"
+                    return doc['type3'] == Business_Type || Business_Type == ""
                         ? Column(
                             children: <Widget>[
                               InkWell(
@@ -2759,6 +2762,7 @@ class _Business_List_User extends State<Business_List_User> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -2934,8 +2938,7 @@ class _Business_List_User extends State<Business_List_User> {
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
                   children: snapshot.data!.docs.map((doc) {
-                    return doc['type3'] == Business_Type ||
-                            Business_Type == "test"
+                    return doc['type3'] == Business_Type || Business_Type == ""
                         ? Column(
                             children: <Widget>[
                               InkWell(
@@ -2992,6 +2995,7 @@ class _Business_List_User extends State<Business_List_User> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -3167,8 +3171,7 @@ class _Business_List_User extends State<Business_List_User> {
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
                   children: snapshot.data!.docs.map((doc) {
-                    return doc['type3'] == Business_Type ||
-                            Business_Type == "test"
+                    return doc['type3'] == Business_Type || Business_Type == ""
                         ? Column(
                             children: <Widget>[
                               InkWell(
@@ -3225,6 +3228,7 @@ class _Business_List_User extends State<Business_List_User> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -3400,8 +3404,7 @@ class _Business_List_User extends State<Business_List_User> {
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
                   children: snapshot.data!.docs.map((doc) {
-                    return doc['type3'] == Business_Type ||
-                            Business_Type == "test"
+                    return doc['type3'] == Business_Type || Business_Type == ""
                         ? Column(
                             children: <Widget>[
                               InkWell(
@@ -3458,6 +3461,7 @@ class _Business_List_User extends State<Business_List_User> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -3633,8 +3637,7 @@ class _Business_List_User extends State<Business_List_User> {
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
                   children: snapshot.data!.docs.map((doc) {
-                    return doc['type4'] == Business_Type ||
-                            Business_Type == "test"
+                    return doc['type4'] == Business_Type || Business_Type == ""
                         ? Column(
                             children: <Widget>[
                               InkWell(
@@ -3691,6 +3694,7 @@ class _Business_List_User extends State<Business_List_User> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -3866,8 +3870,7 @@ class _Business_List_User extends State<Business_List_User> {
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
                   children: snapshot.data!.docs.map((doc) {
-                    return doc['type4'] == Business_Type ||
-                            Business_Type == "test"
+                    return doc['type4'] == Business_Type || Business_Type == ""
                         ? Column(
                             children: <Widget>[
                               InkWell(
@@ -3924,6 +3927,7 @@ class _Business_List_User extends State<Business_List_User> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -4099,8 +4103,7 @@ class _Business_List_User extends State<Business_List_User> {
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
                   children: snapshot.data!.docs.map((doc) {
-                    return doc['type4'] == Business_Type ||
-                            Business_Type == "test"
+                    return doc['type4'] == Business_Type || Business_Type == ""
                         ? Column(
                             children: <Widget>[
                               InkWell(
@@ -4157,6 +4160,7 @@ class _Business_List_User extends State<Business_List_User> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -4332,8 +4336,7 @@ class _Business_List_User extends State<Business_List_User> {
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
                   children: snapshot.data!.docs.map((doc) {
-                    return doc['type4'] == Business_Type ||
-                            Business_Type == "test"
+                    return doc['type4'] == Business_Type || Business_Type == ""
                         ? Column(
                             children: <Widget>[
                               InkWell(
@@ -4390,6 +4393,7 @@ class _Business_List_User extends State<Business_List_User> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -4565,8 +4569,7 @@ class _Business_List_User extends State<Business_List_User> {
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
                   children: snapshot.data!.docs.map((doc) {
-                    return doc['type5'] == Business_Type ||
-                            Business_Type == "test"
+                    return doc['type5'] == Business_Type || Business_Type == ""
                         ? Column(
                             children: <Widget>[
                               InkWell(
@@ -4623,6 +4626,7 @@ class _Business_List_User extends State<Business_List_User> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -4798,8 +4802,7 @@ class _Business_List_User extends State<Business_List_User> {
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
                   children: snapshot.data!.docs.map((doc) {
-                    return doc['type5'] == Business_Type ||
-                            Business_Type == "test"
+                    return doc['type5'] == Business_Type || Business_Type == ""
                         ? Column(
                             children: <Widget>[
                               InkWell(
@@ -4856,6 +4859,7 @@ class _Business_List_User extends State<Business_List_User> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -5031,8 +5035,7 @@ class _Business_List_User extends State<Business_List_User> {
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
                   children: snapshot.data!.docs.map((doc) {
-                    return doc['type5'] == Business_Type ||
-                            Business_Type == "test"
+                    return doc['type5'] == Business_Type || Business_Type == ""
                         ? Column(
                             children: <Widget>[
                               InkWell(
@@ -5089,6 +5092,7 @@ class _Business_List_User extends State<Business_List_User> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },
@@ -5264,8 +5268,7 @@ class _Business_List_User extends State<Business_List_User> {
                   physics: ClampingScrollPhysics(),
                   shrinkWrap: true,
                   children: snapshot.data!.docs.map((doc) {
-                    return doc['type5'] == Business_Type ||
-                            Business_Type == "test"
+                    return doc['type5'] == Business_Type || Business_Type == ""
                         ? Column(
                             children: <Widget>[
                               InkWell(
@@ -5322,6 +5325,7 @@ class _Business_List_User extends State<Business_List_User> {
                                               type10: doc["type10"],
                                               user_id: doc["user_id"],
                                               website: doc["website"],
+                                              photodetail: doc["photodetail"],
                                             )),
                                   );
                                 },

@@ -42,6 +42,7 @@ class _AddImageState extends State<AddImage> {
   final latitude_Controller = TextEditingController();
   final longitude_Controller = TextEditingController();
   final check_Controller = TextEditingController();
+  final photo_Detaii_Controller = TextEditingController();
 
   List<File> _image = [];
   List<String> url_image = [];
@@ -114,6 +115,19 @@ class _AddImageState extends State<AddImage> {
                 shrinkWrap: true,
                 children: [
                   Text(
+                    "คำอธิบายรูปภาพ",
+                    style: new TextStyle(fontSize: 16.0, color: Colors.black),
+                  ),
+                  TextFormField(
+                    maxLines: 3,
+                    autofocus: false,
+                    controller: photo_Detaii_Controller,
+                    decoration: new InputDecoration(
+                      hintText: 'เขียนอธิบายรูปภาพของคุณ (ไม่จำเป็นต้องกรอก)',
+                    ),
+                  ),
+                  SizedBox(height: 10.0),
+                  Text(
                     "ชื่อ",
                     style: new TextStyle(fontSize: 16.0, color: Colors.black),
                   ),
@@ -125,6 +139,7 @@ class _AddImageState extends State<AddImage> {
                       hintText: 'กรุณาใส่ชื่อ',
                     ),
                   ),
+                  SizedBox(height: 10.0),
                   Text(
                     "ชื่อแฝง 1 (Alias Name)",
                     style: new TextStyle(fontSize: 16.0),
@@ -602,7 +617,7 @@ class _AddImageState extends State<AddImage> {
                   ),
                   SizedBox(height: 10.0),
                   Text(
-                    "ละติจูด",
+                    "ตำแหน่งสถานที่ของคุณ",
                     style: new TextStyle(fontSize: 16.0),
                   ),
                   TextFormField(
@@ -613,11 +628,7 @@ class _AddImageState extends State<AddImage> {
                     decoration:
                         new InputDecoration(hintText: 'กรุณาใส่ละติจูด'),
                   ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    "ลองจิจูด",
-                    style: new TextStyle(fontSize: 16.0),
-                  ),
+
                   TextFormField(
                     maxLines: 1,
                     autofocus: false,
@@ -626,6 +637,28 @@ class _AddImageState extends State<AddImage> {
                     decoration:
                         new InputDecoration(hintText: 'กรุณาใส่ลองจิจูด'),
                   ),
+                  SizedBox(height: 10.0),
+                  // Text(
+                  //   "ตำแหน่งสถานที่ของคุณ 2",
+                  //   style: new TextStyle(fontSize: 16.0),
+                  // ),
+                  // TextFormField(
+                  //   maxLines: 1,
+                  //   autofocus: false,
+                  //   controller: latitude2_Controller,
+                  //   keyboardType: TextInputType.number,
+                  //   decoration:
+                  //       new InputDecoration(hintText: 'กรุณาใส่ละติจูด'),
+                  // ),
+
+                  // TextFormField(
+                  //   maxLines: 1,
+                  //   autofocus: false,
+                  //   controller: longitude2_Controller,
+                  //   keyboardType: TextInputType.number,
+                  //   decoration:
+                  //       new InputDecoration(hintText: 'กรุณาใส่ลองจิจูด'),
+                  // ),
                   SizedBox(height: 10.0),
                   Text(
                     "รายละเอียดร้าน",
@@ -638,19 +671,19 @@ class _AddImageState extends State<AddImage> {
                     keyboardType: TextInputType.text,
                   ),
 
-                  SizedBox(height: 10.0),
-                  Text(
-                    "ตำแหน่งสถานที่",
-                    style: new TextStyle(fontSize: 16.0),
-                  ),
-                  TextFormField(
-                    maxLines: 1,
-                    autofocus: false,
-                    controller: google_map_Controller,
-                    keyboardType: TextInputType.text,
-                    decoration: new InputDecoration(
-                        hintText: 'เช่น www.google.co.th/maps/place/asdfad'),
-                  ),
+                  // SizedBox(height: 10.0),
+                  // Text(
+                  //   "ตำแหน่งสถานที่",
+                  //   style: new TextStyle(fontSize: 16.0),
+                  // ),
+                  // TextFormField(
+                  //   maxLines: 1,
+                  //   autofocus: false,
+                  //   controller: google_map_Controller,
+                  //   keyboardType: TextInputType.text,
+                  //   decoration: new InputDecoration(
+                  //       hintText: 'เช่น www.google.co.th/maps/place/asdfad'),
+                  // ),
                   SizedBox(height: 10.0),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -721,7 +754,7 @@ class _AddImageState extends State<AddImage> {
     var Longitude = longitude_Controller.text.trim();
     var Detail = detail_Controller.text.trim();
     var Google_map = google_map_Controller.text.trim();
-    var Type = dropdownValue;
+    var type = dropdownValue;
     var Type2 = dropdownValue2;
     var Type3 = dropdownValue3;
     var Type4 = dropdownValue4;
@@ -730,7 +763,8 @@ class _AddImageState extends State<AddImage> {
     var Type7 = dropdownValue7;
     var Type8 = dropdownValue8;
     var Type9 = dropdownValue9;
-    var Type10 = dropdownValue10;
+    var type10 = dropdownValue10;
+    var photodetail = photo_Detaii_Controller.text.trim();
     if (validateEmail(Email) == false) {
       Toast.show('กรุณาตรวจสอบอีเมล์ให้ถูกต้อง', context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
@@ -939,7 +973,7 @@ class _AddImageState extends State<AddImage> {
             'status': "true",
             'tel': Tel,
             'time': Time,
-            'type': Type,
+            'type': type,
             'type2': Type2,
             'type3': Type3,
             'type4': Type4,
@@ -948,10 +982,11 @@ class _AddImageState extends State<AddImage> {
             'type7': Type7,
             'type8': Type8,
             'type9': Type9,
-            'type10': Type10,
+            'type10': type10,
             'user_id': User_id,
             'website': Website,
-            'check': false
+            'check': false,
+            'photodetail': photodetail
           })
           .then((value) => FirebaseFirestore.instance
               .collection('place')
@@ -1007,7 +1042,7 @@ class _AddImageState extends State<AddImage> {
                 'status': "true",
                 'tel': Tel,
                 'time': Time,
-                'type': Type,
+                'type': type,
                 'type2': Type2,
                 'type3': Type3,
                 'type4': Type4,
@@ -1016,10 +1051,11 @@ class _AddImageState extends State<AddImage> {
                 'type7': Type7,
                 'type8': Type8,
                 'type9': Type9,
-                'type10': Type10,
+                'type10': type10,
                 'user_id': User_id,
                 'website': Website,
-                'check': false
+                'check': false,
+                'photodetail': photodetail
               })
               .then((value) => FirebaseFirestore.instance
                   .collection('place')
@@ -1105,9 +1141,6 @@ class _AddImageState extends State<AddImage> {
   String dropdownValue6 = '';
   List<String> business_type6 = [
     '',
-    'คาเฟ่',
-    'ชานมไข่มุก',
-    'หมูกระทะ',
     'ชาบู/ปิ้งย่าง',
     'ตามสั่ง',
     'จานด่วน',
@@ -1121,9 +1154,6 @@ class _AddImageState extends State<AddImage> {
   String dropdownValue7 = '';
   List<String> business_type7 = [
     '',
-    'คาเฟ่',
-    'ชานมไข่มุก',
-    'หมูกระทะ',
     'ชาบู/ปิ้งย่าง',
     'ตามสั่ง',
     'จานด่วน',
@@ -1137,9 +1167,6 @@ class _AddImageState extends State<AddImage> {
   String dropdownValue8 = '';
   List<String> business_type8 = [
     '',
-    'คาเฟ่',
-    'ชานมไข่มุก',
-    'หมูกระทะ',
     'ชาบู/ปิ้งย่าง',
     'ตามสั่ง',
     'จานด่วน',
@@ -1153,9 +1180,6 @@ class _AddImageState extends State<AddImage> {
   String dropdownValue9 = '';
   List<String> business_type9 = [
     '',
-    'คาเฟ่',
-    'ชานมไข่มุก',
-    'หมูกระทะ',
     'ชาบู/ปิ้งย่าง',
     'ตามสั่ง',
     'จานด่วน',
@@ -1169,9 +1193,6 @@ class _AddImageState extends State<AddImage> {
   String dropdownValue10 = '';
   List<String> business_type10 = [
     '',
-    'คาเฟ่',
-    'ชานมไข่มุก',
-    'หมูกระทะ',
     'ชาบู/ปิ้งย่าง',
     'ตามสั่ง',
     'จานด่วน',

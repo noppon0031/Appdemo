@@ -4,6 +4,8 @@ import 'package:noppon/Business/business_list_user.dart';
 import 'package:noppon/Entrepreneur/account.dart';
 import 'package:noppon/User/favorite.dart';
 import 'package:noppon/login.dart';
+// import 'package:noppon/src/screens/home_screen.dart';
+import 'package:noppon/src/screens/home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:noppon/Business/business_me.dart';
 
@@ -15,7 +17,7 @@ class _LauncherState extends State<Launcher> {
   int _selectedIndex = 0;
   List<Widget> _pageWidget = <Widget>[
     Business_List_User(),
-    Business_Me(),
+    HomeScreen(),
     Favorite(),
     Account(),
   ];
@@ -76,7 +78,7 @@ class _LauncherState extends State<Launcher> {
         backgroundColor: Colors.black54),
     BottomNavigationBarItem(
         icon: Icon(FontAwesomeIcons.userAlt),
-        title: Text('Me'),
+        title: Text('สถานที่ใกล้คุณ'),
         backgroundColor: Colors.black54),
     BottomNavigationBarItem(
         icon: Icon(

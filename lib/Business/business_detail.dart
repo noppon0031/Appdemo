@@ -58,7 +58,8 @@ class Business_Detail extends StatefulWidget {
       type9,
       type10,
       user_id,
-      website;
+      website,
+      photodetail;
 
   Business_Detail({
     this.place_id,
@@ -103,6 +104,7 @@ class Business_Detail extends StatefulWidget {
     this.type10,
     this.user_id,
     this.website,
+    this.photodetail,
   });
 
   @override
@@ -110,6 +112,8 @@ class Business_Detail extends StatefulWidget {
 }
 
 class _Business_Detail extends State<Business_Detail> {
+  // LatLng _initialcameraposition =
+  //     LatLng(14.036657152304594, 100.72765705248132);
   var user_id, user_type;
   String Array = "";
   bool isLiked = false;
@@ -180,17 +184,32 @@ class _Business_Detail extends State<Business_Detail> {
   final Map<String, Marker> _markers = {};
   Future<void> _onMapCreated(GoogleMapController controller) async {
     setState(() {
-      _markers.clear();
-
       final marker = Marker(
         markerId: MarkerId(widget.business_name),
-        position: LatLng(widget.latitude as double, widget.longitude as double),
+        position: LatLng(
+          widget.latitude as double,
+          widget.longitude as double,
+        ),
         infoWindow: InfoWindow(
           title: widget.business_name,
           snippet: widget.address,
         ),
       );
-      _markers["Test"] = marker;
+      _markers[''] = marker;
+      // final marker2 = Marker(
+      //   markerId: MarkerId(widget.business_name),
+      //   position: LatLng(
+      //     widget.latitude2 as double,
+      //     widget.longitude2 as double,
+      //   ),
+      //   infoWindow: InfoWindow(
+      //     title: widget.business_name,
+      //     snippet: widget.address,
+      //   ),
+      // );
+      //
+
+      // _markers2[''] = marker2;
     });
   }
 
@@ -284,6 +303,36 @@ class _Business_Detail extends State<Business_Detail> {
             padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
+            ),
+          ),
+          SizedBox(
+            height: 20.0,
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  width: 81,
+                  child: Text('คำอธิบายรูปภาพ :',
+                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                  child: Text(widget.photodetail,
+                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 10.0,
+          ),
+          Padding(
+            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 Container(
                   width: 81,
@@ -299,7 +348,7 @@ class _Business_Detail extends State<Business_Detail> {
             ),
           ),
           SizedBox(
-            height: 20.0,
+            height: 10.0,
           ),
           Padding(
             padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
@@ -697,19 +746,53 @@ class _Business_Detail extends State<Business_Detail> {
           SizedBox(
             height: 10.0,
           ),
+          // Container(
+          //   margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+          //   height: 200,
+          //   child: GoogleMap(
+          //     onMapCreated: _onMapCreated,
+          //     initialCameraPosition: CameraPosition(
+          //       target: LatLng(
+          //           widget.latitude as double, widget.longitude as double),
+          //       zoom: 17,
+          //     ),
+          //     markers: _markers.values.toSet(),
+          //   ),
+          // ),
           Container(
-            margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
             height: 200,
             child: GoogleMap(
-              onMapCreated: _onMapCreated,
               initialCameraPosition: CameraPosition(
                 target: LatLng(
                     widget.latitude as double, widget.longitude as double),
-                zoom: 15,
+                zoom: 16,
               ),
+              mapType: MapType.normal,
               markers: _markers.values.toSet(),
+              onMapCreated: _onMapCreated,
+              myLocationEnabled: true,
             ),
           ),
+          // Container(
+          //   width: 81,
+          //   child: Text('ตำแหน่งที่ 2 (ถ้ามี) :',
+          //       style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+          // ),
+
+          // Container(
+          //   margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
+          //   height: 200,
+          //   child: GoogleMap(
+          //     onMapCreated: _onMapCreated,
+          //     initialCameraPosition: CameraPosition(
+          //       target: LatLng(
+          //           widget.latitude2 as double, widget.longitude2 as double),
+          //       zoom: 17,
+          //     ),
+          //     markers: _markers2.values.toSet(),
+          //   ),
+          // ),
+
           Divider(color: Colors.black),
           Padding(
             padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
@@ -895,6 +978,7 @@ class _Business_Detail extends State<Business_Detail> {
               )
             ],
           ),
+
           // InkWell(
           //   onTap: () {
           //     print("Container was tapped");
@@ -923,6 +1007,7 @@ class _Business_Detail extends State<Business_Detail> {
                 children: [
                   InkWell(
                     onTap: () {
+                      getFirebasecom1();
                       setState(() {
                         Array = "";
                         print("ล่าสุด");
@@ -946,6 +1031,7 @@ class _Business_Detail extends State<Business_Detail> {
                   SizedBox(width: 5.0),
                   InkWell(
                     onTap: () {
+                      getFirebasecom2();
                       setState(() {
                         Array = "";
                         print("เก่าที่สุด");
@@ -972,10 +1058,7 @@ class _Business_Detail extends State<Business_Detail> {
             ),
           ),
           StreamBuilder<QuerySnapshot>(
-            stream: FirebaseFirestore.instance
-                .collection('comment')
-                .orderBy('array', descending: true)
-                .snapshots(),
+            stream: getFirebasecom1(),
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
                 return Center(
@@ -1000,10 +1083,17 @@ class _Business_Detail extends State<Business_Detail> {
     );
   }
 
-  getFirebasecm1() {
+  getFirebasecom1() {
     return FirebaseFirestore.instance
         .collection('comment')
         .orderBy('array', descending: true)
+        .snapshots();
+  }
+
+  getFirebasecom2() {
+    return FirebaseFirestore.instance
+        .collection('comment')
+        .orderBy('array', descending: false)
         .snapshots();
   }
 
@@ -1489,6 +1579,20 @@ class _Business_Detail extends State<Business_Detail> {
           });
     }
   }
+
+  // Future<int> getSumtotal(String total) async {
+  //   int sum = 0;
+  //   await FirebaseFirestore.instance
+  //       .collection('place')
+  //       .where('total', isEqualTo: total)
+  //       .get()
+  //       .then((QuerySnapshot) {
+  //     QuerySnapshot.docs.forEach((result) {
+  //       sum = result.data()['total'];
+  //     });
+  //   });
+  //   return sum;
+  // }
 }
 
 class CommentList extends StatelessWidget {

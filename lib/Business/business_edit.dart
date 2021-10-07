@@ -52,7 +52,8 @@ class BusinessEdit extends StatefulWidget {
       type9,
       type10,
       user_id,
-      website;
+      website,
+      photodetail;
 
   BusinessEdit({
     this.place_id,
@@ -97,6 +98,7 @@ class BusinessEdit extends StatefulWidget {
     this.type10,
     this.user_id,
     this.website,
+    this.photodetail,
   });
   @override
   _BusinessEdit createState() => _BusinessEdit();
@@ -127,6 +129,7 @@ class _BusinessEdit extends State<BusinessEdit> {
   final google_map_Controller = TextEditingController();
   final latitude_Controller = TextEditingController();
   final longitude_Controller = TextEditingController();
+  final photodetail_Controller = TextEditingController();
 
   List<File> _image = [];
   List<String> url_image = [];
@@ -155,6 +158,7 @@ class _BusinessEdit extends State<BusinessEdit> {
     google_map_Controller.text = widget.map;
     latitude_Controller.text = widget.latitude;
     longitude_Controller.text = widget.longitude;
+    photodetail_Controller.text = widget.photodetail;
   }
 
   @override
@@ -240,6 +244,18 @@ class _BusinessEdit extends State<BusinessEdit> {
                 physics: ClampingScrollPhysics(),
                 shrinkWrap: true,
                 children: [
+                  Text(
+                    "คำอธิบายรูปภาพ",
+                    style: new TextStyle(fontSize: 16.0, color: Colors.black),
+                  ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: photodetail_Controller,
+                    decoration: new InputDecoration(
+                      hintText: 'กรุณาใส่ชื่อ',
+                    ),
+                  ),
                   Text(
                     "ชื่อ",
                     style: new TextStyle(fontSize: 16.0, color: Colors.black),
@@ -498,19 +514,19 @@ class _BusinessEdit extends State<BusinessEdit> {
                     controller: detail_Controller,
                     keyboardType: TextInputType.text,
                   ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    "ตำแหน่งสถานที่",
-                    style: new TextStyle(fontSize: 16.0),
-                  ),
-                  TextFormField(
-                    maxLines: 1,
-                    autofocus: false,
-                    controller: google_map_Controller,
-                    keyboardType: TextInputType.text,
-                    decoration: new InputDecoration(
-                        hintText: 'เช่น www.google.co.th/maps/place/asdfad'),
-                  ),
+                  // SizedBox(height: 10.0),
+                  // Text(
+                  //   "ตำแหน่งสถานที่",
+                  //   style: new TextStyle(fontSize: 16.0),
+                  // ),
+                  // TextFormField(
+                  //   maxLines: 1,
+                  //   autofocus: false,
+                  //   controller: google_map_Controller,
+                  //   keyboardType: TextInputType.text,
+                  //   decoration: new InputDecoration(
+                  //       hintText: 'เช่น www.google.co.th/maps/place/asdfad'),
+                  // ),
                   SizedBox(height: 10.0),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
