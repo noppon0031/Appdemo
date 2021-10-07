@@ -215,7 +215,7 @@ class PlaceList extends StatelessWidget {
                                     type10: document["type10"],
                                     user_id: document["user_id"],
                                     website: document["website"],
-                                    photodetail: doc["photodetail"],
+                                    photodetail: document["photodetail"],
                                   )),
                         );
                       },
