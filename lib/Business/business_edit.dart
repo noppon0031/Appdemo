@@ -479,7 +479,7 @@ class _BusinessEdit extends State<BusinessEdit> {
                   ),
                   SizedBox(height: 10.0),
                   Text(
-                    "ละติจูด",
+                    "ละติจูด, ลองจิจูด",
                     style: new TextStyle(fontSize: 16.0),
                   ),
                   TextFormField(
@@ -490,11 +490,7 @@ class _BusinessEdit extends State<BusinessEdit> {
                     decoration:
                         new InputDecoration(hintText: 'กรุณาใส่ละติจูด'),
                   ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    "ลองจิจูด",
-                    style: new TextStyle(fontSize: 16.0),
-                  ),
+
                   TextFormField(
                     maxLines: 1,
                     autofocus: false,
