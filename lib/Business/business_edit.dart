@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+import 'package:noppon/Entrepreneur/launcher.dart';
 import 'package:noppon/Model/place.dart';
 import 'package:path/path.dart' as Path;
 import 'package:progress_dialog/progress_dialog.dart';
@@ -110,27 +111,38 @@ class _BusinessEdit extends State<BusinessEdit> {
   late CollectionReference imgRef;
   late firebase_storage.Reference ref;
 
-  final business_name_Controller = TextEditingController();
-  final business_name1_Controller = TextEditingController();
-  final business_name2_Controller = TextEditingController();
-  final business_name3_Controller = TextEditingController();
-  final business_name_english_Controller = TextEditingController();
-  final tel_Controller = TextEditingController();
-  final day_Controller = TextEditingController();
-  final time_Controller = TextEditingController();
-  final price_Controller = TextEditingController();
-  final website_Controller = TextEditingController();
-  final facebook_Controller = TextEditingController();
-  final instagram_Controller = TextEditingController();
-  final line_Controller = TextEditingController();
-  final email_Controller = TextEditingController();
-  final address_Controller = TextEditingController();
-  final detail_Controller = TextEditingController();
-  final google_map_Controller = TextEditingController();
-  final latitude_Controller = TextEditingController();
-  final longitude_Controller = TextEditingController();
-  final photodetail_Controller = TextEditingController();
-
+  TextEditingController business_name_Controller = TextEditingController();
+  TextEditingController business_name1_Controller = TextEditingController();
+  TextEditingController business_name2_Controller = TextEditingController();
+  TextEditingController business_name3_Controller = TextEditingController();
+  TextEditingController business_name_english_Controller =
+      TextEditingController();
+  TextEditingController tel_Controller = TextEditingController();
+  TextEditingController day_Controller = TextEditingController();
+  TextEditingController time_Controller = TextEditingController();
+  TextEditingController price_Controller = TextEditingController();
+  TextEditingController website_Controller = TextEditingController();
+  TextEditingController facebook_Controller = TextEditingController();
+  TextEditingController instagram_Controller = TextEditingController();
+  TextEditingController line_Controller = TextEditingController();
+  TextEditingController email_Controller = TextEditingController();
+  TextEditingController address_Controller = TextEditingController();
+  TextEditingController detail_Controller = TextEditingController();
+  TextEditingController google_map_Controller = TextEditingController();
+  TextEditingController latitude_Controller = TextEditingController();
+  TextEditingController longitude_Controller = TextEditingController();
+  TextEditingController photodetail_Controller = TextEditingController();
+  TextEditingController type_Controller = TextEditingController();
+  TextEditingController type2_Controller = TextEditingController();
+  TextEditingController type3_Controller = TextEditingController();
+  TextEditingController type4_Controller = TextEditingController();
+  TextEditingController type5_Controller = TextEditingController();
+  TextEditingController type6_Controller = TextEditingController();
+  TextEditingController type7_Controller = TextEditingController();
+  TextEditingController type8_Controller = TextEditingController();
+  TextEditingController type9_Controller = TextEditingController();
+  TextEditingController type10_Controller = TextEditingController();
+  TextEditingController check_Controller = TextEditingController();
   List<File> _image = [];
   List<String> url_image = [];
   final picker = ImagePicker();
@@ -321,7 +333,7 @@ class _BusinessEdit extends State<BusinessEdit> {
                   ),
                   SizedBox(height: 10.0),
                   Text(
-                    "ประเภท",
+                    "หมวดหมู่",
                     style: new TextStyle(fontSize: 16.0),
                   ),
                   Padding(
@@ -341,6 +353,237 @@ class _BusinessEdit extends State<BusinessEdit> {
                         });
                       },
                       items: business_type
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: dropdownValue2,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          dropdownValue2 = data!;
+                        });
+                      },
+                      items: business_type2
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: dropdownValue3,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          dropdownValue3 = data!;
+                        });
+                      },
+                      items: business_type3
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: dropdownValue4,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          dropdownValue4 = data!;
+                        });
+                      },
+                      items: business_type4
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: dropdownValue5,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          dropdownValue5 = data!;
+                        });
+                      },
+                      items: business_type5
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+
+                  SizedBox(height: 10.0),
+                  Text(
+                    "ประเภท",
+                    style: new TextStyle(fontSize: 16.0),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: dropdownValue6,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          dropdownValue6 = data!;
+                        });
+                      },
+                      items: business_type6
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: dropdownValue7,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          dropdownValue7 = data!;
+                        });
+                      },
+                      items: business_type7
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: dropdownValue8,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          dropdownValue8 = data!;
+                        });
+                      },
+                      items: business_type8
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: dropdownValue9,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          dropdownValue9 = data!;
+                        });
+                      },
+                      items: business_type9
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: dropdownValue10,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          dropdownValue10 = data!;
+                        });
+                      },
+                      items: business_type10
                           .map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
@@ -535,7 +778,7 @@ class _BusinessEdit extends State<BusinessEdit> {
                         style: new TextStyle(fontSize: 20.0),
                       ),
                       onPressed: () {
-                        uploadFile();
+                        uploadFile(context);
                       }),
                 ],
               )),
@@ -572,26 +815,238 @@ class _BusinessEdit extends State<BusinessEdit> {
     }
   }
 
-  Future uploadFile() async {
-    print("Edit");
-  }
+  Future<void> uploadFile(BuildContext context) async {
+    var business_name = business_name_Controller.text.toString();
+    var business_name1 = business_name1_Controller.text.toString();
+    var business_name2 = business_name2_Controller.text.toString();
+    var business_name3 = business_name3_Controller.text.toString();
+    var business_name_english =
+        business_name_english_Controller.text.toString();
+    var day = day_Controller.text.toString();
+    var detail = detail_Controller.text.toString();
+    var email = email_Controller.text.toString();
+    var facebook = facebook_Controller.text.toString();
+    var instagram = instagram_Controller.text.toString();
+    var line = line_Controller.text.toString();
+    var latitude = latitude_Controller.text.toString();
+    var longitude = longitude_Controller.text.toString();
+    var price = price_Controller.text.toString();
+    var tel = tel_Controller.text.toString();
+    var time = time_Controller.text.toString();
+    var type = type_Controller.text.toString();
+    var type2 = type2_Controller.text.toString();
+    var type3 = type3_Controller.text.toString();
+    var type4 = type4_Controller.text.toString();
+    var type5 = type5_Controller.text.toString();
+    var type6 = type6_Controller.text.toString();
+    var type7 = type7_Controller.text.toString();
+    var type8 = type8_Controller.text.toString();
+    var type9 = type9_Controller.text.toString();
+    var type10 = type10_Controller.text.toString();
+    var website = website_Controller.text.toString();
+    var photodetail = photodetail_Controller.text.toString();
 
-  bool validateEmail(String email) {
-    bool emailValid = RegExp(
-            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-        .hasMatch(email);
-    return emailValid;
-  }
+    FirebaseFirestore.instance.collection('place').doc(widget.place_id).update({
+      'business_name': business_name,
+      'business_name1': business_name1,
+      'business_name2': business_name2,
+      'business_name3': business_name3,
+      'business_name_english': business_name_english,
+      'day': day,
+      'detail': detail,
+      'email': email,
+      'facebook': facebook,
+      'price': price,
+      'instagram': instagram,
+      'line': line,
+      'latitude': latitude,
+      'longitude': longitude,
+      'tel': tel,
+      'time': time,
+      'type': type,
+      'type2': type2,
+      'type3': type3,
+      'type4': type4,
+      'type5': type5,
+      'type6': type6,
+      'type7': type7,
+      'type8': type8,
+      'type9': type9,
+      'type10': type10,
+      'website': website,
+      'photodetail': photodetail,
+      'check': false,
+    }).then((value) async {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('business_name', business_name);
+      await prefs.setString('business_name1', business_name1);
+      await prefs.setString('business_name2', business_name2);
+      await prefs.setString('business_name3', business_name3);
+      await prefs.setString('business_name_english', business_name_english);
+      await prefs.setString('day', day);
+      await prefs.setString('detail', detail);
+      await prefs.setString('email', email);
+      await prefs.setString('facebook', facebook);
+      await prefs.setString('price', price);
+      await prefs.setString('instagram', instagram);
+      await prefs.setString('line', line);
+      await prefs.setString('latitude', latitude);
+      await prefs.setString('longitude', longitude);
+      await prefs.setString('tel', tel);
+      await prefs.setString('time', time);
+      await prefs.setString('website', website);
+      await prefs.setString('photodetail', photodetail);
+      await prefs.setString('type', type);
+      await prefs.setString('type2', type2);
+      await prefs.setString('type3', type3);
+      await prefs.setString('type4', type4);
+      await prefs.setString('type5', type5);
+      await prefs.setString('type6', type6);
+      await prefs.setString('type7', type7);
+      await prefs.setString('type8', type8);
+      await prefs.setString('type9', type9);
+      await prefs.setString('type10', type10);
+    });
 
-  String dropdownValue = 'ร้านอาหาร';
-  List<String> business_type = [
-    'ร้านอาหาร',
-    'ร้านกาแฟ',
-    'ร้านเครื่องเขียน',
-    'ร้านเสริมสวย',
-    'คลินิก/ขายยา',
-    'ร้านทั่วไป',
-    'สถานที่ใน Rmutt',
-    'สถานที่ทั่วไป'
-  ];
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(
+        builder: (BuildContext context) => Launcher(),
+      ),
+      (route) => false,
+    );
+  }
 }
+
+bool validateEmail(String email) {
+  bool emailValid = RegExp(
+          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+      .hasMatch(email);
+  return emailValid;
+}
+
+String dropdownValue = '';
+List<String> business_type = [
+  '',
+  'ร้านอาหาร',
+  'ร้านกาแฟ',
+  'ร้านเครื่องเขียน',
+  'ร้านเสริมสวย',
+  'คลินิก/ขายยา',
+  'ร้านทั่วไป',
+  'สถานที่ใน Rmutt',
+  'สถานที่ทั่วไป'
+];
+String dropdownValue2 = '';
+List<String> business_type2 = [
+  '',
+  'ร้านอาหาร',
+  'ร้านกาแฟ',
+  'ร้านเครื่องเขียน',
+  'ร้านเสริมสวย',
+  'คลินิก/ขายยา',
+  'ร้านทั่วไป',
+  'สถานที่ใน Rmutt',
+  'สถานที่ทั่วไป'
+];
+String dropdownValue3 = '';
+List<String> business_type3 = [
+  '',
+  'ร้านอาหาร',
+  'ร้านกาแฟ',
+  'ร้านเครื่องเขียน',
+  'ร้านเสริมสวย',
+  'คลินิก/ขายยา',
+  'ร้านทั่วไป',
+  'สถานที่ใน Rmutt',
+  'สถานที่ทั่วไป'
+];
+String dropdownValue4 = '';
+List<String> business_type4 = [
+  '',
+  'ร้านอาหาร',
+  'ร้านกาแฟ',
+  'ร้านเครื่องเขียน',
+  'ร้านเสริมสวย',
+  'คลินิก/ขายยา',
+  'ร้านทั่วไป',
+  'สถานที่ใน Rmutt',
+  'สถานที่ทั่วไป'
+];
+String dropdownValue5 = '';
+List<String> business_type5 = [
+  '',
+  'ร้านอาหาร',
+  'ร้านกาแฟ',
+  'ร้านเครื่องเขียน',
+  'ร้านเสริมสวย',
+  'คลินิก/ขายยา',
+  'ร้านทั่วไป',
+  'สถานที่ใน Rmutt',
+  'สถานที่ทั่วไป'
+];
+String dropdownValue6 = '';
+List<String> business_type6 = [
+  '',
+  'ชาบู/ปิ้งย่าง',
+  'ตามสั่ง',
+  'จานด่วน',
+  'เกาหลี',
+  'ญี่ปุ่น',
+  'ไทย',
+  'ของหวาน',
+  'ฟาสต์ฟูด',
+  'อื่นๆ'
+];
+String dropdownValue7 = '';
+List<String> business_type7 = [
+  '',
+  'ชาบู/ปิ้งย่าง',
+  'ตามสั่ง',
+  'จานด่วน',
+  'เกาหลี',
+  'ญี่ปุ่น',
+  'ไทย',
+  'ของหวาน',
+  'ฟาสต์ฟูด',
+  'อื่นๆ'
+];
+String dropdownValue8 = '';
+List<String> business_type8 = [
+  '',
+  'ชาบู/ปิ้งย่าง',
+  'ตามสั่ง',
+  'จานด่วน',
+  'เกาหลี',
+  'ญี่ปุ่น',
+  'ไทย',
+  'ของหวาน',
+  'ฟาสต์ฟูด',
+  'อื่นๆ'
+];
+String dropdownValue9 = '';
+List<String> business_type9 = [
+  '',
+  'ชาบู/ปิ้งย่าง',
+  'ตามสั่ง',
+  'จานด่วน',
+  'เกาหลี',
+  'ญี่ปุ่น',
+  'ไทย',
+  'ของหวาน',
+  'ฟาสต์ฟูด',
+  'อื่นๆ'
+];
+String dropdownValue10 = '';
+List<String> business_type10 = [
+  '',
+  'ชาบู/ปิ้งย่าง',
+  'ตามสั่ง',
+  'จานด่วน',
+  'เกาหลี',
+  'ญี่ปุ่น',
+  'ไทย',
+  'ของหวาน',
+  'ฟาสต์ฟูด',
+  'อื่นๆ'
+];
