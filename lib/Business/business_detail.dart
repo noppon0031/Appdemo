@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:ffi';
+import 'package:noppon/Business/Comment.dart';
 import 'package:noppon/Business/search.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -114,6 +115,8 @@ class Business_Detail extends StatefulWidget {
 class _Business_Detail extends State<Business_Detail> {
   // LatLng _initialcameraposition =
   //     LatLng(14.036657152304594, 100.72765705248132);
+  String _searchText = "";
+  String Comment = "ล่าสุด";
   var user_id, user_type;
   String Array = "";
   bool isLiked = false;
@@ -1064,16 +1067,16 @@ class _Business_Detail extends State<Business_Detail> {
                 children: [
                   InkWell(
                     onTap: () {
-                      getFirebasecom1();
+                      // getFirebasecom1();
                       setState(() {
-                        Array = "";
+                        Comment = "ล่าสุด";
                         print("ล่าสุด");
                       });
                     },
                     child: Container(
                       padding: EdgeInsets.all(6.0),
                       decoration: BoxDecoration(
-                        color: Icon == "ล่าสุด"
+                        color: Comment == "ล่าสุด"
                             ? Theme.of(context).accentColor
                             : Colors.grey,
                         borderRadius: BorderRadius.circular(10.0),
@@ -1088,16 +1091,16 @@ class _Business_Detail extends State<Business_Detail> {
                   SizedBox(width: 5.0),
                   InkWell(
                     onTap: () {
-                      getFirebasecom2();
+                      // getFirebasecom2();
                       setState(() {
-                        Array = "";
+                        Comment = "เก่าที่สุด";
                         print("เก่าที่สุด");
                       });
                     },
                     child: Container(
                       padding: EdgeInsets.all(6.0),
                       decoration: BoxDecoration(
-                        color: Icon == "เก่าที่สุด"
+                        color: Comment == "เก่าที่สุด"
                             ? Theme.of(context).accentColor
                             : Colors.grey,
                         borderRadius: BorderRadius.circular(10.0),
@@ -1135,23 +1138,100 @@ class _Business_Detail extends State<Business_Detail> {
                 );
             },
           ),
+          StreamBuilder<QuerySnapshot>(
+            stream: getFirebasecom2(),
+            builder: (context, snapshot) {
+              if (!snapshot.hasData) {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else
+                return ListView.builder(
+                  physics: ClampingScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: snapshot.data!.docs.length,
+                  itemBuilder: (ctx, index) {
+                    DocumentSnapshot data = snapshot.data!.docs[index];
+                    return data['place_id'] == widget.place_id
+                        ? CommentList(data: data, user_id: user_id)
+                        : Visibility(child: Text(""), visible: false);
+                  },
+                );
+            },
+          ),
+          // StreamBuilder<QuerySnapshot>(
+          //   stream: getFirebasecom1(),
+          //   builder: (context, snapshot) {
+          //     if (!snapshot.hasData) {
+          //       print("No Data");
+          //       return Center(child: Text(""));
+          //     } else
+          //       return ListView(
+          //         physics: ClampingScrollPhysics(),
+          //         shrinkWrap: true,
+          //         children: snapshot.data!.docs.map((doc) {
+          //           return doc['array'] == Comment || Comment == "ล่าสุด"
+          //               ? Column(
+          //                   children: <Widget>[
+          //                     InkWell(
+          //                       onTap: () {
+          //                         Navigator.push(
+          //                           context,
+          //                           MaterialPageRoute(
+          //                               builder: (context) => CommentList(
+          //                                     place_id: doc["place_id"],
+          //                                   )),
+          //                         );
+          //                       },
+          //                     ),
+          //                   ],
+          //                 )
+          //               : Visibility(child: Text("data"), visible: false);
+          //         }).toList(),
+          //       );
+          //   },
+          // ),
         ],
       ),
     );
   }
 
   getFirebasecom1() {
-    return FirebaseFirestore.instance
-        .collection('comment')
-        .orderBy('array', descending: true)
-        .snapshots();
+    print(_searchText + "" + Comment);
+    // return FirebaseFirestore.instance
+    //     .collection('comment')
+    //     .orderBy('array', descending: true)
+    //     .snapshots();
+    if (_searchText == "") {
+      if (Comment == "ล่าสุด") {
+        return FirebaseFirestore.instance
+            .collection('comment')
+            .orderBy('array', descending: true)
+            .snapshots();
+      } else {
+        return FirebaseFirestore.instance
+            .collection('comment')
+            .where("type", isEqualTo: Comment)
+            .snapshots();
+      }
+    }
   }
 
   getFirebasecom2() {
-    return FirebaseFirestore.instance
-        .collection('comment')
-        .orderBy('array', descending: false)
-        .snapshots();
+    print(_searchText + "" + Comment);
+    if (_searchText == "") {
+      if (Comment == "เก่าที่สุด") {
+        return FirebaseFirestore.instance
+            .collection('comment')
+            .orderBy('array', descending: false)
+            .snapshots();
+      } else {
+        return FirebaseFirestore.instance
+            .collection('comment')
+            .where("type", isEqualTo: Comment)
+            .snapshots();
+      }
+    }
   }
 
   GetPhotoArray(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8,
@@ -1680,139 +1760,139 @@ class _Business_Detail extends State<Business_Detail> {
   // }
 }
 
-class CommentList extends StatelessWidget {
-  var data, user_id;
-  CommentList({this.data, this.user_id});
+// class CommentList extends StatelessWidget {
+//   var data, user_id;
+//   CommentList({this.data, this.user_id});
 
-  Text _buildRatingStars(int rating) {
-    String stars = '';
-    for (int i = 0; i < rating; i++) {
-      stars += '⭐ ';
-    }
-    stars.trim();
-    return Text(stars);
-  }
+//   Text _buildRatingStars(int rating) {
+//     String stars = '';
+//     for (int i = 0; i < rating; i++) {
+//       stars += '⭐ ';
+//     }
+//     stars.trim();
+//     return Text(stars);
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder<QuerySnapshot>(
-        future: FirebaseFirestore.instance
-            .collection('user')
-            .where('user_id', isEqualTo: data["user_id"])
-            .get(),
-        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-          if (!snapshot.hasData) {
-            return Container(
-              height: 200.0,
-              alignment: Alignment.center,
-              child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
-              ),
-            );
-          } else {
-            return Column(
-              children: snapshot.data!.docs.map((DocumentSnapshot document) {
-                return InkWell(
-                    child: Card(
-                        child: Padding(
-                            padding: EdgeInsets.all(10),
-                            child: Column(
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text("โดย " + document['username'],
-                                        style: TextStyle(
-                                            color: Colors.blueGrey,
-                                            fontSize: 16.0,
-                                            fontWeight: FontWeight.bold)),
-                                    Text(data['day'],
-                                        style: TextStyle(
-                                            color: Colors.blueGrey,
-                                            fontSize: 16.0)),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.fromLTRB(0, 5, 0, 10),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      _buildRatingStars(data['rating']),
-                                    ],
-                                  ),
-                                ),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Text(data['comment'],
-                                        style: TextStyle(
-                                            color: Colors.blueGrey,
-                                            fontSize: 16.0))
-                                  ],
-                                ),
-                              ],
-                            ))),
-                    onTap: () {
-                      if (data["user_id"] == user_id) {
-                        showDialog(
-                          context: context,
-                          builder: (BuildContext context) {
-                            return AlertDialog(
-                              title: Row(children: [
-                                Image.asset(
-                                  'assets/logo.png',
-                                  width: 30,
-                                  height: 30,
-                                  fit: BoxFit.contain,
-                                ),
-                                Text('  แจ้งเตือน')
-                              ]),
-                              content:
-                                  Text("คุณต้องลบความคิดเห็นนี้ ใช่หรือไม่?"),
-                              actions: <Widget>[
-                                // ignore: deprecated_member_use
-                                FlatButton(
-                                  child: Text(
-                                    "ไม่ใช่",
-                                    style: new TextStyle(color: Colors.blue),
-                                  ),
-                                  onPressed: () {
-                                    Navigator.of(context, rootNavigator: true)
-                                        .pop('dialog');
-                                  },
-                                ),
-                                // ignore: deprecated_member_use
-                                FlatButton(
-                                  child: Text(
-                                    "ใช่",
-                                    style: new TextStyle(color: Colors.blue),
-                                  ),
-                                  onPressed: () async {
-                                    FirebaseFirestore.instance
-                                        .collection('comment')
-                                        .doc(data['comment_id'])
-                                        .delete()
-                                        .then((value) {
-                                      Navigator.of(context, rootNavigator: true)
-                                          .pop('dialog');
-                                    });
-                                    Toast.show("ลบความคิดเห็นสำเร็จ", context,
-                                        duration: Toast.LENGTH_LONG,
-                                        gravity: Toast.BOTTOM);
-                                  },
-                                ),
-                              ],
-                            );
-                          },
-                        );
-                      }
-                    });
-              }).toList(),
-            );
-          }
-        });
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return FutureBuilder<QuerySnapshot>(
+//         future: FirebaseFirestore.instance
+//             .collection('user')
+//             .where('user_id', isEqualTo: data["user_id"])
+//             .get(),
+//         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+//           if (!snapshot.hasData) {
+//             return Container(
+//               height: 200.0,
+//               alignment: Alignment.center,
+//               child: CircularProgressIndicator(
+//                 valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
+//               ),
+//             );
+//           } else {
+//             return Column(
+//               children: snapshot.data!.docs.map((DocumentSnapshot document) {
+//                 return InkWell(
+//                     child: Card(
+//                         child: Padding(
+//                             padding: EdgeInsets.all(10),
+//                             child: Column(
+//                               children: [
+//                                 Row(
+//                                   mainAxisAlignment:
+//                                       MainAxisAlignment.spaceBetween,
+//                                   children: [
+//                                     Text("โดย " + document['username'],
+//                                         style: TextStyle(
+//                                             color: Colors.blueGrey,
+//                                             fontSize: 16.0,
+//                                             fontWeight: FontWeight.bold)),
+//                                     Text(data['day'],
+//                                         style: TextStyle(
+//                                             color: Colors.blueGrey,
+//                                             fontSize: 16.0)),
+//                                   ],
+//                                 ),
+//                                 Padding(
+//                                   padding: EdgeInsets.fromLTRB(0, 5, 0, 10),
+//                                   child: Row(
+//                                     mainAxisAlignment: MainAxisAlignment.start,
+//                                     children: [
+//                                       _buildRatingStars(data['rating']),
+//                                     ],
+//                                   ),
+//                                 ),
+//                                 Row(
+//                                   mainAxisAlignment: MainAxisAlignment.start,
+//                                   children: [
+//                                     Text(data['comment'],
+//                                         style: TextStyle(
+//                                             color: Colors.blueGrey,
+//                                             fontSize: 16.0))
+//                                   ],
+//                                 ),
+//                               ],
+//                             ))),
+//                     onTap: () {
+//                       if (data["user_id"] == user_id) {
+//                         showDialog(
+//                           context: context,
+//                           builder: (BuildContext context) {
+//                             return AlertDialog(
+//                               title: Row(children: [
+//                                 Image.asset(
+//                                   'assets/logo.png',
+//                                   width: 30,
+//                                   height: 30,
+//                                   fit: BoxFit.contain,
+//                                 ),
+//                                 Text('  แจ้งเตือน')
+//                               ]),
+//                               content:
+//                                   Text("คุณต้องลบความคิดเห็นนี้ ใช่หรือไม่?"),
+//                               actions: <Widget>[
+//                                 // ignore: deprecated_member_use
+//                                 FlatButton(
+//                                   child: Text(
+//                                     "ไม่ใช่",
+//                                     style: new TextStyle(color: Colors.blue),
+//                                   ),
+//                                   onPressed: () {
+//                                     Navigator.of(context, rootNavigator: true)
+//                                         .pop('dialog');
+//                                   },
+//                                 ),
+//                                 // ignore: deprecated_member_use
+//                                 FlatButton(
+//                                   child: Text(
+//                                     "ใช่",
+//                                     style: new TextStyle(color: Colors.blue),
+//                                   ),
+//                                   onPressed: () async {
+//                                     FirebaseFirestore.instance
+//                                         .collection('comment')
+//                                         .doc(data['comment_id'])
+//                                         .delete()
+//                                         .then((value) {
+//                                       Navigator.of(context, rootNavigator: true)
+//                                           .pop('dialog');
+//                                     });
+//                                     Toast.show("ลบความคิดเห็นสำเร็จ", context,
+//                                         duration: Toast.LENGTH_LONG,
+//                                         gravity: Toast.BOTTOM);
+//                                   },
+//                                 ),
+//                               ],
+//                             );
+//                           },
+//                         );
+//                       }
+//                     });
+//               }).toList(),
+//             );
+//           }
+//         });
+//   }
+// }
 
 final Map<String, Marker> _markers = {};

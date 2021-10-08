@@ -183,72 +183,72 @@ class _BusinessEdit extends State<BusinessEdit> {
       ),
       body: ListView(
         children: [
-          Stack(alignment: Alignment.center, children: [
-            GridView.builder(
-                shrinkWrap: true,
-                itemCount: _image.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 4),
-                itemBuilder: (context, index) {
-                  return Container(
-                    margin: EdgeInsets.all(3),
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: FileImage(_image[index]),
-                            fit: BoxFit.cover)),
-                  );
-                  // return index == 0
-                  //     ? IconButton(
-                  //         icon: Icon(Icons.add),
-                  //         onPressed: () => !uploading ? chooseImage() : null)
-                  //     : Container(
-                  //         margin: EdgeInsets.all(3),
-                  //         decoration: BoxDecoration(
-                  //             image: DecorationImage(
-                  //                 image: FileImage(_image[index]),
-                  //                 fit: BoxFit.cover)),
-                  //       );
-                }),
-            (_image.length == 0
-                ? Text("กรุณาเลือกรูป")
-                : Visibility(child: Text("data"), visible: true)),
-            uploading
-                ? Center(
-                    child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      // Container(
-                      //   child: Text(
-                      //     'uploading...',
-                      //     style: TextStyle(fontSize: 20),
-                      //   ),
-                      // ),
-                      // SizedBox(
-                      //   height: 10,
-                      // ),
-                      CircularProgressIndicator(
-                        value: val,
-                        valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
-                      )
-                    ],
-                  ))
-                : Container(),
-          ]),
-          Container(
-            height: 40,
-            margin: EdgeInsets.all(10),
-            child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.green,
-                  padding: EdgeInsets.all(8),
-                  textStyle: TextStyle(fontSize: 20),
-                ),
-                child: Text(
-                  'เลือกรูป',
-                  style: new TextStyle(fontSize: 16.0),
-                ),
-                onPressed: () => !uploading ? chooseImage() : null),
-          ),
+          // Stack(alignment: Alignment.center, children: [
+          //   GridView.builder(
+          //       shrinkWrap: true,
+          //       itemCount: _image.length,
+          //       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          //           crossAxisCount: 4),
+          //       itemBuilder: (context, index) {
+          //         return Container(
+          //           margin: EdgeInsets.all(3),
+          //           decoration: BoxDecoration(
+          //               image: DecorationImage(
+          //                   image: FileImage(_image[index]),
+          //                   fit: BoxFit.cover)),
+          //         );
+          //         // return index == 0
+          //         //     ? IconButton(
+          //         //         icon: Icon(Icons.add),
+          //         //         onPressed: () => !uploading ? chooseImage() : null)
+          //         //     : Container(
+          //         //         margin: EdgeInsets.all(3),
+          //         //         decoration: BoxDecoration(
+          //         //             image: DecorationImage(
+          //         //                 image: FileImage(_image[index]),
+          //         //                 fit: BoxFit.cover)),
+          //         //       );
+          //       }),
+          //   (_image.length == 0
+          //       ? Text("กรุณาเลือกรูป")
+          //       : Visibility(child: Text("data"), visible: true)),
+          //   uploading
+          //       ? Center(
+          //           child: Column(
+          //           mainAxisSize: MainAxisSize.min,
+          //           children: [
+          //             // Container(
+          //             //   child: Text(
+          //             //     'uploading...',
+          //             //     style: TextStyle(fontSize: 20),
+          //             //   ),
+          //             // ),
+          //             // SizedBox(
+          //             //   height: 10,
+          //             // ),
+          //             CircularProgressIndicator(
+          //               value: val,
+          //               valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+          //             )
+          //           ],
+          //         ))
+          //       : Container(),
+          // ]),
+          // Container(
+          //   height: 40,
+          //   margin: EdgeInsets.all(10),
+          //   child: ElevatedButton(
+          //       style: ElevatedButton.styleFrom(
+          //         primary: Colors.green,
+          //         padding: EdgeInsets.all(8),
+          //         textStyle: TextStyle(fontSize: 20),
+          //       ),
+          //       child: Text(
+          //         'เลือกรูป',
+          //         style: new TextStyle(fontSize: 16.0),
+          //       ),
+          //       onPressed: () => !uploading ? chooseImage() : null),
+          // ),
           // IconButton(
           //     icon: Icon(Icons.add),
           //     onPressed: () => !uploading ? chooseImage() : null),
