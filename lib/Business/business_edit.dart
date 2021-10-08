@@ -131,6 +131,8 @@ class _BusinessEdit extends State<BusinessEdit> {
   TextEditingController google_map_Controller = TextEditingController();
   TextEditingController latitude_Controller = TextEditingController();
   TextEditingController longitude_Controller = TextEditingController();
+  TextEditingController latitude2_Controller = TextEditingController();
+  TextEditingController longitude2_Controller = TextEditingController();
   TextEditingController photodetail_Controller = TextEditingController();
   TextEditingController type_Controller = TextEditingController();
   TextEditingController type2_Controller = TextEditingController();
@@ -685,7 +687,7 @@ class _BusinessEdit extends State<BusinessEdit> {
                   ),
                   SizedBox(height: 10.0),
                   Text(
-                    "อีเมล์",
+                    "อีเมล",
                     style: new TextStyle(fontSize: 16.0),
                   ),
                   TextFormField(
@@ -693,7 +695,7 @@ class _BusinessEdit extends State<BusinessEdit> {
                     autofocus: false,
                     controller: email_Controller,
                     keyboardType: TextInputType.text,
-                    decoration: new InputDecoration(hintText: 'กรุณาใส่อีเมล์'),
+                    decoration: new InputDecoration(hintText: 'กรุณาใส่อีเมล'),
                   ),
                   SizedBox(height: 10.0),
                   Text(
@@ -859,8 +861,8 @@ class _BusinessEdit extends State<BusinessEdit> {
       'price': price,
       'instagram': instagram,
       'line': line,
-      'latitude': latitude,
-      'longitude': longitude,
+      'latitude': double.parse('$latitude'),
+      'longitude': double.parse('$longitude'),
       'tel': tel,
       'time': time,
       'type': type,

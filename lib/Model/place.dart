@@ -15,6 +15,8 @@ class Place {
   String line;
   double latitude;
   double longitude;
+  double latitude2;
+  double longitude2;
   String map;
   String open;
   String photo1;
@@ -53,6 +55,8 @@ class Place {
       this.line,
       this.latitude,
       this.longitude,
+      this.latitude2,
+      this.longitude2,
       this.map,
       this.open,
       this.photo1,

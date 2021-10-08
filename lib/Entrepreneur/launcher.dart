@@ -78,7 +78,7 @@ class _LauncherState extends State<Launcher> {
         backgroundColor: Colors.black54),
     BottomNavigationBarItem(
         icon: Icon(FontAwesomeIcons.userAlt),
-        title: Text('สถานที่ใกล้คุณ'),
+        title: Text('สถานที่ใกล้เคียง'),
         backgroundColor: Colors.black54),
     BottomNavigationBarItem(
         icon: Icon(

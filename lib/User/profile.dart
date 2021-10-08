@@ -193,6 +193,9 @@ class _ProfileState extends State<Profile> {
                 ],
               ),
             ),
+            SizedBox(
+              height: 20.0,
+            ),
             Padding(
               padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
               child: Row(
@@ -200,7 +203,7 @@ class _ProfileState extends State<Profile> {
                 children: <Widget>[
                   Container(
                     width: 55,
-                    child: Text('อีเมล์ :',
+                    child: Text('อีเมล :',
                         style:
                             TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
                   ),
@@ -212,30 +215,30 @@ class _ProfileState extends State<Profile> {
                 ],
               ),
             ),
+            // SizedBox(
+            //   height: 10.0,
+            // ),
+            // Padding(
+            //   padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+            //   child: Row(
+            //     mainAxisAlignment: MainAxisAlignment.start,
+            //     children: <Widget>[
+            //       Container(
+            //         width: 65,
+            //         child: Text('รหัสผ่าน :',
+            //             style:
+            //                 TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+            //       ),
+            //       Padding(
+            //         padding: EdgeInsets.only(left: 10.0),
+            //         child: Text(password == null ? "" : password,
+            //             style: TextStyle(color: Colors.black, fontSize: 16.0)),
+            //       ),
+            //     ],
+            //   ),
+            // ),
             SizedBox(
-              height: 10.0,
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Container(
-                    width: 65,
-                    child: Text('รหัสผ่าน :',
-                        style:
-                            TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10.0),
-                    child: Text(password == null ? "" : password,
-                        style: TextStyle(color: Colors.black, fontSize: 16.0)),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 10.0,
+              height: 15.0,
             ),
             Padding(
               padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
@@ -257,7 +260,7 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             SizedBox(
-              height: 10,
+              height: 15,
             ),
             Padding(
               padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
@@ -279,7 +282,7 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             SizedBox(
-              height: 10.0,
+              height: 15.0,
             ),
             // Padding(
             //   padding: EdgeInsets.fromLTRB(30, 0, 0, 0),

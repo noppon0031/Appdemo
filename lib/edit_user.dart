@@ -79,13 +79,13 @@ class EditUserState extends State<EditUser1> {
     var Type = dropdownValue;
 
     if (Email.isEmpty) {
-      Toast.show("กรุณาใส่อีเมล์ก่อน", context,
+      Toast.show("กรุณาใส่อีเมลก่อน", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       return;
     }
 
     if (validateEmail(Email) == false) {
-      Toast.show('กรุณาตรวจสอบอีเมล์ให้ถูกต้อง', context,
+      Toast.show('กรุณาตรวจสอบอีเมลให้ถูกต้อง', context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       return;
     }
@@ -147,7 +147,7 @@ class EditUserState extends State<EditUser1> {
         (route) => false,
       );
     } else if (await checkIfDocExists(Email)) {
-      Toast.show("อีเมล์ซ้ำ กรุณาเปลี่ยนอีเมล์", context,
+      Toast.show("อีเมลซ้ำ กรุณาเปลี่ยนอีเมล", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       pDialog.hide();
       return;
@@ -188,7 +188,7 @@ class EditUserState extends State<EditUser1> {
                     Padding(
                       padding: EdgeInsets.only(left: 10),
                       child: Text(
-                        "อีเมล์",
+                        "อีเมล",
                         style: new TextStyle(fontSize: 16.0),
                       ),
                     ),
@@ -199,7 +199,7 @@ class EditUserState extends State<EditUser1> {
                         autofocus: false,
                         controller: emailController,
                         decoration: new InputDecoration(
-                          hintText: 'กรุณาใส่อีเมล์',
+                          hintText: 'กรุณาใส่อีเมล',
                         ),
                       ),
                     ),

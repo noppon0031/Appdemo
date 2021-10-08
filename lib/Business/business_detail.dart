@@ -196,22 +196,76 @@ class _Business_Detail extends State<Business_Detail> {
         ),
       );
       _markers[''] = marker;
-      // final marker2 = Marker(
-      //   markerId: MarkerId(widget.business_name),
-      //   position: LatLng(
-      //     widget.latitude2 as double,
-      //     widget.longitude2 as double,
-      //   ),
-      //   infoWindow: InfoWindow(
-      //     title: widget.business_name,
-      //     snippet: widget.address,
-      //   ),
-      // );
-      //
-
-      // _markers2[''] = marker2;
     });
   }
+
+  // final Map<String, Marker> _markers = {};
+  // final Map<String, Marker> _markers2 = {};
+  // Future<void> _onMapCreated(GoogleMapController controller) async {
+  //   setState(() {
+  //     final marker = Marker(
+  //       markerId: MarkerId(widget.business_name),
+  //       position: LatLng(
+  //         widget.latitude as double,
+  //         widget.longitude as double,
+  //       ),
+  //       infoWindow: InfoWindow(
+  //         title: widget.business_name,
+  //         snippet: widget.address,
+  //       ),
+  //     );
+  //     _markers[''] = marker;
+  //     {}
+  //   });
+
+  //   setState(() {
+  //     final marker2 = Marker(
+  //       markerId: MarkerId(widget.business_name),
+  //       position: LatLng(
+  //         widget.latitude2 as double,
+  //         widget.longitude2 as double,
+  //       ),
+  //       infoWindow: InfoWindow(
+  //         title: widget.business_name,
+  //         snippet: widget.address,
+  //       ),
+  //     );
+  //     _markers2[''] = marker2;
+  //   });
+  // }
+
+  // final Map<String, Marker> _markers = {};
+  // Future<void> _onMapCreated(GoogleMapController controller) async {
+  //   setState(() {
+  //     final marker = Marker(
+  //       markerId: MarkerId(widget.business_name),
+  //       position: LatLng(
+  //         widget.latitude as double,
+  //         widget.longitude as double,
+  //       ),
+  //       infoWindow: InfoWindow(
+  //         title: widget.business_name,
+  //         snippet: widget.address,
+  //       ),
+  //     );
+  //     _markers:
+  //     {}
+  //   });
+  //   setState(() {
+  //     final marker2 = Marker(
+  //       markerId: MarkerId(widget.business_name),
+  //       position: LatLng(
+  //         widget.latitude2 as double,
+  //         widget.longitude2 as double,
+  //       ),
+  //       infoWindow: InfoWindow(
+  //         title: widget.business_name,
+  //         snippet: widget.address,
+  //       ),
+  //     );
+  //     _markers[''] = marker2;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -690,7 +744,7 @@ class _Business_Detail extends State<Business_Detail> {
               children: <Widget>[
                 Container(
                   width: 81,
-                  child: Text('อีเมล์ :',
+                  child: Text('อีเมล :',
                       style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
                 ),
                 Padding(
@@ -759,6 +813,7 @@ class _Business_Detail extends State<Business_Detail> {
           //     markers: _markers.values.toSet(),
           //   ),
           // ),
+
           Container(
             height: 200,
             child: GoogleMap(
@@ -771,8 +826,10 @@ class _Business_Detail extends State<Business_Detail> {
               markers: _markers.values.toSet(),
               onMapCreated: _onMapCreated,
               myLocationEnabled: true,
+              // markers: {map1Marker, map2Marker, map3Marker, map3Marker}
             ),
           ),
+
           // Container(
           //   width: 81,
           //   child: Text('ตำแหน่งที่ 2 (ถ้ามี) :',
@@ -1593,6 +1650,34 @@ class _Business_Detail extends State<Business_Detail> {
   //   });
   //   return sum;
   // }
+  // final Map<String, Marker> _markers = {};
+  // Future<void> _onMapCreated(GoogleMapController controller) async {
+  //   setState(() {
+  //     Marker map1Marker = Marker(
+  //       markerId: MarkerId('map1'),
+  //       position: LatLng(widget.latitude as double, widget.longitude as double),
+  //       infoWindow: InfoWindow(
+  //         title: widget.business_name,
+  //       ),
+  //     );
+  //     _markers[''] = map1Marker;
+  //   });
+
+  //   // Marker map2Marker = Marker(
+  //   //   markerId: MarkerId('map1'),
+  //   //   position: LatLng(14.040058358657939, 100.73664315034246),
+  //   //   infoWindow: InfoWindow(
+  //   //     title: 'widget.business_name',
+  //   //   ),
+  //   // );
+  //   // Marker map3Marker = Marker(
+  //   //   markerId: MarkerId('map1'),
+  //   //   position: LatLng(14.040609132106153, 100.74096874576453),
+  //   //   infoWindow: InfoWindow(
+  //   //     title: 'widget.business_name',
+  //   //   ),
+  //   // );
+  // }
 }
 
 class CommentList extends StatelessWidget {
@@ -1729,3 +1814,5 @@ class CommentList extends StatelessWidget {
         });
   }
 }
+
+final Map<String, Marker> _markers = {};

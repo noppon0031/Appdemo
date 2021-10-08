@@ -580,7 +580,7 @@ class _AddImageState extends State<AddImage> {
                   ),
                   SizedBox(height: 10.0),
                   Text(
-                    "อีเมล์",
+                    "อีเมล",
                     style: new TextStyle(fontSize: 16.0),
                   ),
                   TextFormField(
@@ -588,7 +588,7 @@ class _AddImageState extends State<AddImage> {
                     autofocus: false,
                     controller: email_Controller,
                     keyboardType: TextInputType.text,
-                    decoration: new InputDecoration(hintText: 'กรุณาใส่อีเมล์'),
+                    decoration: new InputDecoration(hintText: 'กรุณาใส่อีเมล'),
                   ),
                   SizedBox(height: 10.0),
                   Text(
@@ -766,7 +766,7 @@ class _AddImageState extends State<AddImage> {
     var type10 = dropdownValue10;
     var photodetail = photo_Detaii_Controller.text.trim();
     if (validateEmail(Email) == false) {
-      Toast.show('กรุณาตรวจสอบอีเมล์ให้ถูกต้อง', context,
+      Toast.show('กรุณาตรวจสอบอีเมลให้ถูกต้อง', context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       return;
     }

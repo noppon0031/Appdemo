@@ -37,7 +37,7 @@ class _LoginPageState extends State<LoginPage> {
     var password = passwordController.text.toString().trim();
 
     if (email.isEmpty) {
-      Toast.show("กรุณาใส่อีเมล์ก่อน", context,
+      Toast.show("กรุณาใส่อีเมลก่อน", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
 
       return;
@@ -58,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
 
     if (await checkLogin(email, password)) {
       pDialog.hide();
-      Toast.show("อีเมล์หรือรหัสไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง", context,
+      Toast.show("อีเมลหรือรหัสไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง", context,
           duration: Toast.LENGTH_SHORT, gravity: Toast.BOTTOM);
     } else {
       FirebaseFirestore.instance
@@ -165,7 +165,7 @@ class _LoginPageState extends State<LoginPage> {
                             decoration: InputDecoration(
                               filled: true,
                               fillColor: Colors.white,
-                              hintText: 'กรุณาใส่อีเมล์',
+                              hintText: 'กรุณาใส่อีเมล',
                               errorText:
                                   _validate ? 'Value Can\'t Be Empty' : null,
                               contentPadding: const EdgeInsets.only(
