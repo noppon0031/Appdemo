@@ -991,7 +991,7 @@ class _Business_Detail extends State<Business_Detail> {
                                                       .update({
                                                     'comment_id': value.id
                                                   }));
-
+                                          double total = 0, count = 0;
                                           //หาค่าเฉลี่ย Rating
                                           FirebaseFirestore.instance
                                               .collection('comment')
@@ -1001,7 +1001,6 @@ class _Business_Detail extends State<Business_Detail> {
                                               .then((querySnapshot) {
                                             querySnapshot.docs
                                                 .forEach((result) async {
-                                              double total = 0, count = 0;
                                               total = total +
                                                   result.data()['rating'];
                                               count++;

@@ -106,17 +106,20 @@ class _Business_List_User extends State<Business_List_User> {
         return FirebaseFirestore.instance
             .collection('place')
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       } else {
         return FirebaseFirestore.instance
             .collection('place')
-            .where("type", isEqualTo: Business_Type)
+            // .where("type", isEqualTo: Business_Type)
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       }
     } else {
       return FirebaseFirestore.instance
           .collection('place')
+          .where("check", isEqualTo: true)
           .orderBy('business_name')
           .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
@@ -132,11 +135,13 @@ class _Business_List_User extends State<Business_List_User> {
         return FirebaseFirestore.instance
             .collection('place')
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       }
     } else {
       return FirebaseFirestore.instance
           .collection('place')
+          .where("check", isEqualTo: true)
           .orderBy('business_name1')
           .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
@@ -152,11 +157,13 @@ class _Business_List_User extends State<Business_List_User> {
         return FirebaseFirestore.instance
             .collection('place')
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       }
     } else {
       return FirebaseFirestore.instance
           .collection('place')
+          .where("check", isEqualTo: true)
           .orderBy('business_name2')
           .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
@@ -172,11 +179,13 @@ class _Business_List_User extends State<Business_List_User> {
         return FirebaseFirestore.instance
             .collection('place')
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       }
     } else {
       return FirebaseFirestore.instance
           .collection('place')
+          .where("check", isEqualTo: true)
           .orderBy('business_name3')
           .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
@@ -192,17 +201,20 @@ class _Business_List_User extends State<Business_List_User> {
         return FirebaseFirestore.instance
             .collection('place')
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       } else {
         return FirebaseFirestore.instance
             .collection('place')
-            .where("type2", isEqualTo: Business_Type)
+            // .where("type2", isEqualTo: Business_Type)
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       }
     } else {
       return FirebaseFirestore.instance
           .collection('place')
+          .where("check", isEqualTo: true)
           .orderBy('business_name')
           .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
@@ -218,11 +230,13 @@ class _Business_List_User extends State<Business_List_User> {
         return FirebaseFirestore.instance
             .collection('place')
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       }
     } else {
       return FirebaseFirestore.instance
           .collection('place')
+          .where("check", isEqualTo: true)
           .orderBy('business_name1')
           .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
@@ -238,11 +252,13 @@ class _Business_List_User extends State<Business_List_User> {
         return FirebaseFirestore.instance
             .collection('place')
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       }
     } else {
       return FirebaseFirestore.instance
           .collection('place')
+          .where("check", isEqualTo: true)
           .orderBy('business_name2')
           .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
@@ -258,11 +274,13 @@ class _Business_List_User extends State<Business_List_User> {
         return FirebaseFirestore.instance
             .collection('place')
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       }
     } else {
       return FirebaseFirestore.instance
           .collection('place')
+          .where("check", isEqualTo: true)
           .orderBy('business_name3')
           .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
@@ -278,17 +296,20 @@ class _Business_List_User extends State<Business_List_User> {
         return FirebaseFirestore.instance
             .collection('place')
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       } else {
         return FirebaseFirestore.instance
             .collection('place')
-            .where("type3", isEqualTo: Business_Type)
+            // .where("type3", isEqualTo: Business_Type)
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       }
     } else {
       return FirebaseFirestore.instance
           .collection('place')
+          .where("check", isEqualTo: true)
           .orderBy('business_name')
           .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
@@ -304,11 +325,13 @@ class _Business_List_User extends State<Business_List_User> {
         return FirebaseFirestore.instance
             .collection('place')
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       }
     } else {
       return FirebaseFirestore.instance
           .collection('place')
+          .where("check", isEqualTo: true)
           .orderBy('business_name1')
           .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
@@ -324,11 +347,13 @@ class _Business_List_User extends State<Business_List_User> {
         return FirebaseFirestore.instance
             .collection('place')
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       }
     } else {
       return FirebaseFirestore.instance
           .collection('place')
+          .where("check", isEqualTo: true)
           .orderBy('business_name2')
           .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
@@ -344,11 +369,13 @@ class _Business_List_User extends State<Business_List_User> {
         return FirebaseFirestore.instance
             .collection('place')
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       }
     } else {
       return FirebaseFirestore.instance
           .collection('place')
+          .where("check", isEqualTo: true)
           .orderBy('business_name3')
           .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
@@ -364,17 +391,20 @@ class _Business_List_User extends State<Business_List_User> {
         return FirebaseFirestore.instance
             .collection('place')
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       } else {
         return FirebaseFirestore.instance
             .collection('place')
-            .where("type4", isEqualTo: Business_Type)
+            // .where("type4", isEqualTo: Business_Type)
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       }
     } else {
       return FirebaseFirestore.instance
           .collection('place')
+          .where("check", isEqualTo: true)
           .orderBy('business_name')
           .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
@@ -390,11 +420,13 @@ class _Business_List_User extends State<Business_List_User> {
         return FirebaseFirestore.instance
             .collection('place')
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       }
     } else {
       return FirebaseFirestore.instance
           .collection('place')
+          .where("check", isEqualTo: true)
           .orderBy('business_name1')
           .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
@@ -410,11 +442,13 @@ class _Business_List_User extends State<Business_List_User> {
         return FirebaseFirestore.instance
             .collection('place')
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       }
     } else {
       return FirebaseFirestore.instance
           .collection('place')
+          .where("check", isEqualTo: true)
           .orderBy('business_name2')
           .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
@@ -430,11 +464,13 @@ class _Business_List_User extends State<Business_List_User> {
         return FirebaseFirestore.instance
             .collection('place')
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       }
     } else {
       return FirebaseFirestore.instance
           .collection('place')
+          .where("check", isEqualTo: true)
           .orderBy('business_name3')
           .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
@@ -450,17 +486,20 @@ class _Business_List_User extends State<Business_List_User> {
         return FirebaseFirestore.instance
             .collection('place')
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       } else {
         return FirebaseFirestore.instance
             .collection('place')
-            .where("type5", isEqualTo: Business_Type)
+            // .where("type5", isEqualTo: Business_Type)
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       }
     } else {
       return FirebaseFirestore.instance
           .collection('place')
+          .where("check", isEqualTo: true)
           .orderBy('business_name')
           .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
@@ -476,11 +515,13 @@ class _Business_List_User extends State<Business_List_User> {
         return FirebaseFirestore.instance
             .collection('place')
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       }
     } else {
       return FirebaseFirestore.instance
           .collection('place')
+          .where("check", isEqualTo: true)
           .orderBy('business_name1')
           .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
@@ -496,11 +537,13 @@ class _Business_List_User extends State<Business_List_User> {
         return FirebaseFirestore.instance
             .collection('place')
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       }
     } else {
       return FirebaseFirestore.instance
           .collection('place')
+          .where("check", isEqualTo: true)
           .orderBy('business_name2')
           .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
@@ -516,11 +559,13 @@ class _Business_List_User extends State<Business_List_User> {
         return FirebaseFirestore.instance
             .collection('place')
             .where("check", isEqualTo: true)
+            .orderBy('rating', descending: true)
             .snapshots();
       }
     } else {
       return FirebaseFirestore.instance
           .collection('place')
+          .where("check", isEqualTo: true)
           .orderBy('business_name3')
           .startAt([_searchText]).endAt([_searchText + '\uf8ff']).snapshots();
 
