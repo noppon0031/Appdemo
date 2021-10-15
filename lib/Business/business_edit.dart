@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:noppon/Entrepreneur/launcher.dart';
@@ -10,6 +11,8 @@ import 'package:path/path.dart' as Path;
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
+
+import '../full_image.dart';
 
 class BusinessEdit extends StatefulWidget {
   var place_id,
@@ -173,6 +176,499 @@ class _BusinessEdit extends State<BusinessEdit> {
     latitude_Controller.text = widget.latitude;
     longitude_Controller.text = widget.longitude;
     photodetail_Controller.text = widget.photodetail;
+    type_Controller.text = widget.type;
+    type2_Controller.text = widget.type2;
+    type3_Controller.text = widget.type3;
+    type4_Controller.text = widget.type4;
+    type5_Controller.text = widget.type5;
+    type6_Controller.text = widget.type6;
+    type7_Controller.text = widget.type7;
+    type8_Controller.text = widget.type8;
+    type9_Controller.text = widget.type9;
+    type10_Controller.text = widget.type10;
+  }
+
+  GetPhotoArray(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8,
+      photo9, photo10) {
+    int check_index = 0;
+    List<String> photo_array = [
+      photo1,
+      photo2,
+      photo3,
+      photo4,
+      photo5,
+      photo6,
+      photo7,
+      photo8,
+      photo9,
+      photo10
+    ];
+    if (photo10.isNotEmpty) {
+      return InkWell(
+          child: ImageSlideshow(
+            width: double.infinity,
+            height: 200,
+            initialPage: 0,
+            indicatorColor: Colors.blue,
+            indicatorBackgroundColor: Colors.grey,
+            onPageChanged: (value) {
+              check_index = value;
+            },
+            autoPlayInterval: 6000,
+            isLoop: true,
+            children: [
+              Image.network(
+                photo1,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo2,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo3,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo4,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo5,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo6,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo7,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo8,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo9,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo10,
+                fit: BoxFit.cover,
+              ),
+            ],
+          ),
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FullImage(
+                    photo: photo_array[check_index],
+                  ),
+                ));
+          });
+    } else if (photo9.isNotEmpty) {
+      return InkWell(
+          child: ImageSlideshow(
+            width: double.infinity,
+            height: 200,
+            initialPage: 0,
+            indicatorColor: Colors.blue,
+            indicatorBackgroundColor: Colors.grey,
+            onPageChanged: (value) {
+              check_index = value;
+            },
+            autoPlayInterval: 6000,
+            isLoop: true,
+            children: [
+              Image.network(
+                photo1,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo2,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo3,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo4,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo5,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo6,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo7,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo8,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo9,
+                fit: BoxFit.cover,
+              ),
+            ],
+          ),
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FullImage(
+                    photo: photo_array[check_index],
+                  ),
+                ));
+          });
+    } else if (photo8.isNotEmpty) {
+      return InkWell(
+          child: ImageSlideshow(
+            width: double.infinity,
+            height: 200,
+            initialPage: 0,
+            indicatorColor: Colors.blue,
+            indicatorBackgroundColor: Colors.grey,
+            onPageChanged: (value) {
+              check_index = value;
+            },
+            autoPlayInterval: 6000,
+            isLoop: true,
+            children: [
+              Image.network(
+                photo1,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo2,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo3,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo4,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo5,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo6,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo7,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo8,
+                fit: BoxFit.cover,
+              ),
+            ],
+          ),
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FullImage(
+                    photo: photo_array[check_index],
+                  ),
+                ));
+          });
+    } else if (photo7.isNotEmpty) {
+      return InkWell(
+          child: ImageSlideshow(
+            width: double.infinity,
+            height: 200,
+            initialPage: 0,
+            indicatorColor: Colors.blue,
+            indicatorBackgroundColor: Colors.grey,
+            onPageChanged: (value) {
+              check_index = value;
+            },
+            autoPlayInterval: 6000,
+            isLoop: true,
+            children: [
+              Image.network(
+                photo1,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo2,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo3,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo4,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo5,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo6,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo7,
+                fit: BoxFit.cover,
+              ),
+            ],
+          ),
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FullImage(
+                    photo: photo_array[check_index],
+                  ),
+                ));
+          });
+    } else if (photo6.isNotEmpty) {
+      return InkWell(
+          child: ImageSlideshow(
+            width: double.infinity,
+            height: 200,
+            initialPage: 0,
+            indicatorColor: Colors.blue,
+            indicatorBackgroundColor: Colors.grey,
+            onPageChanged: (value) {
+              check_index = value;
+            },
+            autoPlayInterval: 6000,
+            isLoop: true,
+            children: [
+              Image.network(
+                photo1,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo2,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo3,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo4,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo5,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo6,
+                fit: BoxFit.cover,
+              ),
+            ],
+          ),
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FullImage(
+                    photo: photo_array[check_index],
+                  ),
+                ));
+          });
+    } else if (photo5.isNotEmpty) {
+      return InkWell(
+          child: ImageSlideshow(
+            width: double.infinity,
+            height: 200,
+            indicatorColor: Colors.blue,
+            indicatorBackgroundColor: Colors.grey,
+            onPageChanged: (value) {
+              check_index = value;
+            },
+            autoPlayInterval: 6000,
+            isLoop: true,
+            children: [
+              Image.network(
+                photo1,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo2,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo3,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo4,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo5,
+                fit: BoxFit.cover,
+              ),
+            ],
+          ),
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FullImage(
+                    photo: photo_array[check_index],
+                  ),
+                ));
+          });
+    } else if (photo4.isNotEmpty) {
+      return InkWell(
+          child: ImageSlideshow(
+            width: double.infinity,
+            height: 200,
+            indicatorColor: Colors.blue,
+            indicatorBackgroundColor: Colors.grey,
+            onPageChanged: (value) {
+              check_index = value;
+            },
+            autoPlayInterval: 6000,
+            isLoop: true,
+            children: [
+              Image.network(
+                photo1,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo2,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo3,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo4,
+                fit: BoxFit.cover,
+              ),
+            ],
+          ),
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FullImage(
+                    photo: photo_array[check_index],
+                  ),
+                ));
+          });
+    } else if (photo3.isNotEmpty) {
+      return InkWell(
+          child: ImageSlideshow(
+            width: double.infinity,
+            height: 200,
+            indicatorColor: Colors.blue,
+            indicatorBackgroundColor: Colors.grey,
+            onPageChanged: (value) {
+              check_index = value;
+            },
+            autoPlayInterval: 6000,
+            isLoop: true,
+            children: [
+              Image.network(
+                photo1,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo2,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo3,
+                fit: BoxFit.cover,
+              ),
+            ],
+          ),
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FullImage(
+                    photo: photo_array[check_index],
+                  ),
+                ));
+          });
+    } else if (photo2.isNotEmpty) {
+      return InkWell(
+          child: ImageSlideshow(
+            width: double.infinity,
+            height: 200,
+            indicatorColor: Colors.blue,
+            indicatorBackgroundColor: Colors.grey,
+            onPageChanged: (value) {
+              check_index = value;
+            },
+            autoPlayInterval: 6000,
+            isLoop: true,
+            children: [
+              Image.network(
+                photo1,
+                fit: BoxFit.cover,
+              ),
+              Image.network(
+                photo2,
+                fit: BoxFit.cover,
+              ),
+            ],
+          ),
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FullImage(
+                    photo: photo_array[check_index],
+                  ),
+                ));
+          });
+    } else if (photo1.isNotEmpty) {
+      return InkWell(
+          child: ImageSlideshow(
+            width: double.infinity,
+            height: 200,
+            indicatorColor: Colors.blue,
+            indicatorBackgroundColor: Colors.grey,
+            onPageChanged: (value) {
+              check_index = value;
+            },
+            autoPlayInterval: 6000,
+            isLoop: true,
+            children: [
+              Image.network(
+                photo1,
+                fit: BoxFit.cover,
+              ),
+            ],
+          ),
+          onTap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FullImage(
+                    photo: photo_array[check_index],
+                  ),
+                ));
+          });
+    }
   }
 
   @override
@@ -183,74 +679,75 @@ class _BusinessEdit extends State<BusinessEdit> {
       ),
       body: ListView(
         children: [
-          // Stack(alignment: Alignment.center, children: [
-          //   GridView.builder(
-          //       shrinkWrap: true,
-          //       itemCount: _image.length,
-          //       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          //           crossAxisCount: 4),
-          //       itemBuilder: (context, index) {
-          //         return Container(
-          //           margin: EdgeInsets.all(3),
-          //           decoration: BoxDecoration(
-          //               image: DecorationImage(
-          //                   image: FileImage(_image[index]),
-          //                   fit: BoxFit.cover)),
-          //         );
-          //         // return index == 0
-          //         //     ? IconButton(
-          //         //         icon: Icon(Icons.add),
-          //         //         onPressed: () => !uploading ? chooseImage() : null)
-          //         //     : Container(
-          //         //         margin: EdgeInsets.all(3),
-          //         //         decoration: BoxDecoration(
-          //         //             image: DecorationImage(
-          //         //                 image: FileImage(_image[index]),
-          //         //                 fit: BoxFit.cover)),
-          //         //       );
-          //       }),
-          //   (_image.length == 0
-          //       ? Text("กรุณาเลือกรูป")
-          //       : Visibility(child: Text("data"), visible: true)),
-          //   uploading
-          //       ? Center(
-          //           child: Column(
-          //           mainAxisSize: MainAxisSize.min,
-          //           children: [
-          //             // Container(
-          //             //   child: Text(
-          //             //     'uploading...',
-          //             //     style: TextStyle(fontSize: 20),
-          //             //   ),
-          //             // ),
-          //             // SizedBox(
-          //             //   height: 10,
-          //             // ),
-          //             CircularProgressIndicator(
-          //               value: val,
-          //               valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
-          //             )
-          //           ],
-          //         ))
-          //       : Container(),
-          // ]),
-          // Container(
-          //   height: 40,
-          //   margin: EdgeInsets.all(10),
-          //   child: ElevatedButton(
-          //       style: ElevatedButton.styleFrom(
-          //         primary: Colors.green,
-          //         padding: EdgeInsets.all(8),
-          //         textStyle: TextStyle(fontSize: 20),
-          //       ),
-          //       child: Text(
-          //         'เลือกรูป',
-          //         style: new TextStyle(fontSize: 16.0),
-          //       ),
-          //       onPressed: () => !uploading ? chooseImage() : null),
-          // ),
+          GetPhotoArray(
+              widget.photo1,
+              widget.photo2,
+              widget.photo3,
+              widget.photo4,
+              widget.photo5,
+              widget.photo6,
+              widget.photo7,
+              widget.photo8,
+              widget.photo9,
+              widget.photo10),
+          Stack(alignment: Alignment.center, children: [
+            GridView.builder(
+                shrinkWrap: true,
+                itemCount: _image.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 4),
+                itemBuilder: (context, index) {
+                  return Container(
+                    margin: EdgeInsets.all(3),
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: FileImage(_image[index]),
+                            fit: BoxFit.cover)),
+                  );
+                }),
+            (_image.length == 0
+                ? Text("หากคุณต้องการเลือกรูปภาพของคุณใหม่ แตะปุ่มเลือกรูป")
+                : Visibility(child: Text(""), visible: true)),
+            uploading
+                ? Center(
+                    child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      // Container(
+                      //   child: Text(
+                      //     'uploading...',
+                      //     style: TextStyle(fontSize: 20),
+                      //   ),
+                      // ),
+                      // SizedBox(
+                      //   height: 10,
+                      // ),
+                      CircularProgressIndicator(
+                        value: val,
+                        valueColor: AlwaysStoppedAnimation<Color>(Colors.green),
+                      )
+                    ],
+                  ))
+                : Container(),
+          ]),
+          Container(
+            height: 40,
+            margin: EdgeInsets.all(10),
+            child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.green,
+                  padding: EdgeInsets.all(8),
+                  textStyle: TextStyle(fontSize: 20),
+                ),
+                child: Text(
+                  'เลือกรูป',
+                  style: new TextStyle(fontSize: 16.0),
+                ),
+                onPressed: () => !uploading ? chooseImage() : null),
+          ),
           // IconButton(
           //     icon: Icon(Icons.add),
+          //
           //     onPressed: () => !uploading ? chooseImage() : null),
           Container(
               margin: EdgeInsets.all(10),
@@ -333,268 +830,368 @@ class _BusinessEdit extends State<BusinessEdit> {
                     decoration:
                         new InputDecoration(hintText: 'กรุณาใส่ English'),
                   ),
-                  SizedBox(height: 10.0),
+                  SizedBox(height: 40.0),
                   Text(
                     "หมวดหมู่",
                     style: new TextStyle(fontSize: 16.0),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: DropdownButton<String>(
-                      value: dropdownValue,
-                      icon: Icon(Icons.arrow_drop_down),
-                      iconSize: 24,
-                      elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                      underline: Container(
-                        height: 2,
-                      ),
-                      onChanged: (data) {
-                        setState(() {
-                          dropdownValue = data!;
-                        });
-                      },
-                      items: business_type
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value, textAlign: TextAlign.center),
-                        );
-                      }).toList(),
-                    ),
+                  SizedBox(height: 10.0),
+                  // Text(
+                  //   "ร้านอาหาร,ร้านกาแฟ,ร้านเครื่องเขียน,ร้านเสริมสวย,คลินิก/ขายยา,ร้านทั่วไป,สถานที่ใน Rmutt,สถานที่ทั่วไป",
+                  //   style: new TextStyle(fontSize: 16.0),
+                  // ),
+
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: type_Controller,
+                    keyboardType: TextInputType.text,
+                    decoration: new InputDecoration(
+                        hintText: 'ใส่หมวดหมู่สถานที่ของคุณ'),
+                    style: new TextStyle(fontSize: 13.0),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: DropdownButton<String>(
-                      value: dropdownValue2,
-                      icon: Icon(Icons.arrow_drop_down),
-                      iconSize: 24,
-                      elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                      underline: Container(
-                        height: 2,
-                      ),
-                      onChanged: (data) {
-                        setState(() {
-                          dropdownValue2 = data!;
-                        });
-                      },
-                      items: business_type2
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value, textAlign: TextAlign.center),
-                        );
-                      }).toList(),
-                    ),
+                  // Text(
+                  //   "เลือกข้างล่างหากคุณต้องการเปลี่ยน",
+                  //   style: new TextStyle(fontSize: 16.0),
+                  // ),
+                  // Padding(
+                  //   padding: EdgeInsets.only(left: 10),
+                  //   child: DropdownButton<String>(
+                  //     value: dropdownValue,
+                  //     icon: Icon(Icons.arrow_drop_down),
+                  //     iconSize: 24,
+                  //     elevation: 16,
+                  //     style: TextStyle(color: Colors.black, fontSize: 18),
+                  //     underline: Container(
+                  //       height: 2,
+                  //     ),
+                  //     onChanged: (data) {
+                  //       setState(() {
+                  //         dropdownValue = data!;
+                  //       });
+                  //     },
+                  //     items: business_type
+                  //         .map<DropdownMenuItem<String>>((String value) {
+                  //       return DropdownMenuItem<String>(
+                  //         value: value,
+                  //         child: Text(value, textAlign: TextAlign.center),
+                  //       );
+                  //     }).toList(),
+                  //   ),
+                  // ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: type2_Controller,
+                    keyboardType: TextInputType.text,
+                    decoration: new InputDecoration(
+                        hintText: 'ใส่หมวดหมู่สถานที่ของคุณ'),
+                    style: new TextStyle(fontSize: 13.0),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: DropdownButton<String>(
-                      value: dropdownValue3,
-                      icon: Icon(Icons.arrow_drop_down),
-                      iconSize: 24,
-                      elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                      underline: Container(
-                        height: 2,
-                      ),
-                      onChanged: (data) {
-                        setState(() {
-                          dropdownValue3 = data!;
-                        });
-                      },
-                      items: business_type3
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value, textAlign: TextAlign.center),
-                        );
-                      }).toList(),
-                    ),
+                  // Padding(
+                  //   padding: EdgeInsets.only(left: 10),
+                  //   child: DropdownButton<String>(
+                  //     value: dropdownValue2,
+                  //     icon: Icon(Icons.arrow_drop_down),
+                  //     iconSize: 24,
+                  //     elevation: 16,
+                  //     style: TextStyle(color: Colors.black, fontSize: 18),
+                  //     underline: Container(
+                  //       height: 2,
+                  //     ),
+                  //     onChanged: (data) {
+                  //       setState(() {
+                  //         dropdownValue2 = data!;
+                  //       });
+                  //     },
+                  //     items: business_type2
+                  //         .map<DropdownMenuItem<String>>((String value) {
+                  //       return DropdownMenuItem<String>(
+                  //         value: value,
+                  //         child: Text(value, textAlign: TextAlign.center),
+                  //       );
+                  //     }).toList(),
+                  //   ),
+                  // ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: type3_Controller,
+                    keyboardType: TextInputType.text,
+                    decoration: new InputDecoration(
+                        hintText: 'ใส่หมวดหมู่สถานที่ของคุณ'),
+                    style: new TextStyle(fontSize: 13.0),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: DropdownButton<String>(
-                      value: dropdownValue4,
-                      icon: Icon(Icons.arrow_drop_down),
-                      iconSize: 24,
-                      elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                      underline: Container(
-                        height: 2,
-                      ),
-                      onChanged: (data) {
-                        setState(() {
-                          dropdownValue4 = data!;
-                        });
-                      },
-                      items: business_type4
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value, textAlign: TextAlign.center),
-                        );
-                      }).toList(),
-                    ),
+                  // Padding(
+                  //   padding: EdgeInsets.only(left: 10),
+                  //   child: DropdownButton<String>(
+                  //     value: dropdownValue3,
+                  //     icon: Icon(Icons.arrow_drop_down),
+                  //     iconSize: 24,
+                  //     elevation: 16,
+                  //     style: TextStyle(color: Colors.black, fontSize: 18),
+                  //     underline: Container(
+                  //       height: 2,
+                  //     ),
+                  //     onChanged: (data) {
+                  //       setState(() {
+                  //         dropdownValue3 = data!;
+                  //       });
+                  //     },
+                  //     items: business_type3
+                  //         .map<DropdownMenuItem<String>>((String value) {
+                  //       return DropdownMenuItem<String>(
+                  //         value: value,
+                  //         child: Text(value, textAlign: TextAlign.center),
+                  //       );
+                  //     }).toList(),
+                  //   ),
+                  // ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: type4_Controller,
+                    keyboardType: TextInputType.text,
+                    decoration: new InputDecoration(
+                        hintText: 'ใส่หมวดหมู่สถานที่ของคุณ'),
+                    style: new TextStyle(fontSize: 13.0),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: DropdownButton<String>(
-                      value: dropdownValue5,
-                      icon: Icon(Icons.arrow_drop_down),
-                      iconSize: 24,
-                      elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                      underline: Container(
-                        height: 2,
-                      ),
-                      onChanged: (data) {
-                        setState(() {
-                          dropdownValue5 = data!;
-                        });
-                      },
-                      items: business_type5
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value, textAlign: TextAlign.center),
-                        );
-                      }).toList(),
-                    ),
+                  // Padding(
+                  //   padding: EdgeInsets.only(left: 10),
+                  //   child: DropdownButton<String>(
+                  //     value: dropdownValue4,
+                  //     icon: Icon(Icons.arrow_drop_down),
+                  //     iconSize: 24,
+                  //     elevation: 16,
+                  //     style: TextStyle(color: Colors.black, fontSize: 18),
+                  //     underline: Container(
+                  //       height: 2,
+                  //     ),
+                  //     onChanged: (data) {
+                  //       setState(() {
+                  //         dropdownValue4 = data!;
+                  //       });
+                  //     },
+                  //     items: business_type4
+                  //         .map<DropdownMenuItem<String>>((String value) {
+                  //       return DropdownMenuItem<String>(
+                  //         value: value,
+                  //         child: Text(value, textAlign: TextAlign.center),
+                  //       );
+                  //     }).toList(),
+                  //   ),
+                  // ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: type5_Controller,
+                    keyboardType: TextInputType.text,
+                    decoration: new InputDecoration(
+                        hintText: 'ใส่หมวดหมู่สถานที่ของคุณ'),
+                    style: new TextStyle(fontSize: 13.0),
                   ),
+                  // Padding(
+                  //   padding: EdgeInsets.only(left: 10),
+                  //   child: DropdownButton<String>(
+                  //     value: dropdownValue5,
+                  //     icon: Icon(Icons.arrow_drop_down),
+                  //     iconSize: 24,
+                  //     elevation: 16,
+                  //     style: TextStyle(color: Colors.black, fontSize: 18),
+                  //     underline: Container(
+                  //       height: 2,
+                  //     ),
+                  //     onChanged: (data) {
+                  //       setState(() {
+                  //         dropdownValue5 = data!;
+                  //       });
+                  //     },
+                  //     items: business_type5
+                  //         .map<DropdownMenuItem<String>>((String value) {
+                  //       return DropdownMenuItem<String>(
+                  //         value: value,
+                  //         child: Text(value, textAlign: TextAlign.center),
+                  //       );
+                  //     }).toList(),
+                  //   ),
+                  // ),
 
                   SizedBox(height: 10.0),
                   Text(
                     "ประเภท",
                     style: new TextStyle(fontSize: 16.0),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: DropdownButton<String>(
-                      value: dropdownValue6,
-                      icon: Icon(Icons.arrow_drop_down),
-                      iconSize: 24,
-                      elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                      underline: Container(
-                        height: 2,
-                      ),
-                      onChanged: (data) {
-                        setState(() {
-                          dropdownValue6 = data!;
-                        });
-                      },
-                      items: business_type6
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value, textAlign: TextAlign.center),
-                        );
-                      }).toList(),
-                    ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: type6_Controller,
+                    keyboardType: TextInputType.text,
+                    decoration:
+                        new InputDecoration(hintText: 'ใส่ประเภทสถานที่ของคุณ'),
+                    style: new TextStyle(fontSize: 13.0),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: DropdownButton<String>(
-                      value: dropdownValue7,
-                      icon: Icon(Icons.arrow_drop_down),
-                      iconSize: 24,
-                      elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                      underline: Container(
-                        height: 2,
-                      ),
-                      onChanged: (data) {
-                        setState(() {
-                          dropdownValue7 = data!;
-                        });
-                      },
-                      items: business_type7
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value, textAlign: TextAlign.center),
-                        );
-                      }).toList(),
-                    ),
+                  // Padding(
+                  //   padding: EdgeInsets.only(left: 10),
+                  //   child: DropdownButton<String>(
+                  //     value: dropdownValue6,
+                  //     icon: Icon(Icons.arrow_drop_down),
+                  //     iconSize: 24,
+                  //     elevation: 16,
+                  //     style: TextStyle(color: Colors.black, fontSize: 18),
+                  //     underline: Container(
+                  //       height: 2,
+                  //     ),
+                  //     onChanged: (data) {
+                  //       setState(() {
+                  //         dropdownValue6 = data!;
+                  //       });
+                  //     },
+                  //     items: business_type6
+                  //         .map<DropdownMenuItem<String>>((String value) {
+                  //       return DropdownMenuItem<String>(
+                  //         value: value,
+                  //         child: Text(value, textAlign: TextAlign.center),
+                  //       );
+                  //     }).toList(),
+                  //   ),
+                  // ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: type7_Controller,
+                    keyboardType: TextInputType.text,
+                    decoration:
+                        new InputDecoration(hintText: 'ใส่ประเภทสถานที่ของคุณ'),
+                    style: new TextStyle(fontSize: 13.0),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: DropdownButton<String>(
-                      value: dropdownValue8,
-                      icon: Icon(Icons.arrow_drop_down),
-                      iconSize: 24,
-                      elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                      underline: Container(
-                        height: 2,
-                      ),
-                      onChanged: (data) {
-                        setState(() {
-                          dropdownValue8 = data!;
-                        });
-                      },
-                      items: business_type8
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value, textAlign: TextAlign.center),
-                        );
-                      }).toList(),
-                    ),
+                  // Padding(
+                  //   padding: EdgeInsets.only(left: 10),
+                  //   child: DropdownButton<String>(
+                  //     value: dropdownValue7,
+                  //     icon: Icon(Icons.arrow_drop_down),
+                  //     iconSize: 24,
+                  //     elevation: 16,
+                  //     style: TextStyle(color: Colors.black, fontSize: 18),
+                  //     underline: Container(
+                  //       height: 2,
+                  //     ),
+                  //     onChanged: (data) {
+                  //       setState(() {
+                  //         dropdownValue7 = data!;
+                  //       });
+                  //     },
+                  //     items: business_type7
+                  //         .map<DropdownMenuItem<String>>((String value) {
+                  //       return DropdownMenuItem<String>(
+                  //         value: value,
+                  //         child: Text(value, textAlign: TextAlign.center),
+                  //       );
+                  //     }).toList(),
+                  //   ),
+                  // ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: type8_Controller,
+                    keyboardType: TextInputType.text,
+                    decoration:
+                        new InputDecoration(hintText: 'ใส่ประเภทสถานที่ของคุณ'),
+                    style: new TextStyle(fontSize: 13.0),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: DropdownButton<String>(
-                      value: dropdownValue9,
-                      icon: Icon(Icons.arrow_drop_down),
-                      iconSize: 24,
-                      elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                      underline: Container(
-                        height: 2,
-                      ),
-                      onChanged: (data) {
-                        setState(() {
-                          dropdownValue9 = data!;
-                        });
-                      },
-                      items: business_type9
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value, textAlign: TextAlign.center),
-                        );
-                      }).toList(),
-                    ),
+                  // Padding(
+                  //   padding: EdgeInsets.only(left: 10),
+                  //   child: DropdownButton<String>(
+                  //     value: dropdownValue8,
+                  //     icon: Icon(Icons.arrow_drop_down),
+                  //     iconSize: 24,
+                  //     elevation: 16,
+                  //     style: TextStyle(color: Colors.black, fontSize: 18),
+                  //     underline: Container(
+                  //       height: 2,
+                  //     ),
+                  //     onChanged: (data) {
+                  //       setState(() {
+                  //         dropdownValue8 = data!;
+                  //       });
+                  //     },
+                  //     items: business_type8
+                  //         .map<DropdownMenuItem<String>>((String value) {
+                  //       return DropdownMenuItem<String>(
+                  //         value: value,
+                  //         child: Text(value, textAlign: TextAlign.center),
+                  //       );
+                  //     }).toList(),
+                  //   ),
+                  // ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: type9_Controller,
+                    keyboardType: TextInputType.text,
+                    decoration:
+                        new InputDecoration(hintText: 'ใส่ประเภทสถานที่ของคุณ'),
+                    style: new TextStyle(fontSize: 13.0),
                   ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: DropdownButton<String>(
-                      value: dropdownValue10,
-                      icon: Icon(Icons.arrow_drop_down),
-                      iconSize: 24,
-                      elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
-                      underline: Container(
-                        height: 2,
-                      ),
-                      onChanged: (data) {
-                        setState(() {
-                          dropdownValue10 = data!;
-                        });
-                      },
-                      items: business_type10
-                          .map<DropdownMenuItem<String>>((String value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value, textAlign: TextAlign.center),
-                        );
-                      }).toList(),
-                    ),
+                  // Padding(
+                  //   padding: EdgeInsets.only(left: 10),
+                  //   child: DropdownButton<String>(
+                  //     value: dropdownValue9,
+                  //     icon: Icon(Icons.arrow_drop_down),
+                  //     iconSize: 24,
+                  //     elevation: 16,
+                  //     style: TextStyle(color: Colors.black, fontSize: 18),
+                  //     underline: Container(
+                  //       height: 2,
+                  //     ),
+                  //     onChanged: (data) {
+                  //       setState(() {
+                  //         dropdownValue9 = data!;
+                  //       });
+                  //     },
+                  //     items: business_type9
+                  //         .map<DropdownMenuItem<String>>((String value) {
+                  //       return DropdownMenuItem<String>(
+                  //         value: value,
+                  //         child: Text(value, textAlign: TextAlign.center),
+                  //       );
+                  //     }).toList(),
+                  //   ),
+                  // ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: type10_Controller,
+                    keyboardType: TextInputType.text,
+                    decoration:
+                        new InputDecoration(hintText: 'ใส่ประเภทสถานที่ของคุณ'),
+                    style: new TextStyle(fontSize: 13.0),
                   ),
-                  SizedBox(height: 10.0),
+                  // Padding(
+                  //   padding: EdgeInsets.only(left: 10),
+                  //   child: DropdownButton<String>(
+                  //     value: dropdownValue10,
+                  //     icon: Icon(Icons.arrow_drop_down),
+                  //     iconSize: 24,
+                  //     elevation: 16,
+                  //     style: TextStyle(color: Colors.black, fontSize: 18),
+                  //     underline: Container(
+                  //       height: 2,
+                  //     ),
+                  //     onChanged: (data) {
+                  //       setState(() {
+                  //         dropdownValue10 = data!;
+                  //       });
+                  //     },
+                  //     items: business_type10
+                  //         .map<DropdownMenuItem<String>>((String value) {
+                  //       return DropdownMenuItem<String>(
+                  //         value: value,
+                  //         child: Text(value, textAlign: TextAlign.center),
+                  //       );
+                  //     }).toList(),
+                  //   ),
+                  // ),
+                  SizedBox(height: 40.0),
                   Text(
                     "เบอร์โทร",
                     style: new TextStyle(fontSize: 16.0),
