@@ -148,6 +148,17 @@ class _BusinessEdit extends State<BusinessEdit> {
   TextEditingController type9_Controller = TextEditingController();
   TextEditingController type10_Controller = TextEditingController();
   TextEditingController check_Controller = TextEditingController();
+  TextEditingController photo1_Controller = TextEditingController();
+  TextEditingController photo2_Controller = TextEditingController();
+  TextEditingController photo3_Controller = TextEditingController();
+  TextEditingController photo4_Controller = TextEditingController();
+  TextEditingController photo5_Controller = TextEditingController();
+  TextEditingController photo6_Controller = TextEditingController();
+  TextEditingController photo7_Controller = TextEditingController();
+  TextEditingController photo8_Controller = TextEditingController();
+  TextEditingController photo9_Controller = TextEditingController();
+  TextEditingController photo10_Controller = TextEditingController();
+
   List<File> _image = [];
   List<String> url_image = [];
   final picker = ImagePicker();
@@ -186,6 +197,16 @@ class _BusinessEdit extends State<BusinessEdit> {
     type8_Controller.text = widget.type8;
     type9_Controller.text = widget.type9;
     type10_Controller.text = widget.type10;
+    photo1_Controller.text = widget.photo1;
+    photo2_Controller.text = widget.photo2;
+    photo3_Controller.text = widget.photo3;
+    photo4_Controller.text = widget.photo4;
+    photo5_Controller.text = widget.photo5;
+    photo6_Controller.text = widget.photo6;
+    photo7_Controller.text = widget.photo7;
+    photo8_Controller.text = widget.photo8;
+    photo9_Controller.text = widget.photo9;
+    photo10_Controller.text = widget.photo10;
   }
 
   GetPhotoArray(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8,
@@ -746,7 +767,7 @@ class _BusinessEdit extends State<BusinessEdit> {
                 onPressed: () => !uploading ? chooseImage() : null),
           ),
           // IconButton(
-          //     icon: Icon(Icons.add),
+          //     icon: Icon(Icons.delete),
           //     onPressed: () => !uploading ? chooseImage() : null),
           Container(
               margin: EdgeInsets.all(10),
@@ -1403,6 +1424,175 @@ class _BusinessEdit extends State<BusinessEdit> {
     var type10 = type10_Controller.text.toString();
     var website = website_Controller.text.toString();
     var photodetail = photodetail_Controller.text.toString();
+    var photo1 = photo1_Controller.text.toString();
+    var photo2 = photo2_Controller.text.toString();
+    var photo3 = photo3_Controller.text.toString();
+    var photo4 = photo4_Controller.text.toString();
+    var photo5 = photo5_Controller.text.toString();
+    var photo6 = photo6_Controller.text.toString();
+    var photo7 = photo7_Controller.text.toString();
+    var photo8 = photo8_Controller.text.toString();
+    var photo9 = photo9_Controller.text.toString();
+    var photo10 = photo10_Controller.text.toString();
+
+    int i = 0;
+
+    final ProgressDialog pr = ProgressDialog(context,
+        type: ProgressDialogType.Download,
+        isDismissible: false,
+        showLogs: false);
+    for (var img in _image) {
+      setState(() {
+        val = i / _image.length;
+
+        pr.update(
+            message: 'กรุณารอสักครู่ ...',
+            progressWidget: Container(
+                margin: EdgeInsets.all(10.0),
+                child: CircularProgressIndicator()),
+            progress: double.parse((val * 100).toStringAsFixed(0)),
+            maxProgress: 100,
+            progressTextStyle: TextStyle(
+                color: Colors.black,
+                fontSize: 13.0,
+                fontWeight: FontWeight.w400));
+        pr.show();
+      });
+      ref = firebase_storage.FirebaseStorage.instance
+          .ref()
+          .child('images/${Path.basename(img.path)}');
+
+      await ref.putFile(img).whenComplete(() async {
+        await ref.getDownloadURL().then((value) {
+          url_image.add(value);
+          i++;
+        });
+      });
+    }
+
+    print(i);
+    photo10 = photo10_Controller.text.toString();
+    photo9 = photo9_Controller.text.toString();
+    photo8 = photo8_Controller.text.toString();
+    photo7 = photo7_Controller.text.toString();
+    photo6 = photo6_Controller.text.toString();
+    photo5 = photo5_Controller.text.toString();
+    photo4 = photo4_Controller.text.toString();
+    photo3 = photo3_Controller.text.toString();
+    photo2 = photo2_Controller.text.toString();
+    photo1 = photo1_Controller.text.toString();
+
+    if (i == 10) {
+      photo10 = url_image[9];
+      photo9 = url_image[8];
+      photo8 = url_image[7];
+      photo7 = url_image[6];
+      photo6 = url_image[5];
+      photo5 = url_image[4];
+      photo4 = url_image[3];
+      photo3 = url_image[2];
+      photo2 = url_image[1];
+      photo1 = url_image[0];
+    } else if (i == 9) {
+      photo10 = "";
+      photo9 = url_image[8];
+      photo8 = url_image[7];
+      photo7 = url_image[6];
+      photo6 = url_image[5];
+      photo5 = url_image[4];
+      photo4 = url_image[3];
+      photo3 = url_image[2];
+      photo2 = url_image[1];
+      photo1 = url_image[0];
+    } else if (i == 8) {
+      photo10 = "";
+      photo9 = "";
+      photo8 = url_image[7];
+      photo7 = url_image[6];
+      photo6 = url_image[5];
+      photo5 = url_image[4];
+      photo4 = url_image[3];
+      photo3 = url_image[2];
+      photo2 = url_image[1];
+      photo1 = url_image[0];
+    } else if (i == 7) {
+      photo10 = "";
+      photo9 = "";
+      photo8 = "";
+      photo7 = url_image[6];
+      photo6 = url_image[5];
+      photo5 = url_image[4];
+      photo4 = url_image[3];
+      photo3 = url_image[2];
+      photo2 = url_image[1];
+      photo1 = url_image[0];
+    } else if (i == 6) {
+      photo10 = "";
+      photo9 = "";
+      photo8 = "";
+      photo7 = "";
+      photo6 = url_image[5];
+      photo5 = url_image[4];
+      photo4 = url_image[3];
+      photo3 = url_image[2];
+      photo2 = url_image[1];
+      photo1 = url_image[0];
+    } else if (i == 5) {
+      photo10 = "";
+      photo9 = "";
+      photo8 = "";
+      photo7 = "";
+      photo6 = "";
+      photo5 = url_image[4];
+      photo4 = url_image[3];
+      photo3 = url_image[2];
+      photo2 = url_image[1];
+      photo1 = url_image[0];
+    } else if (i == 4) {
+      photo10 = "";
+      photo9 = "";
+      photo8 = "";
+      photo7 = "";
+      photo6 = "";
+      photo5 = "";
+      photo4 = url_image[3];
+      photo3 = url_image[2];
+      photo2 = url_image[1];
+      photo1 = url_image[0];
+    } else if (i == 3) {
+      photo10 = "";
+      photo9 = "";
+      photo8 = "";
+      photo7 = "";
+      photo6 = "";
+      photo5 = "";
+      photo4 = "";
+      photo3 = url_image[2];
+      photo2 = url_image[1];
+      photo1 = url_image[0];
+    } else if (i == 2) {
+      photo10 = "";
+      photo9 = "";
+      photo8 = "";
+      photo7 = "";
+      photo6 = "";
+      photo5 = "";
+      photo4 = "";
+      photo3 = "";
+      photo2 = url_image[1];
+      photo1 = url_image[0];
+    } else if (i == 1) {
+      photo10 = "";
+      photo9 = "";
+      photo8 = "";
+      photo7 = "";
+      photo6 = "";
+      photo5 = "";
+      photo4 = "";
+      photo3 = "";
+      photo2 = "";
+      photo1 = url_image[0];
+    }
 
     FirebaseFirestore.instance.collection('place').doc(widget.place_id).update({
       'business_name': business_name,
@@ -1431,6 +1621,16 @@ class _BusinessEdit extends State<BusinessEdit> {
       'type8': type8,
       'type9': type9,
       'type10': type10,
+      'photo1': photo1,
+      'photo2': photo2,
+      'photo3': photo3,
+      'photo4': photo4,
+      'photo5': photo5,
+      'photo6': photo6,
+      'photo7': photo7,
+      'photo8': photo8,
+      'photo9': photo9,
+      'photo10': photo10,
       'website': website,
       'photodetail': photodetail,
       'check': false,
@@ -1464,6 +1664,16 @@ class _BusinessEdit extends State<BusinessEdit> {
       await prefs.setString('type8', type8);
       await prefs.setString('type9', type9);
       await prefs.setString('type10', type10);
+      await prefs.setString('photo1', photo1);
+      await prefs.setString('photo2', photo2);
+      await prefs.setString('photo3', photo3);
+      await prefs.setString('photo4', photo4);
+      await prefs.setString('photo5', photo5);
+      await prefs.setString('photo6', photo6);
+      await prefs.setString('photo7', photo7);
+      await prefs.setString('photo8', photo8);
+      await prefs.setString('photo9', photo9);
+      await prefs.setString('photo10', photo10);
     });
 
     Navigator.pushAndRemoveUntil(
