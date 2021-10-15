@@ -747,7 +747,6 @@ class _BusinessEdit extends State<BusinessEdit> {
           ),
           // IconButton(
           //     icon: Icon(Icons.add),
-          //
           //     onPressed: () => !uploading ? chooseImage() : null),
           Container(
               margin: EdgeInsets.all(10),
@@ -830,7 +829,7 @@ class _BusinessEdit extends State<BusinessEdit> {
                     decoration:
                         new InputDecoration(hintText: 'กรุณาใส่ English'),
                   ),
-                  SizedBox(height: 40.0),
+                  SizedBox(height: 10.0),
                   Text(
                     "หมวดหมู่",
                     style: new TextStyle(fontSize: 16.0),
@@ -845,10 +844,6 @@ class _BusinessEdit extends State<BusinessEdit> {
                     maxLines: 1,
                     autofocus: false,
                     controller: type_Controller,
-                    keyboardType: TextInputType.text,
-                    decoration: new InputDecoration(
-                        hintText: 'ใส่หมวดหมู่สถานที่ของคุณ'),
-                    style: new TextStyle(fontSize: 13.0),
                   ),
                   // Text(
                   //   "เลือกข้างล่างหากคุณต้องการเปลี่ยน",
@@ -883,10 +878,6 @@ class _BusinessEdit extends State<BusinessEdit> {
                     maxLines: 1,
                     autofocus: false,
                     controller: type2_Controller,
-                    keyboardType: TextInputType.text,
-                    decoration: new InputDecoration(
-                        hintText: 'ใส่หมวดหมู่สถานที่ของคุณ'),
-                    style: new TextStyle(fontSize: 13.0),
                   ),
                   // Padding(
                   //   padding: EdgeInsets.only(left: 10),
@@ -917,10 +908,6 @@ class _BusinessEdit extends State<BusinessEdit> {
                     maxLines: 1,
                     autofocus: false,
                     controller: type3_Controller,
-                    keyboardType: TextInputType.text,
-                    decoration: new InputDecoration(
-                        hintText: 'ใส่หมวดหมู่สถานที่ของคุณ'),
-                    style: new TextStyle(fontSize: 13.0),
                   ),
                   // Padding(
                   //   padding: EdgeInsets.only(left: 10),
@@ -951,10 +938,6 @@ class _BusinessEdit extends State<BusinessEdit> {
                     maxLines: 1,
                     autofocus: false,
                     controller: type4_Controller,
-                    keyboardType: TextInputType.text,
-                    decoration: new InputDecoration(
-                        hintText: 'ใส่หมวดหมู่สถานที่ของคุณ'),
-                    style: new TextStyle(fontSize: 13.0),
                   ),
                   // Padding(
                   //   padding: EdgeInsets.only(left: 10),
@@ -985,10 +968,6 @@ class _BusinessEdit extends State<BusinessEdit> {
                     maxLines: 1,
                     autofocus: false,
                     controller: type5_Controller,
-                    keyboardType: TextInputType.text,
-                    decoration: new InputDecoration(
-                        hintText: 'ใส่หมวดหมู่สถานที่ของคุณ'),
-                    style: new TextStyle(fontSize: 13.0),
                   ),
                   // Padding(
                   //   padding: EdgeInsets.only(left: 10),
@@ -1025,10 +1004,6 @@ class _BusinessEdit extends State<BusinessEdit> {
                     maxLines: 1,
                     autofocus: false,
                     controller: type6_Controller,
-                    keyboardType: TextInputType.text,
-                    decoration:
-                        new InputDecoration(hintText: 'ใส่ประเภทสถานที่ของคุณ'),
-                    style: new TextStyle(fontSize: 13.0),
                   ),
                   // Padding(
                   //   padding: EdgeInsets.only(left: 10),
@@ -1059,10 +1034,6 @@ class _BusinessEdit extends State<BusinessEdit> {
                     maxLines: 1,
                     autofocus: false,
                     controller: type7_Controller,
-                    keyboardType: TextInputType.text,
-                    decoration:
-                        new InputDecoration(hintText: 'ใส่ประเภทสถานที่ของคุณ'),
-                    style: new TextStyle(fontSize: 13.0),
                   ),
                   // Padding(
                   //   padding: EdgeInsets.only(left: 10),
@@ -1093,10 +1064,6 @@ class _BusinessEdit extends State<BusinessEdit> {
                     maxLines: 1,
                     autofocus: false,
                     controller: type8_Controller,
-                    keyboardType: TextInputType.text,
-                    decoration:
-                        new InputDecoration(hintText: 'ใส่ประเภทสถานที่ของคุณ'),
-                    style: new TextStyle(fontSize: 13.0),
                   ),
                   // Padding(
                   //   padding: EdgeInsets.only(left: 10),
@@ -1127,10 +1094,6 @@ class _BusinessEdit extends State<BusinessEdit> {
                     maxLines: 1,
                     autofocus: false,
                     controller: type9_Controller,
-                    keyboardType: TextInputType.text,
-                    decoration:
-                        new InputDecoration(hintText: 'ใส่ประเภทสถานที่ของคุณ'),
-                    style: new TextStyle(fontSize: 13.0),
                   ),
                   // Padding(
                   //   padding: EdgeInsets.only(left: 10),
@@ -1161,10 +1124,6 @@ class _BusinessEdit extends State<BusinessEdit> {
                     maxLines: 1,
                     autofocus: false,
                     controller: type10_Controller,
-                    keyboardType: TextInputType.text,
-                    decoration:
-                        new InputDecoration(hintText: 'ใส่ประเภทสถานที่ของคุณ'),
-                    style: new TextStyle(fontSize: 13.0),
                   ),
                   // Padding(
                   //   padding: EdgeInsets.only(left: 10),
@@ -1191,7 +1150,7 @@ class _BusinessEdit extends State<BusinessEdit> {
                   //     }).toList(),
                   //   ),
                   // ),
-                  SizedBox(height: 40.0),
+                  SizedBox(height: 10.0),
                   Text(
                     "เบอร์โทร",
                     style: new TextStyle(fontSize: 16.0),
