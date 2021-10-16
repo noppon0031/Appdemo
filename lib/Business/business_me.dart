@@ -344,13 +344,13 @@ class PlaceList extends StatelessWidget {
                             });
                       },
                       child: Container(
-                        margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+                        margin: EdgeInsets.fromLTRB(5, 0, 5, 5),
                         decoration: BoxDecoration(
                           color: Colors.white,
                         ),
                         child: Card(
                           child: Padding(
-                            padding: EdgeInsets.all(10),
+                            padding: EdgeInsets.all(0),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -358,7 +358,7 @@ class PlaceList extends StatelessWidget {
                                 Image.network(
                                   document['photo1'],
                                   width: double.infinity,
-                                  height: 150,
+                                  height: 180,
                                   fit: BoxFit.cover,
                                 ),
                                 Row(
@@ -397,7 +397,6 @@ class PlaceList extends StatelessWidget {
                                     ),
                                   ),
                                 ),
-                                SizedBox(height: 5.0),
                                 Row(
                                   children: [
                                     Text(
@@ -409,7 +408,7 @@ class PlaceList extends StatelessWidget {
                                             color: Colors.blueGrey,
                                             fontSize: 16.0)),
                                     SizedBox(
-                                      width: 50,
+                                      width: 150,
                                     ),
                                     Container(
                                       padding: EdgeInsets.all(6.0),
