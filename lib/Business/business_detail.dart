@@ -113,8 +113,6 @@ class Business_Detail extends StatefulWidget {
 }
 
 class _Business_Detail extends State<Business_Detail> {
-  // LatLng _initialcameraposition =
-  //     LatLng(14.036657152304594, 100.72765705248132);
   String _searchText = "";
   String Comment = "ล่าสุด";
   var user_id, user_type;

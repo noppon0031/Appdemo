@@ -14,10 +14,104 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class CommentList extends StatelessWidget {
-  var data, user_id, place_id;
-  CommentList({this.data, this.user_id, this.place_id});
+class CommentList extends StatefulWidget {
+  var place_id,
+      address,
+      business_name,
+      business_name1,
+      business_name2,
+      business_name3,
+      business_name_english,
+      day,
+      detail,
+      email,
+      facebook,
+      instagram,
+      line,
+      latitude,
+      longitude,
+      map,
+      photo1,
+      photo2,
+      photo3,
+      photo4,
+      photo5,
+      photo6,
+      photo7,
+      photo8,
+      photo9,
+      photo10,
+      price,
+      rating,
+      tel,
+      time,
+      type,
+      type2,
+      type3,
+      type4,
+      type5,
+      type6,
+      type7,
+      type8,
+      type9,
+      type10,
+      user_id,
+      website,
+      data,
+      photodetail;
 
+  CommentList({
+    this.place_id,
+    this.address,
+    this.business_name,
+    this.business_name1,
+    this.business_name2,
+    this.business_name3,
+    this.business_name_english,
+    this.day,
+    this.detail,
+    this.email,
+    this.facebook,
+    this.instagram,
+    this.line,
+    this.latitude,
+    this.longitude,
+    this.map,
+    this.photo1,
+    this.photo2,
+    this.photo3,
+    this.photo4,
+    this.photo5,
+    this.photo6,
+    this.photo7,
+    this.photo8,
+    this.photo9,
+    this.photo10,
+    this.price,
+    this.rating,
+    this.tel,
+    this.time,
+    this.type,
+    this.type2,
+    this.type3,
+    this.type4,
+    this.type5,
+    this.type6,
+    this.type7,
+    this.type8,
+    this.type9,
+    this.type10,
+    this.user_id,
+    this.website,
+    this.data,
+    this.photodetail,
+  });
+
+  @override
+  _CommentList createState() => _CommentList();
+}
+
+class _CommentList extends State<CommentList> {
   Text _buildRatingStars(int rating) {
     String stars = '';
     for (int i = 0; i < rating; i++) {
@@ -32,7 +126,7 @@ class CommentList extends StatelessWidget {
     return FutureBuilder<QuerySnapshot>(
         future: FirebaseFirestore.instance
             .collection('user')
-            .where('user_id', isEqualTo: data["user_id"])
+            .where('user_id', isEqualTo: widget.data["user_id"])
             .get(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (!snapshot.hasData) {
@@ -61,7 +155,7 @@ class CommentList extends StatelessWidget {
                                             color: Colors.blueGrey,
                                             fontSize: 16.0,
                                             fontWeight: FontWeight.bold)),
-                                    Text(data['day'],
+                                    Text(widget.data['day'],
                                         style: TextStyle(
                                             color: Colors.blueGrey,
                                             fontSize: 16.0)),
@@ -72,14 +166,14 @@ class CommentList extends StatelessWidget {
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      _buildRatingStars(data['rating']),
+                                      _buildRatingStars(widget.data['rating']),
                                     ],
                                   ),
                                 ),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Text(data['comment'],
+                                    Text(widget.data['comment'],
                                         style: TextStyle(
                                             color: Colors.blueGrey,
                                             fontSize: 16.0))
@@ -88,7 +182,7 @@ class CommentList extends StatelessWidget {
                               ],
                             ))),
                     onTap: () {
-                      if (data["user_id"] == user_id) {
+                      if (widget.data["user_id"] == widget.user_id) {
                         showDialog(
                           context: context,
                           builder: (BuildContext context) {
@@ -125,12 +219,34 @@ class CommentList extends StatelessWidget {
                                   onPressed: () async {
                                     FirebaseFirestore.instance
                                         .collection('comment')
-                                        .doc(data['comment_id'])
+                                        .doc(widget.data['comment_id'])
                                         .delete()
                                         .then((value) {
                                       Navigator.of(context, rootNavigator: true)
                                           .pop('dialog');
                                     });
+
+                                    // double total = 0, count = 0;
+                                    // FirebaseFirestore.instance
+                                    //     .collection('comment')
+                                    //     .where('place_id',
+                                    //         isEqualTo: widget.place_id)
+                                    //     .get()
+                                    //     .then((querySnapshot) {
+                                    //   querySnapshot.docs
+                                    //       .forEach((result) async {
+                                    //     total = total + result.data()['rating'];
+                                    //     count++;
+
+                                    //     var average = total / count;
+
+                                    //     FirebaseFirestore.instance
+                                    //         .collection('place')
+                                    //         .doc(widget.place_id)
+                                    //         .update({'rating': average});
+                                    //   });
+                                    // });
+
                                     Toast.show("ลบความคิดเห็นสำเร็จ", context,
                                         duration: Toast.LENGTH_LONG,
                                         gravity: Toast.BOTTOM);
