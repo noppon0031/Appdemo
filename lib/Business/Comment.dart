@@ -226,26 +226,26 @@ class _CommentList extends State<CommentList> {
                                           .pop('dialog');
                                     });
 
-                                    // double total = 0, count = 0;
-                                    // FirebaseFirestore.instance
-                                    //     .collection('comment')
-                                    //     .where('place_id',
-                                    //         isEqualTo: widget.place_id)
-                                    //     .get()
-                                    //     .then((querySnapshot) {
-                                    //   querySnapshot.docs
-                                    //       .forEach((result) async {
-                                    //     total = total + result.data()['rating'];
-                                    //     count++;
+                                    double total = 0, count = 0;
+                                    FirebaseFirestore.instance
+                                        .collection('comment')
+                                        .where('place_id',
+                                            isEqualTo: widget.place_id)
+                                        .get()
+                                        .then((querySnapshot) {
+                                      querySnapshot.docs
+                                          .forEach((result) async {
+                                        total = total + result.data()['rating'];
+                                        count++;
 
-                                    //     var average = total / count;
+                                        var average = total / count;
 
-                                    //     FirebaseFirestore.instance
-                                    //         .collection('place')
-                                    //         .doc(widget.place_id)
-                                    //         .update({'rating': average});
-                                    //   });
-                                    // });
+                                        FirebaseFirestore.instance
+                                            .collection('place')
+                                            .doc(widget.place_id)
+                                            .update({'rating': average});
+                                      });
+                                    });
 
                                     Toast.show("ลบความคิดเห็นสำเร็จ", context,
                                         duration: Toast.LENGTH_LONG,

@@ -7,6 +7,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:noppon/Entrepreneur/account.dart';
+import 'package:noppon/Entrepreneur/launcher%20copy.dart';
 import 'package:noppon/Entrepreneur/launcher.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -101,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
           if (Type == "ผู้ประกอบการ") {
             Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (context) => Launcher()),
+              MaterialPageRoute(builder: (context) => Launcher2()),
               (Route<dynamic> route) => false,
             );
           }

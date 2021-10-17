@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
+import 'package:noppon/edit_user%20copy.dart';
 import 'package:noppon/edit_user.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -16,16 +17,16 @@ import 'package:toast/toast.dart';
 import 'package:transparent_image/transparent_image.dart';
 import '../login.dart';
 
-class Profile extends StatefulWidget {
+class Profile2 extends StatefulWidget {
   static const routeName = '/profile';
 
   @override
   State<StatefulWidget> createState() {
-    return _ProfileState();
+    return _ProfileState2();
   }
 }
 
-class _ProfileState extends State<Profile> {
+class _ProfileState2 extends State<Profile2> {
   final db = FirebaseDatabase.instance.reference().child("user");
   var user_id, email, password, photo, username, tel, type;
   late File _image;
@@ -314,7 +315,7 @@ class _ProfileState extends State<Profile> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => EditUser1(
+                          builder: (context) => EditUser2(
                               user_id: user_id,
                               email: email,
                               password: password,

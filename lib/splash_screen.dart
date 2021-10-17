@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:noppon/Entrepreneur/launcher%20copy.dart';
 import 'package:noppon/Entrepreneur/launcher.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:ui';
@@ -58,7 +59,7 @@ class _TimerButton extends State<SplashScreen> {
       } else {
         Navigator.pushAndRemoveUntil(
           context,
-          MaterialPageRoute(builder: (context) => Launcher()),
+          MaterialPageRoute(builder: (context) => Launcher2()),
           (Route<dynamic> route) => false,
         );
       }

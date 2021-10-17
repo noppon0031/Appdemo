@@ -3,16 +3,19 @@ import 'package:flutter/material.dart';
 import 'package:noppon/Business/business_list_user.dart';
 import 'package:noppon/Business/business_me.dart';
 import 'package:noppon/Entrepreneur/home.dart';
+import 'package:noppon/Entrepreneur/launcher%20copy.dart';
+import 'package:noppon/User/profile%20copy.dart';
 import 'package:noppon/User/profile.dart';
 import 'package:noppon/addddd.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../dropdown.dart';
 import '../login.dart';
 
-class Account extends StatefulWidget {
+class Account2 extends StatefulWidget {
   @override
-  _AccountState createState() => _AccountState();
+  _AccountState2 createState() => _AccountState2();
 }
 
 LogoutMethod(BuildContext context) async {
@@ -62,41 +65,10 @@ LogoutMethod(BuildContext context) async {
   );
 }
 
-NoMethod(BuildContext context) async {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return AlertDialog(
-        title: Row(children: [
-          Image.asset(
-            'assets/logo.png',
-            width: 30,
-            height: 30,
-            fit: BoxFit.contain,
-          ),
-          Text('  แจ้งเตือน')
-        ]),
-        content: Text("สำหรับผู้ประกอบการร้านค้าและสถานที่"),
-        actions: <Widget>[
-          FlatButton(
-            child: Text(
-              "รับทราบ",
-              style: new TextStyle(color: Colors.blue),
-            ),
-            onPressed: () {
-              Navigator.of(context, rootNavigator: true).pop('dialog');
-            },
-          ),
-        ],
-      );
-    },
-  );
-}
-
 final db = FirebaseDatabase.instance.reference().child("user");
 var user_id, email, password, photo, username, tel, type;
 
-class _AccountState extends State<Account> {
+class _AccountState2 extends State<Account2> {
   void initState() {
     super.initState();
     WidgetsBinding.instance!.addPostFrameCallback((_) {
@@ -177,7 +149,7 @@ class ProfileMenu extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => Profile()),
+            MaterialPageRoute(builder: (context) => Profile2()),
           );
         },
         child: Row(
@@ -205,10 +177,10 @@ class ProfileMenu extends StatelessWidget {
 //         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
 //         color: Colors.grey[200],
 //         onPressed: () {
-//           // Navigator.push(
-//           //   context,
-//           //   MaterialPageRoute(builder: (context) => HomePage()),
-//           // );
+//           Navigator.push(
+//             context,
+//             MaterialPageRoute(builder: (context) => Launcher2()),
+//           );
 //         },
 //         child: Row(
 //           children: [
@@ -262,14 +234,13 @@ class Managetest extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         color: Colors.grey[200],
         onPressed: () {
-          NoMethod(context);
-          // Navigator.push(
-          //   context,
-          //   MaterialPageRoute(
-          //     builder: (context) => Business_Me(),
-          //     // builder: (context) => Dropdown(),
-          //   ),
-          // );
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => Business_Me(),
+              // builder: (context) => Dropdown(),
+            ),
+          );
         },
         child: Row(
           children: [

@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:noppon/Entrepreneur/launcher%20copy.dart';
 import 'package:noppon/Entrepreneur/launcher.dart';
 import 'package:noppon/User/profile.dart';
 import 'package:noppon/login.dart';
@@ -12,9 +13,9 @@ import 'package:progress_dialog/progress_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
 
-class EditUser1 extends StatefulWidget {
+class EditUser2 extends StatefulWidget {
   var user_id, email, password, username, photo, tel, type;
-  EditUser1(
+  EditUser2(
       {this.user_id,
       this.email,
       this.password,
@@ -24,10 +25,10 @@ class EditUser1 extends StatefulWidget {
       this.type});
 
   @override
-  State<StatefulWidget> createState() => new EditUserState();
+  State<StatefulWidget> createState() => new EditUserState2();
 }
 
-class EditUserState extends State<EditUser1> {
+class EditUserState2 extends State<EditUser2> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController usernameController = TextEditingController();
@@ -60,7 +61,7 @@ class EditUserState extends State<EditUser1> {
   //   String dropdownValue = 'ผู้ใช้งานระบบ';
   // List<String> user_type = ['ผู้ใช้งานระบบ', 'ผู้ใช้ทั่วไป'];
 
-  Future<void> EditUser(BuildContext context) async {
+  Future<void> EditUser2(BuildContext context) async {
     var Email = emailController.text.toString();
     var Password = passwordController.text.toString();
     var Username = usernameController.text.toString();
@@ -127,25 +128,6 @@ class EditUserState extends State<EditUser1> {
     }
   }
 
-  Future<bool> checkIfDocExists(String email) async {
-    bool check = false;
-    final snapshot = await FirebaseFirestore.instance
-        .collection("user")
-        .where('email', isEqualTo: email)
-        .get();
-
-    if (snapshot.docs.length == 0) {
-      setState(() {
-        check = false;
-      });
-    } else {
-      setState(() {
-        check = true;
-      });
-    }
-    return check;
-  }
-
   LogoutMethod(BuildContext context) async {
     showDialog(
       context: context,
@@ -182,6 +164,25 @@ class EditUserState extends State<EditUser1> {
         );
       },
     );
+  }
+
+  Future<bool> checkIfDocExists(String email) async {
+    bool check = false;
+    final snapshot = await FirebaseFirestore.instance
+        .collection("user")
+        .where('email', isEqualTo: email)
+        .get();
+
+    if (snapshot.docs.length == 0) {
+      setState(() {
+        check = false;
+      });
+    } else {
+      setState(() {
+        check = true;
+      });
+    }
+    return check;
   }
 
   @override
@@ -318,7 +319,7 @@ class EditUserState extends State<EditUser1> {
                             style: new TextStyle(fontSize: 20.0),
                           ),
                           onPressed: () {
-                            EditUser(context);
+                            EditUser2(context);
                             LogoutMethod(context);
                           }),
                     ),
