@@ -98,6 +98,13 @@ class _LoginPageState extends State<LoginPage> {
               (Route<dynamic> route) => false,
             );
           }
+          if (Type == "ผู้ประกอบการ") {
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => Launcher()),
+              (Route<dynamic> route) => false,
+            );
+          }
         });
       }).catchError((e) {
         Toast.show("เกิดข้อผิดพลาด กรุณาลองใหม่", context,
