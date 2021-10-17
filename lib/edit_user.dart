@@ -68,15 +68,15 @@ class EditUserState extends State<EditUser1> {
     return emailValid;
   }
 
-  String dropdownValue = 'ผู้ใช้งานระบบ';
-  List<String> user_type = ['ผู้ใช้งานระบบ', 'ผู้ใช้ทั่วไป'];
+  //   String dropdownValue = 'ผู้ใช้งานระบบ';
+  // List<String> user_type = ['ผู้ใช้งานระบบ', 'ผู้ใช้ทั่วไป'];
 
   Future<void> EditUser(BuildContext context) async {
     var Email = emailController.text.toString();
     var Password = passwordController.text.toString();
     var Username = usernameController.text.toString();
     var Tel = telController.text.toString();
-    var Type = dropdownValue;
+    // var Type = dropdownValue;
 
     if (Email.isEmpty) {
       Toast.show("กรุณาใส่อีเมลก่อน", context,
@@ -136,7 +136,7 @@ class EditUserState extends State<EditUser1> {
         await prefs.setString('password', Password);
         await prefs.setString('username', Username);
         await prefs.setString('tel', Tel);
-        await prefs.setString('type', Type);
+        //  await prefs.setString('type', Type);
       });
 
       Navigator.pushAndRemoveUntil(
@@ -314,3 +314,9 @@ class EditUserState extends State<EditUser1> {
                 ))));
   }
 }
+
+// String dropdownValue = 'ผู้ใช้งานระบบ';
+// List<String> user_type = [
+//   'ผู้ใช้งานระบบ',
+//   'ผู้ประกอบการ',
+// ];
