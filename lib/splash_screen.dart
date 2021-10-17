@@ -49,7 +49,7 @@ class _TimerButton extends State<SplashScreen> {
     var UserType = prefs.getString('type');
 
     if (Check == true) {
-      if (UserType == 'ผู้ประกอบการ') {
+      if (UserType == 'ผู้ใช้งานระบบ') {
         Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(builder: (context) => Launcher()),

@@ -90,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
           await prefs.setString('tel', Tel);
           await prefs.setString('type', Type);
 
-          if (Type == "ผู้ประกอบการ") {
+          if (Type == "ผู้ใช้งานระบบ") {
             Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(builder: (context) => Launcher()),

@@ -36,8 +36,8 @@ class RegisterState extends State<Register> {
     super.dispose();
   }
 
-  String dropdownValue = 'ผู้ประกอบการ';
-  List<String> user_type = ['ผู้ประกอบการ', 'ผู้ใช้ทั่วไป'];
+  String dropdownValue = 'ผู้ใช้งานระบบ';
+  List<String> user_type = ['ผู้ใช้งานระบบ', 'ผู้ใช้ทั่วไป'];
 
   @override
   Widget build(BuildContext context) {
