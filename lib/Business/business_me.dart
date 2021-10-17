@@ -5,6 +5,7 @@ import 'package:noppon/Business/add_image.dart';
 import 'dart:ui';
 import 'dart:async';
 import 'package:noppon/Business/business_detail.dart';
+import 'package:noppon/Business/business_editim.dart';
 import 'package:noppon/Model/place.dart';
 import 'package:noppon/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -338,7 +339,70 @@ class PlaceList extends StatelessWidget {
                                           gravity: Toast.BOTTOM);
                                     },
                                     child: const Text('ลบสถานที่'),
-                                  )
+                                  ),
+                                  // SimpleDialogOption(
+                                  //   onPressed: () {
+                                  //     Navigator.push(
+                                  //       context,
+                                  //       MaterialPageRoute(
+                                  //           builder: (context) =>
+                                  //               BusinessEditim(
+                                  //                 place_id: doc["place_id"],
+                                  //                 address: doc["address"],
+                                  //                 business_name:
+                                  //                     doc["business_name"],
+                                  //                 business_name1:
+                                  //                     doc["business_name1"],
+                                  //                 business_name2:
+                                  //                     doc["business_name2"],
+                                  //                 business_name3:
+                                  //                     doc["business_name3"],
+                                  //                 business_name_english: doc[
+                                  //                     "business_name_english"],
+                                  //                 day: doc["day"],
+                                  //                 detail: doc["detail"],
+                                  //                 email: doc["email"],
+                                  //                 facebook: doc["facebook"],
+                                  //                 instagram: doc["instagram"],
+                                  //                 line: doc["line"],
+                                  //                 latitude: doc["latitude"]
+                                  //                     .toString(),
+                                  //                 longitude: doc["longitude"]
+                                  //                     .toString(),
+                                  //                 map: doc["map"],
+                                  //                 photo1: doc["photo1"],
+                                  //                 photo2: doc["photo2"],
+                                  //                 photo3: doc["photo3"],
+                                  //                 photo4: doc["photo4"],
+                                  //                 photo5: doc["photo5"],
+                                  //                 photo6: doc["photo6"],
+                                  //                 photo7: doc["photo7"],
+                                  //                 photo8: doc["photo8"],
+                                  //                 photo9: doc["photo9"],
+                                  //                 photo10: doc["photo10"],
+                                  //                 price: doc["price"],
+                                  //                 // rating: doc["rating"],
+                                  //                 tel: doc["tel"],
+                                  //                 time: doc["time"],
+                                  //                 type: doc["type"],
+                                  //                 type2: doc["type2"],
+                                  //                 type3: doc["type3"],
+                                  //                 type4: doc["type4"],
+                                  //                 type5: doc["type5"],
+                                  //                 type6: doc["type6"],
+                                  //                 type7: doc["type7"],
+                                  //                 type8: doc["type8"],
+                                  //                 type9: doc["type9"],
+                                  //                 type10: doc["type10"],
+                                  //                 user_id: doc["user_id"],
+                                  //                 website: doc["website"],
+                                  //                 photodetail:
+                                  //                     doc["photodetail"],
+                                  //               )),
+                                  //     );
+                                  //   },
+                                  //   child: const Text('แก้ไขสถานที่'),
+                                  // ),
                                 ],
                               );
                             });
@@ -408,7 +472,7 @@ class PlaceList extends StatelessWidget {
                                             color: Colors.blueGrey,
                                             fontSize: 16.0)),
                                     SizedBox(
-                                      width: 150,
+                                      width: 110,
                                     ),
                                     Container(
                                       padding: EdgeInsets.all(6.0),

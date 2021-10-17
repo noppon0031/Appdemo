@@ -243,6 +243,7 @@ class _LoginPageState extends State<LoginPage> {
                               validateAndSubmit();
                             }),
                       ),
+                      SizedBox(height: 15.0),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -266,30 +267,30 @@ class _LoginPageState extends State<LoginPage> {
                                           color: Colors.blue)))),
                         ],
                       ),
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              setState(() {
-                                Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => forgotpassword()),
-                                );
-                              });
-                            },
-                            child: Container(
-                                margin: EdgeInsets.only(top: 20, left: 150),
-                                child: const Text(
-                                  "ลืมรหัสผ่าน?",
-                                  style: TextStyle(
-                                      fontSize: 18, color: Colors.blue),
-                                )),
-                          ),
-                        ],
-                      ), //Check
+                      // Row(
+                      //   mainAxisSize: MainAxisSize.min,
+                      //   crossAxisAlignment: CrossAxisAlignment.start,
+                      //   children: [
+                      //     GestureDetector(
+                      //       onTap: () {
+                      //         setState(() {
+                      //           Navigator.pushReplacement(
+                      //             context,
+                      //             MaterialPageRoute(
+                      //                 builder: (context) => forgotpassword()),
+                      //           );
+                      //         });
+                      //       },
+                      //       child: Container(
+                      //           margin: EdgeInsets.only(top: 20, left: 150),
+                      //           child: const Text(
+                      //             "ลืมรหัสผ่าน?",
+                      //             style: TextStyle(
+                      //                 fontSize: 18, color: Colors.blue),
+                      //           )),
+                      //     ),
+                      //   ],
+                      // ), //Check
                     ],
                   ),
                 ),

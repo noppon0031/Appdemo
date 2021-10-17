@@ -24,7 +24,7 @@ class RegisterState extends State<Register> {
   // String email, _password;
 
   final db = FirebaseDatabase.instance.reference().child("user");
-  final auth = FirebaseAuth.instance;
+  // final auth = FirebaseAuth.instance;
 
   @override
   void initState() {
@@ -259,8 +259,8 @@ class RegisterState extends State<Register> {
           .doc(value.id)
           .update({'user_id': value.id}));
 
-      FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: Email, password: Password);
+      // FirebaseAuth.instance
+      //     .createUserWithEmailAndPassword(email: Email, password: Password);
 
       Toast.show("สมัครสมาชิกสำเร็จ", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
