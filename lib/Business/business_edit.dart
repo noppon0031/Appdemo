@@ -30,6 +30,8 @@ class BusinessEdit extends StatefulWidget {
       line,
       latitude,
       longitude,
+      latitude2,
+      longitude2,
       map,
       photo1,
       photo2,
@@ -75,6 +77,8 @@ class BusinessEdit extends StatefulWidget {
     this.line,
     this.latitude,
     this.longitude,
+    this.latitude2,
+    this.longitude2,
     this.map,
     this.photo1,
     this.photo2,
@@ -186,6 +190,8 @@ class _BusinessEdit extends State<BusinessEdit> {
     google_map_Controller.text = widget.map;
     latitude_Controller.text = widget.latitude;
     longitude_Controller.text = widget.longitude;
+    latitude2_Controller.text = widget.latitude2;
+    longitude2_Controller.text = widget.longitude2;
     photodetail_Controller.text = widget.photodetail;
     type_Controller.text = widget.type;
     type2_Controller.text = widget.type2;
@@ -1409,6 +1415,8 @@ class _BusinessEdit extends State<BusinessEdit> {
     var line = line_Controller.text.toString();
     var latitude = latitude_Controller.text.toString();
     var longitude = longitude_Controller.text.toString();
+    var latitude2 = latitude2_Controller.text.toString();
+    var longitude2 = longitude2_Controller.text.toString();
     var price = price_Controller.text.toString();
     var tel = tel_Controller.text.toString();
     var time = time_Controller.text.toString();
@@ -1609,6 +1617,8 @@ class _BusinessEdit extends State<BusinessEdit> {
       'line': line,
       'latitude': double.parse('$latitude'),
       'longitude': double.parse('$longitude'),
+      'latitude2': double.parse('$latitude2'),
+      'longitude2': double.parse('$longitude2'),
       'tel': tel,
       'time': time,
       'type': type,
@@ -1650,6 +1660,8 @@ class _BusinessEdit extends State<BusinessEdit> {
       await prefs.setString('line', line);
       await prefs.setString('latitude', latitude);
       await prefs.setString('longitude', longitude);
+      await prefs.setString('latitude2', latitude2);
+      await prefs.setString('longitude2', longitude2);
       await prefs.setString('tel', tel);
       await prefs.setString('time', time);
       await prefs.setString('website', website);

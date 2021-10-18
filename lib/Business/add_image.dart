@@ -41,6 +41,14 @@ class _AddImageState extends State<AddImage> {
   final google_map_Controller = TextEditingController();
   final latitude_Controller = TextEditingController();
   final longitude_Controller = TextEditingController();
+  final latitude2_Controller = TextEditingController();
+  final longitude3_Controller = TextEditingController();
+  final latitude3_Controller = TextEditingController();
+  final longitude4_Controller = TextEditingController();
+  final latitude4_Controller = TextEditingController();
+  final longitude2_Controller = TextEditingController();
+  final latitude5_Controller = TextEditingController();
+  final longitude5_Controller = TextEditingController();
   final check_Controller = TextEditingController();
   final photo_Detaii_Controller = TextEditingController();
 
@@ -615,7 +623,7 @@ class _AddImageState extends State<AddImage> {
                     decoration:
                         new InputDecoration(hintText: 'กรุณาใส่ที่อยู่'),
                   ),
-                  SizedBox(height: 10.0),
+                  SizedBox(height: 20.0),
                   Text(
                     "ตำแหน่งสถานที่ของคุณ",
                     style: new TextStyle(fontSize: 16.0),
@@ -637,28 +645,95 @@ class _AddImageState extends State<AddImage> {
                     decoration:
                         new InputDecoration(hintText: 'กรุณาใส่ลองจิจูด'),
                   ),
-                  SizedBox(height: 10.0),
+                  SizedBox(height: 5.0),
+                  Text(
+                    "ตำแหน่งสถานที่ 2",
+                    style: new TextStyle(fontSize: 16.0),
+                  ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: latitude2_Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: new InputDecoration(
+                        hintText: 'กรุณาใส่ละติจูด (ถ้าไม่มีให้ใส่ 1.1)'),
+                  ),
+
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: longitude2_Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: new InputDecoration(
+                        hintText: 'กรุณาใส่ลองจิจูด (ถ้าไม่มีให้ใส่ 1.1)'),
+                  ),
+                  // SizedBox(height: 5.0),
                   // Text(
-                  //   "ตำแหน่งสถานที่ของคุณ 2",
+                  //   "ตำแหน่งสถานที่ 3",
                   //   style: new TextStyle(fontSize: 16.0),
                   // ),
                   // TextFormField(
                   //   maxLines: 1,
                   //   autofocus: false,
-                  //   controller: latitude2_Controller,
+                  //   controller: latitude3_Controller,
                   //   keyboardType: TextInputType.number,
-                  //   decoration:
-                  //       new InputDecoration(hintText: 'กรุณาใส่ละติจูด'),
+                  //   decoration: new InputDecoration(
+                  //       hintText: 'กรุณาใส่ละติจูด (ถ้าไม่มีให้ใส่ 1.1)'),
                   // ),
 
                   // TextFormField(
                   //   maxLines: 1,
                   //   autofocus: false,
-                  //   controller: longitude2_Controller,
+                  //   controller: longitude3_Controller,
                   //   keyboardType: TextInputType.number,
-                  //   decoration:
-                  //       new InputDecoration(hintText: 'กรุณาใส่ลองจิจูด'),
+                  //   decoration: new InputDecoration(
+                  //       hintText: 'กรุณาใส่ลองจิจูด (ถ้าไม่มีให้ใส่ 1.1)'),
                   // ),
+                  // SizedBox(height: 5.0),
+                  // Text(
+                  //   "ตำแหน่งสถานที่ 4",
+                  //   style: new TextStyle(fontSize: 16.0),
+                  // ),
+                  // TextFormField(
+                  //   maxLines: 1,
+                  //   autofocus: false,
+                  //   controller: latitude4_Controller,
+                  //   keyboardType: TextInputType.number,
+                  //   decoration: new InputDecoration(
+                  //       hintText: 'กรุณาใส่ละติจูด (ถ้าไม่มีให้ใส่ 1.1)'),
+                  // ),
+
+                  // TextFormField(
+                  //   maxLines: 1,
+                  //   autofocus: false,
+                  //   controller: longitude4_Controller,
+                  //   keyboardType: TextInputType.number,
+                  //   decoration: new InputDecoration(
+                  //       hintText: 'กรุณาใส่ลองจิจูด (ถ้าไม่มีให้ใส่ 1.1)'),
+                  // ),
+                  // SizedBox(height: 5.0),
+                  // Text(
+                  //   "ตำแหน่งสถานที่ 5",
+                  //   style: new TextStyle(fontSize: 16.0),
+                  // ),
+                  // TextFormField(
+                  //   maxLines: 1,
+                  //   autofocus: false,
+                  //   controller: latitude5_Controller,
+                  //   keyboardType: TextInputType.number,
+                  //   decoration: new InputDecoration(
+                  //       hintText: 'กรุณาใส่ละติจูด (ถ้าไม่มีให้ใส่ 1.1)'),
+                  // ),
+
+                  // TextFormField(
+                  //   maxLines: 1,
+                  //   autofocus: false,
+                  //   controller: longitude5_Controller,
+                  //   keyboardType: TextInputType.number,
+                  //   decoration: new InputDecoration(
+                  //       hintText: 'กรุณาใส่ลองจิจูด (ถ้าไม่มีให้ใส่ 1.1)'),
+                  // ),
+
                   SizedBox(height: 10.0),
                   Text(
                     "รายละเอียดร้าน",
@@ -752,6 +827,14 @@ class _AddImageState extends State<AddImage> {
     var Address = address_Controller.text.trim();
     var Latitude = latitude_Controller.text.trim();
     var Longitude = longitude_Controller.text.trim();
+    var Latitude2 = latitude2_Controller.text.trim();
+    var Longitude2 = longitude2_Controller.text.trim();
+    // var Latitude3 = latitude3_Controller.text.trim();
+    // var Longitude3 = longitude3_Controller.text.trim();
+    // var Latitude4 = latitude4_Controller.text.trim();
+    // var Longitude4 = longitude4_Controller.text.trim();
+    // var Latitude5 = latitude5_Controller.text.trim();
+    // var Longitude5 = longitude5_Controller.text.trim();
     var Detail = detail_Controller.text.trim();
     var Google_map = google_map_Controller.text.trim();
     var type = dropdownValue;
@@ -970,6 +1053,7 @@ class _AddImageState extends State<AddImage> {
             'place_id': "",
             'price': Price,
             'rating': 0,
+            'view': 0,
             'status': "true",
             'tel': Tel,
             'time': Time,
@@ -1024,6 +1108,8 @@ class _AddImageState extends State<AddImage> {
                 'latitude': double.parse('$Latitude'),
                 'line': Line,
                 'longitude': double.parse('$Longitude'),
+                'latitude2': double.parse('$Latitude2'),
+                'longitude2': double.parse('$Longitude2'),
                 'map': Google_map,
                 'open': "true",
                 'photo1': photo1,
@@ -1039,6 +1125,7 @@ class _AddImageState extends State<AddImage> {
                 'place_id': "",
                 'price': Price,
                 'rating': 0,
+                'view': 0,
                 'status': "true",
                 'tel': Tel,
                 'time': Time,
