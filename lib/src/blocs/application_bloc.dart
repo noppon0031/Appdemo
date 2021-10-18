@@ -19,8 +19,10 @@ class ApplicationBloc with ChangeNotifier {
   //Variables
   late Position currentLocation;
   List<PlaceSearch>? searchResults;
-  StreamController<Place> selectedLocation = StreamController<Place>();
-  StreamController<LatLngBounds> bounds = StreamController<LatLngBounds>();
+  StreamController<Place> selectedLocation =
+      StreamController<Place>.broadcast();
+  StreamController<LatLngBounds> bounds =
+      StreamController<LatLngBounds>.broadcast();
   late Place selectedLocationStatic;
   String? placeType;
   List<Place>? placeResults;
@@ -107,5 +109,4 @@ class ApplicationBloc with ChangeNotifier {
     bounds.close();
     super.dispose();
   }
-  
 }
