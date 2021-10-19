@@ -215,6 +215,40 @@ class PlaceList extends StatelessWidget {
                                 children: [
                                   SimpleDialogOption(
                                     onPressed: () {
+                                      doc['auto'] == 'true'
+                                          ? FirebaseFirestore.instance
+                                              .collection('place')
+                                              .doc(doc["place_id"])
+                                              .update({'auto': 'false'}).then(
+                                                  (value) {
+                                              Navigator.of(context,
+                                                      rootNavigator: true)
+                                                  .pop('dialog');
+
+                                              Toast.show(
+                                                  "ปิดเวลาอัตโนมัติสำเร็จ",
+                                                  context,
+                                                  duration: Toast.LENGTH_LONG,
+                                                  gravity: Toast.BOTTOM);
+                                            })
+                                          : FirebaseFirestore.instance
+                                              .collection('place')
+                                              .doc(doc["place_id"])
+                                              .update({'auto': 'true'}).then(
+                                                  (value) => Navigator.of(
+                                                          context,
+                                                          rootNavigator: true)
+                                                      .pop('dialog'));
+                                      Toast.show(
+                                          "เปิดเวลาอัตโนมัติสำเร็จ", context,
+                                          duration: Toast.LENGTH_LONG,
+                                          gravity: Toast.BOTTOM);
+                                    },
+                                    child:
+                                        const Text('เปิดเวลาอัตโนมัติ/ปิดร้าน'),
+                                  ),
+                                  SimpleDialogOption(
+                                    onPressed: () {
                                       doc['open'] == 'true'
                                           ? FirebaseFirestore.instance
                                               .collection('place')
@@ -225,7 +259,8 @@ class PlaceList extends StatelessWidget {
                                                       rootNavigator: true)
                                                   .pop('dialog');
 
-                                              Toast.show("ปิดสำเร็จ", context,
+                                              Toast.show(
+                                                  "ไม่แสดงสำเร็จ", context,
                                                   duration: Toast.LENGTH_LONG,
                                                   gravity: Toast.BOTTOM);
                                             })
@@ -241,7 +276,8 @@ class PlaceList extends StatelessWidget {
                                           duration: Toast.LENGTH_LONG,
                                           gravity: Toast.BOTTOM);
                                     },
-                                    child: const Text('เปิด/ปิดร้าน'),
+                                    child: const Text(
+                                        'ตั้งค่าให้แสดงว่าร้านเปิด/ไม่แสดง'),
                                   ),
                                   SimpleDialogOption(
                                     onPressed: () {
@@ -521,22 +557,22 @@ class PlaceList extends StatelessWidget {
                                       ),
                                     ),
                                     SizedBox(width: 5.0),
-                                    Container(
-                                      padding: EdgeInsets.all(6.0),
-                                      decoration: BoxDecoration(
-                                        color: Theme.of(context).accentColor,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                      ),
-                                      alignment: Alignment.center,
-                                      child: Text(
-                                        document["time"],
-                                        style: new TextStyle(
-                                            color: Colors.white, fontSize: 12),
-                                      ),
-                                    ),
+                                    // Container(
+                                    //   padding: EdgeInsets.all(6.0),
+                                    //   decoration: BoxDecoration(
+                                    //     color: Theme.of(context).accentColor,
+                                    //     borderRadius:
+                                    //         BorderRadius.circular(10.0),
+                                    //   ),
+                                    //   alignment: Alignment.center,
+                                    //   child: Text(
+                                    //     document["time"],
+                                    //     style: new TextStyle(
+                                    //         color: Colors.white, fontSize: 12),
+                                    //   ),
+                                    // ),
                                     SizedBox(width: 5.0),
-                                    document["open"] == "true"
+                                    document["auto"] == "true"
                                         ? Column(
                                             children: [
                                               if (c_time >=
@@ -553,7 +589,7 @@ class PlaceList extends StatelessWidget {
                                                   ),
                                                   alignment: Alignment.center,
                                                   child: Text(
-                                                    "เปิด",
+                                                    "เวลาทำการ",
                                                     style: new TextStyle(
                                                         color: Colors.white,
                                                         fontSize: 12),
@@ -570,7 +606,7 @@ class PlaceList extends StatelessWidget {
                                                   ),
                                                   alignment: Alignment.center,
                                                   child: Text(
-                                                    "ปิด",
+                                                    "นอกเวลา",
                                                     style: new TextStyle(
                                                         color: Colors.white,
                                                         fontSize: 12),
@@ -587,7 +623,42 @@ class PlaceList extends StatelessWidget {
                                             ),
                                             alignment: Alignment.center,
                                             child: Text(
-                                              "ปิด",
+                                              "ปิดทำการ",
+                                              style: new TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 12),
+                                            ),
+                                          ),
+                                    SizedBox(
+                                      width: (10),
+                                    ),
+                                    ////////////////////////////////////////////////////////
+                                    doc["open"] == "true"
+                                        ? Container(
+                                            padding: EdgeInsets.all(6.0),
+                                            decoration: BoxDecoration(
+                                              color: Colors.green,
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
+                                            ),
+                                            alignment: Alignment.center,
+                                            child: Text(
+                                              "เปิด",
+                                              style: new TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 12),
+                                            ),
+                                          )
+                                        : Container(
+                                            padding: EdgeInsets.all(6.0),
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
+                                            ),
+                                            alignment: Alignment.center,
+                                            child: Text(
+                                              "-",
                                               style: new TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 12),
