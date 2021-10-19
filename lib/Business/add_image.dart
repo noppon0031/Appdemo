@@ -21,6 +21,7 @@ class _AddImageState extends State<AddImage> {
   double val = 0;
   late CollectionReference imgRef;
   late firebase_storage.Reference ref;
+  late TimeOfDay timeopen;
 
   final business_name_Controller = TextEditingController();
   final business_name1_Controller = TextEditingController();
@@ -536,6 +537,19 @@ class _AddImageState extends State<AddImage> {
                         new InputDecoration(hintText: 'กรุณาใส่เวลาเปิดปิด'),
                   ),
                   SizedBox(height: 10.0),
+                  // RaisedButton(
+                  //     child: Text('timeopen'),
+                  //     onPressed: () {
+                  //       showTimePicker(
+                  //         context: context,
+                  //         initialTime: TimeOfDay.now(),
+                  //       ).then((value) {
+                  //         setState(() {
+                  //           timeopen = value!;
+                  //           print(value);
+                  //         });
+                  //       });
+                  //     }),
                   Text(
                     "ช่วงราคา",
                     style: new TextStyle(fontSize: 16.0),

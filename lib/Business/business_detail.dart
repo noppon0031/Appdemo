@@ -56,6 +56,8 @@ class Business_Detail extends StatefulWidget {
       rating,
       tel,
       time,
+      time_open,
+      time_close,
       type,
       type2,
       type3,
@@ -109,6 +111,8 @@ class Business_Detail extends StatefulWidget {
     this.rating,
     this.tel,
     this.time,
+    this.time_open,
+    this.time_close,
     this.type,
     this.type2,
     this.type3,
@@ -946,8 +950,19 @@ class _Business_Detail extends State<Business_Detail> {
                                               FirebaseFirestore.instance
                                                   .collection('place')
                                                   .doc(widget.place_id)
-                                                  .update({'rating': average});
+                                                  .update({
+                                                'rating': average,
+                                                // 'total': total,
+                                                // 'count': count,
+                                              });
                                             });
+                                            // FirebaseFirestore.instance
+                                            //     .collection('place')
+                                            //     .doc(widget.place_id)
+                                            //     .update({
+                                            //   'total': total,
+                                            //   'count': count,
+                                            // });
                                           });
                                         });
                                       });

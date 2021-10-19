@@ -230,11 +230,12 @@ class _CommentList extends State<CommentList> {
                                           .pop('dialog');
                                     });
 
+                                    //หาค่าเฉลี่ย Rating
                                     double total = 0, count = 0;
                                     FirebaseFirestore.instance
                                         .collection('comment')
                                         .where('place_id',
-                                            isEqualTo: widget.place_id)
+                                            isEqualTo: widget.data["place_id"])
                                         .get()
                                         .then((querySnapshot) {
                                       querySnapshot.docs
@@ -246,8 +247,10 @@ class _CommentList extends State<CommentList> {
 
                                         FirebaseFirestore.instance
                                             .collection('place')
-                                            .doc(widget.place_id)
-                                            .update({'rating': average});
+                                            .doc(widget.data["place_id"])
+                                            .update({
+                                          'rating': average,
+                                        });
                                       });
                                     });
 

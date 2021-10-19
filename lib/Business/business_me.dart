@@ -109,7 +109,11 @@ class PlaceList extends StatelessWidget {
   var doc;
   PlaceList({this.doc});
 
+  DateTime now = new DateTime.now();
+
   Widget build(BuildContext context) {
+    var c_time = double.parse('${now.hour}' + '.' + '${now.minute}');
+
     print(doc["place_id"]);
     return FutureBuilder<QuerySnapshot>(
         future: FirebaseFirestore.instance
@@ -175,6 +179,8 @@ class PlaceList extends StatelessWidget {
                                     rating: document["rating"],
                                     tel: document["tel"],
                                     time: document["time"],
+                                    time_open: document["time_open"],
+                                    time_close: document["time_close"],
                                     type: document["type"],
                                     type2: document["type2"],
                                     type3: document["type3"],
@@ -296,6 +302,8 @@ class PlaceList extends StatelessWidget {
                                                   // rating: doc["rating"],
                                                   tel: doc["tel"],
                                                   time: doc["time"],
+                                                  time_open: doc["time_open"],
+                                                  time_close: doc["time_close"],
                                                   type: doc["type"],
                                                   type2: doc["type2"],
                                                   type3: doc["type3"],
@@ -529,20 +537,46 @@ class PlaceList extends StatelessWidget {
                                     ),
                                     SizedBox(width: 5.0),
                                     document["open"] == "true"
-                                        ? Container(
-                                            padding: EdgeInsets.all(6.0),
-                                            decoration: BoxDecoration(
-                                              color: Colors.green,
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
-                                            ),
-                                            alignment: Alignment.center,
-                                            child: Text(
-                                              "เปิด",
-                                              style: new TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 12),
-                                            ),
+                                        ? Column(
+                                            children: [
+                                              if (c_time >=
+                                                      document["time_open"] &&
+                                                  c_time <=
+                                                      document["time_close"])
+                                                Container(
+                                                  padding: EdgeInsets.all(6.0),
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.green,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10.0),
+                                                  ),
+                                                  alignment: Alignment.center,
+                                                  child: Text(
+                                                    "เปิด",
+                                                    style: new TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 12),
+                                                  ),
+                                                )
+                                              else
+                                                Container(
+                                                  padding: EdgeInsets.all(6.0),
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.red,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10.0),
+                                                  ),
+                                                  alignment: Alignment.center,
+                                                  child: Text(
+                                                    "ปิด",
+                                                    style: new TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 12),
+                                                  ),
+                                                )
+                                            ],
                                           )
                                         : Container(
                                             padding: EdgeInsets.all(6.0),
