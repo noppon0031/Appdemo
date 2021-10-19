@@ -152,9 +152,15 @@ class PlaceList extends StatelessWidget {
                                     line: document["line"],
                                     latitude: document["latitude"],
                                     longitude: document["longitude"],
-                                    // latitude2: document["latitude2"],
-                                    // longitude2: document["longitude2"],
-                                    map: document["map"],
+                                    latitude2: document["latitude2"],
+                                    longitude2: document["longitude2"],
+                                    latitude3: document["latitude3"],
+                                    longitude3: document["longitude3"],
+                                    latitude4: document["latitude4"],
+                                    longitude4: document["longitude4"],
+                                    latitude5: document["latitude5"],
+                                    longitude5: document["longitude5"],
+                                    // map: document["map"],
                                     photo1: document["photo1"],
                                     photo2: document["photo2"],
                                     photo3: document["photo3"],
@@ -258,6 +264,22 @@ class PlaceList extends StatelessWidget {
                                                   latitude: doc["latitude"]
                                                       .toString(),
                                                   longitude: doc["longitude"]
+                                                      .toString(),
+                                                  latitude2: doc["latitude2"]
+                                                      .toString(),
+                                                  longitude2: doc["longitude2"]
+                                                      .toString(),
+                                                  latitude3: doc["latitude3"]
+                                                      .toString(),
+                                                  longitude3: doc["longitude3"]
+                                                      .toString(),
+                                                  latitude4: doc["latitude4"]
+                                                      .toString(),
+                                                  longitude4: doc["longitude4"]
+                                                      .toString(),
+                                                  latitude5: doc["latitude5"]
+                                                      .toString(),
+                                                  longitude5: doc["longitude5"]
                                                       .toString(),
                                                   map: doc["map"],
                                                   photo1: doc["photo1"],

@@ -33,6 +33,12 @@ class BusinessEdit extends StatefulWidget {
       longitude,
       latitude2,
       longitude2,
+      latitude3,
+      longitude3,
+      latitude4,
+      longitude4,
+      latitude5,
+      longitude5,
       map,
       photo1,
       photo2,
@@ -80,6 +86,12 @@ class BusinessEdit extends StatefulWidget {
     this.longitude,
     this.latitude2,
     this.longitude2,
+    this.latitude3,
+    this.longitude3,
+    this.latitude4,
+    this.longitude4,
+    this.latitude5,
+    this.longitude5,
     this.map,
     this.photo1,
     this.photo2,
@@ -137,10 +149,22 @@ class _BusinessEdit extends State<BusinessEdit> {
   TextEditingController address_Controller = TextEditingController();
   TextEditingController detail_Controller = TextEditingController();
   TextEditingController google_map_Controller = TextEditingController();
+
   TextEditingController latitude_Controller = TextEditingController();
   TextEditingController longitude_Controller = TextEditingController();
+
   TextEditingController latitude2_Controller = TextEditingController();
   TextEditingController longitude2_Controller = TextEditingController();
+
+  TextEditingController latitude3_Controller = TextEditingController();
+  TextEditingController longitude3_Controller = TextEditingController();
+
+  TextEditingController latitude4_Controller = TextEditingController();
+  TextEditingController longitude4_Controller = TextEditingController();
+
+  TextEditingController latitude5_Controller = TextEditingController();
+  TextEditingController longitude5_Controller = TextEditingController();
+
   TextEditingController photodetail_Controller = TextEditingController();
   TextEditingController type_Controller = TextEditingController();
   TextEditingController type2_Controller = TextEditingController();
@@ -193,6 +217,12 @@ class _BusinessEdit extends State<BusinessEdit> {
     longitude_Controller.text = widget.longitude;
     latitude2_Controller.text = widget.latitude2;
     longitude2_Controller.text = widget.longitude2;
+    latitude3_Controller.text = widget.latitude3;
+    longitude3_Controller.text = widget.longitude3;
+    latitude4_Controller.text = widget.latitude4;
+    longitude4_Controller.text = widget.longitude4;
+    latitude5_Controller.text = widget.latitude5;
+    longitude5_Controller.text = widget.longitude5;
     photodetail_Controller.text = widget.photodetail;
     type_Controller.text = widget.type;
     type2_Controller.text = widget.type2;
@@ -1308,7 +1338,7 @@ class _BusinessEdit extends State<BusinessEdit> {
                   ),
                   SizedBox(height: 10.0),
                   Text(
-                    "ละติจูด, ลองจิจูด",
+                    "ที่อยู่สถานที่ 1 (ละติจูด, ลองจิจูด)",
                     style: new TextStyle(fontSize: 16.0),
                   ),
                   TextFormField(
@@ -1327,6 +1357,90 @@ class _BusinessEdit extends State<BusinessEdit> {
                     keyboardType: TextInputType.number,
                     decoration:
                         new InputDecoration(hintText: 'กรุณาใส่ลองจิจูด'),
+                  ),
+                  SizedBox(height: 10.0),
+                  Text(
+                    "ที่อยู่สถานที่ 2 (ละติจูด, ลองจิจูด)",
+                    style: new TextStyle(fontSize: 16.0),
+                  ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: latitude2_Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: new InputDecoration(
+                        hintText: 'กรุณาใส่ละติจูด ถ้าไม่มีใส่ 0.1'),
+                  ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: longitude2_Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: new InputDecoration(
+                        hintText: 'กรุณาใส่ลองจิจูด ถ้าไม่มีใส่ 0.1'),
+                  ),
+                  SizedBox(height: 10.0),
+                  Text(
+                    "ที่อยู่สถานที่ 3 (ละติจูด, ลองจิจูด)",
+                    style: new TextStyle(fontSize: 16.0),
+                  ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: latitude3_Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: new InputDecoration(
+                        hintText: 'กรุณาใส่ละติจูด ถ้าไม่มีใส่ 0.1'),
+                  ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: longitude3_Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: new InputDecoration(
+                        hintText: 'กรุณาใส่ลองจิจูด ถ้าไม่มีใส่ 0.1'),
+                  ),
+                  SizedBox(height: 10.0),
+                  Text(
+                    "ที่อยู่สถานที่ 4 (ละติจูด, ลองจิจูด)",
+                    style: new TextStyle(fontSize: 16.0),
+                  ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: latitude4_Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: new InputDecoration(
+                        hintText: 'กรุณาใส่ละติจูด ถ้าไม่มีใส่ 0.1'),
+                  ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: longitude4_Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: new InputDecoration(
+                        hintText: 'กรุณาใส่ลองจิจูด ถ้าไม่มีใส่ 0.1'),
+                  ),
+                  SizedBox(height: 10.0),
+                  Text(
+                    "ที่อยู่สถานที่ 5 (ละติจูด, ลองจิจูด)",
+                    style: new TextStyle(fontSize: 16.0),
+                  ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: latitude5_Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: new InputDecoration(
+                        hintText: 'กรุณาใส่ละติจูด ถ้าไม่มีใส่ 0.1'),
+                  ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: longitude5_Controller,
+                    keyboardType: TextInputType.number,
+                    decoration: new InputDecoration(
+                        hintText: 'กรุณาใส่ลองจิจูด ถ้าไม่มีใส่ 0.1'),
                   ),
                   SizedBox(height: 10.0),
                   Text(
@@ -1418,6 +1532,12 @@ class _BusinessEdit extends State<BusinessEdit> {
     var longitude = longitude_Controller.text.toString();
     var latitude2 = latitude2_Controller.text.toString();
     var longitude2 = longitude2_Controller.text.toString();
+    var latitude3 = latitude3_Controller.text.toString();
+    var longitude3 = longitude3_Controller.text.toString();
+    var latitude4 = latitude4_Controller.text.toString();
+    var longitude4 = longitude4_Controller.text.toString();
+    var latitude5 = latitude5_Controller.text.toString();
+    var longitude5 = longitude5_Controller.text.toString();
     var price = price_Controller.text.toString();
     var tel = tel_Controller.text.toString();
     var time = time_Controller.text.toString();
@@ -1620,6 +1740,12 @@ class _BusinessEdit extends State<BusinessEdit> {
       'longitude': double.parse('$longitude'),
       'latitude2': double.parse('$latitude2'),
       'longitude2': double.parse('$longitude2'),
+      'latitude3': double.parse('$latitude3'),
+      'longitude3': double.parse('$longitude3'),
+      'latitude4': double.parse('$latitude4'),
+      'longitude4': double.parse('$longitude4'),
+      'latitude5': double.parse('$latitude5'),
+      'longitude5': double.parse('$longitude5'),
       'tel': tel,
       'time': time,
       'type': type,
@@ -1663,6 +1789,12 @@ class _BusinessEdit extends State<BusinessEdit> {
       await prefs.setString('longitude', longitude);
       await prefs.setString('latitude2', latitude2);
       await prefs.setString('longitude2', longitude2);
+      await prefs.setString('latitude3', latitude3);
+      await prefs.setString('longitude3', longitude3);
+      await prefs.setString('latitude4', latitude4);
+      await prefs.setString('longitude4', longitude4);
+      await prefs.setString('latitude5', latitude5);
+      await prefs.setString('longitude5', longitude5);
       await prefs.setString('tel', tel);
       await prefs.setString('time', time);
       await prefs.setString('website', website);

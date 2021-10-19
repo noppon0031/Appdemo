@@ -35,6 +35,12 @@ class Business_Detail extends StatefulWidget {
       longitude,
       latitude2,
       longitude2,
+      latitude3,
+      longitude3,
+      latitude4,
+      longitude4,
+      latitude5,
+      longitude5,
       map,
       photo1,
       photo2,
@@ -82,6 +88,12 @@ class Business_Detail extends StatefulWidget {
     this.longitude,
     this.latitude2,
     this.longitude2,
+    this.latitude3,
+    this.longitude3,
+    this.latitude4,
+    this.longitude4,
+    this.latitude5,
+    this.longitude5,
     this.map,
     this.photo1,
     this.photo2,
@@ -1134,18 +1146,76 @@ class _Business_Detail extends State<Business_Detail> {
           snippet: widget.address,
         ),
       ));
-      markers.add(Marker(
-        //add first marker
-        markerId: MarkerId(widget.business_name),
-        position: LatLng(
-          widget.latitude2 as double,
-          widget.longitude2 as double,
-        ),
-        infoWindow: InfoWindow(
-          title: widget.business_name,
-          snippet: widget.address,
-        ),
-      ));
+      if (widget.latitude2 as double > 0.2) {
+        markers.add(Marker(
+          //add first marker
+          markerId: MarkerId(widget.business_name),
+          position: LatLng(
+            widget.latitude2 as double,
+            widget.longitude2 as double,
+          ),
+          infoWindow: InfoWindow(
+            title: widget.business_name,
+            snippet: widget.address,
+          ),
+        ));
+      }
+      if (widget.latitude2 as double > 0.2) {
+        markers.add(Marker(
+          //add first marker
+          markerId: MarkerId(widget.business_name),
+          position: LatLng(
+            widget.latitude2 as double,
+            widget.longitude2 as double,
+          ),
+          infoWindow: InfoWindow(
+            title: widget.business_name,
+            snippet: widget.address,
+          ),
+        ));
+      }
+      if (widget.latitude3 as double > 0.2) {
+        markers.add(Marker(
+          //add first marker
+          markerId: MarkerId(widget.business_name),
+          position: LatLng(
+            widget.latitude3 as double,
+            widget.longitude3 as double,
+          ),
+          infoWindow: InfoWindow(
+            title: widget.business_name,
+            snippet: widget.address,
+          ),
+        ));
+      }
+      if (widget.latitude4 as double > 0.2) {
+        markers.add(Marker(
+          //add first marker
+          markerId: MarkerId(widget.business_name),
+          position: LatLng(
+            widget.latitude4 as double,
+            widget.longitude4 as double,
+          ),
+          infoWindow: InfoWindow(
+            title: widget.business_name,
+            snippet: widget.address,
+          ),
+        ));
+      }
+      if (widget.latitude5 as double > 0.2) {
+        markers.add(Marker(
+          //add first marker
+          markerId: MarkerId(widget.business_name),
+          position: LatLng(
+            widget.latitude5 as double,
+            widget.longitude5 as double,
+          ),
+          infoWindow: InfoWindow(
+            title: widget.business_name,
+            snippet: widget.address,
+          ),
+        ));
+      }
     });
     return markers;
   }
