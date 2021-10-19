@@ -20,6 +20,7 @@ class _Business_List_User extends State<Business_List_User> {
   late bool _IsSearching;
   String _searchText = "";
   String Business_Type = "";
+  DateTime now = new DateTime.now();
 
   var user_id,
       email,
@@ -584,6 +585,7 @@ class _Business_List_User extends State<Business_List_User> {
 
   @override
   Widget build(BuildContext context) {
+    var c_time = double.parse('${now.hour}' + '.' + '${now.minute}');
     return Scaffold(
       appBar: AppBar(
           title: appBarTitle,
@@ -1023,30 +1025,117 @@ class _Business_List_User extends State<Business_List_User> {
                                                           fontSize: 12),
                                                     ),
                                                   ),
+                                                  // SizedBox(
+                                                  //   width: (10),
+                                                  // ),
+                                                  // Container(
+                                                  //   padding:
+                                                  //       EdgeInsets.all(6.0),
+                                                  //   decoration: BoxDecoration(
+                                                  //     color: Theme.of(context)
+                                                  //         .accentColor,
+                                                  //     borderRadius:
+                                                  //         BorderRadius.circular(
+                                                  //             10.0),
+                                                  //   ),
+                                                  //   alignment: Alignment.center,
+                                                  //   child: Text(
+                                                  //     doc["time"],
+                                                  //     style: new TextStyle(
+                                                  //         color: Colors.white,
+                                                  //         fontSize: 12),
+                                                  //   ),
+                                                  // ),
+                                                  SizedBox(width: 5.0),
+                                                  doc["auto"] == "true"
+                                                      ? Column(
+                                                          children: [
+                                                            if (c_time >=
+                                                                    doc[
+                                                                        "time_open"] &&
+                                                                c_time <=
+                                                                    doc["time_close"])
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .green,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "อยู่ในเวลาทำการ",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                            else
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .red,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "นอกเวลา",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                          ],
+                                                        )
+                                                      : Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "ปิดทำการ",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        ),
                                                   SizedBox(
                                                     width: (10),
                                                   ),
-                                                  Container(
-                                                    padding:
-                                                        EdgeInsets.all(6.0),
-                                                    decoration: BoxDecoration(
-                                                      color: Theme.of(context)
-                                                          .accentColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Text(
-                                                      doc["time"],
-                                                      style: new TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 12),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: (10),
-                                                  ),
+                                                  ////////////////////////////////////////////////////////
                                                   doc["open"] == "true"
                                                       ? Container(
                                                           padding:
@@ -1076,7 +1165,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                                   6.0),
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Colors.red,
+                                                            color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -1085,7 +1174,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                           alignment:
                                                               Alignment.center,
                                                           child: Text(
-                                                            "ปิด",
+                                                            "-",
                                                             style: new TextStyle(
                                                                 color: Colors
                                                                     .white,
@@ -1265,30 +1354,117 @@ class _Business_List_User extends State<Business_List_User> {
                                                           fontSize: 12),
                                                     ),
                                                   ),
+                                                  // SizedBox(
+                                                  //   width: (10),
+                                                  // ),
+                                                  // Container(
+                                                  //   padding:
+                                                  //       EdgeInsets.all(6.0),
+                                                  //   decoration: BoxDecoration(
+                                                  //     color: Theme.of(context)
+                                                  //         .accentColor,
+                                                  //     borderRadius:
+                                                  //         BorderRadius.circular(
+                                                  //             10.0),
+                                                  //   ),
+                                                  //   alignment: Alignment.center,
+                                                  //   child: Text(
+                                                  //     doc["time"],
+                                                  //     style: new TextStyle(
+                                                  //         color: Colors.white,
+                                                  //         fontSize: 12),
+                                                  //   ),
+                                                  // ),
+                                                  SizedBox(width: 5.0),
+                                                  doc["auto"] == "true"
+                                                      ? Column(
+                                                          children: [
+                                                            if (c_time >=
+                                                                    doc[
+                                                                        "time_open"] &&
+                                                                c_time <=
+                                                                    doc["time_close"])
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .green,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "อยู่ในเวลาทำการ",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                            else
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .red,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "นอกเวลา",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                          ],
+                                                        )
+                                                      : Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "ปิดทำการ",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        ),
                                                   SizedBox(
                                                     width: (10),
                                                   ),
-                                                  Container(
-                                                    padding:
-                                                        EdgeInsets.all(6.0),
-                                                    decoration: BoxDecoration(
-                                                      color: Theme.of(context)
-                                                          .accentColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Text(
-                                                      doc["time"],
-                                                      style: new TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 12),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: (10),
-                                                  ),
+                                                  ////////////////////////////////////////////////////////
                                                   doc["open"] == "true"
                                                       ? Container(
                                                           padding:
@@ -1318,7 +1494,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                                   6.0),
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Colors.red,
+                                                            color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -1327,7 +1503,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                           alignment:
                                                               Alignment.center,
                                                           child: Text(
-                                                            "ปิด",
+                                                            "-",
                                                             style: new TextStyle(
                                                                 color: Colors
                                                                     .white,
@@ -1507,30 +1683,117 @@ class _Business_List_User extends State<Business_List_User> {
                                                           fontSize: 12),
                                                     ),
                                                   ),
+                                                  // SizedBox(
+                                                  //   width: (10),
+                                                  // ),
+                                                  // Container(
+                                                  //   padding:
+                                                  //       EdgeInsets.all(6.0),
+                                                  //   decoration: BoxDecoration(
+                                                  //     color: Theme.of(context)
+                                                  //         .accentColor,
+                                                  //     borderRadius:
+                                                  //         BorderRadius.circular(
+                                                  //             10.0),
+                                                  //   ),
+                                                  //   alignment: Alignment.center,
+                                                  //   child: Text(
+                                                  //     doc["time"],
+                                                  //     style: new TextStyle(
+                                                  //         color: Colors.white,
+                                                  //         fontSize: 12),
+                                                  //   ),
+                                                  // ),
+                                                  SizedBox(width: 5.0),
+                                                  doc["auto"] == "true"
+                                                      ? Column(
+                                                          children: [
+                                                            if (c_time >=
+                                                                    doc[
+                                                                        "time_open"] &&
+                                                                c_time <=
+                                                                    doc["time_close"])
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .green,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "อยู่ในเวลาทำการ",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                            else
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .red,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "นอกเวลา",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                          ],
+                                                        )
+                                                      : Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "ปิดทำการ",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        ),
                                                   SizedBox(
                                                     width: (10),
                                                   ),
-                                                  Container(
-                                                    padding:
-                                                        EdgeInsets.all(6.0),
-                                                    decoration: BoxDecoration(
-                                                      color: Theme.of(context)
-                                                          .accentColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Text(
-                                                      doc["time"],
-                                                      style: new TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 12),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: (10),
-                                                  ),
+                                                  ////////////////////////////////////////////////////////
                                                   doc["open"] == "true"
                                                       ? Container(
                                                           padding:
@@ -1560,7 +1823,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                                   6.0),
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Colors.red,
+                                                            color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -1569,7 +1832,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                           alignment:
                                                               Alignment.center,
                                                           child: Text(
-                                                            "ปิด",
+                                                            "-",
                                                             style: new TextStyle(
                                                                 color: Colors
                                                                     .white,
@@ -1749,30 +2012,117 @@ class _Business_List_User extends State<Business_List_User> {
                                                           fontSize: 12),
                                                     ),
                                                   ),
+                                                  // SizedBox(
+                                                  //   width: (10),
+                                                  // ),
+                                                  // Container(
+                                                  //   padding:
+                                                  //       EdgeInsets.all(6.0),
+                                                  //   decoration: BoxDecoration(
+                                                  //     color: Theme.of(context)
+                                                  //         .accentColor,
+                                                  //     borderRadius:
+                                                  //         BorderRadius.circular(
+                                                  //             10.0),
+                                                  //   ),
+                                                  //   alignment: Alignment.center,
+                                                  //   child: Text(
+                                                  //     doc["time"],
+                                                  //     style: new TextStyle(
+                                                  //         color: Colors.white,
+                                                  //         fontSize: 12),
+                                                  //   ),
+                                                  // ),
+                                                  SizedBox(width: 5.0),
+                                                  doc["auto"] == "true"
+                                                      ? Column(
+                                                          children: [
+                                                            if (c_time >=
+                                                                    doc[
+                                                                        "time_open"] &&
+                                                                c_time <=
+                                                                    doc["time_close"])
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .green,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "อยู่ในเวลาทำการ",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                            else
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .red,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "นอกเวลา",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                          ],
+                                                        )
+                                                      : Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "ปิดทำการ",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        ),
                                                   SizedBox(
                                                     width: (10),
                                                   ),
-                                                  Container(
-                                                    padding:
-                                                        EdgeInsets.all(6.0),
-                                                    decoration: BoxDecoration(
-                                                      color: Theme.of(context)
-                                                          .accentColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Text(
-                                                      doc["time"],
-                                                      style: new TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 12),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: (10),
-                                                  ),
+                                                  ////////////////////////////////////////////////////////
                                                   doc["open"] == "true"
                                                       ? Container(
                                                           padding:
@@ -1802,7 +2152,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                                   6.0),
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Colors.red,
+                                                            color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -1811,7 +2161,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                           alignment:
                                                               Alignment.center,
                                                           child: Text(
-                                                            "ปิด",
+                                                            "-",
                                                             style: new TextStyle(
                                                                 color: Colors
                                                                     .white,
@@ -1990,30 +2340,117 @@ class _Business_List_User extends State<Business_List_User> {
                                                           fontSize: 12),
                                                     ),
                                                   ),
+                                                  // SizedBox(
+                                                  //   width: (10),
+                                                  // ),
+                                                  // Container(
+                                                  //   padding:
+                                                  //       EdgeInsets.all(6.0),
+                                                  //   decoration: BoxDecoration(
+                                                  //     color: Theme.of(context)
+                                                  //         .accentColor,
+                                                  //     borderRadius:
+                                                  //         BorderRadius.circular(
+                                                  //             10.0),
+                                                  //   ),
+                                                  //   alignment: Alignment.center,
+                                                  //   child: Text(
+                                                  //     doc["time"],
+                                                  //     style: new TextStyle(
+                                                  //         color: Colors.white,
+                                                  //         fontSize: 12),
+                                                  //   ),
+                                                  // ),
+                                                  SizedBox(width: 5.0),
+                                                  doc["auto"] == "true"
+                                                      ? Column(
+                                                          children: [
+                                                            if (c_time >=
+                                                                    doc[
+                                                                        "time_open"] &&
+                                                                c_time <=
+                                                                    doc["time_close"])
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .green,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "อยู่ในเวลาทำการ",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                            else
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .red,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "นอกเวลา",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                          ],
+                                                        )
+                                                      : Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "ปิดทำการ",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        ),
                                                   SizedBox(
                                                     width: (10),
                                                   ),
-                                                  Container(
-                                                    padding:
-                                                        EdgeInsets.all(6.0),
-                                                    decoration: BoxDecoration(
-                                                      color: Theme.of(context)
-                                                          .accentColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Text(
-                                                      doc["time"],
-                                                      style: new TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 12),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: (10),
-                                                  ),
+                                                  ////////////////////////////////////////////////////////
                                                   doc["open"] == "true"
                                                       ? Container(
                                                           padding:
@@ -2043,7 +2480,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                                   6.0),
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Colors.red,
+                                                            color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -2052,7 +2489,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                           alignment:
                                                               Alignment.center,
                                                           child: Text(
-                                                            "ปิด",
+                                                            "-",
                                                             style: new TextStyle(
                                                                 color: Colors
                                                                     .white,
@@ -2231,30 +2668,117 @@ class _Business_List_User extends State<Business_List_User> {
                                                           fontSize: 12),
                                                     ),
                                                   ),
+                                                  // SizedBox(
+                                                  //   width: (10),
+                                                  // ),
+                                                  // Container(
+                                                  //   padding:
+                                                  //       EdgeInsets.all(6.0),
+                                                  //   decoration: BoxDecoration(
+                                                  //     color: Theme.of(context)
+                                                  //         .accentColor,
+                                                  //     borderRadius:
+                                                  //         BorderRadius.circular(
+                                                  //             10.0),
+                                                  //   ),
+                                                  //   alignment: Alignment.center,
+                                                  //   child: Text(
+                                                  //     doc["time"],
+                                                  //     style: new TextStyle(
+                                                  //         color: Colors.white,
+                                                  //         fontSize: 12),
+                                                  //   ),
+                                                  // ),
+                                                  SizedBox(width: 5.0),
+                                                  doc["auto"] == "true"
+                                                      ? Column(
+                                                          children: [
+                                                            if (c_time >=
+                                                                    doc[
+                                                                        "time_open"] &&
+                                                                c_time <=
+                                                                    doc["time_close"])
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .green,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "อยู่ในเวลาทำการ",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                            else
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .red,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "นอกเวลา",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                          ],
+                                                        )
+                                                      : Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "ปิดทำการ",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        ),
                                                   SizedBox(
                                                     width: (10),
                                                   ),
-                                                  Container(
-                                                    padding:
-                                                        EdgeInsets.all(6.0),
-                                                    decoration: BoxDecoration(
-                                                      color: Theme.of(context)
-                                                          .accentColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Text(
-                                                      doc["time"],
-                                                      style: new TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 12),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: (10),
-                                                  ),
+                                                  ////////////////////////////////////////////////////////
                                                   doc["open"] == "true"
                                                       ? Container(
                                                           padding:
@@ -2284,7 +2808,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                                   6.0),
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Colors.red,
+                                                            color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -2293,7 +2817,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                           alignment:
                                                               Alignment.center,
                                                           child: Text(
-                                                            "ปิด",
+                                                            "-",
                                                             style: new TextStyle(
                                                                 color: Colors
                                                                     .white,
@@ -2472,30 +2996,120 @@ class _Business_List_User extends State<Business_List_User> {
                                                           fontSize: 12),
                                                     ),
                                                   ),
+                                                  // SizedBox(
+                                                  //   width: (10),
+                                                  // ),
+                                                  // Container(
+                                                  //   padding:
+                                                  //       EdgeInsets.all(6.0),
+                                                  //   decoration: BoxDecoration(
+                                                  //     color: Theme.of(context)
+                                                  //         .accentColor,
+                                                  //     borderRadius:
+                                                  //         BorderRadius.circular(
+                                                  //             10.0),
+                                                  //   ),
+                                                  //   alignment: Alignment.center,
+                                                  //   child: Text(
+                                                  //     doc["time"],
+                                                  //     style: new TextStyle(
+                                                  //         color: Colors.white,
+                                                  //         fontSize: 12),
+                                                  //   ),
+                                                  // ),
+                                                  // SizedBox(
+                                                  //   width: (10),
+                                                  // ),
+                                                  SizedBox(width: 5.0),
+                                                  doc["auto"] == "true"
+                                                      ? Column(
+                                                          children: [
+                                                            if (c_time >=
+                                                                    doc[
+                                                                        "time_open"] &&
+                                                                c_time <=
+                                                                    doc["time_close"])
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .green,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "อยู่ในเวลาทำการ",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                            else
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .red,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "นอกเวลา",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                          ],
+                                                        )
+                                                      : Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "ปิดทำการ",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        ),
                                                   SizedBox(
                                                     width: (10),
                                                   ),
-                                                  Container(
-                                                    padding:
-                                                        EdgeInsets.all(6.0),
-                                                    decoration: BoxDecoration(
-                                                      color: Theme.of(context)
-                                                          .accentColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Text(
-                                                      doc["time"],
-                                                      style: new TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 12),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: (10),
-                                                  ),
+                                                  ////////////////////////////////////////////////////////
                                                   doc["open"] == "true"
                                                       ? Container(
                                                           padding:
@@ -2525,7 +3139,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                                   6.0),
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Colors.red,
+                                                            color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -2534,7 +3148,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                           alignment:
                                                               Alignment.center,
                                                           child: Text(
-                                                            "ปิด",
+                                                            "-",
                                                             style: new TextStyle(
                                                                 color: Colors
                                                                     .white,
@@ -2713,30 +3327,117 @@ class _Business_List_User extends State<Business_List_User> {
                                                           fontSize: 12),
                                                     ),
                                                   ),
+                                                  // SizedBox(
+                                                  //   width: (10),
+                                                  // ),
+                                                  // Container(
+                                                  //   padding:
+                                                  //       EdgeInsets.all(6.0),
+                                                  //   decoration: BoxDecoration(
+                                                  //     color: Theme.of(context)
+                                                  //         .accentColor,
+                                                  //     borderRadius:
+                                                  //         BorderRadius.circular(
+                                                  //             10.0),
+                                                  //   ),
+                                                  //   alignment: Alignment.center,
+                                                  //   child: Text(
+                                                  //     doc["time"],
+                                                  //     style: new TextStyle(
+                                                  //         color: Colors.white,
+                                                  //         fontSize: 12),
+                                                  //   ),
+                                                  // ),
+                                                  SizedBox(width: 5.0),
+                                                  doc["auto"] == "true"
+                                                      ? Column(
+                                                          children: [
+                                                            if (c_time >=
+                                                                    doc[
+                                                                        "time_open"] &&
+                                                                c_time <=
+                                                                    doc["time_close"])
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .green,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "อยู่ในเวลาทำการ",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                            else
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .red,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "นอกเวลา",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                          ],
+                                                        )
+                                                      : Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "ปิดทำการ",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        ),
                                                   SizedBox(
                                                     width: (10),
                                                   ),
-                                                  Container(
-                                                    padding:
-                                                        EdgeInsets.all(6.0),
-                                                    decoration: BoxDecoration(
-                                                      color: Theme.of(context)
-                                                          .accentColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Text(
-                                                      doc["time"],
-                                                      style: new TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 12),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: (10),
-                                                  ),
+                                                  ////////////////////////////////////////////////////////
                                                   doc["open"] == "true"
                                                       ? Container(
                                                           padding:
@@ -2766,7 +3467,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                                   6.0),
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Colors.red,
+                                                            color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -2775,7 +3476,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                           alignment:
                                                               Alignment.center,
                                                           child: Text(
-                                                            "ปิด",
+                                                            "-",
                                                             style: new TextStyle(
                                                                 color: Colors
                                                                     .white,
@@ -2954,30 +3655,120 @@ class _Business_List_User extends State<Business_List_User> {
                                                           fontSize: 12),
                                                     ),
                                                   ),
+                                                  // SizedBox(
+                                                  //   width: (10),
+                                                  // ),
+                                                  // Container(
+                                                  //   padding:
+                                                  //       EdgeInsets.all(6.0),
+                                                  //   decoration: BoxDecoration(
+                                                  //     color: Theme.of(context)
+                                                  //         .accentColor,
+                                                  //     borderRadius:
+                                                  //         BorderRadius.circular(
+                                                  //             10.0),
+                                                  //   ),
+                                                  //   alignment: Alignment.center,
+                                                  //   child: Text(
+                                                  //     doc["time"],
+                                                  //     style: new TextStyle(
+                                                  //         color: Colors.white,
+                                                  //         fontSize: 12),
+                                                  //   ),
+                                                  // ),
+                                                  // SizedBox(
+                                                  //   width: (10),
+                                                  // ),
+                                                  SizedBox(width: 5.0),
+                                                  doc["auto"] == "true"
+                                                      ? Column(
+                                                          children: [
+                                                            if (c_time >=
+                                                                    doc[
+                                                                        "time_open"] &&
+                                                                c_time <=
+                                                                    doc["time_close"])
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .green,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "อยู่ในเวลาทำการ",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                            else
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .red,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "นอกเวลา",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                          ],
+                                                        )
+                                                      : Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "ปิดทำการ",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        ),
                                                   SizedBox(
                                                     width: (10),
                                                   ),
-                                                  Container(
-                                                    padding:
-                                                        EdgeInsets.all(6.0),
-                                                    decoration: BoxDecoration(
-                                                      color: Theme.of(context)
-                                                          .accentColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Text(
-                                                      doc["time"],
-                                                      style: new TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 12),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: (10),
-                                                  ),
+                                                  ////////////////////////////////////////////////////////
                                                   doc["open"] == "true"
                                                       ? Container(
                                                           padding:
@@ -3007,7 +3798,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                                   6.0),
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Colors.red,
+                                                            color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -3016,7 +3807,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                           alignment:
                                                               Alignment.center,
                                                           child: Text(
-                                                            "ปิด",
+                                                            "-",
                                                             style: new TextStyle(
                                                                 color: Colors
                                                                     .white,
@@ -3195,30 +3986,117 @@ class _Business_List_User extends State<Business_List_User> {
                                                           fontSize: 12),
                                                     ),
                                                   ),
+                                                  // SizedBox(
+                                                  //   width: (10),
+                                                  // ),
+                                                  // Container(
+                                                  //   padding:
+                                                  //       EdgeInsets.all(6.0),
+                                                  //   decoration: BoxDecoration(
+                                                  //     color: Theme.of(context)
+                                                  //         .accentColor,
+                                                  //     borderRadius:
+                                                  //         BorderRadius.circular(
+                                                  //             10.0),
+                                                  //   ),
+                                                  //   alignment: Alignment.center,
+                                                  //   child: Text(
+                                                  //     doc["time"],
+                                                  //     style: new TextStyle(
+                                                  //         color: Colors.white,
+                                                  //         fontSize: 12),
+                                                  //   ),
+                                                  // ),
+                                                  SizedBox(width: 5.0),
+                                                  doc["auto"] == "true"
+                                                      ? Column(
+                                                          children: [
+                                                            if (c_time >=
+                                                                    doc[
+                                                                        "time_open"] &&
+                                                                c_time <=
+                                                                    doc["time_close"])
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .green,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "อยู่ในเวลาทำการ",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                            else
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .red,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "นอกเวลา",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                          ],
+                                                        )
+                                                      : Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "ปิดทำการ",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        ),
                                                   SizedBox(
                                                     width: (10),
                                                   ),
-                                                  Container(
-                                                    padding:
-                                                        EdgeInsets.all(6.0),
-                                                    decoration: BoxDecoration(
-                                                      color: Theme.of(context)
-                                                          .accentColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Text(
-                                                      doc["time"],
-                                                      style: new TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 12),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: (10),
-                                                  ),
+                                                  ////////////////////////////////////////////////////////
                                                   doc["open"] == "true"
                                                       ? Container(
                                                           padding:
@@ -3248,7 +4126,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                                   6.0),
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Colors.red,
+                                                            color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -3257,7 +4135,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                           alignment:
                                                               Alignment.center,
                                                           child: Text(
-                                                            "ปิด",
+                                                            "-",
                                                             style: new TextStyle(
                                                                 color: Colors
                                                                     .white,
@@ -3436,30 +4314,117 @@ class _Business_List_User extends State<Business_List_User> {
                                                           fontSize: 12),
                                                     ),
                                                   ),
+                                                  // SizedBox(
+                                                  //   width: (10),
+                                                  // ),
+                                                  // Container(
+                                                  //   padding:
+                                                  //       EdgeInsets.all(6.0),
+                                                  //   decoration: BoxDecoration(
+                                                  //     color: Theme.of(context)
+                                                  //         .accentColor,
+                                                  //     borderRadius:
+                                                  //         BorderRadius.circular(
+                                                  //             10.0),
+                                                  //   ),
+                                                  //   alignment: Alignment.center,
+                                                  //   child: Text(
+                                                  //     doc["time"],
+                                                  //     style: new TextStyle(
+                                                  //         color: Colors.white,
+                                                  //         fontSize: 12),
+                                                  //   ),
+                                                  // ),
+                                                  SizedBox(width: 5.0),
+                                                  doc["auto"] == "true"
+                                                      ? Column(
+                                                          children: [
+                                                            if (c_time >=
+                                                                    doc[
+                                                                        "time_open"] &&
+                                                                c_time <=
+                                                                    doc["time_close"])
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .green,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "อยู่ในเวลาทำการ",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                            else
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .red,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "นอกเวลา",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                          ],
+                                                        )
+                                                      : Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "ปิดทำการ",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        ),
                                                   SizedBox(
                                                     width: (10),
                                                   ),
-                                                  Container(
-                                                    padding:
-                                                        EdgeInsets.all(6.0),
-                                                    decoration: BoxDecoration(
-                                                      color: Theme.of(context)
-                                                          .accentColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Text(
-                                                      doc["time"],
-                                                      style: new TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 12),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: (10),
-                                                  ),
+                                                  ////////////////////////////////////////////////////////
                                                   doc["open"] == "true"
                                                       ? Container(
                                                           padding:
@@ -3489,7 +4454,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                                   6.0),
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Colors.red,
+                                                            color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -3498,7 +4463,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                           alignment:
                                                               Alignment.center,
                                                           child: Text(
-                                                            "ปิด",
+                                                            "-",
                                                             style: new TextStyle(
                                                                 color: Colors
                                                                     .white,
@@ -3677,30 +4642,117 @@ class _Business_List_User extends State<Business_List_User> {
                                                           fontSize: 12),
                                                     ),
                                                   ),
+                                                  // SizedBox(
+                                                  //   width: (10),
+                                                  // ),
+                                                  // Container(
+                                                  //   padding:
+                                                  //       EdgeInsets.all(6.0),
+                                                  //   decoration: BoxDecoration(
+                                                  //     color: Theme.of(context)
+                                                  //         .accentColor,
+                                                  //     borderRadius:
+                                                  //         BorderRadius.circular(
+                                                  //             10.0),
+                                                  //   ),
+                                                  //   alignment: Alignment.center,
+                                                  //   child: Text(
+                                                  //     doc["time"],
+                                                  //     style: new TextStyle(
+                                                  //         color: Colors.white,
+                                                  //         fontSize: 12),
+                                                  //   ),
+                                                  // ),
+                                                  SizedBox(width: 5.0),
+                                                  doc["auto"] == "true"
+                                                      ? Column(
+                                                          children: [
+                                                            if (c_time >=
+                                                                    doc[
+                                                                        "time_open"] &&
+                                                                c_time <=
+                                                                    doc["time_close"])
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .green,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "อยู่ในเวลาทำการ",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                            else
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .red,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "นอกเวลา",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                          ],
+                                                        )
+                                                      : Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "ปิดทำการ",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        ),
                                                   SizedBox(
                                                     width: (10),
                                                   ),
-                                                  Container(
-                                                    padding:
-                                                        EdgeInsets.all(6.0),
-                                                    decoration: BoxDecoration(
-                                                      color: Theme.of(context)
-                                                          .accentColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Text(
-                                                      doc["time"],
-                                                      style: new TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 12),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: (10),
-                                                  ),
+                                                  ////////////////////////////////////////////////////////
                                                   doc["open"] == "true"
                                                       ? Container(
                                                           padding:
@@ -3730,7 +4782,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                                   6.0),
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Colors.red,
+                                                            color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -3739,7 +4791,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                           alignment:
                                                               Alignment.center,
                                                           child: Text(
-                                                            "ปิด",
+                                                            "-",
                                                             style: new TextStyle(
                                                                 color: Colors
                                                                     .white,
@@ -3918,30 +4970,117 @@ class _Business_List_User extends State<Business_List_User> {
                                                           fontSize: 12),
                                                     ),
                                                   ),
+                                                  // SizedBox(
+                                                  //   width: (10),
+                                                  // ),
+                                                  // Container(
+                                                  //   padding:
+                                                  //       EdgeInsets.all(6.0),
+                                                  //   decoration: BoxDecoration(
+                                                  //     color: Theme.of(context)
+                                                  //         .accentColor,
+                                                  //     borderRadius:
+                                                  //         BorderRadius.circular(
+                                                  //             10.0),
+                                                  //   ),
+                                                  //   alignment: Alignment.center,
+                                                  //   child: Text(
+                                                  //     doc["time"],
+                                                  //     style: new TextStyle(
+                                                  //         color: Colors.white,
+                                                  //         fontSize: 12),
+                                                  //   ),
+                                                  // ),
+                                                  SizedBox(width: 5.0),
+                                                  doc["auto"] == "true"
+                                                      ? Column(
+                                                          children: [
+                                                            if (c_time >=
+                                                                    doc[
+                                                                        "time_open"] &&
+                                                                c_time <=
+                                                                    doc["time_close"])
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .green,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "อยู่ในเวลาทำการ",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                            else
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .red,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "นอกเวลา",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                          ],
+                                                        )
+                                                      : Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "ปิดทำการ",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        ),
                                                   SizedBox(
                                                     width: (10),
                                                   ),
-                                                  Container(
-                                                    padding:
-                                                        EdgeInsets.all(6.0),
-                                                    decoration: BoxDecoration(
-                                                      color: Theme.of(context)
-                                                          .accentColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Text(
-                                                      doc["time"],
-                                                      style: new TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 12),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: (10),
-                                                  ),
+                                                  ////////////////////////////////////////////////////////
                                                   doc["open"] == "true"
                                                       ? Container(
                                                           padding:
@@ -3971,7 +5110,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                                   6.0),
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Colors.red,
+                                                            color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -3980,7 +5119,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                           alignment:
                                                               Alignment.center,
                                                           child: Text(
-                                                            "ปิด",
+                                                            "-",
                                                             style: new TextStyle(
                                                                 color: Colors
                                                                     .white,
@@ -4159,30 +5298,117 @@ class _Business_List_User extends State<Business_List_User> {
                                                           fontSize: 12),
                                                     ),
                                                   ),
+                                                  // SizedBox(
+                                                  //   width: (10),
+                                                  // ),
+                                                  // Container(
+                                                  //   padding:
+                                                  //       EdgeInsets.all(6.0),
+                                                  //   decoration: BoxDecoration(
+                                                  //     color: Theme.of(context)
+                                                  //         .accentColor,
+                                                  //     borderRadius:
+                                                  //         BorderRadius.circular(
+                                                  //             10.0),
+                                                  //   ),
+                                                  //   alignment: Alignment.center,
+                                                  //   child: Text(
+                                                  //     doc["time"],
+                                                  //     style: new TextStyle(
+                                                  //         color: Colors.white,
+                                                  //         fontSize: 12),
+                                                  //   ),
+                                                  // ),
+                                                  SizedBox(width: 5.0),
+                                                  doc["auto"] == "true"
+                                                      ? Column(
+                                                          children: [
+                                                            if (c_time >=
+                                                                    doc[
+                                                                        "time_open"] &&
+                                                                c_time <=
+                                                                    doc["time_close"])
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .green,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "อยู่ในเวลาทำการ",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                            else
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .red,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "นอกเวลา",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                          ],
+                                                        )
+                                                      : Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "ปิดทำการ",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        ),
                                                   SizedBox(
                                                     width: (10),
                                                   ),
-                                                  Container(
-                                                    padding:
-                                                        EdgeInsets.all(6.0),
-                                                    decoration: BoxDecoration(
-                                                      color: Theme.of(context)
-                                                          .accentColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Text(
-                                                      doc["time"],
-                                                      style: new TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 12),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: (10),
-                                                  ),
+                                                  ////////////////////////////////////////////////////////
                                                   doc["open"] == "true"
                                                       ? Container(
                                                           padding:
@@ -4212,7 +5438,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                                   6.0),
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Colors.red,
+                                                            color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -4221,7 +5447,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                           alignment:
                                                               Alignment.center,
                                                           child: Text(
-                                                            "ปิด",
+                                                            "-",
                                                             style: new TextStyle(
                                                                 color: Colors
                                                                     .white,
@@ -4400,30 +5626,117 @@ class _Business_List_User extends State<Business_List_User> {
                                                           fontSize: 12),
                                                     ),
                                                   ),
+                                                  // SizedBox(
+                                                  //   width: (10),
+                                                  // ),
+                                                  // Container(
+                                                  //   padding:
+                                                  //       EdgeInsets.all(6.0),
+                                                  //   decoration: BoxDecoration(
+                                                  //     color: Theme.of(context)
+                                                  //         .accentColor,
+                                                  //     borderRadius:
+                                                  //         BorderRadius.circular(
+                                                  //             10.0),
+                                                  //   ),
+                                                  //   alignment: Alignment.center,
+                                                  //   child: Text(
+                                                  //     doc["time"],
+                                                  //     style: new TextStyle(
+                                                  //         color: Colors.white,
+                                                  //         fontSize: 12),
+                                                  //   ),
+                                                  // ),
+                                                  SizedBox(width: 5.0),
+                                                  doc["auto"] == "true"
+                                                      ? Column(
+                                                          children: [
+                                                            if (c_time >=
+                                                                    doc[
+                                                                        "time_open"] &&
+                                                                c_time <=
+                                                                    doc["time_close"])
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .green,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "อยู่ในเวลาทำการ",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                            else
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .red,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "นอกเวลา",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                          ],
+                                                        )
+                                                      : Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "ปิดทำการ",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        ),
                                                   SizedBox(
                                                     width: (10),
                                                   ),
-                                                  Container(
-                                                    padding:
-                                                        EdgeInsets.all(6.0),
-                                                    decoration: BoxDecoration(
-                                                      color: Theme.of(context)
-                                                          .accentColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Text(
-                                                      doc["time"],
-                                                      style: new TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 12),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: (10),
-                                                  ),
+                                                  ////////////////////////////////////////////////////////
                                                   doc["open"] == "true"
                                                       ? Container(
                                                           padding:
@@ -4453,7 +5766,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                                   6.0),
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Colors.red,
+                                                            color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -4462,7 +5775,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                           alignment:
                                                               Alignment.center,
                                                           child: Text(
-                                                            "ปิด",
+                                                            "-",
                                                             style: new TextStyle(
                                                                 color: Colors
                                                                     .white,
@@ -4641,30 +5954,117 @@ class _Business_List_User extends State<Business_List_User> {
                                                           fontSize: 12),
                                                     ),
                                                   ),
+                                                  // SizedBox(
+                                                  //   width: (10),
+                                                  // ),
+                                                  // Container(
+                                                  //   padding:
+                                                  //       EdgeInsets.all(6.0),
+                                                  //   decoration: BoxDecoration(
+                                                  //     color: Theme.of(context)
+                                                  //         .accentColor,
+                                                  //     borderRadius:
+                                                  //         BorderRadius.circular(
+                                                  //             10.0),
+                                                  //   ),
+                                                  //   alignment: Alignment.center,
+                                                  //   child: Text(
+                                                  //     doc["time"],
+                                                  //     style: new TextStyle(
+                                                  //         color: Colors.white,
+                                                  //         fontSize: 12),
+                                                  //   ),
+                                                  // ),
+                                                  SizedBox(width: 5.0),
+                                                  doc["auto"] == "true"
+                                                      ? Column(
+                                                          children: [
+                                                            if (c_time >=
+                                                                    doc[
+                                                                        "time_open"] &&
+                                                                c_time <=
+                                                                    doc["time_close"])
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .green,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "อยู่ในเวลาทำการ",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                            else
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .red,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "นอกเวลา",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                          ],
+                                                        )
+                                                      : Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "ปิดทำการ",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        ),
                                                   SizedBox(
                                                     width: (10),
                                                   ),
-                                                  Container(
-                                                    padding:
-                                                        EdgeInsets.all(6.0),
-                                                    decoration: BoxDecoration(
-                                                      color: Theme.of(context)
-                                                          .accentColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Text(
-                                                      doc["time"],
-                                                      style: new TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 12),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: (10),
-                                                  ),
+                                                  ////////////////////////////////////////////////////////
                                                   doc["open"] == "true"
                                                       ? Container(
                                                           padding:
@@ -4694,7 +6094,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                                   6.0),
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Colors.red,
+                                                            color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -4703,7 +6103,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                           alignment:
                                                               Alignment.center,
                                                           child: Text(
-                                                            "ปิด",
+                                                            "-",
                                                             style: new TextStyle(
                                                                 color: Colors
                                                                     .white,
@@ -4882,30 +6282,117 @@ class _Business_List_User extends State<Business_List_User> {
                                                           fontSize: 12),
                                                     ),
                                                   ),
+                                                  // SizedBox(
+                                                  //   width: (10),
+                                                  // ),
+                                                  // Container(
+                                                  //   padding:
+                                                  //       EdgeInsets.all(6.0),
+                                                  //   decoration: BoxDecoration(
+                                                  //     color: Theme.of(context)
+                                                  //         .accentColor,
+                                                  //     borderRadius:
+                                                  //         BorderRadius.circular(
+                                                  //             10.0),
+                                                  //   ),
+                                                  //   alignment: Alignment.center,
+                                                  //   child: Text(
+                                                  //     doc["time"],
+                                                  //     style: new TextStyle(
+                                                  //         color: Colors.white,
+                                                  //         fontSize: 12),
+                                                  //   ),
+                                                  // ),
+                                                  SizedBox(width: 5.0),
+                                                  doc["auto"] == "true"
+                                                      ? Column(
+                                                          children: [
+                                                            if (c_time >=
+                                                                    doc[
+                                                                        "time_open"] &&
+                                                                c_time <=
+                                                                    doc["time_close"])
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .green,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "อยู่ในเวลาทำการ",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                            else
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .red,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "นอกเวลา",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                          ],
+                                                        )
+                                                      : Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "ปิดทำการ",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        ),
                                                   SizedBox(
                                                     width: (10),
                                                   ),
-                                                  Container(
-                                                    padding:
-                                                        EdgeInsets.all(6.0),
-                                                    decoration: BoxDecoration(
-                                                      color: Theme.of(context)
-                                                          .accentColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Text(
-                                                      doc["time"],
-                                                      style: new TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 12),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: (10),
-                                                  ),
+                                                  ////////////////////////////////////////////////////////
                                                   doc["open"] == "true"
                                                       ? Container(
                                                           padding:
@@ -4935,7 +6422,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                                   6.0),
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Colors.red,
+                                                            color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -4944,7 +6431,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                           alignment:
                                                               Alignment.center,
                                                           child: Text(
-                                                            "ปิด",
+                                                            "-",
                                                             style: new TextStyle(
                                                                 color: Colors
                                                                     .white,
@@ -5123,30 +6610,117 @@ class _Business_List_User extends State<Business_List_User> {
                                                           fontSize: 12),
                                                     ),
                                                   ),
+                                                  // SizedBox(
+                                                  //   width: (10),
+                                                  // ),
+                                                  // Container(
+                                                  //   padding:
+                                                  //       EdgeInsets.all(6.0),
+                                                  //   decoration: BoxDecoration(
+                                                  //     color: Theme.of(context)
+                                                  //         .accentColor,
+                                                  //     borderRadius:
+                                                  //         BorderRadius.circular(
+                                                  //             10.0),
+                                                  //   ),
+                                                  //   alignment: Alignment.center,
+                                                  //   child: Text(
+                                                  //     doc["time"],
+                                                  //     style: new TextStyle(
+                                                  //         color: Colors.white,
+                                                  //         fontSize: 12),
+                                                  //   ),
+                                                  // ),
+                                                  SizedBox(width: 5.0),
+                                                  doc["auto"] == "true"
+                                                      ? Column(
+                                                          children: [
+                                                            if (c_time >=
+                                                                    doc[
+                                                                        "time_open"] &&
+                                                                c_time <=
+                                                                    doc["time_close"])
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .green,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "อยู่ในเวลาทำการ",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                            else
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .red,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "นอกเวลา",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                          ],
+                                                        )
+                                                      : Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "ปิดทำการ",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        ),
                                                   SizedBox(
                                                     width: (10),
                                                   ),
-                                                  Container(
-                                                    padding:
-                                                        EdgeInsets.all(6.0),
-                                                    decoration: BoxDecoration(
-                                                      color: Theme.of(context)
-                                                          .accentColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Text(
-                                                      doc["time"],
-                                                      style: new TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 12),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: (10),
-                                                  ),
+                                                  ////////////////////////////////////////////////////////
                                                   doc["open"] == "true"
                                                       ? Container(
                                                           padding:
@@ -5176,7 +6750,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                                   6.0),
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Colors.red,
+                                                            color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -5185,7 +6759,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                           alignment:
                                                               Alignment.center,
                                                           child: Text(
-                                                            "ปิด",
+                                                            "-",
                                                             style: new TextStyle(
                                                                 color: Colors
                                                                     .white,
@@ -5364,30 +6938,117 @@ class _Business_List_User extends State<Business_List_User> {
                                                           fontSize: 12),
                                                     ),
                                                   ),
+                                                  // SizedBox(
+                                                  //   width: (10),
+                                                  // ),
+                                                  // Container(
+                                                  //   padding:
+                                                  //       EdgeInsets.all(6.0),
+                                                  //   decoration: BoxDecoration(
+                                                  //     color: Theme.of(context)
+                                                  //         .accentColor,
+                                                  //     borderRadius:
+                                                  //         BorderRadius.circular(
+                                                  //             10.0),
+                                                  //   ),
+                                                  //   alignment: Alignment.center,
+                                                  //   child: Text(
+                                                  //     doc["time"],
+                                                  //     style: new TextStyle(
+                                                  //         color: Colors.white,
+                                                  //         fontSize: 12),
+                                                  //   ),
+                                                  // ),
+                                                  SizedBox(width: 5.0),
+                                                  doc["auto"] == "true"
+                                                      ? Column(
+                                                          children: [
+                                                            if (c_time >=
+                                                                    doc[
+                                                                        "time_open"] &&
+                                                                c_time <=
+                                                                    doc["time_close"])
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .green,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "อยู่ในเวลาทำการ",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                            else
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .red,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "นอกเวลา",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                          ],
+                                                        )
+                                                      : Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "ปิดทำการ",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        ),
                                                   SizedBox(
                                                     width: (10),
                                                   ),
-                                                  Container(
-                                                    padding:
-                                                        EdgeInsets.all(6.0),
-                                                    decoration: BoxDecoration(
-                                                      color: Theme.of(context)
-                                                          .accentColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Text(
-                                                      doc["time"],
-                                                      style: new TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 12),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: (10),
-                                                  ),
+                                                  ////////////////////////////////////////////////////////
                                                   doc["open"] == "true"
                                                       ? Container(
                                                           padding:
@@ -5417,7 +7078,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                                   6.0),
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Colors.red,
+                                                            color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -5426,7 +7087,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                           alignment:
                                                               Alignment.center,
                                                           child: Text(
-                                                            "ปิด",
+                                                            "-",
                                                             style: new TextStyle(
                                                                 color: Colors
                                                                     .white,
@@ -5605,30 +7266,117 @@ class _Business_List_User extends State<Business_List_User> {
                                                           fontSize: 12),
                                                     ),
                                                   ),
+                                                  // SizedBox(
+                                                  //   width: (10),
+                                                  // ),
+                                                  // Container(
+                                                  //   padding:
+                                                  //       EdgeInsets.all(6.0),
+                                                  //   decoration: BoxDecoration(
+                                                  //     color: Theme.of(context)
+                                                  //         .accentColor,
+                                                  //     borderRadius:
+                                                  //         BorderRadius.circular(
+                                                  //             10.0),
+                                                  //   ),
+                                                  //   alignment: Alignment.center,
+                                                  //   child: Text(
+                                                  //     doc["time"],
+                                                  //     style: new TextStyle(
+                                                  //         color: Colors.white,
+                                                  //         fontSize: 12),
+                                                  //   ),
+                                                  // ),
+                                                  SizedBox(width: 5.0),
+                                                  doc["auto"] == "true"
+                                                      ? Column(
+                                                          children: [
+                                                            if (c_time >=
+                                                                    doc[
+                                                                        "time_open"] &&
+                                                                c_time <=
+                                                                    doc["time_close"])
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .green,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "อยู่ในเวลาทำการ",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                            else
+                                                              Container(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .all(
+                                                                            6.0),
+                                                                decoration:
+                                                                    BoxDecoration(
+                                                                  color: Colors
+                                                                      .red,
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              10.0),
+                                                                ),
+                                                                alignment:
+                                                                    Alignment
+                                                                        .center,
+                                                                child: Text(
+                                                                  "นอกเวลา",
+                                                                  style: new TextStyle(
+                                                                      color: Colors
+                                                                          .white,
+                                                                      fontSize:
+                                                                          12),
+                                                                ),
+                                                              )
+                                                          ],
+                                                        )
+                                                      : Container(
+                                                          padding:
+                                                              EdgeInsets.all(
+                                                                  6.0),
+                                                          decoration:
+                                                              BoxDecoration(
+                                                            color: Colors.red,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10.0),
+                                                          ),
+                                                          alignment:
+                                                              Alignment.center,
+                                                          child: Text(
+                                                            "ปิดทำการ",
+                                                            style: new TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 12),
+                                                          ),
+                                                        ),
                                                   SizedBox(
                                                     width: (10),
                                                   ),
-                                                  Container(
-                                                    padding:
-                                                        EdgeInsets.all(6.0),
-                                                    decoration: BoxDecoration(
-                                                      color: Theme.of(context)
-                                                          .accentColor,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              10.0),
-                                                    ),
-                                                    alignment: Alignment.center,
-                                                    child: Text(
-                                                      doc["time"],
-                                                      style: new TextStyle(
-                                                          color: Colors.white,
-                                                          fontSize: 12),
-                                                    ),
-                                                  ),
-                                                  SizedBox(
-                                                    width: (10),
-                                                  ),
+                                                  ////////////////////////////////////////////////////////
                                                   doc["open"] == "true"
                                                       ? Container(
                                                           padding:
@@ -5658,7 +7406,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                                   6.0),
                                                           decoration:
                                                               BoxDecoration(
-                                                            color: Colors.red,
+                                                            color: Colors.white,
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -5667,7 +7415,7 @@ class _Business_List_User extends State<Business_List_User> {
                                                           alignment:
                                                               Alignment.center,
                                                           child: Text(
-                                                            "ปิด",
+                                                            "-",
                                                             style: new TextStyle(
                                                                 color: Colors
                                                                     .white,

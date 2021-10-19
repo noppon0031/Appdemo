@@ -589,7 +589,7 @@ class PlaceList extends StatelessWidget {
                                                   ),
                                                   alignment: Alignment.center,
                                                   child: Text(
-                                                    "เวลาทำการ",
+                                                    "อยู่ในเวลาทำการ",
                                                     style: new TextStyle(
                                                         color: Colors.white,
                                                         fontSize: 12),
