@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+import 'package:noppon/Entrepreneur/launcher%20copy.dart';
 import 'package:noppon/Entrepreneur/launcher.dart';
 import 'package:noppon/Model/place.dart';
 import 'package:path/path.dart' as Path;
@@ -1691,7 +1692,7 @@ class _BusinessEdit extends State<BusinessEdit> {
     Navigator.pushAndRemoveUntil(
       context,
       MaterialPageRoute(
-        builder: (BuildContext context) => Launcher(),
+        builder: (BuildContext context) => Launcher2(),
       ),
       (route) => false,
     );
