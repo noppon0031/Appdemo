@@ -77,23 +77,23 @@ class _LauncherState2 extends State<Launcher2> {
     BottomNavigationBarItem(
         icon: Icon(FontAwesomeIcons.home),
         title: Text('Home'),
-        backgroundColor: Colors.black54),
+        backgroundColor: Colors.red),
     BottomNavigationBarItem(
         icon: Icon(
           Icons.near_me,
         ),
         title: Text('สถานที่ใกล้เคียง'),
-        backgroundColor: Colors.black54),
+        backgroundColor: Colors.red),
     BottomNavigationBarItem(
         icon: Icon(
           Icons.favorite,
         ),
         title: Text('Favorite'),
-        backgroundColor: Colors.black54),
+        backgroundColor: Colors.red[500]),
     BottomNavigationBarItem(
         icon: Icon(FontAwesomeIcons.userAlt),
         title: Text('Account'),
-        backgroundColor: Colors.black54),
+        backgroundColor: Colors.red),
   ];
 
   void _onItemTapped(int index) {

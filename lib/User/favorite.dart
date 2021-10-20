@@ -144,8 +144,9 @@ class _Favorite extends State<Favorite> {
 class PlaceList extends StatelessWidget {
   var doc;
   PlaceList({this.doc});
-
+  DateTime now = new DateTime.now();
   Widget build(BuildContext context) {
+    var c_time = double.parse('${now.hour}' + '.' + '${now.minute}');
     print(doc["place_id"]);
     return FutureBuilder<QuerySnapshot>(
         future: FirebaseFirestore.instance
@@ -163,7 +164,7 @@ class PlaceList extends StatelessWidget {
             );
           } else {
             return Column(
-              children: snapshot.data!.docs.map((DocumentSnapshot document) {
+              children: snapshot.data!.docs.map((doc) {
                 return Stack(
                   children: <Widget>[
                     InkWell(
@@ -172,102 +173,92 @@ class PlaceList extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                               builder: (context) => Business_Detail(
-                                    place_id: document["place_id"],
-                                    address: document["address"],
-                                    business_name: document["business_name"],
-                                    business_name1: document["business_name1"],
-                                    business_name2: document["business_name2"],
-                                    business_name3: document["business_name3"],
+                                    place_id: doc["place_id"],
+                                    address: doc["address"],
+                                    business_name: doc["business_name"],
+                                    business_name1: doc["business_name1"],
+                                    business_name2: doc["business_name2"],
+                                    business_name3: doc["business_name3"],
                                     business_name_english:
-                                        document["business_name_english"],
-                                    day: document["day"],
-                                    detail: document["detail"],
-                                    email: document["email"],
-                                    facebook: document["facebook"],
-                                    instagram: document["instagram"],
-                                    line: document["line"],
-                                    latitude: document["latitude"],
-                                    longitude: document["longitude"],
-                                    latitude2: document["latitude2"],
-                                    longitude2: document["longitude2"],
-                                    latitude3: document["latitude3"],
-                                    longitude3: document["longitude3"],
-                                    latitude4: document["latitude4"],
-                                    longitude4: document["longitude4"],
-                                    latitude5: document["latitude5"],
-                                    longitude5: document["longitude5"],
-                                    map: document["map"],
-                                    photo1: document["photo1"],
-                                    photo2: document["photo2"],
-                                    photo3: document["photo3"],
-                                    photo4: document["photo4"],
-                                    photo5: document["photo5"],
-                                    photo6: document["photo6"],
-                                    photo7: document["photo7"],
-                                    photo8: document["photo8"],
-                                    photo9: document["photo9"],
-                                    photo10: document["photo10"],
-                                    price: document["price"],
-                                    rating: document["rating"],
-                                    tel: document["tel"],
-                                    time: document["time"],
-                                    type: document["type"],
-                                    type2: document["type2"],
-                                    type3: document["type3"],
-                                    type4: document["type4"],
-                                    type5: document["type5"],
-                                    type6: document["type6"],
-                                    type7: document["type7"],
-                                    type8: document["type8"],
-                                    type9: document["type9"],
-                                    type10: document["type10"],
-                                    user_id: document["user_id"],
-                                    website: document["website"],
-                                    photodetail: document["photodetail"],
+                                        doc["business_name_english"],
+                                    day: doc["day"],
+                                    detail: doc["detail"],
+                                    email: doc["email"],
+                                    facebook: doc["facebook"],
+                                    instagram: doc["instagram"],
+                                    line: doc["line"],
+                                    latitude: doc["latitude"],
+                                    longitude: doc["longitude"],
+                                    latitude2: doc["latitude2"],
+                                    longitude2: doc["longitude2"],
+                                    latitude3: doc["latitude3"],
+                                    longitude3: doc["longitude3"],
+                                    latitude4: doc["latitude4"],
+                                    longitude4: doc["longitude4"],
+                                    latitude5: doc["latitude5"],
+                                    longitude5: doc["longitude5"],
+                                    map: doc["map"],
+                                    photo1: doc["photo1"],
+                                    photo2: doc["photo2"],
+                                    photo3: doc["photo3"],
+                                    photo4: doc["photo4"],
+                                    photo5: doc["photo5"],
+                                    photo6: doc["photo6"],
+                                    photo7: doc["photo7"],
+                                    photo8: doc["photo8"],
+                                    photo9: doc["photo9"],
+                                    photo10: doc["photo10"],
+                                    price: doc["price"],
+                                    rating: doc["rating"].toStringAsFixed(1),
+                                    tel: doc["tel"],
+                                    time: doc["time"],
+                                    type: doc["type"],
+                                    type2: doc["type2"],
+                                    type3: doc["type3"],
+                                    type4: doc["type4"],
+                                    type5: doc["type5"],
+                                    type6: doc["type6"],
+                                    type7: doc["type7"],
+                                    type8: doc["type8"],
+                                    type9: doc["type9"],
+                                    type10: doc["type10"],
+                                    user_id: doc["user_id"],
+                                    website: doc["website"],
+                                    photodetail: doc["photodetail"],
                                   )),
                         );
                       },
                       child: Container(
-                        margin: EdgeInsets.fromLTRB(10, 0, 10, 10),
+                        margin: EdgeInsets.fromLTRB(5, 0, 5, 5),
                         decoration: BoxDecoration(
                           color: Colors.white,
                         ),
                         child: Card(
                           child: Padding(
-                            padding: EdgeInsets.all(10),
+                            padding: EdgeInsets.all(0),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Image.network(
-                                  document['photo1'],
+                                  doc['photo1'],
                                   width: double.infinity,
-                                  height: 150,
+                                  height: 180,
                                   fit: BoxFit.cover,
                                 ),
                                 Row(
                                   children: [
                                     Container(
-                                      margin: EdgeInsets.only(top: 20),
+                                      width: (330),
+                                      margin: EdgeInsets.only(top: 8),
                                       child: Text(
-                                        document["business_name"],
+                                        doc["business_name"],
                                         style: TextStyle(
                                           fontSize: 16.0,
                                           fontWeight: FontWeight.w600,
                                         ),
-                                      ),
-                                    ),
-                                    Container(
-                                      margin: EdgeInsets.only(top: 20),
-                                      child: Column(
-                                        children: <Widget>[
-                                          // Text(
-                                          //   'per pax',
-                                          //   style: TextStyle(
-                                          //     color: Colors.grey,
-                                          //   ),
-                                          // ),
-                                        ],
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 2,
                                       ),
                                     ),
                                   ],
@@ -275,19 +266,18 @@ class PlaceList extends StatelessWidget {
                                 Container(
                                   margin: EdgeInsets.only(top: 5),
                                   child: Text(
-                                    document["address"],
+                                    doc["address"],
                                     style: TextStyle(
                                       color: Colors.grey,
                                     ),
                                   ),
                                 ),
-                                SizedBox(height: 5.0),
+                                SizedBox(height: 1.0),
                                 Row(
                                   children: [
                                     Text(
                                         "⭐ : " +
-                                            document["rating"]
-                                                .toStringAsFixed(1) +
+                                            doc["rating"].toStringAsFixed(1) +
                                             "/5.0",
                                         style: TextStyle(
                                             color: Colors.blueGrey,
@@ -304,28 +294,78 @@ class PlaceList extends StatelessWidget {
                                       ),
                                       alignment: Alignment.center,
                                       child: Text(
-                                        document["day"],
+                                        doc["day"],
                                         style: new TextStyle(
                                             color: Colors.white, fontSize: 12),
                                       ),
                                     ),
-                                    // SizedBox(width: 5.0),
-                                    // Container(
-                                    //   padding: EdgeInsets.all(6.0),
-                                    //   decoration: BoxDecoration(
-                                    //     color: Theme.of(context).accentColor,
-                                    //     borderRadius:
-                                    //         BorderRadius.circular(10.0),
-                                    //   ),
-                                    //   alignment: Alignment.center,
-                                    //   child: Text(
-                                    //     document["time"],
-                                    //     style: new TextStyle(
-                                    //         color: Colors.white, fontSize: 12),
-                                    //   ),
-                                    // ),
+                                    ///////////////////////////////////////////////////////////////////////////////
+
+                                    SizedBox(
+                                      width: (10),
+                                    ),
+                                    ////////////////////////////////////////////////////////
                                     SizedBox(width: 5.0),
-                                    document["open"] == "true"
+                                    doc["auto"] == "true"
+                                        ? Column(
+                                            children: [
+                                              if (c_time >= doc["time_open"] &&
+                                                  c_time <= doc["time_close"])
+                                                Container(
+                                                  padding: EdgeInsets.all(6.0),
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.green,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10.0),
+                                                  ),
+                                                  alignment: Alignment.center,
+                                                  child: Text(
+                                                    "อยู่ในเวลาทำการ",
+                                                    style: new TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 12),
+                                                  ),
+                                                )
+                                              else
+                                                Container(
+                                                  padding: EdgeInsets.all(6.0),
+                                                  decoration: BoxDecoration(
+                                                    color: Colors.red,
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            10.0),
+                                                  ),
+                                                  alignment: Alignment.center,
+                                                  child: Text(
+                                                    "นอกเวลา",
+                                                    style: new TextStyle(
+                                                        color: Colors.white,
+                                                        fontSize: 12),
+                                                  ),
+                                                )
+                                            ],
+                                          )
+                                        : Container(
+                                            padding: EdgeInsets.all(6.0),
+                                            decoration: BoxDecoration(
+                                              color: Colors.red,
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
+                                            ),
+                                            alignment: Alignment.center,
+                                            child: Text(
+                                              "ปิดทำการ",
+                                              style: new TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 12),
+                                            ),
+                                          ),
+                                    SizedBox(
+                                      width: (10),
+                                    ),
+                                    ////////////////////////////////////////////////////////
+                                    doc["open"] == "true"
                                         ? Container(
                                             padding: EdgeInsets.all(6.0),
                                             decoration: BoxDecoration(
@@ -344,13 +384,13 @@ class PlaceList extends StatelessWidget {
                                         : Container(
                                             padding: EdgeInsets.all(6.0),
                                             decoration: BoxDecoration(
-                                              color: Colors.red,
+                                              color: Colors.white,
                                               borderRadius:
                                                   BorderRadius.circular(10.0),
                                             ),
                                             alignment: Alignment.center,
                                             child: Text(
-                                              "ปิด",
+                                              "-",
                                               style: new TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 12),
