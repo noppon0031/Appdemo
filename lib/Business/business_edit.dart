@@ -109,8 +109,6 @@ class BusinessEdit extends StatefulWidget {
     this.rating,
     this.tel,
     this.time,
-    this.time_open,
-    this.time_close,
     this.type,
     this.type2,
     this.type3,
@@ -124,6 +122,8 @@ class BusinessEdit extends StatefulWidget {
     this.user_id,
     this.website,
     this.photodetail,
+    this.time_open,
+    this.time_close,
   });
   @override
   _BusinessEdit createState() => _BusinessEdit();
@@ -191,6 +191,8 @@ class _BusinessEdit extends State<BusinessEdit> {
   TextEditingController photo8_Controller = TextEditingController();
   TextEditingController photo9_Controller = TextEditingController();
   TextEditingController photo10_Controller = TextEditingController();
+  TextEditingController time_open_Controller = TextEditingController();
+  TextEditingController time_close_Controller = TextEditingController();
 
   List<File> _image = [];
   List<String> url_image = [];
@@ -248,6 +250,8 @@ class _BusinessEdit extends State<BusinessEdit> {
     photo8_Controller.text = widget.photo8;
     photo9_Controller.text = widget.photo9;
     photo10_Controller.text = widget.photo10;
+    time_open_Controller.text = widget.time_open;
+    time_close_Controller.text = widget.time_close;
   }
 
   GetPhotoArray(photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8,
@@ -1251,6 +1255,32 @@ class _BusinessEdit extends State<BusinessEdit> {
                     decoration:
                         new InputDecoration(hintText: 'กรุณาใส่เวลาเปิดปิด'),
                   ),
+                  SizedBox(height: 40.0),
+                  Text(
+                    "ตั้งค่าเวลาเปิด-ปิด อัตโนมัติ",
+                    style: new TextStyle(fontSize: 16.0),
+                  ),
+                  SizedBox(height: 10.0),
+                  Text(
+                    "(ยกตัวอย่างเช่นแปดโมงครึ่งให้กรอก 8.30)",
+                    style: new TextStyle(fontSize: 13.0),
+                  ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: time_open_Controller,
+                    keyboardType: TextInputType.number,
+                    decoration:
+                        new InputDecoration(hintText: 'กรุณาใส่เวลาเปิด'),
+                  ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: time_close_Controller,
+                    keyboardType: TextInputType.number,
+                    decoration:
+                        new InputDecoration(hintText: 'กรุณาใส่เวลาปิด'),
+                  ),
                   SizedBox(height: 10.0),
                   Text(
                     "ช่วงราคา",
@@ -1567,6 +1597,8 @@ class _BusinessEdit extends State<BusinessEdit> {
     var photo8 = photo8_Controller.text.toString();
     var photo9 = photo9_Controller.text.toString();
     var photo10 = photo10_Controller.text.toString();
+    var time_open = time_open_Controller.text.toString();
+    var time_close = time_close_Controller.text.toString();
 
     int i = 0;
 
@@ -1750,6 +1782,8 @@ class _BusinessEdit extends State<BusinessEdit> {
       'longitude4': double.parse('$longitude4'),
       'latitude5': double.parse('$latitude5'),
       'longitude5': double.parse('$longitude5'),
+      'time_open': double.parse('$time_open'),
+      'time_close': double.parse('$time_close'),
       'tel': tel,
       'time': time,
       'type': type,
@@ -1823,6 +1857,8 @@ class _BusinessEdit extends State<BusinessEdit> {
       await prefs.setString('photo8', photo8);
       await prefs.setString('photo9', photo9);
       await prefs.setString('photo10', photo10);
+      await prefs.setString('time_open', time_open);
+      await prefs.setString('time_close', time_close);
     });
 
     Navigator.pushAndRemoveUntil(

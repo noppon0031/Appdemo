@@ -48,11 +48,12 @@ class _AddImageState extends State<AddImage> {
   final latitude3_Controller = TextEditingController();
   final longitude4_Controller = TextEditingController();
   final latitude4_Controller = TextEditingController();
-
   final latitude5_Controller = TextEditingController();
   final longitude5_Controller = TextEditingController();
   final check_Controller = TextEditingController();
   final photo_Detaii_Controller = TextEditingController();
+  final time_open_Controller = TextEditingController();
+  final time_close_Controller = TextEditingController();
 
   List<File> _image = [];
   List<String> url_image = [];
@@ -536,7 +537,33 @@ class _AddImageState extends State<AddImage> {
                     decoration:
                         new InputDecoration(hintText: 'กรุณาใส่เวลาเปิดปิด'),
                   ),
+                  SizedBox(height: 40.0),
+                  Text(
+                    "ตั้งค่าเวลาเปิด-ปิด อัตโนมัติ",
+                    style: new TextStyle(fontSize: 16.0),
+                  ),
                   SizedBox(height: 10.0),
+                  Text(
+                    "(ยกตัวอย่างเช่นแปดโมงครึ่งให้กรอก 8.30)",
+                    style: new TextStyle(fontSize: 13.0),
+                  ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: time_open_Controller,
+                    keyboardType: TextInputType.number,
+                    decoration:
+                        new InputDecoration(hintText: 'กรุณาใส่เวลาเปิด'),
+                  ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: time_close_Controller,
+                    keyboardType: TextInputType.number,
+                    decoration:
+                        new InputDecoration(hintText: 'กรุณาใส่เวลาปิด'),
+                  ),
+                  SizedBox(height: 40.0),
                   // RaisedButton(
                   //     child: Text('timeopen'),
                   //     onPressed: () {
@@ -863,6 +890,9 @@ class _AddImageState extends State<AddImage> {
     var Type9 = dropdownValue9;
     var type10 = dropdownValue10;
     var photodetail = photo_Detaii_Controller.text.trim();
+    var time_open = time_open_Controller.text.trim();
+    var time_close = time_open_Controller.text.trim();
+
     if (validateEmail(Email) == false) {
       Toast.show('กรุณาตรวจสอบอีเมลให้ถูกต้อง', context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
@@ -1094,7 +1124,9 @@ class _AddImageState extends State<AddImage> {
             'user_id': User_id,
             'website': Website,
             'check': false,
-            'photodetail': photodetail
+            'photodetail': photodetail,
+            'time_open': double.parse('$time_open'),
+            'time_close': double.parse('$time_close'),
           })
           .then((value) => FirebaseFirestore.instance
               .collection('place')
@@ -1132,8 +1164,6 @@ class _AddImageState extends State<AddImage> {
                 'latitude': double.parse('$Latitude'),
                 'line': Line,
                 'longitude': double.parse('$Longitude'),
-                // 'latitude2': double.parse('$Latitude2'),
-                // 'longitude2': double.parse('$Longitude2'),
                 'latitude2': 0.1,
                 'longitude2': 0.1,
                 'latitude3': 0.1,
@@ -1175,7 +1205,9 @@ class _AddImageState extends State<AddImage> {
                 'user_id': User_id,
                 'website': Website,
                 'check': false,
-                'photodetail': photodetail
+                'photodetail': photodetail,
+                'time_open': double.parse('$time_open'),
+                'time_close': double.parse('$time_close'),
               })
               .then((value) => FirebaseFirestore.instance
                   .collection('place')

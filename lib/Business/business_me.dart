@@ -323,6 +323,10 @@ class PlaceList extends StatelessWidget {
                                                       .toString(),
                                                   longitude5: doc["longitude5"]
                                                       .toString(),
+                                                  time_open: doc["time_open"]
+                                                      .toString(),
+                                                  time_close: doc["time_close"]
+                                                      .toString(),
                                                   map: doc["map"],
                                                   photo1: doc["photo1"],
                                                   photo2: doc["photo2"],
@@ -338,8 +342,6 @@ class PlaceList extends StatelessWidget {
                                                   // rating: doc["rating"],
                                                   tel: doc["tel"],
                                                   time: doc["time"],
-                                                  time_open: doc["time_open"],
-                                                  time_close: doc["time_close"],
                                                   type: doc["type"],
                                                   type2: doc["type2"],
                                                   type3: doc["type3"],

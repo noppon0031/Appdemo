@@ -309,21 +309,21 @@ class PlaceList extends StatelessWidget {
                                             color: Colors.white, fontSize: 12),
                                       ),
                                     ),
-                                    SizedBox(width: 5.0),
-                                    Container(
-                                      padding: EdgeInsets.all(6.0),
-                                      decoration: BoxDecoration(
-                                        color: Theme.of(context).accentColor,
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                      ),
-                                      alignment: Alignment.center,
-                                      child: Text(
-                                        document["time"],
-                                        style: new TextStyle(
-                                            color: Colors.white, fontSize: 12),
-                                      ),
-                                    ),
+                                    // SizedBox(width: 5.0),
+                                    // Container(
+                                    //   padding: EdgeInsets.all(6.0),
+                                    //   decoration: BoxDecoration(
+                                    //     color: Theme.of(context).accentColor,
+                                    //     borderRadius:
+                                    //         BorderRadius.circular(10.0),
+                                    //   ),
+                                    //   alignment: Alignment.center,
+                                    //   child: Text(
+                                    //     document["time"],
+                                    //     style: new TextStyle(
+                                    //         color: Colors.white, fontSize: 12),
+                                    //   ),
+                                    // ),
                                     SizedBox(width: 5.0),
                                     document["open"] == "true"
                                         ? Container(
