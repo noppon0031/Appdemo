@@ -140,13 +140,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       spacing: 8.0,
                       children: [
                         FilterChip(
-                          label: Text('แคมป์'),
-                          onSelected: (val) => applicationBloc.togglePlaceType(
-                              'campground', val),
-                          selected: applicationBloc.placeType == 'campground',
-                          selectedColor: Colors.blue,
-                        ),
-                        FilterChip(
                             label: Text('โรงพยาบาล'),
                             onSelected: (val) => applicationBloc
                                 .togglePlaceType('hospital', val),
