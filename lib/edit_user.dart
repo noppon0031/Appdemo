@@ -57,8 +57,8 @@ class EditUserState extends State<EditUser1> {
     return emailValid;
   }
 
-  //   String dropdownValue = 'ผู้ใช้งานระบบ';
-  // List<String> user_type = ['ผู้ใช้งานระบบ', 'ผู้ใช้ทั่วไป'];
+  //   String dropdownValue = 'ผู้ใช้งานทั่วไป';
+  // List<String> user_type = ['ผู้ใช้งานทั่วไป', 'ผู้ใช้ทั่วไป'];
 
   Future<void> EditUser(BuildContext context) async {
     var Email = emailController.text.toString();
@@ -327,8 +327,8 @@ class EditUserState extends State<EditUser1> {
   }
 }
 
-String dropdownValue = 'ผู้ใช้งานระบบ';
+String dropdownValue = 'ผู้ใช้งานทั่วไป';
 List<String> user_type = [
-  'ผู้ใช้งานระบบ',
+  'ผู้ใช้งานทั่วไป',
   'ผู้ประกอบการ',
 ];
