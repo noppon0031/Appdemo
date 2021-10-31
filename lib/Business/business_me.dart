@@ -531,6 +531,9 @@ class PlaceList extends StatelessWidget {
                                     ),
                                   ),
                                 ),
+                                SizedBox(
+                                  height: 10,
+                                ),
                                 Row(
                                   children: [
                                     Text(
@@ -542,7 +545,7 @@ class PlaceList extends StatelessWidget {
                                             color: Colors.blueGrey,
                                             fontSize: 16.0)),
                                     SizedBox(
-                                      width: 110,
+                                      width: 30,
                                     ),
                                     Container(
                                       padding: EdgeInsets.all(6.0),

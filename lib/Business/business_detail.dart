@@ -239,16 +239,17 @@ class _Business_Detail extends State<Business_Detail> {
         shrinkWrap: true,
         children: [
           GetPhotoArray(
-              widget.photo1,
-              widget.photo2,
-              widget.photo3,
-              widget.photo4,
-              widget.photo5,
-              widget.photo6,
-              widget.photo7,
-              widget.photo8,
-              widget.photo9,
-              widget.photo10),
+            widget.photo1,
+            widget.photo2,
+            widget.photo3,
+            widget.photo4,
+            widget.photo5,
+            widget.photo6,
+            widget.photo7,
+            widget.photo8,
+            widget.photo9,
+            widget.photo10,
+          ),
           Container(
             padding: const EdgeInsets.fromLTRB(30, 20, 10, 10),
             child: Row(
@@ -355,8 +356,11 @@ class _Business_Detail extends State<Business_Detail> {
                 ),
                 Padding(
                   padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Text(widget.address,
-                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                  child: Container(
+                    width: 250,
+                    child: Text(widget.address,
+                        style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                  ),
                 ),
               ],
             ),
@@ -677,8 +681,15 @@ class _Business_Detail extends State<Business_Detail> {
                 ),
                 Padding(
                   padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Text(widget.facebook,
-                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                  child: Container(
+                    width: 250,
+                    child: Text(
+                      widget.facebook,
+                      style: TextStyle(color: Colors.black, fontSize: 16.0),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 3,
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -761,8 +772,15 @@ class _Business_Detail extends State<Business_Detail> {
                 ),
                 Padding(
                   padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Text(widget.address,
-                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                  child: Container(
+                    width: 250,
+                    child: Text(
+                      widget.address,
+                      style: TextStyle(color: Colors.black, fontSize: 16.0),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 3,
+                    ),
+                  ),
                 ),
               ],
             ),

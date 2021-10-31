@@ -167,8 +167,8 @@ class _BusinessEdit extends State<BusinessEdit> {
   TextEditingController longitude4_Controller = TextEditingController();
 
   TextEditingController latitude5_Controller = TextEditingController();
-  TextEditingController longitude5_Controller = TextEditingController();
 
+  TextEditingController longitude5_Controller = TextEditingController();
   TextEditingController photodetail_Controller = TextEditingController();
   TextEditingController type_Controller = TextEditingController();
   TextEditingController type2_Controller = TextEditingController();
@@ -326,13 +326,240 @@ class _BusinessEdit extends State<BusinessEdit> {
             ],
           ),
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FullImage(
-                    photo: photo_array[check_index],
-                  ),
-                ));
+            showDialog(
+                context: context,
+                barrierDismissible: true,
+                builder: (BuildContext context) {
+                  return SimpleDialog(
+                    title: Row(
+                      children: [Text('กรุณาเลือกคำสั่ง')],
+                    ),
+                    children: [
+                      SimpleDialogOption(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FullImage(
+                                  photo: photo_array[check_index],
+                                ),
+                              ));
+                        },
+                        child: const Text('ดูรูปภาพ'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo1)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo1': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (1)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo2)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo2': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (2)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo3)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo3': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (3)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo4)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo4': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (4)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo5)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo5': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (5)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo6)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo6': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (6)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo7)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo7': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (7)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo8)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo8': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (8)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo9)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo9': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (9)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo10)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo10': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (10)'),
+                      ),
+                    ],
+                  );
+                });
           });
     } else if (photo9.isNotEmpty) {
       return InkWell(
@@ -387,13 +614,219 @@ class _BusinessEdit extends State<BusinessEdit> {
             ],
           ),
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FullImage(
-                    photo: photo_array[check_index],
-                  ),
-                ));
+            showDialog(
+                context: context,
+                barrierDismissible: true,
+                builder: (BuildContext context) {
+                  return SimpleDialog(
+                    title: Row(
+                      children: [Text('กรุณาเลือกคำสั่ง')],
+                    ),
+                    children: [
+                      SimpleDialogOption(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FullImage(
+                                  photo: photo_array[check_index],
+                                ),
+                              ));
+                        },
+                        child: const Text('ดูรูปภาพ'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo1)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo1': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (1)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo2)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo2': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (2)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo3)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo3': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (3)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo4)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo4': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (4)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo5)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo5': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (5)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo6)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo6': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (6)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo7)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo7': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (7)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo8)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo8': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (8)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo9)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo9': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (9)'),
+                      ),
+                    ],
+                  );
+                });
           });
     } else if (photo8.isNotEmpty) {
       return InkWell(
@@ -444,13 +877,198 @@ class _BusinessEdit extends State<BusinessEdit> {
             ],
           ),
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FullImage(
-                    photo: photo_array[check_index],
-                  ),
-                ));
+            showDialog(
+                context: context,
+                barrierDismissible: true,
+                builder: (BuildContext context) {
+                  return SimpleDialog(
+                    title: Row(
+                      children: [Text('กรุณาเลือกคำสั่ง')],
+                    ),
+                    children: [
+                      SimpleDialogOption(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FullImage(
+                                  photo: photo_array[check_index],
+                                ),
+                              ));
+                        },
+                        child: const Text('ดูรูปภาพ'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo1)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo1': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (1)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo2)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo2': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (2)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo3)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo3': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (3)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo4)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo4': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (4)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo5)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo5': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (5)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo6)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo6': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (6)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo7)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo7': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (7)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo8)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo8': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (8)'),
+                      ),
+                    ],
+                  );
+                });
           });
     } else if (photo7.isNotEmpty) {
       return InkWell(
@@ -497,13 +1115,177 @@ class _BusinessEdit extends State<BusinessEdit> {
             ],
           ),
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FullImage(
-                    photo: photo_array[check_index],
-                  ),
-                ));
+            showDialog(
+                context: context,
+                barrierDismissible: true,
+                builder: (BuildContext context) {
+                  return SimpleDialog(
+                    title: Row(
+                      children: [Text('กรุณาเลือกคำสั่ง')],
+                    ),
+                    children: [
+                      SimpleDialogOption(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FullImage(
+                                  photo: photo_array[check_index],
+                                ),
+                              ));
+                        },
+                        child: const Text('ดูรูปภาพ'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo1)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo1': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (1)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo2)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo2': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (2)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo3)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo3': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (3)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo4)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo4': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (4)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo5)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo5': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (5)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo6)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo6': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (6)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo7)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo7': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (7)'),
+                      ),
+                    ],
+                  );
+                });
           });
     } else if (photo6.isNotEmpty) {
       return InkWell(
@@ -546,13 +1328,156 @@ class _BusinessEdit extends State<BusinessEdit> {
             ],
           ),
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FullImage(
-                    photo: photo_array[check_index],
-                  ),
-                ));
+            showDialog(
+                context: context,
+                barrierDismissible: true,
+                builder: (BuildContext context) {
+                  return SimpleDialog(
+                    title: Row(
+                      children: [Text('กรุณาเลือกคำสั่ง')],
+                    ),
+                    children: [
+                      SimpleDialogOption(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FullImage(
+                                  photo: photo_array[check_index],
+                                ),
+                              ));
+                        },
+                        child: const Text('ดูรูปภาพ'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo1)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo1': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (1)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo2)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo2': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (2)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo3)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo3': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (3)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo4)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo4': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (4)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo5)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo5': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (5)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo6)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo6': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (6)'),
+                      ),
+                    ],
+                  );
+                });
           });
     } else if (photo5.isNotEmpty) {
       return InkWell(
@@ -590,13 +1515,135 @@ class _BusinessEdit extends State<BusinessEdit> {
             ],
           ),
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FullImage(
-                    photo: photo_array[check_index],
-                  ),
-                ));
+            showDialog(
+                context: context,
+                barrierDismissible: true,
+                builder: (BuildContext context) {
+                  return SimpleDialog(
+                    title: Row(
+                      children: [Text('กรุณาเลือกคำสั่ง')],
+                    ),
+                    children: [
+                      SimpleDialogOption(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FullImage(
+                                  photo: photo_array[check_index],
+                                ),
+                              ));
+                        },
+                        child: const Text('ดูรูปภาพ'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo1)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo1': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (1)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo2)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo2': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (2)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo3)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo3': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (3)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo4)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo4': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (4)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo5)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo5': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (5)'),
+                      )
+                    ],
+                  );
+                });
           });
     } else if (photo4.isNotEmpty) {
       return InkWell(
@@ -630,13 +1677,114 @@ class _BusinessEdit extends State<BusinessEdit> {
             ],
           ),
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FullImage(
-                    photo: photo_array[check_index],
-                  ),
-                ));
+            showDialog(
+                context: context,
+                barrierDismissible: true,
+                builder: (BuildContext context) {
+                  return SimpleDialog(
+                    title: Row(
+                      children: [Text('กรุณาเลือกคำสั่ง')],
+                    ),
+                    children: [
+                      SimpleDialogOption(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FullImage(
+                                  photo: photo_array[check_index],
+                                ),
+                              ));
+                        },
+                        child: const Text('ดูรูปภาพ'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo1)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo1': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (1)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo2)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo2': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (2)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo3)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo3': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (3)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo4)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo4': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (4)'),
+                      ),
+                    ],
+                  );
+                });
           });
     } else if (photo3.isNotEmpty) {
       return InkWell(
@@ -666,13 +1814,93 @@ class _BusinessEdit extends State<BusinessEdit> {
             ],
           ),
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FullImage(
-                    photo: photo_array[check_index],
-                  ),
-                ));
+            showDialog(
+                context: context,
+                barrierDismissible: true,
+                builder: (BuildContext context) {
+                  return SimpleDialog(
+                    title: Row(
+                      children: [Text('กรุณาเลือกคำสั่ง')],
+                    ),
+                    children: [
+                      SimpleDialogOption(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FullImage(
+                                  photo: photo_array[check_index],
+                                ),
+                              ));
+                        },
+                        child: const Text('ดูรูปภาพ'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo1)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo1': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (1)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo2)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo2': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (2)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo3)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo3': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (3)'),
+                      ),
+                    ],
+                  );
+                });
           });
     } else if (photo2.isNotEmpty) {
       return InkWell(
@@ -698,13 +1926,72 @@ class _BusinessEdit extends State<BusinessEdit> {
             ],
           ),
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FullImage(
-                    photo: photo_array[check_index],
-                  ),
-                ));
+            showDialog(
+                context: context,
+                barrierDismissible: true,
+                builder: (BuildContext context) {
+                  return SimpleDialog(
+                    title: Row(
+                      children: [Text('กรุณาเลือกคำสั่ง')],
+                    ),
+                    children: [
+                      SimpleDialogOption(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FullImage(
+                                  photo: photo_array[check_index],
+                                ),
+                              ));
+                        },
+                        child: const Text('ดูรูปภาพ'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo1)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo1': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (1)'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo2)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo2': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (2)'),
+                      )
+                    ],
+                  );
+                });
           });
     } else if (photo1.isNotEmpty) {
       return InkWell(
@@ -726,13 +2013,51 @@ class _BusinessEdit extends State<BusinessEdit> {
             ],
           ),
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FullImage(
-                    photo: photo_array[check_index],
-                  ),
-                ));
+            showDialog(
+                context: context,
+                barrierDismissible: true,
+                builder: (BuildContext context) {
+                  return SimpleDialog(
+                    title: Row(
+                      children: [Text('กรุณาเลือกคำสั่ง')],
+                    ),
+                    children: [
+                      SimpleDialogOption(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FullImage(
+                                  photo: photo_array[check_index],
+                                ),
+                              ));
+                        },
+                        child: const Text('ดูรูปภาพ'),
+                      ),
+                      SimpleDialogOption(
+                        onPressed: () {
+                          firebase_storage.FirebaseStorage.instance
+                              .refFromURL(widget.photo1)
+                              .delete()
+                              .then(
+                            (value) {
+                              FirebaseFirestore.instance
+                                  .collection('place')
+                                  .doc(widget.place_id)
+                                  .update({'photo1': ''});
+                              Navigator.of(context, rootNavigator: true)
+                                  .pop('dialog');
+                              Toast.show("ลบสำเร็จ", context,
+                                  duration: Toast.LENGTH_LONG,
+                                  gravity: Toast.BOTTOM);
+                            },
+                          );
+                        },
+                        child: const Text('ลบรูปภาพ (1)'),
+                      ),
+                    ],
+                  );
+                });
           });
     }
   }
@@ -1809,56 +3134,6 @@ class _BusinessEdit extends State<BusinessEdit> {
       'website': website,
       'photodetail': photodetail,
       'check': false,
-    }).then((value) async {
-      final prefs = await SharedPreferences.getInstance();
-      await prefs.setString('business_name', business_name);
-      await prefs.setString('business_name1', business_name1);
-      await prefs.setString('business_name2', business_name2);
-      await prefs.setString('business_name3', business_name3);
-      await prefs.setString('business_name_english', business_name_english);
-      await prefs.setString('day', day);
-      await prefs.setString('detail', detail);
-      await prefs.setString('email', email);
-      await prefs.setString('facebook', facebook);
-      await prefs.setString('price', price);
-      await prefs.setString('instagram', instagram);
-      await prefs.setString('line', line);
-      await prefs.setString('latitude', latitude);
-      await prefs.setString('longitude', longitude);
-      await prefs.setString('latitude2', latitude2);
-      await prefs.setString('longitude2', longitude2);
-      await prefs.setString('latitude3', latitude3);
-      await prefs.setString('longitude3', longitude3);
-      await prefs.setString('latitude4', latitude4);
-      await prefs.setString('longitude4', longitude4);
-      await prefs.setString('latitude5', latitude5);
-      await prefs.setString('longitude5', longitude5);
-      await prefs.setString('tel', tel);
-      await prefs.setString('time', time);
-      await prefs.setString('website', website);
-      await prefs.setString('photodetail', photodetail);
-      await prefs.setString('type', type);
-      await prefs.setString('type2', type2);
-      await prefs.setString('type3', type3);
-      await prefs.setString('type4', type4);
-      await prefs.setString('type5', type5);
-      await prefs.setString('type6', type6);
-      await prefs.setString('type7', type7);
-      await prefs.setString('type8', type8);
-      await prefs.setString('type9', type9);
-      await prefs.setString('type10', type10);
-      await prefs.setString('photo1', photo1);
-      await prefs.setString('photo2', photo2);
-      await prefs.setString('photo3', photo3);
-      await prefs.setString('photo4', photo4);
-      await prefs.setString('photo5', photo5);
-      await prefs.setString('photo6', photo6);
-      await prefs.setString('photo7', photo7);
-      await prefs.setString('photo8', photo8);
-      await prefs.setString('photo9', photo9);
-      await prefs.setString('photo10', photo10);
-      await prefs.setString('time_open', time_open);
-      await prefs.setString('time_close', time_close);
     });
 
     Navigator.pushAndRemoveUntil(
