@@ -35,7 +35,7 @@ class _LauncherState2 extends State<Launcher2> {
         return AlertDialog(
           title: Row(children: [
             Image.asset(
-              'assets/flutter-icon.png',
+              'assets/logo.png',
               width: 30,
               height: 30,
               fit: BoxFit.contain,

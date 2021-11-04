@@ -134,7 +134,7 @@ class _AddImageState extends State<AddImage> {
                     autofocus: false,
                     controller: photo_Detaii_Controller,
                     decoration: new InputDecoration(
-                      hintText: 'เขียนอธิบายรูปภาพของคุณ (ไม่จำเป็นต้องกรอก)',
+                      hintText: 'เขียนอธิบายรูปภาพของคุณ',
                     ),
                   ),
                   SizedBox(height: 10.0),
@@ -244,7 +244,7 @@ class _AddImageState extends State<AddImage> {
                       icon: Icon(Icons.arrow_drop_down),
                       iconSize: 24,
                       elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      style: TextStyle(color: Colors.black, fontSize: 15),
                       underline: Container(
                         height: 2,
                       ),
@@ -270,7 +270,7 @@ class _AddImageState extends State<AddImage> {
                       icon: Icon(Icons.arrow_drop_down),
                       iconSize: 24,
                       elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      style: TextStyle(color: Colors.black, fontSize: 15),
                       underline: Container(
                         height: 2,
                       ),
@@ -295,7 +295,7 @@ class _AddImageState extends State<AddImage> {
                       icon: Icon(Icons.arrow_drop_down),
                       iconSize: 24,
                       elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      style: TextStyle(color: Colors.black, fontSize: 15),
                       underline: Container(
                         height: 2,
                       ),
@@ -320,7 +320,7 @@ class _AddImageState extends State<AddImage> {
                       icon: Icon(Icons.arrow_drop_down),
                       iconSize: 24,
                       elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      style: TextStyle(color: Colors.black, fontSize: 15),
                       underline: Container(
                         height: 2,
                       ),
@@ -345,7 +345,7 @@ class _AddImageState extends State<AddImage> {
                       icon: Icon(Icons.arrow_drop_down),
                       iconSize: 24,
                       elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      style: TextStyle(color: Colors.black, fontSize: 15),
                       underline: Container(
                         height: 2,
                       ),
@@ -363,11 +363,12 @@ class _AddImageState extends State<AddImage> {
                       }).toList(),
                     ),
                   ),
-                  SizedBox(height: 10.0),
+                  SizedBox(height: 20.0),
                   Text(
                     "หมวดหมู่ย่อย",
                     style: new TextStyle(fontSize: 16.0),
                   ),
+                  SizedBox(height: 10.0),
                   Padding(
                     padding: EdgeInsets.only(left: 10),
                     child: DropdownButton<String>(
@@ -375,7 +376,7 @@ class _AddImageState extends State<AddImage> {
                       icon: Icon(Icons.arrow_drop_down),
                       iconSize: 24,
                       elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      style: TextStyle(color: Colors.black, fontSize: 15),
                       underline: Container(
                         height: 2,
                       ),
@@ -401,7 +402,7 @@ class _AddImageState extends State<AddImage> {
                       icon: Icon(Icons.arrow_drop_down),
                       iconSize: 24,
                       elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      style: TextStyle(color: Colors.black, fontSize: 15),
                       underline: Container(
                         height: 2,
                       ),
@@ -426,7 +427,7 @@ class _AddImageState extends State<AddImage> {
                       icon: Icon(Icons.arrow_drop_down),
                       iconSize: 24,
                       elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      style: TextStyle(color: Colors.black, fontSize: 15),
                       underline: Container(
                         height: 2,
                       ),
@@ -451,7 +452,7 @@ class _AddImageState extends State<AddImage> {
                       icon: Icon(Icons.arrow_drop_down),
                       iconSize: 24,
                       elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      style: TextStyle(color: Colors.black, fontSize: 15),
                       underline: Container(
                         height: 2,
                       ),
@@ -476,7 +477,7 @@ class _AddImageState extends State<AddImage> {
                       icon: Icon(Icons.arrow_drop_down),
                       iconSize: 24,
                       elevation: 16,
-                      style: TextStyle(color: Colors.black, fontSize: 18),
+                      style: TextStyle(color: Colors.black, fontSize: 15),
                       underline: Container(
                         height: 2,
                       ),
@@ -544,8 +545,13 @@ class _AddImageState extends State<AddImage> {
                   ),
                   SizedBox(height: 10.0),
                   Text(
-                    "(ยกตัวอย่างเช่นแปดโมงครึ่งให้กรอก 8.30)",
-                    style: new TextStyle(fontSize: 13.0),
+                    "(ยกตัวอย่างเช่น แปดโมงครึ่งให้กรอก 8.30)",
+                    style: new TextStyle(fontSize: 12.0),
+                  ),
+                  SizedBox(height: 5.0),
+                  Text(
+                    "(ยกตัวอย่างเช่น เปิดตลอดให้กรอก 0.01 - 23.59 )",
+                    style: new TextStyle(fontSize: 12.0),
                   ),
                   TextFormField(
                     maxLines: 1,
@@ -1230,9 +1236,9 @@ class _AddImageState extends State<AddImage> {
     return emailValid;
   }
 
-  String dropdownValue = '';
+  String dropdownValue = 'โปรดระบุหมวดหมู่';
   List<String> business_type = [
-    '',
+    'โปรดระบุหมวดหมู่',
     'ร้านอาหาร',
     'ร้านกาแฟ',
     'ร้านเครื่องเขียน',
@@ -1242,9 +1248,9 @@ class _AddImageState extends State<AddImage> {
     'สถานที่ใน Rmutt',
     'สถานที่ทั่วไป'
   ];
-  String dropdownValue2 = '';
+  String dropdownValue2 = 'โปรดระบุหมวดหมู่';
   List<String> business_type2 = [
-    '',
+    'โปรดระบุหมวดหมู่',
     'ร้านอาหาร',
     'ร้านกาแฟ',
     'ร้านเครื่องเขียน',
@@ -1254,9 +1260,9 @@ class _AddImageState extends State<AddImage> {
     'สถานที่ใน Rmutt',
     'สถานที่ทั่วไป'
   ];
-  String dropdownValue3 = '';
+  String dropdownValue3 = 'โปรดระบุหมวดหมู่';
   List<String> business_type3 = [
-    '',
+    'โปรดระบุหมวดหมู่',
     'ร้านอาหาร',
     'ร้านกาแฟ',
     'ร้านเครื่องเขียน',
@@ -1266,9 +1272,9 @@ class _AddImageState extends State<AddImage> {
     'สถานที่ใน Rmutt',
     'สถานที่ทั่วไป'
   ];
-  String dropdownValue4 = '';
+  String dropdownValue4 = 'โปรดระบุหมวดหมู่';
   List<String> business_type4 = [
-    '',
+    'โปรดระบุหมวดหมู่',
     'ร้านอาหาร',
     'ร้านกาแฟ',
     'ร้านเครื่องเขียน',
@@ -1278,9 +1284,9 @@ class _AddImageState extends State<AddImage> {
     'สถานที่ใน Rmutt',
     'สถานที่ทั่วไป'
   ];
-  String dropdownValue5 = '';
+  String dropdownValue5 = 'โปรดระบุหมวดหมู่';
   List<String> business_type5 = [
-    '',
+    'โปรดระบุหมวดหมู่',
     'ร้านอาหาร',
     'ร้านกาแฟ',
     'ร้านเครื่องเขียน',
@@ -1290,9 +1296,9 @@ class _AddImageState extends State<AddImage> {
     'สถานที่ใน Rmutt',
     'สถานที่ทั่วไป'
   ];
-  String dropdownValue6 = '';
+  String dropdownValue6 = 'โปรดระบุประเภท';
   List<String> business_type6 = [
-    '',
+    'โปรดระบุประเภท',
     'ชาบู/ปิ้งย่าง',
     'ตามสั่ง',
     'จานด่วน',
@@ -1303,9 +1309,9 @@ class _AddImageState extends State<AddImage> {
     'ฟาสต์ฟูด',
     'อื่นๆ'
   ];
-  String dropdownValue7 = '';
+  String dropdownValue7 = 'โปรดระบุประเภท';
   List<String> business_type7 = [
-    '',
+    'โปรดระบุประเภท',
     'ชาบู/ปิ้งย่าง',
     'ตามสั่ง',
     'จานด่วน',
@@ -1316,9 +1322,9 @@ class _AddImageState extends State<AddImage> {
     'ฟาสต์ฟูด',
     'อื่นๆ'
   ];
-  String dropdownValue8 = '';
+  String dropdownValue8 = 'โปรดระบุประเภท';
   List<String> business_type8 = [
-    '',
+    'โปรดระบุประเภท',
     'ชาบู/ปิ้งย่าง',
     'ตามสั่ง',
     'จานด่วน',
@@ -1329,9 +1335,9 @@ class _AddImageState extends State<AddImage> {
     'ฟาสต์ฟูด',
     'อื่นๆ'
   ];
-  String dropdownValue9 = '';
+  String dropdownValue9 = 'โปรดระบุประเภท';
   List<String> business_type9 = [
-    '',
+    'โปรดระบุประเภท',
     'ชาบู/ปิ้งย่าง',
     'ตามสั่ง',
     'จานด่วน',
@@ -1342,9 +1348,9 @@ class _AddImageState extends State<AddImage> {
     'ฟาสต์ฟูด',
     'อื่นๆ'
   ];
-  String dropdownValue10 = '';
+  String dropdownValue10 = 'โปรดระบุประเภท';
   List<String> business_type10 = [
-    '',
+    'โปรดระบุประเภท',
     'ชาบู/ปิ้งย่าง',
     'ตามสั่ง',
     'จานด่วน',
@@ -1355,10 +1361,4 @@ class _AddImageState extends State<AddImage> {
     'ฟาสต์ฟูด',
     'อื่นๆ'
   ];
-  // final valuestopopulate = {
-  //   1: "India",
-  //   2: "Britain",
-  //   3: "Russia",
-  //   4: "Canada",
-  // };
 }

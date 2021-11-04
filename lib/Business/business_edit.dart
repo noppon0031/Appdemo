@@ -2097,7 +2097,7 @@ class _BusinessEdit extends State<BusinessEdit> {
                   );
                 }),
             (_image.length == 0
-                ? Text("หากคุณต้องการเลือกรูปภาพของคุณใหม่ แตะปุ่มเลือกรูป")
+                ? Text("หากคุณต้องการเพิ่มรูป โปรดเลือกรูปของคุณใหม่")
                 : Visibility(child: Text(""), visible: true)),
             uploading
                 ? Center(
@@ -2225,81 +2225,154 @@ class _BusinessEdit extends State<BusinessEdit> {
                     "หมวดหมู่",
                     style: new TextStyle(fontSize: 16.0),
                   ),
+                  Text(
+                    "(เลือกได้สูงสุด 5 หมวดหมู่)",
+                    style: new TextStyle(fontSize: 13.0),
+                  ),
                   SizedBox(height: 10.0),
-                  // Text(
-                  //   "ร้านอาหาร,ร้านกาแฟ,ร้านเครื่องเขียน,ร้านเสริมสวย,คลินิก/ขายยา,ร้านทั่วไป,สถานที่ใน Rmutt,สถานที่ทั่วไป",
-                  //   style: new TextStyle(fontSize: 16.0),
-                  // ),
 
-                  TextFormField(
-                    maxLines: 1,
-                    autofocus: false,
-                    controller: type_Controller,
-                  ),
-                  // Text(
-                  //   "เลือกข้างล่างหากคุณต้องการเปลี่ยน",
-                  //   style: new TextStyle(fontSize: 16.0),
+                  // TextFormField(
+                  //   maxLines: 1,
+                  //   autofocus: false,
+                  //   controller: type_Controller,
                   // ),
-                  // Padding(
-                  //   padding: EdgeInsets.only(left: 10),
-                  //   child: DropdownButton<String>(
-                  //     value: dropdownValue,
-                  //     icon: Icon(Icons.arrow_drop_down),
-                  //     iconSize: 24,
-                  //     elevation: 16,
-                  //     style: TextStyle(color: Colors.black, fontSize: 18),
-                  //     underline: Container(
-                  //       height: 2,
-                  //     ),
-                  //     onChanged: (data) {
-                  //       setState(() {
-                  //         dropdownValue = data!;
-                  //       });
-                  //     },
-                  //     items: business_type
-                  //         .map<DropdownMenuItem<String>>((String value) {
-                  //       return DropdownMenuItem<String>(
-                  //         value: value,
-                  //         child: Text(value, textAlign: TextAlign.center),
-                  //       );
-                  //     }).toList(),
-                  //   ),
-                  // ),
-                  TextFormField(
-                    maxLines: 1,
-                    autofocus: false,
-                    controller: type2_Controller,
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      // value: dropdownValue,
+                      value: widget.type,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 16),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          // dropdownValue = data!;
+                          widget.type = data!;
+                        });
+                      },
+                      items: business_type
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
                   ),
-                  // Padding(
-                  //   padding: EdgeInsets.only(left: 10),
-                  //   child: DropdownButton<String>(
-                  //     value: dropdownValue2,
-                  //     icon: Icon(Icons.arrow_drop_down),
-                  //     iconSize: 24,
-                  //     elevation: 16,
-                  //     style: TextStyle(color: Colors.black, fontSize: 18),
-                  //     underline: Container(
-                  //       height: 2,
-                  //     ),
-                  //     onChanged: (data) {
-                  //       setState(() {
-                  //         dropdownValue2 = data!;
-                  //       });
-                  //     },
-                  //     items: business_type2
-                  //         .map<DropdownMenuItem<String>>((String value) {
-                  //       return DropdownMenuItem<String>(
-                  //         value: value,
-                  //         child: Text(value, textAlign: TextAlign.center),
-                  //       );
-                  //     }).toList(),
-                  //   ),
+                  // TextFormField(
+                  //   maxLines: 1,
+                  //   autofocus: false,
+                  //   controller: type2_Controller,
                   // ),
-                  TextFormField(
-                    maxLines: 1,
-                    autofocus: false,
-                    controller: type3_Controller,
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: widget.type2,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 16),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          widget.type2 = data!;
+                        });
+                      },
+                      items: business_type
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
                   ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: widget.type3,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 16),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          widget.type3 = data!;
+                        });
+                      },
+                      items: business_type
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: widget.type4,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 16),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          widget.type4 = data!;
+                        });
+                      },
+                      items: business_type
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: widget.type5,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 16),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          widget.type5 = data!;
+                        });
+                      },
+                      items: business_type
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  // TextFormField(
+                  //   maxLines: 1,
+                  //   autofocus: false,
+                  //   controller: type3_Controller,
+                  // ),
                   // Padding(
                   //   padding: EdgeInsets.only(left: 10),
                   //   child: DropdownButton<String>(
@@ -2325,11 +2398,11 @@ class _BusinessEdit extends State<BusinessEdit> {
                   //     }).toList(),
                   //   ),
                   // ),
-                  TextFormField(
-                    maxLines: 1,
-                    autofocus: false,
-                    controller: type4_Controller,
-                  ),
+                  // TextFormField(
+                  //   maxLines: 1,
+                  //   autofocus: false,
+                  //   controller: type4_Controller,
+                  // ),
                   // Padding(
                   //   padding: EdgeInsets.only(left: 10),
                   //   child: DropdownButton<String>(
@@ -2355,11 +2428,11 @@ class _BusinessEdit extends State<BusinessEdit> {
                   //     }).toList(),
                   //   ),
                   // ),
-                  TextFormField(
-                    maxLines: 1,
-                    autofocus: false,
-                    controller: type5_Controller,
-                  ),
+                  // TextFormField(
+                  //   maxLines: 1,
+                  //   autofocus: false,
+                  //   controller: type5_Controller,
+                  // ),
                   // Padding(
                   //   padding: EdgeInsets.only(left: 10),
                   //   child: DropdownButton<String>(
@@ -2386,161 +2459,166 @@ class _BusinessEdit extends State<BusinessEdit> {
                   //   ),
                   // ),
 
-                  SizedBox(height: 10.0),
+                  SizedBox(height: 20.0),
                   Text(
                     "ประเภท",
                     style: new TextStyle(fontSize: 16.0),
                   ),
-                  TextFormField(
-                    maxLines: 1,
-                    autofocus: false,
-                    controller: type6_Controller,
+                  Text(
+                    "(เลือกได้สูงสุด 5 ประเภท)",
+                    style: new TextStyle(fontSize: 13.0),
                   ),
-                  // Padding(
-                  //   padding: EdgeInsets.only(left: 10),
-                  //   child: DropdownButton<String>(
-                  //     value: dropdownValue6,
-                  //     icon: Icon(Icons.arrow_drop_down),
-                  //     iconSize: 24,
-                  //     elevation: 16,
-                  //     style: TextStyle(color: Colors.black, fontSize: 18),
-                  //     underline: Container(
-                  //       height: 2,
-                  //     ),
-                  //     onChanged: (data) {
-                  //       setState(() {
-                  //         dropdownValue6 = data!;
-                  //       });
-                  //     },
-                  //     items: business_type6
-                  //         .map<DropdownMenuItem<String>>((String value) {
-                  //       return DropdownMenuItem<String>(
-                  //         value: value,
-                  //         child: Text(value, textAlign: TextAlign.center),
-                  //       );
-                  //     }).toList(),
-                  //   ),
+                  // TextFormField(
+                  //   maxLines: 1,
+                  //   autofocus: false,
+                  //   controller: type6_Controller,
                   // ),
-                  TextFormField(
-                    maxLines: 1,
-                    autofocus: false,
-                    controller: type7_Controller,
+                  SizedBox(height: 10.0),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: widget.type6,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 16),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          widget.type6 = data!;
+                        });
+                      },
+                      items: business_type2
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
                   ),
-                  // Padding(
-                  //   padding: EdgeInsets.only(left: 10),
-                  //   child: DropdownButton<String>(
-                  //     value: dropdownValue7,
-                  //     icon: Icon(Icons.arrow_drop_down),
-                  //     iconSize: 24,
-                  //     elevation: 16,
-                  //     style: TextStyle(color: Colors.black, fontSize: 18),
-                  //     underline: Container(
-                  //       height: 2,
-                  //     ),
-                  //     onChanged: (data) {
-                  //       setState(() {
-                  //         dropdownValue7 = data!;
-                  //       });
-                  //     },
-                  //     items: business_type7
-                  //         .map<DropdownMenuItem<String>>((String value) {
-                  //       return DropdownMenuItem<String>(
-                  //         value: value,
-                  //         child: Text(value, textAlign: TextAlign.center),
-                  //       );
-                  //     }).toList(),
-                  //   ),
+                  // TextFormField(
+                  //   maxLines: 1,
+                  //   autofocus: false,
+                  //   controller: type7_Controller,
                   // ),
-                  TextFormField(
-                    maxLines: 1,
-                    autofocus: false,
-                    controller: type8_Controller,
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: widget.type7,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 16),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          widget.type7 = data!;
+                        });
+                      },
+                      items: business_type2
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
                   ),
-                  // Padding(
-                  //   padding: EdgeInsets.only(left: 10),
-                  //   child: DropdownButton<String>(
-                  //     value: dropdownValue8,
-                  //     icon: Icon(Icons.arrow_drop_down),
-                  //     iconSize: 24,
-                  //     elevation: 16,
-                  //     style: TextStyle(color: Colors.black, fontSize: 18),
-                  //     underline: Container(
-                  //       height: 2,
-                  //     ),
-                  //     onChanged: (data) {
-                  //       setState(() {
-                  //         dropdownValue8 = data!;
-                  //       });
-                  //     },
-                  //     items: business_type8
-                  //         .map<DropdownMenuItem<String>>((String value) {
-                  //       return DropdownMenuItem<String>(
-                  //         value: value,
-                  //         child: Text(value, textAlign: TextAlign.center),
-                  //       );
-                  //     }).toList(),
-                  //   ),
+                  // TextFormField(
+                  //   maxLines: 1,
+                  //   autofocus: false,
+                  //   controller: type8_Controller,
                   // ),
-                  TextFormField(
-                    maxLines: 1,
-                    autofocus: false,
-                    controller: type9_Controller,
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: widget.type8,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 16),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          widget.type8 = data!;
+                        });
+                      },
+                      items: business_type2
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
                   ),
-                  // Padding(
-                  //   padding: EdgeInsets.only(left: 10),
-                  //   child: DropdownButton<String>(
-                  //     value: dropdownValue9,
-                  //     icon: Icon(Icons.arrow_drop_down),
-                  //     iconSize: 24,
-                  //     elevation: 16,
-                  //     style: TextStyle(color: Colors.black, fontSize: 18),
-                  //     underline: Container(
-                  //       height: 2,
-                  //     ),
-                  //     onChanged: (data) {
-                  //       setState(() {
-                  //         dropdownValue9 = data!;
-                  //       });
-                  //     },
-                  //     items: business_type9
-                  //         .map<DropdownMenuItem<String>>((String value) {
-                  //       return DropdownMenuItem<String>(
-                  //         value: value,
-                  //         child: Text(value, textAlign: TextAlign.center),
-                  //       );
-                  //     }).toList(),
-                  //   ),
+                  // TextFormField(
+                  //   maxLines: 1,
+                  //   autofocus: false,
+                  //   controller: type9_Controller,
                   // ),
-                  TextFormField(
-                    maxLines: 1,
-                    autofocus: false,
-                    controller: type10_Controller,
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: widget.type9,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 16),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          widget.type9 = data!;
+                        });
+                      },
+                      items: business_type2
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
                   ),
-                  // Padding(
-                  //   padding: EdgeInsets.only(left: 10),
-                  //   child: DropdownButton<String>(
-                  //     value: dropdownValue10,
-                  //     icon: Icon(Icons.arrow_drop_down),
-                  //     iconSize: 24,
-                  //     elevation: 16,
-                  //     style: TextStyle(color: Colors.black, fontSize: 18),
-                  //     underline: Container(
-                  //       height: 2,
-                  //     ),
-                  //     onChanged: (data) {
-                  //       setState(() {
-                  //         dropdownValue10 = data!;
-                  //       });
-                  //     },
-                  //     items: business_type10
-                  //         .map<DropdownMenuItem<String>>((String value) {
-                  //       return DropdownMenuItem<String>(
-                  //         value: value,
-                  //         child: Text(value, textAlign: TextAlign.center),
-                  //       );
-                  //     }).toList(),
-                  //   ),
+                  // TextFormField(
+                  //   maxLines: 1,
+                  //   autofocus: false,
+                  //   controller: type10_Controller,
                   // ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: DropdownButton<String>(
+                      value: widget.type10,
+                      icon: Icon(Icons.arrow_drop_down),
+                      iconSize: 24,
+                      elevation: 16,
+                      style: TextStyle(color: Colors.black, fontSize: 16),
+                      underline: Container(
+                        height: 2,
+                      ),
+                      onChanged: (data) {
+                        setState(() {
+                          widget.type10 = data!;
+                        });
+                      },
+                      items: business_type2
+                          .map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value, textAlign: TextAlign.center),
+                        );
+                      }).toList(),
+                    ),
+                  ),
                   SizedBox(height: 10.0),
                   Text(
                     "เบอร์โทร",
@@ -2588,7 +2666,12 @@ class _BusinessEdit extends State<BusinessEdit> {
                   SizedBox(height: 10.0),
                   Text(
                     "(ยกตัวอย่างเช่นแปดโมงครึ่งให้กรอก 8.30)",
-                    style: new TextStyle(fontSize: 13.0),
+                    style: new TextStyle(fontSize: 12.0),
+                  ),
+                  SizedBox(height: 5.0),
+                  Text(
+                    "(ยกตัวอย่างเช่น เปิดตลอดให้กรอก 0.01 - 23.59 )",
+                    style: new TextStyle(fontSize: 12.0),
                   ),
                   TextFormField(
                     maxLines: 1,
@@ -2900,16 +2983,17 @@ class _BusinessEdit extends State<BusinessEdit> {
     var price = price_Controller.text.toString();
     var tel = tel_Controller.text.toString();
     var time = time_Controller.text.toString();
-    var type = type_Controller.text.toString();
-    var type2 = type2_Controller.text.toString();
-    var type3 = type3_Controller.text.toString();
-    var type4 = type4_Controller.text.toString();
-    var type5 = type5_Controller.text.toString();
-    var type6 = type6_Controller.text.toString();
-    var type7 = type7_Controller.text.toString();
-    var type8 = type8_Controller.text.toString();
-    var type9 = type9_Controller.text.toString();
-    var type10 = type10_Controller.text.toString();
+    // var type = type_Controller.text.toString();
+    var type = widget.type.toString();
+    var type2 = widget.type2.toString();
+    var type3 = widget.type3.toString();
+    var type4 = widget.type4.toString();
+    var type5 = widget.type5.toString();
+    var type6 = widget.type6.toString();
+    var type7 = widget.type7.toString();
+    var type8 = widget.type8.toString();
+    var type9 = widget.type9.toString();
+    var type10 = widget.type10.toString();
     var website = website_Controller.text.toString();
     var photodetail = photodetail_Controller.text.toString();
     var photo1 = photo1_Controller.text.toString();
@@ -3153,9 +3237,8 @@ bool validateEmail(String email) {
   return emailValid;
 }
 
-String dropdownValue = '';
 List<String> business_type = [
-  '',
+  'โปรดระบุหมวดหมู่',
   'ร้านอาหาร',
   'ร้านกาแฟ',
   'ร้านเครื่องเขียน',
@@ -3165,109 +3248,9 @@ List<String> business_type = [
   'สถานที่ใน Rmutt',
   'สถานที่ทั่วไป'
 ];
-String dropdownValue2 = '';
+
 List<String> business_type2 = [
-  '',
-  'ร้านอาหาร',
-  'ร้านกาแฟ',
-  'ร้านเครื่องเขียน',
-  'ร้านเสริมสวย',
-  'คลินิก/ขายยา',
-  'ร้านทั่วไป',
-  'สถานที่ใน Rmutt',
-  'สถานที่ทั่วไป'
-];
-String dropdownValue3 = '';
-List<String> business_type3 = [
-  '',
-  'ร้านอาหาร',
-  'ร้านกาแฟ',
-  'ร้านเครื่องเขียน',
-  'ร้านเสริมสวย',
-  'คลินิก/ขายยา',
-  'ร้านทั่วไป',
-  'สถานที่ใน Rmutt',
-  'สถานที่ทั่วไป'
-];
-String dropdownValue4 = '';
-List<String> business_type4 = [
-  '',
-  'ร้านอาหาร',
-  'ร้านกาแฟ',
-  'ร้านเครื่องเขียน',
-  'ร้านเสริมสวย',
-  'คลินิก/ขายยา',
-  'ร้านทั่วไป',
-  'สถานที่ใน Rmutt',
-  'สถานที่ทั่วไป'
-];
-String dropdownValue5 = '';
-List<String> business_type5 = [
-  '',
-  'ร้านอาหาร',
-  'ร้านกาแฟ',
-  'ร้านเครื่องเขียน',
-  'ร้านเสริมสวย',
-  'คลินิก/ขายยา',
-  'ร้านทั่วไป',
-  'สถานที่ใน Rmutt',
-  'สถานที่ทั่วไป'
-];
-String dropdownValue6 = '';
-List<String> business_type6 = [
-  '',
-  'ชาบู/ปิ้งย่าง',
-  'ตามสั่ง',
-  'จานด่วน',
-  'เกาหลี',
-  'ญี่ปุ่น',
-  'ไทย',
-  'ของหวาน',
-  'ฟาสต์ฟูด',
-  'อื่นๆ'
-];
-String dropdownValue7 = '';
-List<String> business_type7 = [
-  '',
-  'ชาบู/ปิ้งย่าง',
-  'ตามสั่ง',
-  'จานด่วน',
-  'เกาหลี',
-  'ญี่ปุ่น',
-  'ไทย',
-  'ของหวาน',
-  'ฟาสต์ฟูด',
-  'อื่นๆ'
-];
-String dropdownValue8 = '';
-List<String> business_type8 = [
-  '',
-  'ชาบู/ปิ้งย่าง',
-  'ตามสั่ง',
-  'จานด่วน',
-  'เกาหลี',
-  'ญี่ปุ่น',
-  'ไทย',
-  'ของหวาน',
-  'ฟาสต์ฟูด',
-  'อื่นๆ'
-];
-String dropdownValue9 = '';
-List<String> business_type9 = [
-  '',
-  'ชาบู/ปิ้งย่าง',
-  'ตามสั่ง',
-  'จานด่วน',
-  'เกาหลี',
-  'ญี่ปุ่น',
-  'ไทย',
-  'ของหวาน',
-  'ฟาสต์ฟูด',
-  'อื่นๆ'
-];
-String dropdownValue10 = '';
-List<String> business_type10 = [
-  '',
+  'โปรดระบุประเภท',
   'ชาบู/ปิ้งย่าง',
   'ตามสั่ง',
   'จานด่วน',

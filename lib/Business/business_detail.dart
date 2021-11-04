@@ -335,27 +335,6 @@ class _Business_Detail extends State<Business_Detail> {
                 ),
                 Padding(
                   padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Text(widget.photodetail,
-                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 81,
-                  child: Text('ที่อยู่ :',
-                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
                   child: Container(
                     width: 250,
                     child: Text(widget.address,
@@ -365,6 +344,30 @@ class _Business_Detail extends State<Business_Detail> {
               ],
             ),
           ),
+          // SizedBox(
+          //   height: 10.0,
+          // ),
+          // Padding(
+          //   padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.start,
+          //     children: <Widget>[
+          //       Container(
+          //         width: 81,
+          //         child: Text('ที่อยู่ :',
+          //             style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+          //       ),
+          //       Padding(
+          //         padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+          //         child: Container(
+          //           width: 250,
+          //           child: Text(widget.address,
+          //               style: TextStyle(color: Colors.black, fontSize: 16.0)),
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // ),
           SizedBox(
             height: 10.0,
           ),
@@ -399,11 +402,12 @@ class _Business_Detail extends State<Business_Detail> {
                   child: Text('ประเภท :',
                       style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
                 ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Text(widget.type,
-                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
-                ),
+                if (widget.type != 'โปรดระบุหมวดหมู่')
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                    child: Text(widget.type,
+                        style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                  ),
               ],
             ),
           ),
@@ -420,11 +424,12 @@ class _Business_Detail extends State<Business_Detail> {
                   child: Text('',
                       style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
                 ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Text(widget.type2,
-                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
-                ),
+                if (widget.type2 != 'โปรดระบุหมวดหมู่')
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                    child: Text(widget.type2,
+                        style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                  ),
               ],
             ),
           ),
@@ -438,11 +443,12 @@ class _Business_Detail extends State<Business_Detail> {
                   child: Text('',
                       style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
                 ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Text(widget.type3,
-                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
-                ),
+                if (widget.type3 != 'โปรดระบุหมวดหมู่')
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                    child: Text(widget.type3,
+                        style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                  ),
               ],
             ),
           ),
@@ -456,11 +462,12 @@ class _Business_Detail extends State<Business_Detail> {
                   child: Text('',
                       style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
                 ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Text(widget.type4,
-                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
-                ),
+                if (widget.type4 != 'โปรดระบุหมวดหมู่')
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                    child: Text(widget.type4,
+                        style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                  ),
               ],
             ),
           ),
@@ -474,11 +481,12 @@ class _Business_Detail extends State<Business_Detail> {
                   child: Text('',
                       style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
                 ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Text(widget.type5,
-                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
-                ),
+                if (widget.type5 != 'โปรดระบุหมวดหมู่')
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                    child: Text(widget.type5,
+                        style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                  ),
               ],
             ),
           ),
@@ -492,11 +500,12 @@ class _Business_Detail extends State<Business_Detail> {
                   child: Text('ประเภทย่อย :',
                       style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
                 ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Text(widget.type6,
-                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
-                ),
+                if (widget.type6 != 'โปรดระบุประเภท')
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                    child: Text(widget.type6,
+                        style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                  ),
               ],
             ),
           ),
@@ -510,11 +519,12 @@ class _Business_Detail extends State<Business_Detail> {
                   child: Text('',
                       style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
                 ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Text(widget.type7,
-                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
-                ),
+                if (widget.type7 != 'โปรดระบุประเภท')
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                    child: Text(widget.type7,
+                        style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                  ),
               ],
             ),
           ),
@@ -528,11 +538,12 @@ class _Business_Detail extends State<Business_Detail> {
                   child: Text('',
                       style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
                 ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Text(widget.type8,
-                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
-                ),
+                if (widget.type8 != 'โปรดระบุประเภท')
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                    child: Text(widget.type8,
+                        style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                  ),
               ],
             ),
           ),
@@ -546,11 +557,12 @@ class _Business_Detail extends State<Business_Detail> {
                   child: Text('',
                       style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
                 ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Text(widget.type9,
-                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
-                ),
+                if (widget.type9 != 'โปรดระบุประเภท')
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                    child: Text(widget.type9,
+                        style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                  ),
               ],
             ),
           ),
@@ -564,11 +576,12 @@ class _Business_Detail extends State<Business_Detail> {
                   child: Text('',
                       style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
                 ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Text(widget.type10,
-                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
-                ),
+                if (widget.type10 != 'โปรดระบุประเภท')
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                    child: Text(widget.type10,
+                        style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                  ),
               ],
             ),
           ),
@@ -786,7 +799,7 @@ class _Business_Detail extends State<Business_Detail> {
             ),
           ),
           SizedBox(
-            height: 10.0,
+            height: 20.0,
           ),
           // Container(
           //   margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
@@ -823,7 +836,7 @@ class _Business_Detail extends State<Business_Detail> {
 
           Divider(color: Colors.black),
           Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+            padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
@@ -831,7 +844,7 @@ class _Business_Detail extends State<Business_Detail> {
                   child: Text('รายละเอียด',
                       style: TextStyle(
                           color: Colors.black,
-                          fontSize: 18.0,
+                          fontSize: 16.0,
                           fontWeight: FontWeight.bold)),
                 ),
               ],
@@ -1316,472 +1329,81 @@ class _Business_Detail extends State<Business_Detail> {
       photo9,
       photo10
     ];
-    if (photo10.isNotEmpty) {
-      return InkWell(
-          child: ImageSlideshow(
-            width: double.infinity,
-            height: 200,
-            initialPage: 0,
-            indicatorColor: Colors.blue,
-            indicatorBackgroundColor: Colors.grey,
-            onPageChanged: (value) {
-              check_index = value;
-            },
-            autoPlayInterval: 6000,
-            isLoop: true,
-            children: [
-              Image.network(
-                photo1,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo2,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo3,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo4,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo5,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo6,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo7,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo8,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo9,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo10,
-                fit: BoxFit.cover,
-              ),
-            ],
-          ),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FullImage(
-                    photo: photo_array[check_index],
-                  ),
-                ));
-          });
-    } else if (photo9.isNotEmpty) {
-      return InkWell(
-          child: ImageSlideshow(
-            width: double.infinity,
-            height: 200,
-            initialPage: 0,
-            indicatorColor: Colors.blue,
-            indicatorBackgroundColor: Colors.grey,
-            onPageChanged: (value) {
-              check_index = value;
-            },
-            autoPlayInterval: 6000,
-            isLoop: true,
-            children: [
-              Image.network(
-                photo1,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo2,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo3,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo4,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo5,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo6,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo7,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo8,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo9,
-                fit: BoxFit.cover,
-              ),
-            ],
-          ),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FullImage(
-                    photo: photo_array[check_index],
-                  ),
-                ));
-          });
-    } else if (photo8.isNotEmpty) {
-      return InkWell(
-          child: ImageSlideshow(
-            width: double.infinity,
-            height: 200,
-            initialPage: 0,
-            indicatorColor: Colors.blue,
-            indicatorBackgroundColor: Colors.grey,
-            onPageChanged: (value) {
-              check_index = value;
-            },
-            autoPlayInterval: 6000,
-            isLoop: true,
-            children: [
-              Image.network(
-                photo1,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo2,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo3,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo4,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo5,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo6,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo7,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo8,
-                fit: BoxFit.cover,
-              ),
-            ],
-          ),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FullImage(
-                    photo: photo_array[check_index],
-                  ),
-                ));
-          });
-    } else if (photo7.isNotEmpty) {
-      return InkWell(
-          child: ImageSlideshow(
-            width: double.infinity,
-            height: 200,
-            initialPage: 0,
-            indicatorColor: Colors.blue,
-            indicatorBackgroundColor: Colors.grey,
-            onPageChanged: (value) {
-              check_index = value;
-            },
-            autoPlayInterval: 6000,
-            isLoop: true,
-            children: [
-              Image.network(
-                photo1,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo2,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo3,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo4,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo5,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo6,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo7,
-                fit: BoxFit.cover,
-              ),
-            ],
-          ),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FullImage(
-                    photo: photo_array[check_index],
-                  ),
-                ));
-          });
-    } else if (photo6.isNotEmpty) {
-      return InkWell(
-          child: ImageSlideshow(
-            width: double.infinity,
-            height: 200,
-            initialPage: 0,
-            indicatorColor: Colors.blue,
-            indicatorBackgroundColor: Colors.grey,
-            onPageChanged: (value) {
-              check_index = value;
-            },
-            autoPlayInterval: 6000,
-            isLoop: true,
-            children: [
-              Image.network(
-                photo1,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo2,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo3,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo4,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo5,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo6,
-                fit: BoxFit.cover,
-              ),
-            ],
-          ),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FullImage(
-                    photo: photo_array[check_index],
-                  ),
-                ));
-          });
-    } else if (photo5.isNotEmpty) {
-      return InkWell(
-          child: ImageSlideshow(
-            width: double.infinity,
-            height: 200,
-            indicatorColor: Colors.blue,
-            indicatorBackgroundColor: Colors.grey,
-            onPageChanged: (value) {
-              check_index = value;
-            },
-            autoPlayInterval: 6000,
-            isLoop: true,
-            children: [
-              Image.network(
-                photo1,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo2,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo3,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo4,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo5,
-                fit: BoxFit.cover,
-              ),
-            ],
-          ),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FullImage(
-                    photo: photo_array[check_index],
-                  ),
-                ));
-          });
-    } else if (photo4.isNotEmpty) {
-      return InkWell(
-          child: ImageSlideshow(
-            width: double.infinity,
-            height: 200,
-            indicatorColor: Colors.blue,
-            indicatorBackgroundColor: Colors.grey,
-            onPageChanged: (value) {
-              check_index = value;
-            },
-            autoPlayInterval: 6000,
-            isLoop: true,
-            children: [
-              Image.network(
-                photo1,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo2,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo3,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo4,
-                fit: BoxFit.cover,
-              ),
-            ],
-          ),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FullImage(
-                    photo: photo_array[check_index],
-                  ),
-                ));
-          });
-    } else if (photo3.isNotEmpty) {
-      return InkWell(
-          child: ImageSlideshow(
-            width: double.infinity,
-            height: 200,
-            indicatorColor: Colors.blue,
-            indicatorBackgroundColor: Colors.grey,
-            onPageChanged: (value) {
-              check_index = value;
-            },
-            autoPlayInterval: 6000,
-            isLoop: true,
-            children: [
-              Image.network(
-                photo1,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo2,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo3,
-                fit: BoxFit.cover,
-              ),
-            ],
-          ),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FullImage(
-                    photo: photo_array[check_index],
-                  ),
-                ));
-          });
-    } else if (photo2.isNotEmpty) {
-      return InkWell(
-          child: ImageSlideshow(
-            width: double.infinity,
-            height: 200,
-            indicatorColor: Colors.blue,
-            indicatorBackgroundColor: Colors.grey,
-            onPageChanged: (value) {
-              check_index = value;
-            },
-            autoPlayInterval: 6000,
-            isLoop: true,
-            children: [
-              Image.network(
-                photo1,
-                fit: BoxFit.cover,
-              ),
-              Image.network(
-                photo2,
-                fit: BoxFit.cover,
-              ),
-            ],
-          ),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FullImage(
-                    photo: photo_array[check_index],
-                  ),
-                ));
-          });
-    } else if (photo1.isNotEmpty) {
-      return InkWell(
-          child: ImageSlideshow(
-            width: double.infinity,
-            height: 200,
-            indicatorColor: Colors.blue,
-            indicatorBackgroundColor: Colors.grey,
-            onPageChanged: (value) {
-              check_index = value;
-            },
-            autoPlayInterval: 6000,
-            isLoop: true,
-            children: [
-              Image.network(
-                photo1,
-                fit: BoxFit.cover,
-              ),
-            ],
-          ),
-          onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => FullImage(
-                    photo: photo_array[check_index],
-                  ),
-                ));
-          });
-    }
+
+    return InkWell(
+      child: ImageSlideshow(
+        width: double.infinity,
+        height: 200,
+        initialPage: 0,
+        indicatorColor: Colors.blue,
+        indicatorBackgroundColor: Colors.grey,
+        onPageChanged: (value) {
+          check_index = value;
+        },
+        autoPlayInterval: 6000,
+        isLoop: true,
+        children: [
+          if (photo1.isNotEmpty)
+            Image.network(
+              photo1,
+              fit: BoxFit.cover,
+            ),
+          if (photo2.isNotEmpty)
+            Image.network(
+              photo2,
+              fit: BoxFit.cover,
+            ),
+          if (photo3.isNotEmpty)
+            Image.network(
+              photo3,
+              fit: BoxFit.cover,
+            ),
+          if (photo4.isNotEmpty)
+            Image.network(
+              photo4,
+              fit: BoxFit.cover,
+            ),
+          if (photo5.isNotEmpty)
+            Image.network(
+              photo5,
+              fit: BoxFit.cover,
+            ),
+          if (photo6.isNotEmpty)
+            Image.network(
+              photo6,
+              fit: BoxFit.cover,
+            ),
+          if (photo7.isNotEmpty)
+            Image.network(
+              photo7,
+              fit: BoxFit.cover,
+            ),
+          if (photo8.isNotEmpty)
+            Image.network(
+              photo8,
+              fit: BoxFit.cover,
+            ),
+          if (photo9.isNotEmpty)
+            Image.network(
+              photo9,
+              fit: BoxFit.cover,
+            ),
+          if (photo10.isNotEmpty)
+            Image.network(
+              photo10,
+              fit: BoxFit.cover,
+            ),
+        ],
+      ),
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => FullImage(
+                      photo: photo_array[check_index],
+                    )));
+      },
+    );
   }
 
   // Marker map1Marker = Marker(

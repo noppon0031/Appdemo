@@ -507,30 +507,30 @@ class PlaceList extends StatelessWidget {
                                         ),
                                       ),
                                     ),
-                                    Container(
-                                      margin: EdgeInsets.only(top: 20),
-                                      child: Column(
-                                        children: <Widget>[
-                                          // Text(
-                                          //   'per pax',
-                                          //   style: TextStyle(
-                                          //     color: Colors.grey,
-                                          //   ),
-                                          // ),
-                                        ],
-                                      ),
-                                    ),
+                                    // Container(
+                                    //   margin: EdgeInsets.only(top: 20),
+                                    //   child: Column(
+                                    //     children: <Widget>[
+                                    //       // Text(
+                                    //       //   'per pax',
+                                    //       //   style: TextStyle(
+                                    //       //     color: Colors.grey,
+                                    //       //   ),
+                                    //       // ),
+                                    //     ],
+                                    //   ),
+                                    // ),
                                   ],
                                 ),
-                                Container(
-                                  margin: EdgeInsets.only(top: 5),
-                                  child: Text(
-                                    document["address"],
-                                    style: TextStyle(
-                                      color: Colors.grey,
-                                    ),
-                                  ),
-                                ),
+                                // Container(
+                                //   margin: EdgeInsets.only(top: 5),
+                                //   child: Text(
+                                //     document["address"],
+                                //     style: TextStyle(
+                                //       color: Colors.grey,
+                                //     ),
+                                //   ),
+                                // ),
                                 SizedBox(
                                   height: 10,
                                 ),
@@ -664,6 +664,41 @@ class PlaceList extends StatelessWidget {
                                             alignment: Alignment.center,
                                             child: Text(
                                               "-",
+                                              style: new TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 12),
+                                            ),
+                                          ),
+                                    ////////////////////////////////////////
+                                    SizedBox(
+                                      width: (5),
+                                    ),
+                                    doc["check"] == "true"
+                                        ? Container(
+                                            padding: EdgeInsets.all(6.0),
+                                            decoration: BoxDecoration(
+                                              color: Colors.green,
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
+                                            ),
+                                            alignment: Alignment.center,
+                                            child: Text(
+                                              "ตรวจสอบแล้ว",
+                                              style: new TextStyle(
+                                                  color: Colors.white,
+                                                  fontSize: 12),
+                                            ),
+                                          )
+                                        : Container(
+                                            padding: EdgeInsets.all(6.0),
+                                            decoration: BoxDecoration(
+                                              color: Colors.black,
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
+                                            ),
+                                            alignment: Alignment.center,
+                                            child: Text(
+                                              "รออนุมัติ",
                                               style: new TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 12),
