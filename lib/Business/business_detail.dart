@@ -337,7 +337,7 @@ class _Business_Detail extends State<Business_Detail> {
                   padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
                   child: Container(
                     width: 250,
-                    child: Text(widget.address,
+                    child: Text(widget.photodetail,
                         style: TextStyle(color: Colors.black, fontSize: 16.0)),
                   ),
                 ),
