@@ -276,6 +276,24 @@ class _LoginPageState extends State<LoginPage> {
                                           color: Colors.blue)))),
                         ],
                       ),
+                      SizedBox(height: 150.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('ติดต่อผู้ดูแลระบบ',
+                              style: new TextStyle(
+                                  fontSize: 16.0, fontWeight: FontWeight.w900)),
+                        ],
+                      ),
+                      SizedBox(height: 10.0),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('adminwhereareyou@gmail.com',
+                              style: new TextStyle(
+                                  fontSize: 16.0, fontWeight: FontWeight.w900)),
+                        ],
+                      ),
                       // Row(
                       //   mainAxisSize: MainAxisSize.min,
                       //   crossAxisAlignment: CrossAxisAlignment.start,

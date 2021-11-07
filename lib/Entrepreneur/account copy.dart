@@ -132,6 +132,24 @@ class _AccountState2 extends State<Account2> {
           ProfileMenu(),
           Managetest(),
           Logout(),
+          // SizedBox(height: 120.0),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     Text('ติดต่อผู้ดูแลระบบ',
+          //         style: new TextStyle(
+          //             fontSize: 12.0, fontWeight: FontWeight.w300)),
+          //   ],
+          // ),
+          // SizedBox(height: 10.0),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     Text('adminwhereareyou@gmail.com',
+          //         style: new TextStyle(
+          //             fontSize: 12.0, fontWeight: FontWeight.w300)),
+          //   ],
+          // ),
         ],
       ),
     );

@@ -40,7 +40,7 @@ class _Business_List_User extends State<Business_List_User> {
       type10;
 
   Widget appBarTitle = Text(
-    "สถานที่ทั้งหมด",
+    "ค้นหาสถานที่",
     style: new TextStyle(color: Colors.white),
   );
 
@@ -7463,7 +7463,7 @@ class _Business_List_User extends State<Business_List_User> {
         color: Colors.white,
       );
       this.appBarTitle = new Text(
-        "สถานที่ทั้งหมด",
+        "ค้นหาสถานที่",
         style: new TextStyle(color: Colors.white),
       );
       _IsSearching = false;

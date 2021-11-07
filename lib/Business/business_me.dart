@@ -545,7 +545,7 @@ class PlaceList extends StatelessWidget {
                                             color: Colors.blueGrey,
                                             fontSize: 16.0)),
                                     SizedBox(
-                                      width: 30,
+                                      width: 10,
                                     ),
                                     Container(
                                       padding: EdgeInsets.all(6.0),
@@ -673,7 +673,7 @@ class PlaceList extends StatelessWidget {
                                     SizedBox(
                                       width: (5),
                                     ),
-                                    doc["check"] == "true"
+                                    doc["check"] == true
                                         ? Container(
                                             padding: EdgeInsets.all(6.0),
                                             decoration: BoxDecoration(
