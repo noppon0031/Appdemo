@@ -897,7 +897,7 @@ class _AddImageState extends State<AddImage> {
     var type10 = dropdownValue10;
     var photodetail = photo_Detaii_Controller.text.trim();
     var time_open = time_open_Controller.text.trim();
-    var time_close = time_open_Controller.text.trim();
+    var time_close = time_close_Controller.text.trim();
 
     if (validateEmail(Email) == false) {
       Toast.show('กรุณาตรวจสอบอีเมลให้ถูกต้อง', context,
