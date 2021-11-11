@@ -3359,6 +3359,8 @@ class _BusinessEdit extends State<BusinessEdit> {
       'website': website,
       'photodetail': photodetail,
       'check': false,
+      'address': address,
+      'map': google_map
     });
 
     Navigator.pushAndRemoveUntil(
