@@ -206,14 +206,26 @@ class RegisterState extends State<Register> {
       return;
     }
 
+    if (Email.length > 100) {
+      Toast.show("ต้องไม่เกิน 100 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+
     if (Password.isEmpty) {
       Toast.show("กรุณาใส่รหัสผ่านก่อน", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       return;
     }
 
-    if (Password.length < 5) {
-      Toast.show("รหัสผ่านต้องมากกว่า 6 ตัว", context,
+    if (Password.length < 6) {
+      Toast.show("รหัสผ่านต้องอย่างน้อย 6 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+
+    if (Password.length > 50) {
+      Toast.show("รหัสผ่านต้องไม่เกิน 50 ตัว", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       return;
     }
@@ -223,9 +235,20 @@ class RegisterState extends State<Register> {
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       return;
     }
+    if (Username.length > 20) {
+      Toast.show("ชื่อต้องไม่เกิน 20 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
 
     if (Tel.isEmpty) {
       Toast.show("กรุณาใส่เบอร์โทรก่อน", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+
+    if (Tel.length > 15) {
+      Toast.show("เบอร์โทรศัพท์ต้องไม่เกิน 20 ตัว", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       return;
     }

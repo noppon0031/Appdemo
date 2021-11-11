@@ -328,7 +328,7 @@ class EditUserState2 extends State<EditUser2> {
   }
 }
 
-String dropdownValue = 'ผู้ใช้งานทั่วไป';
+String dropdownValue = 'ผู้ประกอบการ';
 List<String> user_type = [
   'ผู้ใช้งานทั่วไป',
   'ผู้ประกอบการ',

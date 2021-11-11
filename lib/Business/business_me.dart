@@ -164,7 +164,7 @@ class PlaceList extends StatelessWidget {
                                     longitude4: document["longitude4"],
                                     latitude5: document["latitude5"],
                                     longitude5: document["longitude5"],
-                                    // map: document["map"],
+                                    map: document["map"],
                                     photo1: document["photo1"],
                                     photo2: document["photo2"],
                                     photo3: document["photo3"],

@@ -662,7 +662,7 @@ class _Business_Detail extends State<Business_Detail> {
                       style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
                   child: Container(
                     width: (200),
                     child: Text(

@@ -794,19 +794,19 @@ class _AddImageState extends State<AddImage> {
                     keyboardType: TextInputType.text,
                   ),
 
-                  // SizedBox(height: 10.0),
-                  // Text(
-                  //   "ตำแหน่งสถานที่",
-                  //   style: new TextStyle(fontSize: 16.0),
-                  // ),
-                  // TextFormField(
-                  //   maxLines: 1,
-                  //   autofocus: false,
-                  //   controller: google_map_Controller,
-                  //   keyboardType: TextInputType.text,
-                  //   decoration: new InputDecoration(
-                  //       hintText: 'เช่น www.google.co.th/maps/place/asdfad'),
-                  // ),
+                  SizedBox(height: 10.0),
+                  Text(
+                    "ตำแหน่งสถานที่",
+                    style: new TextStyle(fontSize: 16.0),
+                  ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: google_map_Controller,
+                    keyboardType: TextInputType.text,
+                    decoration: new InputDecoration(
+                        hintText: 'เช่น www.google.co.th/maps/place/test'),
+                  ),
                   SizedBox(height: 10.0),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -901,6 +901,140 @@ class _AddImageState extends State<AddImage> {
 
     if (validateEmail(Email) == false) {
       Toast.show('กรุณาตรวจสอบอีเมลให้ถูกต้อง', context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (Email.length > 100) {
+      Toast.show("ต้องไม่เกิน 100 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (Business_name.isEmpty) {
+      Toast.show("กรุณาใส่ชื่อสถานที่ของคุณก่อน", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (Business_name.length > 50) {
+      Toast.show("ชื่อสถานที่ต้องไม่เกิน 50 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+
+    if (Business_name1.length > 50) {
+      Toast.show("ชื่อสถานที่รอง1ต้องไม่เกิน 50 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+
+    if (Business_name2.length > 50) {
+      Toast.show("ชื่อสถานที่รอง2ต้องไม่เกิน 50 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+
+    if (Business_name3.length > 50) {
+      Toast.show("ชื่อสถานที่รอง3ต้องไม่เกิน 50 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (Business_name_english.length > 50) {
+      Toast.show("ชื่อภาษาอังกฤษสถานที่ต้องไม่เกิน 50 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (Latitude.isEmpty) {
+      Toast.show("กรุณาใส่ละติจูดของคุณก่อน", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (Longitude.isEmpty) {
+      Toast.show("กรุณาใส่ลองจิจูดของคุณก่อน", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (Google_map.isEmpty) {
+      Toast.show("กรุณาใส่ลิงก์ map ของคุณก่อน", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+
+    if (time_open.isEmpty) {
+      Toast.show("กรุณาใส่เวลาเปิดสถานที่อัตโนมัติของคุณก่อน", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (time_close.isEmpty) {
+      Toast.show("กรุณาใส่เวลาปิดสถานที่อัตโนมัติของคุณก่อน", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (Tel.isEmpty) {
+      Toast.show("กรุณาเบอร์โทรศัพท์ของคุณก่อน", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (Tel.length > 15) {
+      Toast.show("เบอร์โทรศัพท์ต้องไม่เกิน 15 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (Day.isEmpty) {
+      Toast.show("กรุณาใส่วันเปิดสถานที่ของคุณก่อน", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (Day.length > 30) {
+      Toast.show("วันเปิด/ปิดทำการต้องไม่เกิน 30 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (Time.isEmpty) {
+      Toast.show("กรุณาใส่เวลา เปิด/ปิด สถานที่ของคุณก่อน", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (Time.length > 30) {
+      Toast.show("เวลา เปิด/ปิด สถานที่ต้องไม่เกิน 30 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (Price.length > 30) {
+      Toast.show("ช่วงราคาสถานที่ต้องไม่เกิน 30 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (Address.isEmpty) {
+      Toast.show("กรุณาใส่ที่อยู่ของคุณก่อน", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (Address.length > 100) {
+      Toast.show("ที่อยุ่สถานที่ต้องไม่เกิน 100 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (Website.length > 100) {
+      Toast.show("เว็บไซต์การต้องไม่เกิน 30 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (Line.length > 100) {
+      Toast.show("Line ต้องไม่เกิน 100 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (Facebook.length > 100) {
+      Toast.show("Facebook ต้องไม่เกิน 100 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (Instagram.length > 100) {
+      Toast.show("Instagram ต้องไม่เกิน 100 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (photodetail.length > 50) {
+      Toast.show("Instagram ต้องไม่เกิน 50 ตัว", context,
           duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
       return;
     }

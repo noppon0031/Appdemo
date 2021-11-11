@@ -2895,19 +2895,19 @@ class _BusinessEdit extends State<BusinessEdit> {
                     controller: detail_Controller,
                     keyboardType: TextInputType.text,
                   ),
-                  // SizedBox(height: 10.0),
-                  // Text(
-                  //   "ตำแหน่งสถานที่",
-                  //   style: new TextStyle(fontSize: 16.0),
-                  // ),
-                  // TextFormField(
-                  //   maxLines: 1,
-                  //   autofocus: false,
-                  //   controller: google_map_Controller,
-                  //   keyboardType: TextInputType.text,
-                  //   decoration: new InputDecoration(
-                  //       hintText: 'เช่น www.google.co.th/maps/place/asdfad'),
-                  // ),
+                  SizedBox(height: 10.0),
+                  Text(
+                    "ตำแหน่งสถานที่",
+                    style: new TextStyle(fontSize: 16.0),
+                  ),
+                  TextFormField(
+                    maxLines: 1,
+                    autofocus: false,
+                    controller: google_map_Controller,
+                    keyboardType: TextInputType.text,
+                    decoration: new InputDecoration(
+                        hintText: 'เช่น www.google.co.th/maps/place/test'),
+                  ),
                   SizedBox(height: 10.0),
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(
@@ -3008,6 +3008,147 @@ class _BusinessEdit extends State<BusinessEdit> {
     var photo10 = photo10_Controller.text.toString();
     var time_open = time_open_Controller.text.toString();
     var time_close = time_close_Controller.text.toString();
+    var google_map = google_map_Controller.text.toString();
+    var address = address_Controller.text.toString();
+    if (validateEmail(email) == false) {
+      Toast.show('กรุณาตรวจสอบอีเมลให้ถูกต้อง', context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (email.length > 100) {
+      Toast.show("ต้องไม่เกิน 100 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (business_name.isEmpty) {
+      Toast.show("กรุณาใส่ชื่อสถานที่ของคุณก่อน", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (business_name.length > 50) {
+      Toast.show("ชื่อสถานที่ต้องไม่เกิน 50 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+
+    if (business_name1.length > 50) {
+      Toast.show("ชื่อสถานที่รอง1ต้องไม่เกิน 50 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+
+    if (business_name2.length > 50) {
+      Toast.show("ชื่อสถานที่รอง2ต้องไม่เกิน 50 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+
+    if (business_name3.length > 50) {
+      Toast.show("ชื่อสถานที่รอง3ต้องไม่เกิน 50 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (business_name_english.length > 50) {
+      Toast.show("ชื่อภาษาอังกฤษสถานที่ต้องไม่เกิน 50 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (latitude.isEmpty) {
+      Toast.show("กรุณาใส่ละติจูดของคุณก่อน", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (longitude.isEmpty) {
+      Toast.show("กรุณาใส่ลองจิจูดของคุณก่อน", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (google_map.isEmpty) {
+      Toast.show("กรุณาใส่ลิงก์ map ของคุณก่อน", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+
+    if (time_open.isEmpty) {
+      Toast.show("กรุณาใส่เวลาเปิดสถานที่อัตโนมัติของคุณก่อน", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (time_close.isEmpty) {
+      Toast.show("กรุณาใส่เวลาปิดสถานที่อัตโนมัติของคุณก่อน", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (tel.isEmpty) {
+      Toast.show("กรุณาเบอร์โทรศัพท์ของคุณก่อน", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (tel.length > 15) {
+      Toast.show("เบอร์โทรศัพท์ต้องไม่เกิน 15 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (day.isEmpty) {
+      Toast.show("กรุณาใส่วันเปิดสถานที่ของคุณก่อน", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (day.length > 30) {
+      Toast.show("วันเปิด/ปิดทำการต้องไม่เกิน 30 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (time.isEmpty) {
+      Toast.show("กรุณาใส่เวลา เปิด/ปิด สถานที่ของคุณก่อน", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (time.length > 30) {
+      Toast.show("เวลา เปิด/ปิด สถานที่ต้องไม่เกิน 30 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (price.length > 30) {
+      Toast.show("ช่วงราคาสถานที่ต้องไม่เกิน 30 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (address.isEmpty) {
+      Toast.show("กรุณาใส่ที่อยู่ของคุณก่อน", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (address.length > 100) {
+      Toast.show("ที่อยุ่สถานที่ต้องไม่เกิน 100 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (website.length > 100) {
+      Toast.show("เว็บไซต์การต้องไม่เกิน 30 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (line.length > 100) {
+      Toast.show("Line ต้องไม่เกิน 100 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (facebook.length > 100) {
+      Toast.show("Facebook ต้องไม่เกิน 100 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (instagram.length > 100) {
+      Toast.show("Instagram ต้องไม่เกิน 100 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
+    if (photodetail.length > 50) {
+      Toast.show("Instagram ต้องไม่เกิน 50 ตัว", context,
+          duration: Toast.LENGTH_LONG, gravity: Toast.BOTTOM);
+      return;
+    }
 
     int i = 0;
 
