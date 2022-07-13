@@ -7,7 +7,6 @@ import 'package:flutter/services.dart';
 import 'package:noppon/Entrepreneur/launcher.dart';
 import 'package:noppon/User/profile.dart';
 import 'package:noppon/login.dart';
-import 'package:noppon/splash_screen.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
@@ -326,7 +325,6 @@ class EditUserState extends State<EditUser1> {
                 ))));
   }
 }
-
 String dropdownValue = 'ผู้ใช้งานทั่วไป';
 List<String> user_type = [
   'ผู้ใช้งานทั่วไป',

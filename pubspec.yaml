@@ -54,6 +54,9 @@ dependencies:
   provider: ^6.0.0
   http: ^0.13.3
   http_parser: ^4.0.0-nullsafety
+  rosetta: ^0.2.2+1
+  grpc: ^3.0.2
+  flutter_native_splash: ^2.2.4
 
 
 dev_dependencies:

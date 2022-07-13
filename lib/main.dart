@@ -8,9 +8,9 @@ import 'package:noppon/Entrepreneur/launcher.dart';
 import 'package:noppon/User/profile.dart';
 import 'package:noppon/login.dart';
 import 'package:noppon/register.dart';
+import 'package:noppon/splash_screen.dart';
 import 'package:noppon/src/blocs/application_bloc.dart';
 
-import 'splash_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 // import 'package:noppon/src/blocs/application_bloc.dart';

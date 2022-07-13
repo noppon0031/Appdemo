@@ -76,23 +76,23 @@ class _LauncherState2 extends State<Launcher2> {
   List<BottomNavigationBarItem> _menuBar = <BottomNavigationBarItem>[
     BottomNavigationBarItem(
         icon: Icon(FontAwesomeIcons.home),
-        title: Text('Home'),
+        label: 'Home',
         backgroundColor: Colors.red),
     BottomNavigationBarItem(
         icon: Icon(
           Icons.near_me,
         ),
-        title: Text('สถานที่ใกล้เคียง'),
+        label: 'สถานที่ใกล้เคียง',
         backgroundColor: Colors.red),
     BottomNavigationBarItem(
         icon: Icon(
           Icons.favorite,
         ),
-        title: Text('Favorite'),
+        label: 'Favorite',
         backgroundColor: Colors.red[500]),
     BottomNavigationBarItem(
         icon: Icon(FontAwesomeIcons.userAlt),
-        title: Text('Account'),
+        label: 'Account',
         backgroundColor: Colors.red),
   ];
 
