@@ -323,27 +323,30 @@ class _Business_Detail extends State<Business_Detail> {
           SizedBox(
             height: 20.0,
           ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 81,
-                  child: Text('คำอธิบายรูปภาพ :',
-                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Container(
-                    width: 250,
-                    child: Text(widget.photodetail,
-                        style: TextStyle(color: Colors.black, fontSize: 16.0)),
+          if (widget.detail != '')
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 81,
+                    child: Text('คำอธิบายรูปภาพ :',
+                        style:
+                            TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
                   ),
-                ),
-              ],
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                    child: Container(
+                      width: 250,
+                      child: Text(widget.photodetail,
+                          style:
+                              TextStyle(color: Colors.black, fontSize: 16.0)),
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
           // SizedBox(
           //   height: 10.0,
           // ),
@@ -371,24 +374,26 @@ class _Business_Detail extends State<Business_Detail> {
           SizedBox(
             height: 10.0,
           ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 81,
-                  child: Text('English :',
-                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Text(widget.business_name_english,
-                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
-                ),
-              ],
+          if (widget.business_name_english != '')
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 81,
+                    child: Text('English :',
+                        style:
+                            TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                    child: Text(widget.business_name_english,
+                        style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                  ),
+                ],
+              ),
             ),
-          ),
           SizedBox(
             height: 10.0,
           ),
@@ -414,198 +419,209 @@ class _Business_Detail extends State<Business_Detail> {
           SizedBox(
             height: 10.0,
           ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 81,
-                  child: Text('',
-                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-                ),
-                if (widget.type2 != 'โปรดระบุหมวดหมู่')
+          if (widget.type2 != 'โปรดระบุหมวดหมู่')
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 81,
+                    child: Text('',
+                        style:
+                            TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                  ),
                   Padding(
                     padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
                     child: Text(widget.type2,
                         style: TextStyle(color: Colors.black, fontSize: 16.0)),
                   ),
-              ],
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 81,
-                  child: Text('',
-                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-                ),
-                if (widget.type3 != 'โปรดระบุหมวดหมู่')
+          if (widget.type3 != 'โปรดระบุหมวดหมู่')
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 81,
+                    child: Text('',
+                        style:
+                            TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                  ),
                   Padding(
                     padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
                     child: Text(widget.type3,
                         style: TextStyle(color: Colors.black, fontSize: 16.0)),
                   ),
-              ],
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 81,
-                  child: Text('',
-                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-                ),
-                if (widget.type4 != 'โปรดระบุหมวดหมู่')
+          if (widget.type4 != 'โปรดระบุหมวดหมู่')
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 81,
+                    child: Text('',
+                        style:
+                            TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                  ),
                   Padding(
                     padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
                     child: Text(widget.type4,
                         style: TextStyle(color: Colors.black, fontSize: 16.0)),
                   ),
-              ],
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 81,
-                  child: Text('',
-                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-                ),
-                if (widget.type5 != 'โปรดระบุหมวดหมู่')
+          if (widget.type5 != 'โปรดระบุหมวดหมู่')
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 81,
+                    child: Text('',
+                        style:
+                            TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                  ),
                   Padding(
                     padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
                     child: Text(widget.type5,
                         style: TextStyle(color: Colors.black, fontSize: 16.0)),
                   ),
-              ],
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 81,
-                  child: Text('ประเภทย่อย :',
-                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-                ),
-                if (widget.type6 != 'โปรดระบุประเภท')
+          if (widget.type6 != 'โปรดระบุประเภท')
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 81,
+                    child: Text('ประเภทย่อย :',
+                        style:
+                            TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                  ),
                   Padding(
                     padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
                     child: Text(widget.type6,
                         style: TextStyle(color: Colors.black, fontSize: 16.0)),
                   ),
-              ],
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 81,
-                  child: Text('',
-                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-                ),
-                if (widget.type7 != 'โปรดระบุประเภท')
+          if (widget.type7 != 'โปรดระบุประเภท')
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 81,
+                    child: Text('',
+                        style:
+                            TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                  ),
                   Padding(
                     padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
                     child: Text(widget.type7,
                         style: TextStyle(color: Colors.black, fontSize: 16.0)),
                   ),
-              ],
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 81,
-                  child: Text('',
-                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-                ),
-                if (widget.type8 != 'โปรดระบุประเภท')
+          if (widget.type8 != 'โปรดระบุประเภท')
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 81,
+                    child: Text('',
+                        style:
+                            TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                  ),
                   Padding(
                     padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
                     child: Text(widget.type8,
                         style: TextStyle(color: Colors.black, fontSize: 16.0)),
                   ),
-              ],
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 81,
-                  child: Text('',
-                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-                ),
-                if (widget.type9 != 'โปรดระบุประเภท')
+          if (widget.type9 != 'โปรดระบุประเภท')
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 81,
+                    child: Text('',
+                        style:
+                            TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                  ),
                   Padding(
                     padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
                     child: Text(widget.type9,
                         style: TextStyle(color: Colors.black, fontSize: 16.0)),
                   ),
-              ],
+                ],
+              ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 81,
-                  child: Text('',
-                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-                ),
-                if (widget.type10 != 'โปรดระบุประเภท')
+          if (widget.type10 != 'โปรดระบุประเภท')
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 81,
+                    child: Text('',
+                        style:
+                            TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                  ),
                   Padding(
                     padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
                     child: Text(widget.type10,
                         style: TextStyle(color: Colors.black, fontSize: 16.0)),
                   ),
-              ],
+                ],
+              ),
             ),
-          ),
           SizedBox(
             height: 10.0,
           ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 81,
-                  child: Text('เบอร์โทร :',
-                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Text(widget.tel,
-                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
-                ),
-              ],
+          if (widget.tel != '')
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 81,
+                    child: Text('เบอร์โทร :',
+                        style:
+                            TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                    child: Text(widget.tel,
+                        style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                  ),
+                ],
+              ),
             ),
-          ),
           SizedBox(
             height: 10.0,
           ),
@@ -630,174 +646,191 @@ class _Business_Detail extends State<Business_Detail> {
           SizedBox(
             height: 10.0,
           ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 81,
-                  child: Text('ราคา :',
-                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Text(widget.price,
-                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
-                ),
-              ],
+          if (widget.price != '')
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 81,
+                    child: Text('ราคา :',
+                        style:
+                            TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                    child: Text(widget.price,
+                        style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                  ),
+                ],
+              ),
             ),
-          ),
           SizedBox(
             height: 10.0,
           ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 81,
-                  child: Text('เว็บไซต์ :',
-                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Container(
-                    width: (200),
-                    child: Text(
-                      widget.website,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16.0,
+          if (widget.website != '')
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 81,
+                    child: Text('เว็บไซต์ :',
+                        style:
+                            TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                    child: Container(
+                      width: (200),
+                      child: Text(
+                        widget.website,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16.0,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 3,
                       ),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 3,
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
           SizedBox(
             height: 10.0,
           ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 81,
-                  child: Text('Facebook :',
-                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Container(
-                    width: 250,
-                    child: Text(
-                      widget.facebook,
-                      style: TextStyle(color: Colors.black, fontSize: 16.0),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 3,
+          if (widget.facebook != '')
+            Padding(
+              padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      width: 83,
+                      child: Text('Facebook :',
+                          style: TextStyle(
+                              color: Colors.blueGrey, fontSize: 16.0)),
                     ),
                   ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 81,
-                  child: Text('Instagram :',
-                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Text(widget.instagram,
-                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 81,
-                  child: Text('อีเมล :',
-                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Text(widget.email,
-                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 81,
-                  child: Text('Line :',
-                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Text(widget.line,
-                      style: TextStyle(color: Colors.black, fontSize: 16.0)),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 10.0,
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  width: 81,
-                  child: Text('ที่อยู่ :',
-                      style: TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
-                  child: Container(
-                    width: 250,
-                    child: Text(
-                      widget.address,
-                      style: TextStyle(color: Colors.black, fontSize: 16.0),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 3,
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(19, 0, 0, 0),
+                    child: Container(
+                      width: 250,
+                      child: Text(
+                        widget.facebook,
+                        style: TextStyle(color: Colors.black, fontSize: 16.0),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 3,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
+          SizedBox(
+            height: 10.0,
           ),
+          if (widget.instagram != '')
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 85,
+                    child: Text('Instagram :',
+                        style:
+                            TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                    child: Text(widget.instagram,
+                        style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                  ),
+                ],
+              ),
+            ),
+          SizedBox(
+            height: 10.0,
+          ),
+          if (widget.email != '')
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 81,
+                    child: Text('อีเมล :',
+                        style:
+                            TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                    child: Text(widget.email,
+                        style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                  ),
+                ],
+              ),
+            ),
+          SizedBox(
+            height: 10.0,
+          ),
+          if (widget.line != '')
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 81,
+                    child: Text('Line :',
+                        style:
+                            TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                    child: Text(widget.line,
+                        style: TextStyle(color: Colors.black, fontSize: 16.0)),
+                  ),
+                ],
+              ),
+            ),
+          SizedBox(
+            height: 10.0,
+          ),
+          if (widget.address != '')
+            Padding(
+              padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Container(
+                    width: 81,
+                    child: Text('ที่อยู่ :',
+                        style:
+                            TextStyle(color: Colors.blueGrey, fontSize: 16.0)),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(21, 0, 0, 0),
+                    child: Container(
+                      width: 250,
+                      child: Text(
+                        widget.address,
+                        style: TextStyle(color: Colors.black, fontSize: 16.0),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 3,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           SizedBox(
             height: 20.0,
           ),
